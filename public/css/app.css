@@ -19310,8 +19310,17 @@ readers do not read off random characters that represent icons */
   animation-name: slideOutUp;
 }
 
+#app {
+  transition: all 0.4s;
+}
+
 .logo {
   height: 60px;
+}
+
+ul,
+ol {
+  list-style: none;
 }
 
 @media only screen and (max-width: 768px) {
@@ -19324,11 +19333,47 @@ readers do not read off random characters that represent icons */
   padding-left: 0.8rem;
 }
 
+.carousel {
+  width: 100%;
+  height: 100%;
+}
+.carousel .carousel-inner {
+  width: 100%;
+  height: 100%;
+}
+.carousel .carousel-inner .carousel-item {
+  width: 100%;
+  height: 100%;
+}
+
+.navigation {
+  width: 100%;
+  z-index: 999;
+  transition: all 0.4s;
+  position: sticky;
+  top: 0;
+}
+
+.initial_navigation {
+  background-color: transparent;
+}
+
+.scrolling_navigation {
+  background-color: white;
+  box-shadow: 0.125rem 0.25rem rgba(0, 0, 0, 0.08) !important;
+}
+
+.default_navigation {
+  background-color: white;
+  box-shadow: 0.125rem 0.25rem rgba(0, 0, 0, 0.08) !important;
+}
+
 .firstContent {
   position: relative;
-  height: calc(100vh - 124px);
+  height: 100vh;
   display: flex;
   justify-content: center;
+  margin-top: -90px;
 }
 .firstContent .booking {
   position: absolute;
@@ -19442,7 +19487,7 @@ readers do not read off random characters that represent icons */
 
 .fifthContent {
   position: relative;
-  padding: 75px 0px 20px;
+  padding: 75px 0px 50px;
   text-align: center;
 }
 .fifthContent .content {
@@ -19478,4 +19523,269 @@ footer {
 footer .content {
   width: 80%;
   margin: 0 auto;
+}
+
+.contact {
+  height: 100%;
+  padding: 75px 0px 45px;
+}
+.contact .content {
+  width: 80%;
+  margin: 0 auto;
+}
+.contact .content .row {
+  margin-bottom: 6rem;
+}
+.contact .content h2 {
+  position: relative;
+}
+.contact .content h2::after {
+  content: "";
+  width: 40%;
+  height: 10px;
+  border-bottom: 1px solid #ccc;
+  position: absolute;
+  bottom: 50%;
+  right: 0;
+}
+.contact .content h2::before {
+  content: "";
+  width: 40%;
+  height: 10px;
+  border-bottom: 1px solid #ccc;
+  position: absolute;
+  bottom: 50%;
+  left: 0;
+}
+
+.mapouter {
+  position: relative;
+  text-align: right;
+  height: 400px;
+  width: 100%;
+}
+
+.gmap_canvas {
+  overflow: hidden;
+  background: none !important;
+  height: 400px;
+  width: 100%;
+}
+
+.about .content {
+  padding-top: 75px;
+  padding-bottom: 50px;
+  width: 80%;
+  margin: 0 auto;
+}
+.about .content h2 {
+  position: relative;
+}
+.about .content h2::after {
+  content: "";
+  width: 40%;
+  height: 10px;
+  border-bottom: 1px solid #ccc;
+  position: absolute;
+  bottom: 50%;
+  right: 0;
+}
+.about .content h2::before {
+  content: "";
+  width: 40%;
+  height: 10px;
+  border-bottom: 1px solid #ccc;
+  position: absolute;
+  bottom: 50%;
+  left: 0;
+}
+
+.services .content {
+  padding-top: 75px;
+  padding-bottom: 50px;
+  width: 80%;
+  margin: 0 auto;
+}
+.services .content h2 {
+  position: relative;
+}
+.services .content h2::after {
+  content: "";
+  width: 40%;
+  height: 10px;
+  border-bottom: 1px solid #ccc;
+  position: absolute;
+  bottom: 50%;
+  right: 0;
+}
+.services .content h2::before {
+  content: "";
+  width: 40%;
+  height: 10px;
+  border-bottom: 1px solid #ccc;
+  position: absolute;
+  bottom: 50%;
+  left: 0;
+}
+
+.apartments .content {
+  padding-top: 75px;
+  padding-bottom: 50px;
+  width: 80%;
+  margin: 0 auto;
+}
+.apartments .content h2 {
+  position: relative;
+}
+.apartments .content h2::after {
+  content: "";
+  width: 35%;
+  height: 10px;
+  border-bottom: 1px solid #ccc;
+  position: absolute;
+  bottom: 50%;
+  right: 0;
+}
+.apartments .content h2::before {
+  content: "";
+  width: 35%;
+  height: 10px;
+  border-bottom: 1px solid #ccc;
+  position: absolute;
+  bottom: 50%;
+  left: 0;
+}
+
+.gal-item {
+  overflow: hidden;
+  padding: 3px;
+}
+
+.gal-item .box {
+  height: 350px;
+  overflow: hidden;
+}
+
+.box img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  -o-object-fit: cover;
+}
+
+.gal-item a:focus {
+  outline: none;
+}
+
+.gal-item a:after {
+  content: "\f002";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  position: absolute;
+  right: 3px;
+  left: 3px;
+  top: 3px;
+  bottom: 3px;
+  text-align: center;
+  line-height: 350px;
+  font-size: 30px;
+  color: #fff;
+  transition: all 0.5s ease-in-out 0s;
+}
+
+.gal-item a:hover:after {
+  opacity: 1;
+}
+
+.modal-open .gal-container .modal {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-open .gal-item .modal-body {
+  padding: 0px;
+}
+
+.modal-open .gal-item button.close {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-color: #000;
+  opacity: 1;
+  color: #fff;
+  z-index: 999;
+  right: -12px;
+  top: -12px;
+  border-radius: 50%;
+  font-size: 15px;
+  border: 2px solid #fff;
+  line-height: 25px;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.35);
+}
+
+.modal-open .gal-item button.close:focus {
+  outline: none;
+}
+
+.modal-open .gal-item button.close span {
+  position: relative;
+  top: -3px;
+  font-weight: lighter;
+  text-shadow: none;
+}
+
+.gal-container .modal-dialogue {
+  width: 80%;
+}
+
+.gal-container .description {
+  position: relative;
+  height: 40px;
+  top: -40px;
+  padding: 10px 25px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  text-align: left;
+}
+
+.gal-container .description h4 {
+  margin: 0px;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 20px;
+}
+
+.gal-container .modal.fade .modal-dialog {
+  transform: scale(0.1);
+  top: 100px;
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.gal-container .modal.fade.in .modal-dialog {
+  transform: scale(1);
+  transform: translate3d(0, -100px, 0);
+  opacity: 1;
+}
+
+@media (min-width: 768px) {
+  .gal-container .modal-dialog {
+    width: 55%;
+    margin: 50px auto;
+  }
+}
+@media (max-width: 768px) {
+  .gal-container .modal-content {
+    height: 250px;
+  }
+}
+/* Footer Style */
+i.red {
+  color: #bc0213;
+}
+
+.gal-container {
+  padding-top: 45px;
+  padding-bottom: 75px;
 }

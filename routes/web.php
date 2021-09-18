@@ -25,3 +25,4 @@ Route::get('/contact', [App\Http\Controllers\ContactController::class, 'index'])
 Route::get('/gallery', [App\Http\Controllers\GalleryController::class, 'index'])->name('gallery');
 Route::get('/booking', [App\Http\Controllers\BookingController::class, 'index'])->name('booking');
 Route::get('/accomodations', [App\Http\Controllers\AccomodationController::class, 'index'])->name('accomodations');
+Route::get('/services', [App\Http\Controllers\ServiceController::class, 'index'])->name('services');

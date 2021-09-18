@@ -1,4 +1,4 @@
-  <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+  <nav class="navbar navbar-expand-md navbar-light  navigation" id="nav">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="/logo.png" class="logo" alt="vamble logo">
@@ -10,8 +10,11 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                                     <a class="nav-link" href="{{ route('about') }}">{{ __('About') }}</a>
+                         <li class="nav-item ">
+                                     <a class="nav-link " href="{{ route('about') }}">{{ __('Our Story') }}</a>
+                                </li>
+                               <li class="nav-item">
+                                     <a class="nav-link" href="{{ route('services') }}">{{ __('Our Services') }}</a>
                                 </li>
                                 <li class="nav-item">
 
@@ -19,11 +22,11 @@
                                 </li>
                                  <li class="nav-item">
 
-                                     <a class="nav-link" href="{{ route('accomodations') }}">{{ __('Accomodations') }}</a>
+                                     <a class="nav-link" href="{{ route('accomodations') }}">{{ __('Apartments & Suites') }}</a>
                                 </li>
                                  <li class="nav-item">
 
-                                     <a class="nav-link" href="{{ route('contact') }}">{{ __('Contact') }}</a>
+                                     <a class="nav-link" href="{{ route('contact') }}">{{ __('Reach out ') }}</a>
                                 </li>
                     </ul>
 

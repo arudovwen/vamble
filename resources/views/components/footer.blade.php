@@ -31,12 +31,18 @@
               <h6>Connect with us </h6>
               <small>Follow us on our social media platforms to get exciting offers, promotions and so much more</small>
 
-              <div class="">
-                <i class="fa fa-facebook-official mr-2" aria-hidden="true"></i>
-                <i class="fa fa-instagram mr-2" aria-hidden="true"></i>
-                <i class="fa fa-twitter" aria-hidden="true"></i>
+              <div class=" mt-3">
+
+                <i class="fab fa-instagram mr-2 fa-2x"  aria-hidden="true" ></i>
+
+                <i class="fab fa-facebook-square fa-2x mr-2" aria-hidden="true"></i>
+                <i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i>
+
               </div>
             </div>
+  </div>
+  <div class="text-center py-4 border-top">
+    <span>&copy; Vamble Apartments & Suite ltd {{now()->year}}</span>
   </div>
 </div>
 </footer>

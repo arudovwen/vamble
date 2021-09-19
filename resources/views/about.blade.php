@@ -9,7 +9,7 @@
          {{-- <h2 class="text-center mb-5">Our Story</h2> --}}
 
      <div class="row">
-         <div class="col-sm-6 px-0 about_img">
+         <div class="col-sm-6 px-0 about_img d-none d-sm-block">
               <img src="{{ asset('/images/v2.jpg') }}" class="w-100 h-100  " style="object-fit: cover" alt="vamble building">
          </div>
            <div class="col-sm-6 bg-white p-5 text-left">

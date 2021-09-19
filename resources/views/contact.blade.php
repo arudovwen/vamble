@@ -5,8 +5,8 @@
     <h1>Contact us today</h1>
 </div>
 <div class="contact text-center">
-   <div class="content">
-    <div class="row ">
+   <div class="content px-3 px-sm-0">
+    <div class="row mx-0">
        <div class="col-md-6  text-left">
        <h3 class="mb-4">Our Information</h3>
       <div class="mb-4">
@@ -15,7 +15,7 @@
          <div class="mb-3"> <i class="fa fa-envelope" aria-hidden="true"></i> Email :  info@vamble.com</div> <br>
 
       </div>
-         <div>
+         <div class="d-none d-md-block">
            <div class="mapouter"><div class="gmap_canvas">
               <iframe width="100%" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=gwarimpa&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
               <a href="https://fmovies-online.net"></a><br>
@@ -57,7 +57,7 @@
     <h2 class="mb-5">Social Connect</h2>
 
    <div class="text-center">
-      <h4>Also write us on one of our social handles</h4>
+      <p>Also write us on one of our social handles</p>
    <div class=" py-3 d-flex justify-content-center mb-4">
 
            <div class=" mr-4">

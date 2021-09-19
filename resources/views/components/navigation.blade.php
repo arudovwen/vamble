@@ -1,4 +1,4 @@
-  <nav class="navbar navbar-expand-md navbar-light  navigation" id="nav">
+  <nav class="navbar navbar-expand-md navbar-light  navigation initial_navigation" id="nav">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="/logo.png" class="logo" alt="vamble logo">
@@ -40,11 +40,11 @@
                                 </li>
                             @endif
 
-                            @if (Route::has('register'))
+                            {{-- @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
-                            @endif
+                            @endif --}}
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

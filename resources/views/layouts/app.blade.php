@@ -22,14 +22,14 @@
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
+    <div id="app" >
 
          @section('navigation')
        <x-navigation></x-navigation>
         @show
 
 
-        <main class="">
+        <main class="maincontent">
             @yield('content')
         </main>
 

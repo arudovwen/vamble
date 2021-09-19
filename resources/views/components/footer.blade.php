@@ -1,10 +1,10 @@
 <footer>
 <div class="content">
   <div class="row">
-    <div class="col-sm-3">
+    <div class="col-sm-3 mb-4 mb-sm-0">
       <img src="/logo.png" style="width: 200px" alt="">
     </div>
-      <div class="col-sm-2">
+      <div class="col-sm-2 mb-4 mb-sm-0">
         <ul>
           <li>About Us
             <li>Appartments
@@ -15,7 +15,7 @@
         </ul>
       </div>
 
-          <div class="col-sm-3">
+          <div class="col-sm-3 mb-4 mb-sm-0">
 
             <form action="post">
               <div class="form-group">
@@ -27,7 +27,7 @@
               </div>
             </form>
           </div>
-            <div class="col-sm-3">
+            <div class="col-sm-3 mb-4 mb-sm-0">
               <h6>Connect with us </h6>
               <small>Follow us on our social media platforms to get exciting offers, promotions and so much more</small>
 

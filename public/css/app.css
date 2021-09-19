@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap);
 @charset "UTF-8";
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
@@ -33,7 +33,7 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "Nunito", sans-serif;
+  --font-family-sans-serif: "Open Sans", sans-serif;
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
@@ -56,7 +56,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
   margin: 0;
-  font-family: "Nunito", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 0.9rem;
   font-weight: 400;
   line-height: 1.6;
@@ -5585,7 +5585,7 @@ a.close.disabled {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: "Nunito", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.6;
@@ -5687,7 +5687,7 @@ a.close.disabled {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: "Nunito", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.6;
@@ -19310,8 +19310,9 @@ readers do not read off random characters that represent icons */
   animation-name: slideOutUp;
 }
 
-#app {
-  transition: all 0.4s;
+html {
+  scroll-behavior: smooth;
+  transition: 0.4s;
 }
 
 .logo {
@@ -19323,9 +19324,29 @@ ol {
   list-style: none;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.bg-dark-opacity {
+  background-color: rgba(52, 58, 64, 0.45) !important;
+}
+
 @media only screen and (max-width: 768px) {
   .logo {
     height: 40px;
+  }
+
+  .banner_booking {
+    width: 100%;
+  }
+
+  .booking div div h4 {
+    font-size: 1rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
   }
 }
 .navbar-expand-md .navbar-nav .nav-link {
@@ -19345,6 +19366,16 @@ ol {
   width: 100%;
   height: 100%;
 }
+.carousel .carousel-inner .carousel-item img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.carousel .carousel-inner .carousel-item img:hover {
+  transform: scale(1.05);
+  transition: 0.6s;
+}
 
 .navigation {
   width: 100%;
@@ -19355,17 +19386,19 @@ ol {
 }
 
 .initial_navigation {
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.4);
 }
 
 .scrolling_navigation {
   background-color: white;
   box-shadow: 0.125rem 0.25rem rgba(0, 0, 0, 0.08) !important;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .default_navigation {
   background-color: white;
   box-shadow: 0.125rem 0.25rem rgba(0, 0, 0, 0.08) !important;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .firstContent {
@@ -19379,6 +19412,28 @@ ol {
   position: absolute;
   bottom: 5%;
   width: 70%;
+  z-index: 9;
+}
+.firstContent .banner-text {
+  position: absolute;
+  z-index: 9;
+  top: 40%;
+  transform: translateY(50%);
+}
+.firstContent .banner-text h1 {
+  font-size: 3.8rem;
+  color: white;
+}
+.firstContent .banner-text h1 span {
+  color: white;
+}
+@media only screen and (max-width: 768px) {
+  .firstContent .banner-text {
+    top: 20%;
+  }
+  .firstContent .banner-text h1 {
+    font-size: 1.8rem;
+  }
 }
 
 .secondContent {
@@ -19391,6 +19446,11 @@ ol {
   width: 50%;
   margin: 0 auto;
 }
+@media only screen and (max-width: 768px) {
+  .secondContent .content {
+    width: 100%;
+  }
+}
 .secondContent .content h2 {
   position: relative;
   display: flex;
@@ -19401,7 +19461,7 @@ ol {
   content: "";
   width: 100%;
   height: 10px;
-  border-bottom: 1px solid;
+  border-bottom: 1px solid #ccc;
   position: absolute;
   bottom: -10px;
 }
@@ -19412,16 +19472,23 @@ ol {
   width: 80px;
   height: 80px;
   border-radius: 50em;
-  border: 2px dashed;
+  border: 2px dashed #ccc;
+  color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 0.8rem;
+  font-size: 0.5rem;
   font-family: "Gotham Rounded A", "Gotham Rounded B", "Avenir", "Helvetica Neue", "Arial", sans-serif;
   transform: rotate(-30deg);
 }
 .secondContent .minilogo .app {
-  font-size: 0.6rem;
+  font-size: 0.35rem;
+}
+@media only screen and (max-width: 768px) {
+  .secondContent .minilogo {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 .thirdContent {
@@ -19433,6 +19500,11 @@ ol {
 .thirdContent .content {
   width: 80%;
   margin: 0 auto;
+}
+@media only screen and (max-width: 768px) {
+  .thirdContent .content {
+    width: 100%;
+  }
 }
 .thirdContent .content h2 {
   position: relative;
@@ -19446,6 +19518,11 @@ ol {
   bottom: 50%;
   right: 0;
 }
+@media only screen and (max-width: 768px) {
+  .thirdContent .content h2::after {
+    width: 30%;
+  }
+}
 .thirdContent .content h2::before {
   content: "";
   width: 40%;
@@ -19455,18 +19532,46 @@ ol {
   bottom: 50%;
   left: 0;
 }
-
-.app_head {
-  position: relative;
-  margin-bottom: 32px;
+@media only screen and (max-width: 768px) {
+  .thirdContent .content h2::before {
+    width: 30%;
+  }
 }
-.app_head::after {
+
+.carousel .carousel-inner .carousel-item.room-item {
+  height: 500px;
+}
+@media only screen and (max-width: 768px) {
+  .carousel .carousel-inner .carousel-item.room-item {
+    height: 200px;
+  }
+}
+
+.line_half {
+  position: relative;
+  margin-bottom: 40px;
+}
+.line_half::after {
+  content: "";
+  width: 50%;
+  height: 10px;
+  border-bottom: 1px solid #ccc;
+  position: absolute;
+  bottom: -17px;
+  left: 0;
+}
+
+.line_full {
+  position: relative;
+  margin-bottom: 40px;
+}
+.line_full::after {
   content: "";
   width: 100%;
   height: 10px;
   border-bottom: 1px solid #ccc;
   position: absolute;
-  bottom: -7px;
+  bottom: -17px;
   left: 0;
 }
 
@@ -19479,10 +19584,22 @@ ol {
   width: 80%;
   margin: 0 auto;
 }
+@media only screen and (max-width: 768px) {
+  .fourthContent .content {
+    width: 100%;
+  }
+}
 .fourthContent .about_image {
   width: 250px;
   height: 250px;
   background-color: white;
+}
+@media only screen and (max-width: 768px) {
+  .fourthContent .about_image {
+    width: 130px;
+    height: 130px;
+    margin: 0 auto 36px;
+  }
 }
 
 .fifthContent {
@@ -19505,6 +19622,11 @@ ol {
   bottom: 50%;
   right: 0;
 }
+@media only screen and (max-width: 768px) {
+  .fifthContent .content h2::after {
+    width: 30%;
+  }
+}
 .fifthContent .content h2::before {
   content: "";
   width: 40%;
@@ -19513,6 +19635,28 @@ ol {
   position: absolute;
   bottom: 50%;
   left: 0;
+}
+@media only screen and (max-width: 768px) {
+  .fifthContent .content h2::before {
+    width: 30%;
+  }
+}
+
+.l_gallery_image {
+  height: 350px;
+}
+.l_gallery_image img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: 0.6s;
+}
+.l_gallery_image img:hover {
+  transform: scale(1.03);
+}
+@media only screen and (max-width: 768px) {
+  .l_gallery_image {
+    height: 250px;
+  }
 }
 
 footer {
@@ -19533,6 +19677,11 @@ footer .content {
   width: 80%;
   margin: 0 auto;
 }
+@media only screen and (max-width: 768px) {
+  .contact .content {
+    width: 100%;
+  }
+}
 .contact .content .row {
   margin-bottom: 6rem;
 }
@@ -19548,6 +19697,11 @@ footer .content {
   bottom: 50%;
   right: 0;
 }
+@media only screen and (max-width: 768px) {
+  .contact .content h2::after {
+    width: 30%;
+  }
+}
 .contact .content h2::before {
   content: "";
   width: 40%;
@@ -19556,6 +19710,11 @@ footer .content {
   position: absolute;
   bottom: 50%;
   left: 0;
+}
+@media only screen and (max-width: 768px) {
+  .contact .content h2::before {
+    width: 30%;
+  }
 }
 
 .mapouter {
@@ -19578,6 +19737,11 @@ footer .content {
   width: 80%;
   margin: 0 auto;
 }
+@media only screen and (max-width: 768px) {
+  .about .content {
+    width: 100%;
+  }
+}
 .about .content h2 {
   position: relative;
 }
@@ -19590,6 +19754,11 @@ footer .content {
   bottom: 50%;
   right: 0;
 }
+@media only screen and (max-width: 768px) {
+  .about .content h2::after {
+    width: 30%;
+  }
+}
 .about .content h2::before {
   content: "";
   width: 40%;
@@ -19599,12 +19768,22 @@ footer .content {
   bottom: 50%;
   left: 0;
 }
+@media only screen and (max-width: 768px) {
+  .about .content h2::before {
+    width: 30%;
+  }
+}
 
 .services .content {
   padding-top: 75px;
-  padding-bottom: 50px;
+  padding-bottom: 60px;
   width: 80%;
   margin: 0 auto;
+}
+@media only screen and (max-width: 768px) {
+  .services .content {
+    width: 100%;
+  }
 }
 .services .content h2 {
   position: relative;
@@ -19618,6 +19797,11 @@ footer .content {
   bottom: 50%;
   right: 0;
 }
+@media only screen and (max-width: 768px) {
+  .services .content h2::after {
+    width: 30%;
+  }
+}
 .services .content h2::before {
   content: "";
   width: 40%;
@@ -19627,12 +19811,22 @@ footer .content {
   bottom: 50%;
   left: 0;
 }
+@media only screen and (max-width: 768px) {
+  .services .content h2::before {
+    width: 30%;
+  }
+}
 
 .apartments .content {
   padding-top: 75px;
   padding-bottom: 50px;
   width: 80%;
   margin: 0 auto;
+}
+@media only screen and (max-width: 768px) {
+  .apartments .content {
+    width: 100%;
+  }
 }
 .apartments .content h2 {
   position: relative;
@@ -19646,6 +19840,11 @@ footer .content {
   bottom: 50%;
   right: 0;
 }
+@media only screen and (max-width: 768px) {
+  .apartments .content h2::after {
+    width: 30%;
+  }
+}
 .apartments .content h2::before {
   content: "";
   width: 35%;
@@ -19654,6 +19853,111 @@ footer .content {
   position: absolute;
   bottom: 50%;
   left: 0;
+}
+@media only screen and (max-width: 768px) {
+  .apartments .content h2::before {
+    width: 30%;
+  }
+}
+
+.about_banner_img {
+  width: 100%;
+  height: 300px;
+  background-image: url("/images/v1.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.about_banner_img::after {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.about_banner_img h1 {
+  color: white;
+  z-index: 1;
+}
+
+.service_banner_img {
+  width: 100%;
+  height: 300px;
+  background-image: url("/images/v1.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.service_banner_img::after {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.service_banner_img h1 {
+  color: white;
+  z-index: 1;
+}
+
+.gallery_banner_img {
+  width: 100%;
+  height: 300px;
+  background-image: url("/images/v1.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.gallery_banner_img::after {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.gallery_banner_img h1 {
+  color: white;
+  z-index: 1;
+}
+
+.apartment_banner_img {
+  width: 100%;
+  height: 300px;
+  background-image: url("/images/v1.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.apartment_banner_img::after {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.apartment_banner_img h1 {
+  color: white;
+  z-index: 1;
+}
+
+.contact_banner_img {
+  width: 100%;
+  height: 300px;
+  background-image: url("/images/v1.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.contact_banner_img::after {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.contact_banner_img h1 {
+  color: white;
+  z-index: 1;
 }
 
 .gal-item {
@@ -19742,7 +20046,6 @@ footer .content {
 .gal-container .description {
   position: relative;
   height: 40px;
-  top: -40px;
   padding: 10px 25px;
   background-color: rgba(0, 0, 0, 0.5);
   color: #fff;
@@ -19763,7 +20066,7 @@ footer .content {
   transition: all 0.3s;
 }
 
-.gal-container .modal.fade.in .modal-dialog {
+.gal-container .modal.fade.show .modal-dialog {
   transform: scale(1);
   transform: translate3d(0, -100px, 0);
   opacity: 1;
@@ -19772,6 +20075,7 @@ footer .content {
 @media (min-width: 768px) {
   .gal-container .modal-dialog {
     width: 55%;
+    max-width: 55%;
     margin: 50px auto;
   }
 }
@@ -19788,4 +20092,28 @@ i.red {
 .gal-container {
   padding-top: 45px;
   padding-bottom: 75px;
+}
+
+.price {
+  font-size: 1.5rem;
+}
+
+.about_img {
+  overflow: hidden;
+}
+.about_img img {
+  transition: 0.6s;
+}
+.about_img img:hover {
+  transform: scale(1.02);
+}
+
+.service_img {
+  overflow: hidden;
+}
+.service_img img {
+  transition: 0.6s;
+}
+.service_img img:hover {
+  transform: scale(1.02);
 }

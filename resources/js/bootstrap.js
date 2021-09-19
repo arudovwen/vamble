@@ -10,6 +10,7 @@ try {
     window.Popper = require("popper.js").default;
     window.$ = window.jQuery = require("jquery");
     window.animate = require("animate.css");
+    window.VueTextTransition = require("vue-text-transition");
 
     require("bootstrap");
 } catch (e) {}

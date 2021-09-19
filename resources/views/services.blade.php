@@ -1,41 +1,50 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="services">
+<div class="services ">
+  <div class="about_banner_img d-flex justify-content-center align-items-center">
+    <h1>Services We Offer</h1>
+</div>
     <div class="content py-5">
-      <h2 class="text-center mb-5">Services</h2>
+      {{-- <h2 class="text-center mb-5">Services</h2> --}}
 
-     <div class="row">
-         <div class="col-sm-12 bg-white p-5 mb-5">
+     <div class="row mb-5">
+         <div class="col-sm-12 bg-white p-5 ">
                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio adipisci ea ab excepturi, aspernatur quo porro error unde. Esse eos beatae quae soluta dolores id nemo aliquam atque rem. Explicabo quibusdam asperiores at a velit pariatur esse, dolorum iure unde?</p>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio adipisci ea ab excepturi, aspernatur quo porro error unde. Esse eos beatae quae soluta dolores id nemo aliquam atque rem. Explicabo quibusdam asperiores at a velit pariatur esse, dolorum iure unde?</p>
 
                 </div>
-
+</div>
+  <div class="row mb-5">
            <div class="col-sm-6 bg-white p-5 text-left">
-               <h3 class="mb-4">About Vamble Apartments & Suites</h3>
+               <h3 class="mb-4">Excellent Environment</h3>
                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit molestias laboriosam asperiores qui animi numquam. Numquam exercitationem vitae maiores perferendis natus dolorem beatae est! Cumque expedita sint corrupti nihil at obcaecati nulla delectus reprehenderit commodi! Omnis eaque non culpa voluptatum molestiae enim commodi molestias, quaerat neque nihil voluptate sapiente ipsam, veniam in ea quasi rem nostrum unde atque voluptates porro? Accusantium quae quis dolorem aperiam veritatis ipsam deserunt! Ducimus, quo?</p>
            </div>
-             <div class="col-sm-6">
-             <img src="" alt="vamble image">
+           <div class="col-sm-6 px-0 service_img">
+              <img src="{{ asset('/images/v2.jpg') }}" class="w-100 h-100 " alt="vamble building">
          </div>
-          <div class="col-sm-6">
-             <img src="" alt="vamble image">
+         </div>
+           <div class="row mb-5">
+         <div class="col-sm-6 px-0 service_img">
+              <img src="{{ asset('/images/v2.jpg') }}" class="w-100 h-100 " alt="vamble building">
          </div>
           <div class="col-sm-6 bg-white p-5 text-left">
-               <h3 class="mb-4">About Vamble Apartments & Suites</h3>
+               <h3 class="mb-4">Great Kitchen</h3>
                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit molestias laboriosam asperiores qui animi numquam. Numquam exercitationem vitae maiores perferendis natus dolorem beatae est! Cumque expedita sint corrupti nihil at obcaecati nulla delectus reprehenderit commodi! Omnis eaque non culpa voluptatum molestiae enim commodi molestias, quaerat neque nihil voluptate sapiente ipsam, veniam in ea quasi rem nostrum unde atque voluptates porro? Accusantium quae quis dolorem aperiam veritatis ipsam deserunt! Ducimus, quo?</p>
            </div>
+           </div>
+             <div class="row">
              <div class="col-sm-6 bg-white p-5 text-left">
-               <h3 class="mb-4">About Vamble Apartments & Suites</h3>
+               <h3 class="mb-4">Well Furnished Apartments</h3>
                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit molestias laboriosam asperiores qui animi numquam. Numquam exercitationem vitae maiores perferendis natus dolorem beatae est! Cumque expedita sint corrupti nihil at obcaecati nulla delectus reprehenderit commodi! Omnis eaque non culpa voluptatum molestiae enim commodi molestias, quaerat neque nihil voluptate sapiente ipsam, veniam in ea quasi rem nostrum unde atque voluptates porro? Accusantium quae quis dolorem aperiam veritatis ipsam deserunt! Ducimus, quo?</p>
            </div>
-             <div class="col-sm-6">
-             <img src="" alt="vamble image">
+            <div class="col-sm-6 px-0 service_img">
+              <img src="{{ asset('/images/v2.jpg') }}" class="w-100 h-100 " alt="vamble building">
+         </div>
          </div>
 
 
-     </div>
+
 </div>
 </div>
 @endsection

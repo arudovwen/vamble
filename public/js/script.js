@@ -47,3 +47,77 @@ $(document).ready(function() {
         });
     });
 });
+const contentObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        const content = entry.target.querySelector(".content");
+        if (entry.isIntersecting) {
+            content.classList.add("animate__fadeInUp");
+            content.classList.remove("animate__fadeOut");
+            return; // if we added the class, exit the function
+        }
+        // We're not intersecting, so remove the class!
+    });
+});
+
+const firstObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        const content = entry.target.querySelector(".fade_text");
+        if (entry.isIntersecting) {
+            content.classList.add("animate__fadeInRight");
+            content.classList.remove("animate__fadeOut");
+            return; // if we added the class, exit the function
+        }
+        // We're not intersecting, so remove the class!
+    });
+});
+
+const secondObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        const content = entry.target.querySelector(".fade_text");
+        if (entry.isIntersecting) {
+            content.classList.add("animate__fadeInLeft");
+            content.classList.remove("animate__fadeOut");
+            return; // if we added the class, exit the function
+        }
+        // We're not intersecting, so remove the class!
+    });
+});
+
+const thirdObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        const content = entry.target.querySelector(".fade_text");
+        if (entry.isIntersecting) {
+            content.classList.add("animate__fadeInRight");
+            content.classList.remove("animate__fadeOut");
+            return; // if we added the class, exit the function
+        }
+        // We're not intersecting, so remove the class!
+    });
+});
+
+const fourthObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        const content = entry.target.querySelector(".fade_text");
+        if (entry.isIntersecting) {
+            content.classList.add("animate__fadeInRight");
+            content.classList.remove("animate__fadeOut");
+            return; // if we added the class, exit the function
+        }
+        // We're not intersecting, so remove the class!
+    });
+});
+
+if (window.location.pathname == "/") {
+    contentObserver.observe(document.querySelector(".secondContent"));
+    firstObserver.observe(document.querySelector(".observer_1"));
+    secondObserver.observe(document.querySelector(".observer_2"));
+    thirdObserver.observe(document.querySelector(".observer_3"));
+    fourthObserver.observe(document.querySelector(".observer_4"));
+
+    //Know more scroll
+    const knowmore = document.querySelector(".know_more");
+    knowmore.addEventListener("click", () => {
+        var currentHeight = window.innerHeight;
+        window.scrollTo(0, currentHeight * 0.7);
+    });
+}

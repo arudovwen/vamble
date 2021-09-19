@@ -1,0 +1,2 @@
+
+  <banner-text></banner-text>

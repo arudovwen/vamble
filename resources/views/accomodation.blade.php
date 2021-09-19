@@ -1,9 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="about_banner_img d-flex justify-content-center align-items-center">
+    <h1>Apartments & Suites</h1>
+</div>
 <div class="apartments">
     <div class="content py-5">
-      <h2 class="text-center mb-5">Apartments & Suites</h2>
+      {{-- <h2 class="text-center mb-5">Apartments & Suites</h2> --}}
 
      <div class="row">
          <div class="col-sm-12 bg-white p-5 mb-5">

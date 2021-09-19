@@ -1,15 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="about_banner_img d-flex justify-content-center align-items-center">
+    <h1>Contact us today</h1>
+</div>
 <div class="contact text-center">
    <div class="content">
     <div class="row ">
        <div class="col-md-6  text-left">
-       <h3>Our Information</h3>
+       <h3 class="mb-4">Our Information</h3>
       <div class="mb-4">
-          <span>  <i class="fa fa-phone-square" aria-hidden="true"></i> Phone :  +234-903-504-1234</span> <br>
-        <span> <i class="fa fa-address-book" aria-hidden="true"></i> Address :  <span>10, abuja road,sdjfffjfjjf</span></span> <br>
-         <span> <i class="fa fa-envelope" aria-hidden="true"></i> Email :  info@vamble.com</span> <br>
+          <div class="mb-2">  <i class="fa fa-phone-square" aria-hidden="true"></i> Phone :  +234-903-504-1234</div>
+        <div class="mb-2"> <i class="fa fa-address-book" aria-hidden="true"></i> Address :  <span>10, abuja road,sdjfffjfjjf</span></div>
+         <div class="mb-3"> <i class="fa fa-envelope" aria-hidden="true"></i> Email :  info@vamble.com</div> <br>
 
       </div>
          <div>

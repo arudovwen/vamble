@@ -518,6 +518,9 @@ footer {
     background-size: cover;
     background-position: center;
     position: relative;
+    @media only screen and (max-width: 768px) {
+        height: 200px;
+    }
 
     &::after {
         content: "";
@@ -529,6 +532,9 @@ footer {
     h1 {
         color: white;
         z-index: 1;
+        @media only screen and (max-width: 768px) {
+            font-size: 1.1rem;
+        }
     }
 }
 .service_banner_img {
@@ -538,6 +544,9 @@ footer {
     background-size: cover;
     background-position: center;
     position: relative;
+    @media only screen and (max-width: 768px) {
+        height: 200px;
+    }
 
     &::after {
         content: "";
@@ -549,6 +558,9 @@ footer {
     h1 {
         color: white;
         z-index: 1;
+        @media only screen and (max-width: 768px) {
+            font-size: 1.1rem;
+        }
     }
 }
 .gallery_banner_img {
@@ -558,6 +570,9 @@ footer {
     background-size: cover;
     background-position: center;
     position: relative;
+    @media only screen and (max-width: 768px) {
+        height: 200px;
+    }
 
     &::after {
         content: "";
@@ -569,6 +584,9 @@ footer {
     h1 {
         color: white;
         z-index: 1;
+        @media only screen and (max-width: 768px) {
+            font-size: 1.1rem;
+        }
     }
 }
 .apartment_banner_img {
@@ -578,6 +596,9 @@ footer {
     background-size: cover;
     background-position: center;
     position: relative;
+    @media only screen and (max-width: 768px) {
+        height: 200px;
+    }
 
     &::after {
         content: "";
@@ -589,6 +610,9 @@ footer {
     h1 {
         color: white;
         z-index: 1;
+        @media only screen and (max-width: 768px) {
+            font-size: 1.1rem;
+        }
     }
 }
 .contact_banner_img {
@@ -598,6 +622,9 @@ footer {
     background-size: cover;
     background-position: center;
     position: relative;
+    @media only screen and (max-width: 768px) {
+        height: 200px;
+    }
 
     &::after {
         content: "";
@@ -609,6 +636,9 @@ footer {
     h1 {
         color: white;
         z-index: 1;
+        @media only screen and (max-width: 768px) {
+            font-size: 1.1rem;
+        }
     }
 }
 

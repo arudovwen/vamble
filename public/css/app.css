@@ -19868,6 +19868,11 @@ footer .content {
   background-position: center;
   position: relative;
 }
+@media only screen and (max-width: 768px) {
+  .about_banner_img {
+    height: 200px;
+  }
+}
 .about_banner_img::after {
   content: "";
   background-color: rgba(0, 0, 0, 0.5);
@@ -19879,6 +19884,11 @@ footer .content {
   color: white;
   z-index: 1;
 }
+@media only screen and (max-width: 768px) {
+  .about_banner_img h1 {
+    font-size: 1.1rem;
+  }
+}
 
 .service_banner_img {
   width: 100%;
@@ -19887,6 +19897,11 @@ footer .content {
   background-size: cover;
   background-position: center;
   position: relative;
+}
+@media only screen and (max-width: 768px) {
+  .service_banner_img {
+    height: 200px;
+  }
 }
 .service_banner_img::after {
   content: "";
@@ -19899,6 +19914,11 @@ footer .content {
   color: white;
   z-index: 1;
 }
+@media only screen and (max-width: 768px) {
+  .service_banner_img h1 {
+    font-size: 1.1rem;
+  }
+}
 
 .gallery_banner_img {
   width: 100%;
@@ -19907,6 +19927,11 @@ footer .content {
   background-size: cover;
   background-position: center;
   position: relative;
+}
+@media only screen and (max-width: 768px) {
+  .gallery_banner_img {
+    height: 200px;
+  }
 }
 .gallery_banner_img::after {
   content: "";
@@ -19919,6 +19944,11 @@ footer .content {
   color: white;
   z-index: 1;
 }
+@media only screen and (max-width: 768px) {
+  .gallery_banner_img h1 {
+    font-size: 1.1rem;
+  }
+}
 
 .apartment_banner_img {
   width: 100%;
@@ -19927,6 +19957,11 @@ footer .content {
   background-size: cover;
   background-position: center;
   position: relative;
+}
+@media only screen and (max-width: 768px) {
+  .apartment_banner_img {
+    height: 200px;
+  }
 }
 .apartment_banner_img::after {
   content: "";
@@ -19939,6 +19974,11 @@ footer .content {
   color: white;
   z-index: 1;
 }
+@media only screen and (max-width: 768px) {
+  .apartment_banner_img h1 {
+    font-size: 1.1rem;
+  }
+}
 
 .contact_banner_img {
   width: 100%;
@@ -19947,6 +19987,11 @@ footer .content {
   background-size: cover;
   background-position: center;
   position: relative;
+}
+@media only screen and (max-width: 768px) {
+  .contact_banner_img {
+    height: 200px;
+  }
 }
 .contact_banner_img::after {
   content: "";
@@ -19958,6 +20003,11 @@ footer .content {
 .contact_banner_img h1 {
   color: white;
   z-index: 1;
+}
+@media only screen and (max-width: 768px) {
+  .contact_banner_img h1 {
+    font-size: 1.1rem;
+  }
 }
 
 .gal-item {

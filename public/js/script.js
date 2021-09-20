@@ -99,7 +99,7 @@ const fourthObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         const content = entry.target.querySelector(".fade_text");
         if (entry.isIntersecting) {
-            content.classList.add("animate__fadeInRight");
+            content.classList.add("animate__fadeInUp");
             content.classList.remove("animate__fadeOut");
             return; // if we added the class, exit the function
         }

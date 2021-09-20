@@ -289,7 +289,7 @@ ol {
 }
 .fifthContent {
     position: relative;
-    padding: 75px 0px 50px;
+    padding: 100px 0px 75px;
     text-align: center;
     .content {
         margin: 0 auto;
@@ -325,6 +325,7 @@ ol {
 }
 .l_gallery_image {
     height: 350px;
+    overflow: hidden;
     img {
         object-fit: cover;
         transition: 0.6s;

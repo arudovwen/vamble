@@ -219,17 +219,23 @@
         <h2 class="mb-5">GALLERY</h2>
        <div>
             <div class="row mb-5">
-            <div class="col-3   px-0 l_gallery_image" >
-    <img src="{{ asset('/images/v4.jpg') }}" class="w-100 h-100" alt="Third slide">
+            <div class="col-2   px-0 l_gallery_image" >
+    <img src="{{ asset('/images/v1.jpg') }}" class="w-100 h-100" alt="Third slide">
             </div>
-             <div class="col-3  px-0 l_gallery_image">
+             <div class="col-2  px-0 l_gallery_image">
+  <img src="{{ asset('/images/v2.jpg') }}" class="w-100 h-100" alt="Third slide">
+            </div>
+             <div class="col-2    px-0 l_gallery_image">
+  <img src="{{ asset('/images/v3.jpg') }}" class="w-100 h-100" alt="Third slide">
+            </div>
+             <div class="col-2   px-0 l_gallery_image">
   <img src="{{ asset('/images/v4.jpg') }}" class="w-100 h-100" alt="Third slide">
             </div>
-             <div class="col-3    px-0 l_gallery_image">
-  <img src="{{ asset('/images/v4.jpg') }}" class="w-100 h-100" alt="Third slide">
+             <div class="col-2   px-0 l_gallery_image">
+  <img src="{{ asset('/images/v5.jpg') }}" class="w-100 h-100" alt="Third slide">
             </div>
-             <div class="col-3   px-0 l_gallery_image">
-  <img src="{{ asset('/images/v4.jpg') }}" class="w-100 h-100" alt="Third slide">
+             <div class="col-2   px-0 l_gallery_image">
+  <img src="{{ asset('/images/v1.jpg') }}" class="w-100 h-100" alt="Third slide">
             </div>
 
         </div>

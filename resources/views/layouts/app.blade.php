@@ -12,7 +12,7 @@
     <!-- Scripts -->
 
    <script src="{{ mix('/js/app.js') }}" defer></script>
-     <script src="{{ asset('/js/script.js') }}" defer></script>
+     <script src="/js/script.js" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

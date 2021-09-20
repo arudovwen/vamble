@@ -19428,6 +19428,11 @@ ol {
   width: 70%;
   z-index: 9;
 }
+@media only screen and (max-width: 768px) {
+  .firstContent .booking {
+    width: 90%;
+  }
+}
 .firstContent .banner-text {
   position: absolute;
   z-index: 9;

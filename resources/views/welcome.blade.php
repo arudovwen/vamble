@@ -23,7 +23,7 @@
  </div>
 
     <div  class="booking">
-    <x-booking></x-booking>
+    <booking-mini></booking-mini>
     <div class="text-center pt-5 text-muted know_more">
 
        <span class="text-white"  data-toggle="tooltip" data-placement="top"  title="Scroll down">

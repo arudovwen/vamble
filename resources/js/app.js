@@ -22,7 +22,9 @@ import Vue from "vue";
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component("banner-text", require("./components/BannerText.vue").default);
+Vue.component("booking-mini", require("./components/Booking.vue").default);
 
+Vue.use(require("vue-moment"));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

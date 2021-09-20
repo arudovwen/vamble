@@ -19332,6 +19332,20 @@ ol {
   background-color: rgba(52, 58, 64, 0.45) !important;
 }
 
+.no-focus.form-control:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.vhd__datepicker__dummy-wrapper {
+  border: unset;
+}
+
+.vhd__datepicker__input {
+  height: 3em !important;
+  line-height: 3em !important;
+}
+
 @media only screen and (max-width: 768px) {
   .logo {
     height: 40px;

@@ -112,7 +112,7 @@ ol {
     .booking {
         position: absolute;
         bottom: 5%;
-        width: 70%;
+        width: 75%;
         z-index: 9;
         @media only screen and (max-width: 768px) {
             width: 90%;
@@ -125,7 +125,7 @@ ol {
         transform: translateY(50%);
 
         h1 {
-            font-size: 3.8rem;
+            font-size: 3.6rem;
             color: white;
             span {
                 color: white;
@@ -810,4 +810,15 @@ i.red {
     img:hover {
         transform: scale(1.02);
     }
+}
+
+.bookings {
+    min-height: 100vh;
+}
+.allbookings {
+    min-height: 100vh;
+}
+
+.finalize_price {
+    font-size: 24px;
 }

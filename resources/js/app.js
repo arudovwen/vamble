@@ -23,6 +23,7 @@ import Vue from "vue";
 
 Vue.component("banner-text", require("./components/BannerText.vue").default);
 Vue.component("booking-mini", require("./components/Booking.vue").default);
+Vue.component("booking-page", require("./components/BookingPage.vue").default);
 
 Vue.use(require("vue-moment"));
 /**

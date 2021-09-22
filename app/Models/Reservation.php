@@ -22,5 +22,17 @@ class Reservation extends Model
         'user_id',
         'check_in_time',
         'check_out_time',
+        'booking_no',
+        'payment_type',
+        'status'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    public function room()
+    {
+        return $this->belongsTo(Room::class);
+    }
 }

@@ -19425,7 +19425,7 @@ ol {
 .firstContent .booking {
   position: absolute;
   bottom: 5%;
-  width: 70%;
+  width: 75%;
   z-index: 9;
 }
 @media only screen and (max-width: 768px) {
@@ -19440,7 +19440,7 @@ ol {
   transform: translateY(50%);
 }
 .firstContent .banner-text h1 {
-  font-size: 3.8rem;
+  font-size: 3.6rem;
   color: white;
 }
 .firstContent .banner-text h1 span {
@@ -20186,4 +20186,16 @@ i.red {
 }
 .service_img img:hover {
   transform: scale(1.02);
+}
+
+.bookings {
+  min-height: 100vh;
+}
+
+.allbookings {
+  min-height: 100vh;
+}
+
+.finalize_price {
+  font-size: 24px;
 }

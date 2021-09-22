@@ -30,4 +30,13 @@ class ReservationController extends Controller
     {
         return $reservation;
     }
+    public function checkavailability(Request $request)
+    {
+        return $this->reservationService->checkavailability($request);
+    }
+
+    public function findbooking($booking)
+    {
+        return $this->reservationService->findbooking($booking);
+    }
 }

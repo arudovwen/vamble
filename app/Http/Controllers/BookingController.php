@@ -10,4 +10,19 @@ class BookingController extends Controller
     {
         return view('booking');
     }
+
+    public function getbookings()
+    {
+        return view('allbookings');
+    }
+
+    public function checkbooking(Request $request)
+    {
+        $name = 'sucess';
+        return redirect('/');
+    }
+
+    public function checkavailability(Request $request)
+    {
+    }
 }

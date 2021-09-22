@@ -1,16 +1,13 @@
 <template>
-  <div id="app">
-    <!-- <vue-text-transition :show="showTitle" name="test" tag="h1" :interval="20"
-      >Vamble Apartments & Suites
-    </vue-text-transition> -->
-
+  <div class="text-center">
     <vue-text-transition
       :show="showText"
       name="test"
       tag="h1"
       :interval="20"
       :custom-class="[{ selector: ':nth-child(odd)', class: 'test_odd' }]"
-      >Vamble Apartments & Suites
+    >
+      Vamble Apartments & Suites
     </vue-text-transition>
   </div>
 </template>
@@ -25,7 +22,6 @@ export default {
   },
   data() {
     return {
-      showTitle: false,
       showText: false,
     };
   },
@@ -37,7 +33,11 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+h2 {
+  font-size: 3.1rem;
+  color: white;
+}
 span {
   display: inline-block;
 }

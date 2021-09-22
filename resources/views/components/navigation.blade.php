@@ -11,10 +11,10 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                          <li class="nav-item ">
-                                     <a class="nav-link " href="{{ route('about') }}">{{ __('Our Story') }}</a>
+                                     <a class="nav-link " href="{{ route('about') }}">{{ __('About us') }}</a>
                                 </li>
                                <li class="nav-item">
-                                     <a class="nav-link" href="{{ route('services') }}">{{ __('Our Services') }}</a>
+                                     <a class="nav-link" href="{{ route('services') }}">{{ __('Services') }}</a>
                                 </li>
                                 <li class="nav-item">
 

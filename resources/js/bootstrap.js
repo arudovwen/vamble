@@ -9,9 +9,9 @@ window._ = require("lodash");
 try {
     window.Popper = require("popper.js").default;
     window.$ = window.jQuery = require("jquery");
+    window.bootstrap = require("bootstrap");
     window.animate = require("animate.css");
     window.VueTextTransition = require("vue-text-transition");
-    window.bootstrap = require("bootstrap");
 } catch (e) {}
 
 /**

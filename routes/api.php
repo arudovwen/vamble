@@ -20,6 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('rooms', RoomController::class);
-Route::get('availablerooms/{name}', [RoomController::class, 'availablerooms']);
-Route::apiResource('reservations', ReservationController::class);
+// Route::apiResource('rooms', RoomController::class);
+// Route::get('availablerooms/{name}', [RoomController::class, 'availablerooms']);
+// Route::apiResource('reservations', ReservationController::class);

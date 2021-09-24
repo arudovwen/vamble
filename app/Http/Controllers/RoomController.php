@@ -22,6 +22,7 @@ class RoomController extends Controller
     }
     public function store(Request $request)
     {
+        dd($request->all());
         return $this->roomService->addroom($request);
     }
     public function show(Room $room)
@@ -29,9 +30,9 @@ class RoomController extends Controller
         return $room;
     }
 
-    public function availablerooms($name)
+    public function searchroom(Request $request)
     {
-        return $this->roomService->getavailablerooms($name);
+        return $this->roomService->getavailablerooms($request);
     }
 
     public function updateRoomCheckIn($name, $count)

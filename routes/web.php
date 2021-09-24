@@ -33,9 +33,18 @@ Route::post('/check/availability', [App\Http\Controllers\ReservationController::
 Route::post('/reserve', [App\Http\Controllers\ReservationController::class, 'store'])->name('makereservation');
 Route::get('/bookings', [App\Http\Controllers\BookingController::class, 'getbookings'])->name('getbookings');
 
-
+Route::post('/search/room', [App\Http\Controllers\RoomController::class, 'searchroom'])->name('searchroom');
 
 Route::get('/accomodations', [App\Http\Controllers\AccomodationController::class, 'index'])->name('accomodations');
 Route::get('/services', [App\Http\Controllers\ServiceController::class, 'index'])->name('services');
 
 Route::resource('rooms', RoomController::class);
+
+// Admin routes
+Route::get('/dashboard', [App\Http\Controllers\AdminController::class, 'dashboard'])->name('dashboard');
+Route::get('/users', [App\Http\Controllers\AdminController::class, 'users'])->name('users');
+Route::get('/show-rooms', [App\Http\Controllers\AdminController::class, 'rooms'])->name('rooms');
+Route::get('/search', [App\Http\Controllers\AdminController::class, 'roomsearch'])->name('roomsearch');
+Route::get('/reservations', [App\Http\Controllers\AdminController::class, 'reservations'])->name('reservations');
+Route::get('/transactions', [App\Http\Controllers\AdminController::class, 'transactions'])->name('transactions');
+Route::get('/calendar', [App\Http\Controllers\AdminController::class, 'calendar'])->name('calendar');

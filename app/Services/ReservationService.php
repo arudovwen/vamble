@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Models\Room;
 use App\Models\User;
 use App\Models\Reservation;
+use App\Models\RoomCalendar;
 use Illuminate\Support\Facades\DB;
 
 class ReservationService
@@ -40,7 +41,7 @@ class ReservationService
       );
 
 
-      return  $reservation =  Reservation::create([
+      $reservation =  Reservation::create([
         'booking_no' => $booking_no,
         'no_of_guests' => $request->guests,
         'no_of_rooms'  => $request->rooms,
@@ -51,11 +52,18 @@ class ReservationService
         'total_price'  => intval($duration) * intval($room->price) *  intval($request->rooms),
         'payment_status'  => $request->payment_status,
         'payment_type' => $request->payment_type,
-        'room_id'  => $request->apartment,
+        'room_id'  => $request->room_id,
         'user_id'  => $user->id,
         'status' => $request->status
 
       ]);
+
+      $calendar =  RoomCalendar::where('room_id', $request->room_id)->first();
+      $calendar->user_id = $user->id;
+      $calendar->reservation_id = $reservation->id;
+      $calendar->save();
+
+      return $calendar->load('room', 'user', 'reservation');
     });
   }
 
@@ -104,16 +112,38 @@ class ReservationService
   public function checkavailability($request)
   {
 
-    $rooms = Room::find($request->apartment);
-    $reservations = Reservation::where('status', '!=', 'checkedOut')->get();
-    $query = $request->checkIn;
-    if ($rooms->available >= $request->rooms) {
-      return  response()->json(
-        ['message' => 'available']
-      );
+    // if (!Gate::allows('find_room_access')) {
+    //   return abort(401);
+    // }
+    $time_from = Carbon::parse($request->input('checkIn'));
+    $time_to = Carbon::parse($request->input('checkOut'));
+    $room_id = $request->room_id;
+
+    if ($request->isMethod('POST')) {
+      $rooms = RoomCalendar::with('reservation')->whereHas('reservation', function ($q) use ($time_from, $time_to) {
+        $q->where(function ($q2) use ($time_from, $time_to) {
+          $q2->where('check_in', '>=', $time_to)
+            ->orWhere('check_out', '<=', $time_from);
+        });
+      })->orWhereDoesntHave('reservation')->get()->filter(function ($a) use ($room_id) {
+        return $a->room_id == $room_id;
+      });
+    } else {
+      $rooms = null;
     }
-    return  response()->json(
-      ['message' => 'unavailable']
+    if (count($rooms)) {
+      return response()->json(
+        [
+          'message' => 'available',
+          'rooms' => $rooms
+        ]
+      );
+    };
+    return response()->json(
+      [
+        'message' => 'unavailable',
+
+      ]
     );
   }
 

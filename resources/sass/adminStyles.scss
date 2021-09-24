@@ -1,0 +1,31 @@
+.sidebar {
+    height: 100vh;
+    padding: 24px 0;
+    background-color: #fffacc;
+    nav {
+        ul {
+            padding-left: 0;
+            li {
+                padding: 10px 15px;
+                a {
+                    color: rgba($color: #745412, $alpha: 0.94);
+                    text-decoration: none;
+                }
+                &:hover {
+                    background-color: rgba($color: #745412, $alpha: 0.14);
+                }
+                &.active {
+                    background-color: rgba($color: #745412, $alpha: 0.14);
+                }
+            }
+        }
+    }
+    @media (max-width: 768px) {
+        height: auto;
+        padding: 10px 15px;
+    }
+}
+.fc-content {
+    padding: 10px;
+    text-align: center;
+}

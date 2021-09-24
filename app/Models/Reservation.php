@@ -35,4 +35,8 @@ class Reservation extends Model
     {
         return $this->belongsTo(Room::class);
     }
+    public function roomcalendar()
+    {
+        return $this->hasMany(RoomCalendar::class);
+    }
 }

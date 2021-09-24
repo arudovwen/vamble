@@ -33,7 +33,7 @@
                   <select
                     class="form-control text-capitalize"
                     required
-                    v-model="detail.apartment"
+                    v-model="detail.room_id"
                   >
                     <option :value="null" disabled>Select</option>
                     <option :value="n.id" v-for="n in rooms" :key="n.id">
@@ -60,16 +60,18 @@
                   </p>
                   <p class="mb-1" v-if="selectedRoom">
                     Room price :
-                    <span class="">{{ selectedRoom.price }} naira</span>
+                    <span class=""
+                      >{{ selectedRoom.price | currencyFormat }}
+                    </span>
                   </p>
                   <p v-if="selectedRoom">
                     Total stay price :
                     <strong class=""
                       >{{
-                        selectedRoom.price * detail.rooms * detail.nights
+                        (selectedRoom.price * detail.rooms * detail.nights)
+                          | currencyFormat
                       }}
-                      naira</strong
-                    >
+                    </strong>
                   </p>
                 </div>
               </div>
@@ -322,13 +324,13 @@
                   <tr class="mb-1">
                     <td class="text-muted">Price per night</td>
 
-                    <td>{{ info.room.price }} naira</td>
+                    <td>{{ info.room.price | currencyFormat }} naira</td>
                   </tr>
 
                   <tr class="mb-1">
                     <td class="text-muted">Total price</td>
 
-                    <td>{{ info.total_price }} naira</td>
+                    <td>{{ info.total_price | currencyFormat }} naira</td>
                   </tr>
 
                   <tr class="mb-1">
@@ -349,8 +351,8 @@
                       NGN
                       {{
                         info.payment_status == "pending"
-                          ? "0.00"
-                          : info.total_price
+                          ? "₦0"
+                          : info.total_price | currencyFormat
                       }}
                     </td>
                   </tr>
@@ -462,7 +464,9 @@
                   <td class="text-muted">Price per night</td>
 
                   <td>
-                    {{ selectedRoom ? selectedRoom.price : "0.00" }} naira
+                    {{
+                      !selectedRoom ? "₦0" : selectedRoom.price | currencyFormat
+                    }}
                   </td>
                 </tr>
               </table>
@@ -474,7 +478,10 @@
 
                 <div class="finalize_price" v-if="selectedRoom">
                   <sub class="text-muted">Total stay price</sub>
-                  {{ selectedRoom.price * detail.rooms * detail.nights }} naira
+                  {{
+                    (selectedRoom.price * detail.rooms * detail.nights)
+                      | currencyFormat
+                  }}
                 </div>
               </div>
             </div>
@@ -543,7 +550,7 @@ export default {
         gender: "",
         phone: "",
         guests: 1,
-        apartment: null,
+        room_id: 1,
         checkIn: "",
         checkOut: "",
         nights: null,
@@ -573,7 +580,7 @@ export default {
       query.has("guests")
     ) {
       this.detail.rooms = query.get("count");
-      this.detail.apartment = Number(query.get("room"));
+      this.detail.room_id = Number(query.get("room"));
       this.detail.guests = query.get("guests");
       this.handleBooking("event", query.get("checkin"), query.get("checkout"));
       this.bookings = [
@@ -593,7 +600,7 @@ export default {
   },
   computed: {
     selectedRoom() {
-      var room = this.rooms.find((item) => item.id === this.detail.apartment);
+      var room = this.rooms.find((item) => item.id == this.detail.room_id);
       return room;
     },
     totalPrice() {
@@ -614,8 +621,8 @@ export default {
       });
     },
     handleBooking(event, checkin, checkout) {
-      this.detail.checkIn = checkin;
-      this.detail.checkOut = checkout;
+      this.detail.checkIn = this.$moment(checkin).format("YYYY-MM-DD");
+      this.detail.checkOut = this.$moment(checkout).format("YYYY-MM-DD");
       this.detail.nights = this.$moment(checkout).diff(
         this.$moment(checkin),
         "days"
@@ -640,7 +647,7 @@ export default {
               gender: "",
               phone: "",
               guests: 1,
-              apartment: null,
+              room_id: 1,
               checkIn: "",
               checkOut: "",
               nights: null,

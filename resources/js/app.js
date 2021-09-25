@@ -30,6 +30,11 @@ Vue.component("banner-text", require("./components/BannerText.vue").default);
 Vue.component("booking-mini", require("./components/Booking.vue").default);
 Vue.component("booking-page", require("./components/BookingPage.vue").default);
 Vue.component(
+    "search-booking",
+    require("./components/SearchBooking.vue").default
+);
+Vue.component("search-name", require("./components/SearchName.vue").default);
+Vue.component(
     "event-calendar",
     require("./components/EventCalendar.vue").default
 );
@@ -43,6 +48,11 @@ Vue.component(
 );
 Vue.component("hotel-checker", HotelDatePicker).default;
 
+Vue.component(
+    "customers-chart",
+    require("./components/Charts/CustomersChart.vue").default
+);
+
 Vue.use(require("vue-moment"));
 Vue.filter("currencyFormat", function(numb) {
     var num = Number(numb);
@@ -52,6 +62,7 @@ Vue.filter("currencyFormat", function(numb) {
         return "₦ 0.00";
     }
 });
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

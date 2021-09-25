@@ -1,9 +1,10 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="container-fluid py-5">
+    <div class="container-fluid pb-5">
+         {{ Breadcrumbs::render('rooms') }}
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2>Rooms</h2>
+            <h4>Rooms</h4>
             <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addroom"><i
                     class="fa fa-plus" aria-hidden="true"></i> Add
             </button>
@@ -15,13 +16,13 @@
                     <div class="card-header">
                         List
                     </div>
-                    <div class="card-body p-0">
-                        <div class="d-flex justify-content-between  align-items-center p-2">
+                    <div class="card-body ">
+                        <div class="d-flex justify-content-between  align-items-center pb-2">
 
                             <div class=" d-flex align-items-center">
 
                             </div>
-                            <div class="form-group m-0">
+                            <div class="form-group m-0 ">
 
                                 <input type="seacrh" class="form-control form-control-sm" name="" id=""
                                     aria-describedby="helpId" placeholder="Search name">

@@ -1,8 +1,13 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="container-fluid d-flex justify-content-between align-items-center" style="height:100vh">
+    <div class="container-fluid" style="height:90vh">
+        {{ Breadcrumbs::render('calendar') }}
 
-        <event-calendar :calendar="{{ $events }}"></event-calendar>
+        <div class="row">
+            <div class="col-12">
+                <event-calendar :calendar="{{ $events }}"></event-calendar>
+            </div>
+        </div>
     </div>
 @endsection

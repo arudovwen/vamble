@@ -27,7 +27,9 @@
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.15.4",
         "animate.css": "^4.1.1",
+        "chart.js": "^2.9.4",
         "fullcalendar-scheduler": "1.9.0",
+        "vue-chartjs": "^3.5.1",
         "vue-full-calendar": "2.8.1-0",
         "vue-hotel-datepicker": "^4.5.0",
         "vue-moment": "^4.1.0",

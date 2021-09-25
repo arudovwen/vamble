@@ -97,7 +97,7 @@ class ReservationService
   {
     Reservation::all();
   }
-  public function findBooking($booking)
+  public function findbooking($booking)
   {
 
     $booking = Reservation::where('booking_no', strtolower($booking))->with('user', 'room')->first();
@@ -107,6 +107,31 @@ class ReservationService
       ]);
     }
     return $booking;
+  }
+  public function findbookings($request)
+  {
+
+    $user = User::where(strtolower('email'), strtolower($request->booking))->orWhere(strtolower('name'), strtolower($request->booking))->first();
+
+    $booking = Reservation::where('booking_no', strtolower($request->booking))->orWhere('user_id', $user ? $user->id : 0)->with('user', 'room')->get();
+    if (is_null($request->booking)) {
+      return response()->json([
+        'message' => 'not found'
+      ]);
+    }
+    return $booking;
+  }
+
+  public function postbookings($request)
+  {
+
+    $user = User::where(strtolower('email'), strtolower($request->booking))->orWhere(strtolower('name'), strtolower($request->booking))->first();
+
+    $data = Reservation::where('booking_no', strtolower($request->booking))->orWhere('user_id', $user ? $user->id : 0)->with('user', 'room')->get();
+    if (!$data->count()) {
+      return redirect()->back()->with('info', 'No booking found!');
+    }
+    return redirect()->back()->with(['data' => $data]);
   }
 
   public function checkavailability($request)
@@ -149,6 +174,10 @@ class ReservationService
 
   public function removereservation($reservation)
   {
+    $calendar =  RoomCalendar::where('room_id', $reservation->room_id)->first();
+    $calendar->user_id = null;
+    $calendar->reservation_id = null;
+    $calendar->save();
     $reservation->delete();
     return response()->json('deleted');
   }

@@ -10,12 +10,14 @@
     "require": {
         "php": "^7.3|^8.0",
         "consoletvs/charts": "^7.2",
+        "diglactic/laravel-breadcrumbs": "^7.0",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.54",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.3",
+        "laraveldaily/laravel-charts": "^0.1.25",
         "unicodeveloper/laravel-paystack": "^1.0"
     },
     "require-dev": {

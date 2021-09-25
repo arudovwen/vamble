@@ -8,7 +8,9 @@ use App\Models\Room;
 use App\Models\RoomCalendar;
 use App\Models\User;
 use App\Services\RoomService;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use LaravelDaily\LaravelCharts\Classes\LaravelChart;
 
 class AdminController extends Controller
 {
@@ -23,7 +25,12 @@ class AdminController extends Controller
 
     public function dashboard()
     {
-        return view('admin.dashboard');
+        $start = Carbon::now()->startOfWeek();
+        $end  = Carbon::now()->endOfWeek();
+
+        $data  = Reservation::where([['created_at', '>=', $start], ['created_at', '<=', $end]])->get();
+
+        return view('admin.dashboard', compact('data'));
     }
     public function users()
     {

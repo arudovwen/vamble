@@ -1,9 +1,10 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="container-fluid py-5">
+    <div class="container-fluid pb-5">
+        {{ Breadcrumbs::render('reservations') }}
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2>Reservations</h2>
+            <h4>Reservations</h4>
             <a href="{{ route('roomsearch') }}"> <button type="button" class="btn btn-success btn-sm"> <i
                         class="fa fa-plus" aria-hidden="true"></i> New</button></a>
         </div>
@@ -18,20 +19,11 @@
                     <div class="card-header">
                         List
                     </div>
-                    <div class="card-body p-0">
-                        <div class="d-flex justify-content-between  align-items-center p-2">
+                    <div class="card-body ">
+                        <div class="d-flex justify-content-between  align-items-center pb-2">
 
                             <div class=" d-flex align-items-center">
-                                <div class="form-group d-flex align-items-center m-0">
-                                    <label for="" class="mb-0 mr-1">Showing</label>
-                                    <select class="form-control form-control-sm" name="" id="">
-                                        {{-- @foreach (100 as $numb)
 
-                                        @endforeach --}}
-                                        <option></option>
-
-                                    </select>
-                                </div>
                             </div>
                             <div class="form-group m-0">
 

@@ -39,4 +39,19 @@ class ReservationController extends Controller
     {
         return $this->reservationService->findbooking($booking);
     }
+    public function findbookings(Request $request)
+    {
+        return $this->reservationService->findbookings($request);
+    }
+    public function postbookings(Request $request)
+
+
+    {
+        return $this->reservationService->postbookings($request);
+    }
+    public function destroy(Reservation $reservation)
+    {
+
+        return $this->reservationService->removereservation($reservation);
+    }
 }

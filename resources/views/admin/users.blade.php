@@ -1,8 +1,9 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="container-fluid py-5">
-        <h2 class="mb-4">Customers</h2>
+    <div class="container-fluid pb-5">
+        {{ Breadcrumbs::render('customers') }}
+        <h4 class="mb-4">Customers</h4>
         <div class="row">
 
             <div class="col-sm-12">
@@ -10,8 +11,8 @@
                     <div class="card-header">
                         List
                     </div>
-                    <div class="card-body p-0">
-                        <div class="d-flex justify-content-between  align-items-center p-2">
+                    <div class="card-body ">
+                        <div class="d-flex justify-content-between  align-items-center pb-2">
 
                             <div class=" d-flex align-items-center">
                                 <div class="form-group d-flex align-items-center m-0">
@@ -44,11 +45,12 @@
                                         <td scope="row" class="text-capitalize">{{ $user->name }}</td>
                                         <td>{{ $user->email }}</td>
                                         <td>{{ $user->phone }}</td>
-                                        <td>{{ $user->address }}</td>
+                                        <td class="" style=" width: 100px"> <span>{{ $user->address }}</span></td>
                                         <td class="text-capitalize">{{ $user->gender }}</td>
                                         <td class="text-capitalize">{{ $user->nationality ? $user->nationality : '-' }}
                                         </td>
-                                        <td scope="row"> <button type="button" class="btn btn-info btn-sm mr-2"
+                                        <td scope="row">
+                                            <button type="button" class="btn btn-info btn-sm mr-2"
                                                 style="font-size: .65rem">Edit</button>
                                             <button type="button" class="btn btn-danger btn-sm"
                                                 style="font-size: .65rem">Drop</button>

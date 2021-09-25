@@ -25,7 +25,41 @@
         padding: 10px 15px;
     }
 }
+
+@media (max-width: 768px) {
+    nav.navbar-expand-sm {
+        background-color: #fffacc !important;
+        div ul {
+            padding-left: 0;
+            li {
+                padding: 10px 15px;
+                a {
+                    color: rgba($color: #745412, $alpha: 0.94);
+                    text-decoration: none;
+                }
+                &:hover {
+                    background-color: rgba($color: #745412, $alpha: 0.14);
+                }
+                &.active {
+                    background-color: rgba($color: #745412, $alpha: 0.14);
+                }
+            }
+        }
+    }
+}
+
 .fc-content {
     padding: 10px;
     text-align: center;
+}
+.username {
+    font-size: 0.9rem;
+}
+.nav-profile {
+    font-size: 28px;
+}
+.notification_badge {
+    position: absolute;
+    top: -7px;
+    right: -10px;
 }

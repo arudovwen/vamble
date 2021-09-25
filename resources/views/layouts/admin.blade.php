@@ -12,6 +12,7 @@
 
     <!-- Scripts -->
 
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js" type="text/javascript"></script>
     <script src="{{ mix('/js/app.js') }}" defer></script>
     <script src="/js/admin.js" defer></script>
 
@@ -28,13 +29,14 @@
     <div id="app">
 
 
-        <div class="container-fluid">
+        <div class="container-fluid overflow-hidden" style="height: 100vh">
             <div class="row">
                 <div class="col-xs-12 col-sm-2  px-0">
                     <x-sidebar></x-sidebar>
                 </div>
-                <div class="col-xs-12 col-sm-10">
-                    <main class="maincontent">
+                <div class="col-xs-12 col-sm-10 p-0">
+                    <x-adminnav></x-adminnav>
+                    <main class="maincontent p-3 ">
                         @yield('content')
                     </main>
                 </div>
@@ -45,18 +47,6 @@
 
     </div>
 
-
-    <!-- Charting library -->
-    <script src="https://unpkg.com/echarts/dist/echarts.min.js"></script>
-    <!-- Chartisan -->
-    <script src="https://unpkg.com/@chartisan/echarts/dist/chartisan_echarts.js"></script>
-    <!-- Your application script -->
-    <script>
-        const chart = new Chartisan({
-            el: '#charter',
-            url: "@chart('sample_chart')",
-        });
-    </script>
 
 </body>
 

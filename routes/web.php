@@ -16,12 +16,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Auth::routes();
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::get('/about', [App\Http\Controllers\AboutController::class, 'index'])->name('about');
 Route::get('/contact', [App\Http\Controllers\ContactController::class, 'index'])->name('contact');
 Route::get('/gallery', [App\Http\Controllers\GalleryController::class, 'index'])->name('gallery');
@@ -29,8 +29,13 @@ Route::get('/gallery', [App\Http\Controllers\GalleryController::class, 'index'])
 Route::get('/booking', [App\Http\Controllers\BookingController::class, 'index'])->name('booking');
 Route::post('/check/booking', [App\Http\Controllers\BookingController::class, 'checkbooking'])->name('checkbooking');
 Route::get('/find/booking/{booking}', [App\Http\Controllers\ReservationController::class, 'findbooking'])->name('findbooking');
+
+Route::post('/find/bookings', [App\Http\Controllers\ReservationController::class, 'findbookings'])->name('findbookings');
+Route::post('/post/bookings', [App\Http\Controllers\ReservationController::class, 'postbookings'])->name('postbookings');
+
 Route::post('/check/availability', [App\Http\Controllers\ReservationController::class, 'checkavailability'])->name('checkavailability');
 Route::post('/reserve', [App\Http\Controllers\ReservationController::class, 'store'])->name('makereservation');
+Route::delete('/reserve/{reservation}', [App\Http\Controllers\ReservationController::class, 'destroy'])->name('dropreservation');
 Route::get('/bookings', [App\Http\Controllers\BookingController::class, 'getbookings'])->name('getbookings');
 
 Route::post('/search/room', [App\Http\Controllers\RoomController::class, 'searchroom'])->name('searchroom');

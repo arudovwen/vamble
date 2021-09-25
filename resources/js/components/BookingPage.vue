@@ -210,7 +210,13 @@
         </div>
         <div class="col-sm-4 side_tab">
           <div class="bg-white rounded p-3 w-100">
-            <h5 class="mb-4">Manage your booking</h5>
+            <h5
+              class="mb-4"
+              data-toggle="modal"
+              data-target="#deletereservation"
+            >
+              Manage your booking
+            </h5>
 
             <div class="mb-3">
               <form @submit.prevent="findBooking" class="text-center">
@@ -226,19 +232,6 @@
                     maxlength="8"
                     required
                   />
-                </div>
-                <div
-                  v-if="notfound"
-                  class="
-                    alert alert-danger alert-dismissible
-                    fade
-                    show
-                    mb-2
-                    p-2
-                  "
-                  role="alert"
-                >
-                  Booking # not found
                 </div>
 
                 <div>
@@ -256,6 +249,20 @@
                     {{ isCheckingBooking ? "Checking" : "Check" }} Booking
                   </button>
                 </div>
+
+                <div
+                  v-if="notfound"
+                  class="
+                    alert alert-danger alert-dismissible
+                    fade
+                    show
+                    my-2
+                    p-2
+                  "
+                  role="alert"
+                >
+                  Booking # not found
+                </div>
               </form>
             </div>
             <hr />
@@ -270,9 +277,9 @@
                     <td>#{{ info.booking_no }}</td>
                   </tr>
                   <tr class="mb-1">
-                    <td class="text-muted">Date</td>
+                    <td class="text-muted">Creation Date</td>
 
-                    <td>{{ info.created_at }}</td>
+                    <td>{{ info.created_at | moment("ll") }}</td>
                   </tr>
 
                   <tr class="mb-1">
@@ -324,13 +331,13 @@
                   <tr class="mb-1">
                     <td class="text-muted">Price per night</td>
 
-                    <td>{{ info.room.price | currencyFormat }} naira</td>
+                    <td>{{ info.room.price | currencyFormat }}</td>
                   </tr>
 
                   <tr class="mb-1">
                     <td class="text-muted">Total price</td>
 
-                    <td>{{ info.total_price | currencyFormat }} naira</td>
+                    <td>{{ info.total_price | currencyFormat }}</td>
                   </tr>
 
                   <tr class="mb-1">
@@ -359,14 +366,26 @@
                 </table>
 
                 <div class="d-flex justify-content-between">
-                  <div>
-                    <button type="button" class="btn btn-primary btn-sm">
-                      Make payment
+                  <div class="d-flex">
+                    <button type="button" class="btn btn-light btn-sm mr-2">
+                      <small> <i class="fas fa-edit"></i> Edit</small>
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-light btn-sm"
+                      data-toggle="modal"
+                      data-target="#deletereservation"
+                    >
+                      <small>
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                        Delete</small
+                      >
                     </button>
                   </div>
+                  <div></div>
                   <div>
                     <button type="button" class="btn btn-primary btn-sm">
-                      Print invoice
+                      <small> Make Payment</small>
                     </button>
                   </div>
                 </div>
@@ -398,7 +417,7 @@
     >
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-          <div class="modal-header">
+          <div class="modal-header border-0">
             <h5 class="modal-title" v-if="!finalize">Finalize Reservation</h5>
             <h5 class="modal-title" v-if="finalize">Reservation successful</h5>
             <button
@@ -477,11 +496,13 @@
                 </div>
 
                 <div class="finalize_price" v-if="selectedRoom">
-                  <sub class="text-muted">Total stay price</sub>
-                  {{
-                    (selectedRoom.price * detail.rooms * detail.nights)
-                      | currencyFormat
-                  }}
+                  <small class="text-muted">Total stay price</small>
+                  <span>
+                    {{
+                      (selectedRoom.price * detail.rooms * detail.nights)
+                        | currencyFormat
+                    }}</span
+                  >
                 </div>
               </div>
             </div>
@@ -515,6 +536,38 @@
               :disabled="!isFinalizing"
             >
               Pay at hotel
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="deletereservation"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="modelTitleId"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-body">Are you sure ?</div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              @click="dropreservation"
+              class="btn btn-danger"
+            >
+              Yes Delete
             </button>
           </div>
         </div>
@@ -709,6 +762,19 @@ export default {
     },
     clearInfo() {
       this.info = null;
+    },
+    dropreservation() {
+      axios
+        .delete(`http://localhost:8000/reserve/${this.info.id}`)
+        .then((res) => {
+          if (res.status == 200) {
+            this.info = null;
+
+            $(document).ready(function () {
+              $("#deletereservation").modal("hide");
+            });
+          }
+        });
     },
   },
 };

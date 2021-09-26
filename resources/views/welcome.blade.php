@@ -56,7 +56,7 @@
                 maiores sed deserunt dolorem dicta perspiciatis pariatur odio magni et, saepe eius cum amet quis reiciendis
                 ut, officia a! Distinctio molestias nisi repellat necessitatibus libero.</p>
 
-            <div class="row m-0 hotel d-none d-sm-block">
+            <div class="row m-0 hotel d-none d-sm-flex">
                 <div class="col-sm-4 hotel-img p-0">
                     <img src="{{ asset('/images/v2.jpg') }}" alt="vamble">
                     <div class="hotel_text">

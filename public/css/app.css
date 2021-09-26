@@ -19360,6 +19360,11 @@ html {
 
 .logo {
   height: 95px;
+  transition: 0.6s;
+}
+
+.logoShrink {
+  height: 60px;
 }
 
 ul,
@@ -19465,7 +19470,7 @@ span,
 
 @media (max-width: 768px) {
   .initial_navigation {
-    background: white;
+    background-color: white;
   }
 }
 .initial_navigation .container a .logo {
@@ -19507,13 +19512,12 @@ span,
 }
 
 .scrolling_navigation {
-  background-color: white;
+  background-color: white !important;
   box-shadow: 0.125rem 0.25rem rgba(0, 0, 0, 0.08) !important;
   color: rgba(0, 0, 0, 0.5);
 }
 .scrolling_navigation .container a .logo {
   transition: 0.6s;
-  height: 60px;
 }
 .scrolling_navigation .container .nav-content .topnav {
   display: none !important;
@@ -19523,6 +19527,9 @@ span,
 }
 .scrolling_navigation .container .nav-content .bottom_nav .bottom_ul {
   display: flex !important;
+}
+.scrolling_navigation .container .nav-content .bottom_nav ul .nav-item .nav-link {
+  color: rgba(0, 0, 0, 0.64) !important;
 }
 
 .default_navigation {

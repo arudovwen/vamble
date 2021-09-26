@@ -1,14 +1,14 @@
 var navigation = document.getElementById("nav");
 var updateNavbarColor = () => {
-    if (
-        document.documentElement.scrollTop >= 35 ||
-        document.body.scrollTop >= 35
-    ) {
+    if (window.scrollY > window.innerHeight * 0.07) {
         navigation.classList.add("scrolling_navigation");
-        navigation.classList.remove("initial_navigation");
     } else {
-        navigation.classList.add("initial_navigation");
         navigation.classList.remove("scrolling_navigation");
+    }
+    if (window.scrollY > window.innerHeight * 0.08) {
+        $(".logo").addClass("logoShrink");
+    } else {
+        $(".logo").removeClass("logoShrink");
     }
 };
 if (location.pathname == "/") {

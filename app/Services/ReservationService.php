@@ -18,7 +18,7 @@ class ReservationService
 
 
     return DB::transaction(function () use ($request) {
-      $room = Room::find($request->apartment);
+      $room = Room::find($request->room_id);
       $duration = Carbon::parse($request->checkIn)->diffInDays(Carbon::parse($request->checkOut));
       $booking_no = rand(10000000, 99999999);
       $checkNo = Reservation::where('booking_no', $booking_no)->first();
@@ -63,29 +63,13 @@ class ReservationService
       $calendar->reservation_id = $reservation->id;
       $calendar->save();
 
-      return $calendar->load('room', 'user', 'reservation');
+      return response($calendar->load('room', 'user', 'reservation'), 201);
     });
   }
 
-  public function updatereservation($request)
+  public function updatereservation($request, $reservation)
   {
-    $room = Room::find($request->room_id);
-    $duration = Carbon::parse($request->check_in)->diffInDays(Carbon::parse($request->check_out));
-    return  Reservation::updateOrCreate(
-      ['id' => $request->id],
-      [
-        'no_of_guests' => $request->no_of_guests,
-        'no_of_rooms'  => $request->no_of_rooms,
-        'check_in'  => $request->check_in,
-        'check_out'  => $request->check_out,
-        'duration'  => $duration,
-        'price_per_night'  => $room->price,
-        'total_price'  => $duration * $room->price,
-        'payment_status'  => 'pending',
-        'room_id'  => $request->room_id,
-
-      ]
-    );
+    return $this->admincheckavailability($request);
   }
 
   public function getReservation($id)
@@ -134,15 +118,66 @@ class ReservationService
     return redirect()->back()->with(['data' => $data]);
   }
 
+  public function admincheckavailability($request)
+  {
+
+
+    $time_from = Carbon::parse($request->input('checkin'));
+    $time_to = Carbon::parse($request->input('checkout'));
+    $room_id = $request->room_id;
+    $roomsneeded = $request->rooms;
+
+
+
+    return $rooms = Reservation::where('room_id', $room_id)->where(function ($q2) use ($time_from, $time_to) {
+      $q2->where('check_in', '>=', $time_to)
+        ->orWhere('check_out', '<=', $time_from);
+    })->get();
+
+    if (count($rooms) >= $roomsneeded) {
+      $message = " Room is available, you can proceed to book the room";
+
+      return response()->json(
+        [
+          'status' => 'available',
+          'message' => $message,
+          'rooms' => $rooms
+        ]
+      );
+    };
+    if (count($rooms) && count($rooms) < $roomsneeded) {
+      $message = "Only " . count($rooms) . " available";
+
+      return response()->json(
+        [
+          'status' => 'less-available',
+          'message' => $message,
+
+        ]
+      );
+    };
+    $message = " Room is unavailable, try to find another room or choose a later date";
+    return response()->json(
+      [
+        'status' => 'unavailable',
+        'message' => $message
+
+      ]
+    );
+  }
+
   public function checkavailability($request)
   {
 
     // if (!Gate::allows('find_room_access')) {
     //   return abort(401);
     // }
+
     $time_from = Carbon::parse($request->input('checkIn'));
     $time_to = Carbon::parse($request->input('checkOut'));
     $room_id = $request->room_id;
+    $roomsneeded = $request->rooms;
+
 
     if ($request->isMethod('POST')) {
       $rooms = RoomCalendar::with('reservation')->whereHas('reservation', function ($q) use ($time_from, $time_to) {
@@ -156,17 +191,34 @@ class ReservationService
     } else {
       $rooms = null;
     }
-    if (count($rooms)) {
+
+    if (count($rooms) >= $roomsneeded) {
+      $message = " Room is available, you can proceed to book the room";
+
       return response()->json(
         [
-          'message' => 'available',
+          'status' => 'available',
+          'message' => $message,
           'rooms' => $rooms
         ]
       );
     };
+    if (count($rooms) && count($rooms) < $roomsneeded) {
+      $message = "Only " . count($rooms) . " available";
+
+      return response()->json(
+        [
+          'status' => 'less-available',
+          'message' => $message,
+
+        ]
+      );
+    };
+    $message = " Room is unavailable, try to find another room or choose a later date";
     return response()->json(
       [
-        'message' => 'unavailable',
+        'status' => 'unavailable',
+        'message' => $message
 
       ]
     );
@@ -179,6 +231,6 @@ class ReservationService
     $calendar->reservation_id = null;
     $calendar->save();
     $reservation->delete();
-    return response()->json('deleted');
+    return redirect('/reservations')->with('success', 'Data Deleted');
   }
 }

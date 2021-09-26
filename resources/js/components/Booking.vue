@@ -90,11 +90,20 @@
             <select
               required
               class="form-control form-control-sm border-0 no-focus"
-              v-model="apartment"
+              v-model="room_id"
             >
               <option disabled value="">Apartment type</option>
               <option :value="n.id" v-for="n in allrooms" :key="n.id">
-                <span class="text-capitalize"> {{ n.name }}</span>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span
+                    ><span class="text-capitalize">{{ n.name }}</span>
+                    apartment</span
+                  >
+                  -
+                  <span
+                    >{{ n.price | currencyFormat }} <small>/ night</small></span
+                  >
+                </div>
               </option>
             </select>
           </div>
@@ -112,8 +121,7 @@
       </div>
     </form>
     <div class="text-danger py-2" v-if="isAvailable === false">
-      <i class="fa fa-info-circle" aria-hidden="true"></i> Room is unavailable,
-      try to find another room or choose a later date
+      <i class="fa fa-info-circle" aria-hidden="true"></i> {{ message }}
     </div>
   </div>
 </template>
@@ -133,13 +141,14 @@ export default {
       showdate: false,
       guests: null,
       rooms: null,
-      apartment: "",
+      room_id: "",
       checkIn: "",
       checkOut: "",
       nights: null,
       isChecking: false,
       allrooms: [],
       isAvailable: null,
+      message: "",
     };
   },
   mounted() {
@@ -160,10 +169,18 @@ export default {
     },
 
     checkAvailability() {
+      if (!this.checkIn || !this.checkIn) {
+        this.message = "Please input a check-in and check-out date";
+        this.isAvailable = false;
+        setTimeout(() => {
+          this.isAvailable = true;
+        }, 3500);
+        return;
+      }
       this.isChecking = true;
       var data = {
         rooms: this.rooms,
-        apartment: this.apartment,
+        room_id: this.room_id,
         checkIn: this.checkIn,
         checkOut: this.checkOut,
         nights: this.nights,
@@ -171,10 +188,11 @@ export default {
       axios
         .post("http://localhost:8000/check/availability", data)
         .then((res) => {
-          if (res.data.message == "available") {
+          this.message = res.data.message;
+          if (res.data.status == "available") {
             this.isChecking = false;
             this.isAvailable = true;
-            var routeData = `http://localhost:8000/booking?room=${this.apartment}&count=${this.rooms}&checkin=${this.checkIn}&checkout=${this.checkOut}&guests=${this.guests}`;
+            var routeData = `http://localhost:8000/booking?room=${this.room_id}&count=${this.rooms}&checkin=${this.checkIn}&checkout=${this.checkOut}&guests=${this.guests}`;
             window.location.href = routeData;
             return;
           }
@@ -183,7 +201,7 @@ export default {
           this.isAvailable = false;
           setTimeout(() => {
             this.isAvailable = true;
-          }, 3500);
+          }, 4500);
         })
         .catch(() => {
           this.isChecking = false;

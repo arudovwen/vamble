@@ -49,7 +49,16 @@
               <option :value="null" disabled>Apartment type</option>
               <option :value="0">Any</option>
               <option :value="room.id" v-for="room in allrooms" :key="room.id">
-                {{ room.name }}
+                <div class="d-flex justify-content-between align-items-center">
+                  <span
+                    ><span>{{ room.name }}</span> apartment</span
+                  >
+                  -
+                  <span
+                    >{{ room.price | currencyFormat }}
+                    <small>/ night</small></span
+                  >
+                </div>
               </option>
             </select>
           </div>

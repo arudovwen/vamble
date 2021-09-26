@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Room;
 use App\Models\Reservation;
-use App\Services\ReservationService;
 use Illuminate\Http\Request;
+use App\Services\ReservationService;
+use Illuminate\Support\Facades\Validator;
 
 class ReservationController extends Controller
 {
@@ -24,14 +26,34 @@ class ReservationController extends Controller
     }
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required',
+            'gender' => 'required',
+            'phone' => 'required',
+            'address' => 'required'
+        ]);
         return $this->reservationService->handleReservation($request);
     }
     public function show(Reservation $reservation)
     {
         return $reservation;
     }
+
+    public function update(Request $request, Reservation $reservation)
+    {
+
+        return $this->reservationService->updatereservation($request, $reservation);
+    }
     public function checkavailability(Request $request)
     {
+
+        $validator = Validator::make($request->all(), [
+            'checkIn' => 'required',
+            'checkOut' => 'required',
+            'room_id' => 'required',
+            'rooms' => 'required'
+        ]);
         return $this->reservationService->checkavailability($request);
     }
 
@@ -49,8 +71,17 @@ class ReservationController extends Controller
     {
         return $this->reservationService->postbookings($request);
     }
+
+    public function edit(Reservation $reservation)
+    {
+        $rooms = Room::all();
+        $reservation = $reservation->load('room', 'user');
+        return view('admin.editreservation', compact('reservation', 'rooms'));
+    }
+
     public function destroy(Reservation $reservation)
     {
+
 
         return $this->reservationService->removereservation($reservation);
     }

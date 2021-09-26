@@ -51,7 +51,8 @@
         </div>
         <div class="row mb-5">
             <div class="col-sm-8 text-center ">
-                <customers-chart :customers={{ $data }}></customers-chart>
+
+                <customers-chart :customers="{{ $data }}"></customers-chart>
 
             </div>
 

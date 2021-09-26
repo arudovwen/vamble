@@ -36,7 +36,7 @@
                 </div>
                 <div class="col-xs-12 col-sm-10 p-0">
                     <x-adminnav></x-adminnav>
-                    <main class="maincontent p-3 ">
+                    <main class="admincontent p-3 ">
                         @yield('content')
                     </main>
                 </div>

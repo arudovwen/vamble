@@ -5,7 +5,11 @@ $fa-font-path: "../webfonts";
 @import "~@fortawesome/fontawesome-free/scss/regular";
 @import "~animate.css/animate";
 
-$vamble: #745412;
+:root {
+    --vamble: #745412;
+    --primary: #745412;
+    --blue: #745412;
+}
 
 html {
     scroll-behavior: smooth;
@@ -13,8 +17,34 @@ html {
 }
 #app {
 }
+.navbar .container-fluid {
+    justify-content: flex-start;
+}
+.nav-content {
+    width: 80%;
+}
+.nav-text {
+    font-size: 0.7rem;
+}
+.nav-btn {
+    width: 90px;
+}
+.navbar-light .navbar-nav .show > .nav-link,
+.navbar-light .navbar-nav .active > .nav-link,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .nav-link {
+    border-bottom: 2px solid transparent;
+}
+
+.navbar-light .navbar-nav .show > .nav-link,
+.navbar-light .navbar-nav .active > .nav-link,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .nav-link.active {
+    color: rgba(0, 0, 0, 0.9);
+    border-color: var(--primary);
+}
 .logo {
-    height: 60px;
+    height: 95px;
 }
 ul,
 ol {
@@ -103,7 +133,7 @@ ol {
 // .initial_navigation .navbar-nav .nav-item .nav-link {
 //     color: white;
 // }
-.maincontent {
+.admincontent {
     max-height: 100vh;
     overflow-y: auto;
 }
@@ -111,6 +141,27 @@ ol {
     background-color: white;
     box-shadow: 0.125rem 0.25rem rgb(0 0 0 / 8%) !important;
     color: rgba(0, 0, 0, 0.5);
+    .container {
+        a {
+            .logo {
+                transition: 0.6s;
+                height: 60px;
+            }
+        }
+        .nav-content {
+            .topnav {
+                display: none !important;
+            }
+            hr {
+                display: none !important;
+            }
+            .bottom_nav {
+                .bottom_ul {
+                    display: flex !important;
+                }
+            }
+        }
+    }
 }
 .default_navigation {
     background-color: white;
@@ -119,10 +170,11 @@ ol {
 }
 .firstContent {
     position: relative;
-    height: 100vh;
+    height: 94vh;
     display: flex;
     justify-content: center;
-    margin-top: -90px;
+    margin-top: -105px;
+    border-bottom: 8px solid var(--vamble);
     .booking {
         position: absolute;
         bottom: 5%;
@@ -153,6 +205,19 @@ ol {
         }
     }
 }
+.landing-item {
+    position: relative;
+    &::after {
+        content: "";
+        position: absolute;
+        background-color: rgb(0 0 0 / 35%);
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+}
 
 .secondContent {
     position: relative;
@@ -160,24 +225,79 @@ ol {
     padding: 75px 20px 100px;
     text-align: center;
     .content {
-        width: 50%;
+        width: 80%;
         margin: 0 auto;
         @media only screen and (max-width: 768px) {
             width: 100%;
         }
-
         h2 {
             position: relative;
-            display: flex;
-            justify-content: center;
-            margin-bottom: 32px;
+
             &::after {
                 content: "";
-                width: 100%;
+                width: 40%;
                 height: 10px;
                 border-bottom: 1px solid #ccc;
                 position: absolute;
-                bottom: -10px;
+                bottom: 50%;
+                right: 0;
+                @media only screen and (max-width: 768px) {
+                    width: 30%;
+                }
+            }
+            &::before {
+                content: "";
+                width: 40%;
+                height: 10px;
+                border-bottom: 1px solid #ccc;
+                position: absolute;
+                bottom: 50%;
+                left: 0;
+                @media only screen and (max-width: 768px) {
+                    width: 30%;
+                }
+            }
+        }
+        p {
+            width: 70%;
+            margin: 0 auto;
+        }
+        .hotel {
+            height: 500px;
+            .hotel-img {
+                width: 100%;
+                position: relative;
+                overflow: hidden;
+                &:hover {
+                    img {
+                        transition: 0.4s;
+                        transform: scale(1.03);
+                    }
+                }
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    position: relative;
+                }
+                .hotel_text {
+                    position: absolute;
+                    z-index: 3;
+                    color: #fff;
+                    bottom: 0;
+                    padding: 15px;
+                    text-align: left;
+                }
+                &::after {
+                    content: "";
+                    position: absolute;
+                    background-color: rgb(0 0 0 / 30%);
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 1;
+                }
             }
         }
     }
@@ -248,8 +368,14 @@ ol {
         }
     }
 }
+.fade_text {
+    p {
+        font-size: 0.8rem;
+        color: rgba($color: #000000, $alpha: 0.64);
+    }
+}
 .carousel .carousel-inner .carousel-item.room-item {
-    height: 500px;
+    height: 400px;
     @media only screen and (max-width: 768px) {
         height: 200px;
     }
@@ -803,7 +929,7 @@ i.red {
 }
 
 .price {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 
 .about_img {

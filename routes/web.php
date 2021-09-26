@@ -35,7 +35,10 @@ Route::post('/post/bookings', [App\Http\Controllers\ReservationController::class
 
 Route::post('/check/availability', [App\Http\Controllers\ReservationController::class, 'checkavailability'])->name('checkavailability');
 Route::post('/reserve', [App\Http\Controllers\ReservationController::class, 'store'])->name('makereservation');
+Route::put('/reservations/{reservation}', [App\Http\Controllers\ReservationController::class, 'update'])->name('updatereservation');
+Route::get('/reservations/edit/{reservation}', [App\Http\Controllers\ReservationController::class, 'edit'])->name('editreservation');
 Route::delete('/reserve/{reservation}', [App\Http\Controllers\ReservationController::class, 'destroy'])->name('dropreservation');
+Route::put('/reservations/update/{reservation}', [App\Http\Controllers\ReservationController::class, 'update'])->name('updatereservation');
 Route::get('/bookings', [App\Http\Controllers\BookingController::class, 'getbookings'])->name('getbookings');
 
 Route::post('/search/room', [App\Http\Controllers\RoomController::class, 'searchroom'])->name('searchroom');

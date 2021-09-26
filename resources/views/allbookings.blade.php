@@ -126,7 +126,7 @@
                                                     <tr class="mb-1">
                                                         <td class="text-muted">Total price</td>
 
-                                                        <td>{{ $booking->total_price }} i</td>
+                                                        <td>{{ $booking->total_price }} </td>
                                                     </tr>
 
                                                     <tr class="mb-1">

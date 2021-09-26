@@ -3,9 +3,9 @@
   <div class="bookings">
     <div class="container py-5">
       <div class="row">
-        <div class="col-sm-8 px-5">
+        <div class="col-sm-8 px-5 py-3 bg-white rounded">
           <form @submit.prevent="checkAvailability">
-            <h5 class="mb-4">Room Details</h5>
+            <h5 class="mb-4">Make reservation</h5>
             <div class="mb-5">
               <div class="form-group">
                 <HotelDatePicker
@@ -37,7 +37,23 @@
                   >
                     <option :value="null" disabled>Select</option>
                     <option :value="n.id" v-for="n in rooms" :key="n.id">
-                      <span class="text-capitalize"> {{ n.name }}</span>
+                      <div
+                        class="
+                          d-flex
+                          justify-content-between
+                          align-items-center
+                        "
+                      >
+                        <span
+                          ><span class="text-capitalize">{{ n.name }}</span>
+                          apartment</span
+                        >
+                        -
+                        <span
+                          >{{ n.price | currencyFormat }}
+                          <small>/ night</small></span
+                        >
+                      </div>
                     </option>
                   </select>
                 </div>
@@ -105,7 +121,7 @@
                   <span class="sr-only">Close</span>
                 </button>
 
-                Room is available, you can proceed to book the room
+                {{ message }}
               </div>
               <div
                 v-if="isAvailable === false"
@@ -122,14 +138,17 @@
                   <span class="sr-only">Close</span>
                 </button>
 
-                Room is unavailable, try to find another room or choose a later
-                date
+                {{ message }}
               </div>
             </div>
           </form>
           <hr />
 
-          <form @submit.prevent="makereserve">
+          <form
+            @submit.prevent="makereserve"
+            v-if="isAvailable"
+            class="animate__animated animate__slideInUp"
+          >
             <h5 class="mb-4">Guest Details</h5>
             <div class="form-group">
               <label for="">Full Name</label>
@@ -367,9 +386,13 @@
 
                 <div class="d-flex justify-content-between">
                   <div class="d-flex">
-                    <button type="button" class="btn btn-light btn-sm mr-2">
+                    <!-- <button
+                      type="button"
+                      class="btn btn-light btn-sm mr-2"
+                      @click="edit"
+                    >
                       <small> <i class="fas fa-edit"></i> Edit</small>
-                    </button>
+                    </button> -->
                     <button
                       type="button"
                       class="btn btn-light btn-sm"
@@ -378,7 +401,7 @@
                     >
                       <small>
                         <i class="fa fa-trash" aria-hidden="true"></i>
-                        Delete</small
+                        Cancel</small
                       >
                     </button>
                   </div>
@@ -495,7 +518,15 @@
                   <span class="text-muted"> Nights x {{ detail.nights }}</span>
                 </div>
 
-                <div class="finalize_price" v-if="selectedRoom">
+                <div
+                  class="
+                    finalize_price
+                    d-flex
+                    justify-content-between
+                    align-items-end
+                  "
+                  v-if="selectedRoom"
+                >
                   <small class="text-muted">Total stay price</small>
                   <span>
                     {{
@@ -513,6 +544,7 @@
               ></i>
 
               <p class="my-1">Your reservation was successful</p>
+              <p>Booking Number is #{{ bookingNumb }}</p>
 
               <small class="text-success"
                 ><i class="fa fa-info-circle" aria-hidden="true"></i> Check your
@@ -567,8 +599,37 @@
               @click="dropreservation"
               class="btn btn-danger"
             >
-              Yes Delete
+              Yes cancel
             </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="editbooking"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="modelTitleId"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header border-0">
+            <h5 class="modal-title">Modify your reservation</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body border-0">
+            <update-book v-if="editbook" :reservation="info"></update-book>
           </div>
         </div>
       </div>
@@ -580,13 +641,15 @@
 <script>
 import HotelDatePicker from "vue-hotel-datepicker";
 import "vue-hotel-datepicker/dist/vueHotelDatepicker.css";
-
+import UpdateBook from "./UpdateBooking.vue";
 export default {
   components: {
     HotelDatePicker,
+    UpdateBook,
   },
   data() {
     return {
+      editbook: false,
       finalize: false,
       bookings: [],
       booked: [],
@@ -613,11 +676,14 @@ export default {
         payment_status: "",
         status: "",
       },
+
       info: null,
       bookingNumber: "",
       rooms: [],
       isFinalizing: true,
       notfound: false,
+      message: "",
+      bookingNumb: null,
     };
   },
   created() {
@@ -691,6 +757,7 @@ export default {
         .post("http://localhost:8000/reserve", this.detail)
         .then((res) => {
           if (res.status == 201) {
+            this.bookingNumb = res.data.reservation.booking_no;
             this.finalize = true;
             this.isFinalizing = true;
             this.detail = {
@@ -740,11 +807,20 @@ export default {
         });
     },
     checkAvailability() {
+      if (!this.detail.checkIn || !this.detail.checkIn) {
+        this.message = "Please input a check-in and check-out date";
+        this.isAvailable = false;
+        setTimeout(() => {
+          this.isAvailable = null;
+        }, 3500);
+        return;
+      }
       this.isChecking = true;
       axios
         .post("http://localhost:8000/check/availability", this.detail)
         .then((res) => {
-          if (res.data.message == "available") {
+          this.message = res.data.message;
+          if (res.data.status == "available") {
             this.isAvailable = true;
             this.isChecking = false;
             return;
@@ -762,6 +838,10 @@ export default {
     },
     clearInfo() {
       this.info = null;
+    },
+    edit() {
+      this.editbook = true;
+      $("#editbooking").modal("show");
     },
     dropreservation() {
       axios

@@ -29,6 +29,7 @@ Vue.use(FullCalendar);
 Vue.component("banner-text", require("./components/BannerText.vue").default);
 Vue.component("booking-mini", require("./components/Booking.vue").default);
 Vue.component("booking-page", require("./components/BookingPage.vue").default);
+Vue.component("update-book", require("./components/UpdateBooking.vue").default);
 Vue.component(
     "search-booking",
     require("./components/SearchBooking.vue").default

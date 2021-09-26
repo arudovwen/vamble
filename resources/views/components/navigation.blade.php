@@ -1,6 +1,6 @@
   <nav class="navbar navbar-expand-md navbar-light  navigation initial_navigation py-sm-0" id="nav">
       <div class="container px-sm-0">
-          <a class="navbar-brand" href="{{ url('/') }}">
+          <a class="navbar-brand pt-sm-0" href="{{ url('/') }}">
               <img src="/logo.png" class="logo" alt="vamble logo">
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -67,7 +67,7 @@
                                   </a>
                                   <a class="dropdown-item" href="{{ route('logout') }}"
                                       onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                         document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                                     document.getElementById('logout-form').submit();">
                                       {{ __('Logout') }}
                                   </a>
 
@@ -89,7 +89,7 @@
 
                   </ul>
               </div>
-              <hr class="border-primary mb-0 ">
+              <hr class="border-primary my-0 ">
               <div class="collapse navbar-collapse bottom_nav" id="navbarSupportedContent">
                   <!-- Left Side Of Navbar -->
                   <ul class="navbar-nav ">
@@ -147,7 +147,7 @@
                                   </a>
                                   <a class="dropdown-item" href="{{ route('logout') }}"
                                       onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                         document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                                     document.getElementById('logout-form').submit();">
                                       {{ __('Logout') }}
                                   </a>
 

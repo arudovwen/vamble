@@ -1,13 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-
     <div class="firstContent">
         <div id="bannerId" class="carousel slide carousel-fade" data-ride="carousel">
             <ol class="carousel-indicators">
-                <li data-target="#carouselId" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselId" data-slide-to="1"></li>
-                <li data-target="#carouselId" data-slide-to="2"></li>
+                <li data-target="#bannerId" data-slide-to="0" class="active"></li>
+                <li data-target="#bannerId" data-slide-to="1"></li>
+                <li data-target="#bannerId" data-slide-to="2"></li>
             </ol>
             <div class="carousel-inner" role="listbox">
                 <div class="carousel-item landing-item active ">
@@ -21,11 +20,11 @@
 
                 </div>
             </div>
-            <a class="carousel-control-prev" href="#carouselId" role="button" data-slide="prev">
+            <a class="carousel-control-prev" href="#bannerId" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
             </a>
-            <a class="carousel-control-next" href="#carouselId" role="button" data-slide="next">
+            <a class="carousel-control-next" href="#bannerId" role="button" data-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
             </a>
@@ -105,7 +104,6 @@
 
         <x-mini></x-mini>
     </div>
-
     <div class="thirdContent">
         <div class="content">
             <h2 class="mb-5">ROOMS</h2>
@@ -288,6 +286,8 @@
             </div>
         </div>
     </div>
+
+    <x-testimonials></x-testimonials>
     <div class="fifthContent">
         <div class="content container-fluid">
             <h2 class="mb-5">GALLERY</h2>
@@ -322,7 +322,6 @@
 
         </div>
     </div>
-
 
 
 @endsection

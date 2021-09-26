@@ -4,7 +4,7 @@
       :show="showText"
       name="test"
       tag="h1"
-      :interval="20"
+      :interval="40"
       :custom-class="[{ selector: ':nth-child(odd)', class: 'test_odd' }]"
     >
       Vamble Apartments & Suites
@@ -28,7 +28,7 @@ export default {
   mounted() {
     setTimeout(() => {
       this.showText = true;
-    }, 1500);
+    }, 1900);
   },
 };
 </script>

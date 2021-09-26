@@ -3,15 +3,12 @@ var navigation = document.getElementById("nav");
 if (location.pathname == "/") {
     var updateNavbarColor = () => {
         if (
-            document.documentElement.scrollTop > 35 ||
-            document.body.scrollTop > 35
+            document.documentElement.scrollTop >= 35 ||
+            document.body.scrollTop >= 35
         ) {
             navigation.classList.add("scrolling_navigation");
             navigation.classList.remove("initial_navigation");
-        } else if (
-            document.documentElement.scrollTop < 36 ||
-            document.body.scrollTop < 36
-        ) {
+        } else {
             navigation.classList.add("initial_navigation");
             navigation.classList.remove("scrolling_navigation");
         }

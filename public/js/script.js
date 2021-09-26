@@ -5,7 +5,7 @@ var updateNavbarColor = () => {
     } else {
         navigation.classList.remove("scrolling_navigation");
     }
-    if (window.scrollY > window.innerHeight * 0.08) {
+    if (window.scrollY > window.innerHeight * 0.09) {
         $(".logo").addClass("logoShrink");
     } else {
         $(".logo").removeClass("logoShrink");

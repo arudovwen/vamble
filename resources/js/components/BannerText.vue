@@ -1,14 +1,13 @@
 <template>
-  <div class="text-center">
+  <div id="app">
     <vue-text-transition
       :show="showText"
       name="test"
       tag="h1"
       :interval="40"
       :custom-class="[{ selector: ':nth-child(odd)', class: 'test_odd' }]"
+      >Vamble Apartments & Suites</vue-text-transition
     >
-      Vamble Apartments & Suites
-    </vue-text-transition>
   </div>
 </template>
 
@@ -22,22 +21,28 @@ export default {
   },
   data() {
     return {
+      showTitle: false,
       showText: false,
     };
   },
   mounted() {
     setTimeout(() => {
       this.showText = true;
-    }, 1900);
+    }, 1500);
   },
 };
 </script>
 
-<style lang="scss" scoped>
-h2 {
-  font-size: 3.1rem;
-  color: white;
+<style>
+#app {
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
 }
+
 span {
   display: inline-block;
 }

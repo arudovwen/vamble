@@ -19623,6 +19623,7 @@ span,
 }
 @media only screen and (max-width: 768px) {
   .secondContent .content h2::after {
+    right: 14%;
     width: 80px;
   }
 }
@@ -19637,6 +19638,7 @@ span,
 }
 @media only screen and (max-width: 768px) {
   .secondContent .content h2::before {
+    left: 14%;
     width: 80px;
   }
 }
@@ -19742,6 +19744,7 @@ span,
 }
 @media only screen and (max-width: 768px) {
   .thirdContent .content h2::after {
+    right: 14%;
     width: 80px;
   }
 }
@@ -19756,6 +19759,7 @@ span,
 }
 @media only screen and (max-width: 768px) {
   .thirdContent .content h2::before {
+    left: 14%;
     width: 80px;
   }
 }
@@ -19852,6 +19856,7 @@ span,
 }
 @media only screen and (max-width: 768px) {
   .fifthContent .content h2::after {
+    right: 14%;
     width: 80px;
   }
 }
@@ -19866,6 +19871,7 @@ span,
 }
 @media only screen and (max-width: 768px) {
   .fifthContent .content h2::before {
+    left: 14%;
     width: 80px;
   }
 }
@@ -20005,6 +20011,7 @@ footer .content {
 }
 @media only screen and (max-width: 768px) {
   .contact .content h2::after {
+    right: 14%;
     width: 80px;
   }
 }
@@ -20019,6 +20026,7 @@ footer .content {
 }
 @media only screen and (max-width: 768px) {
   .contact .content h2::before {
+    left: 14%;
     width: 80px;
   }
 }
@@ -20063,6 +20071,7 @@ footer .content {
 }
 @media only screen and (max-width: 768px) {
   .about .content h2::after {
+    right: 14%;
     width: 80px;
   }
 }
@@ -20077,6 +20086,7 @@ footer .content {
 }
 @media only screen and (max-width: 768px) {
   .about .content h2::before {
+    left: 14%;
     width: 80px;
   }
 }
@@ -20107,6 +20117,7 @@ footer .content {
 }
 @media only screen and (max-width: 768px) {
   .services .content h2::after {
+    right: 14%;
     width: 80px;
   }
 }
@@ -20121,6 +20132,7 @@ footer .content {
 }
 @media only screen and (max-width: 768px) {
   .services .content h2::before {
+    left: 14%;
     width: 80px;
   }
 }
@@ -20151,6 +20163,7 @@ footer .content {
 }
 @media only screen and (max-width: 768px) {
   .apartments .content h2::after {
+    right: 14%;
     width: 80px;
   }
 }
@@ -20165,6 +20178,7 @@ footer .content {
 }
 @media only screen and (max-width: 768px) {
   .apartments .content h2::before {
+    left: 14%;
     width: 80px;
   }
 }

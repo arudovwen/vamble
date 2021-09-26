@@ -1,5 +1,5 @@
   <nav class="navbar navbar-expand-md navbar-light  navigation initial_navigation py-sm-0" id="nav">
-      <div class="container px-sm-0">
+      <div class="container align-items-sm-end px-sm-0">
           <a class="navbar-brand pt-sm-0" href="{{ url('/') }}">
               <img src="/logo.png" class="logo" alt="vamble logo">
           </a>
@@ -43,7 +43,7 @@
                       @guest
                           @if (Route::has('login'))
                               <li class="nav-item">
-                                  <a class="nav-link" href="{{ route('login') }}">
+                                  <a class="nav-link font-weight-normal" href="{{ route('login') }}">
                                       {{ __('Login') }}
                                   </a>
                               </li>
@@ -67,7 +67,7 @@
                                   </a>
                                   <a class="dropdown-item" href="{{ route('logout') }}"
                                       onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                                     document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                                                 document.getElementById('logout-form').submit();">
                                       {{ __('Logout') }}
                                   </a>
 
@@ -80,7 +80,7 @@
                       @endguest
                       <li class="nav-item">
 
-                          <a class="nav-link" href="{{ route('booking') }}">
+                          <a class="" href=" {{ route('booking') }}">
                               <button type="button"
                                   class="btn btn-primary btn-sm nav-btn">{{ __('Book online') }}</button>
 
@@ -123,7 +123,7 @@
                       @guest
                           @if (Route::has('login'))
                               <li class="nav-item">
-                                  <a class="nav-link" href="{{ route('login') }}">
+                                  <a class="nav-link " href="{{ route('login') }}">
                                       {{ __('Login') }}
                                   </a>
                               </li>
@@ -147,7 +147,7 @@
                                   </a>
                                   <a class="dropdown-item" href="{{ route('logout') }}"
                                       onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                                     document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                                                 document.getElementById('logout-form').submit();">
                                       {{ __('Logout') }}
                                   </a>
 
@@ -160,7 +160,7 @@
                       @endguest
                       <li class="nav-item">
 
-                          <a class="nav-link" href="{{ route('booking') }}">
+                          <a class="" href=" {{ route('booking') }}">
                               <button type="button"
                                   class="btn btn-primary btn-sm nav-btn">{{ __('Book online') }}</button>
 

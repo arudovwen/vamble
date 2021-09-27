@@ -130,7 +130,7 @@
                     </div>
                 </div>
                 <div
-                    class="col-xs-12 col-sm-6 px-3 px-sm-5 text-left fade_text animate__animated animate__fadeOut animate__slow  mb-4 mb-sm-0">
+                    class="col-xs-12 col-sm-6  text-left fade_text animate__animated animate__fadeOut animate__slow  mb-4 mb-sm-0">
                     <h3 class="line_half">Standard Apartment</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, hic? Commodi, nulla. Hic voluptas
                         illo quisquam praesentium vero fugit cumque eveniet similique quasi, cupiditate odio distinctio
@@ -161,7 +161,7 @@
 
             <div class="row mb-5 observer_2">
                 <div
-                    class="col-xs-12 col-sm-6 px-3 px-sm-5 text-left fade_text animate__animated animate__fadeOut animate__slow mb-4 mb-sm-0">
+                    class="col-xs-12 col-sm-6  text-left fade_text animate__animated animate__fadeOut animate__slow mb-4 mb-sm-0">
                     <h3 class="line_half">Executive Apartment</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, hic? Commodi, nulla. Hic voluptas
                         illo quisquam praesentium vero fugit cumque eveniet similique quasi, cupiditate odio distinctio
@@ -235,7 +235,7 @@
                     </div>
                 </div>
                 <div
-                    class="col-xs-12 col-sm-6 px-3 px-sm-5 text-left fade_text animate__animated animate__fadeOut animate__slow mb-4 mb-sm-0">
+                    class="col-xs-12 col-sm-6  text-left fade_text animate__animated animate__fadeOut animate__slow mb-4 mb-sm-0">
                     <h3 class="line_half">Luxury Apartment</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, hic? Commodi, nulla. Hic voluptas
                         illo quisquam praesentium vero fugit cumque eveniet similique quasi, cupiditate odio distinctio

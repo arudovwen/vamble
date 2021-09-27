@@ -58,23 +58,27 @@
 
             <div class="col-sm-3 px-sm-4 offset-sm-1">
                 <h6 class="font-weight-bold mb-4 d-flex justify-content-between align-items-center"><span>Quick
-                        Actions</span> <i class="fa fa-arrow-right" aria-hidden="true"></i></h6>
+                        Actions</span> </h6>
 
                 <div>
                     <a href="{{ route('rooms') }}" class="text-decoration-none"> <button type="button"
-                            class="btn btn-primary btn-lg btn-block mb-4 font-size-15 shadow">Add
-                            Room</button></a>
+                            class="btn btn-primary btn-lg btn-block mb-4 font-size-15 shadow d-flex justify-content-between align-items-center"><span>Add
+                                Room</span> <i class="fa fa-arrow-right" aria-hidden="true"></i></button></a>
                     <a href="{{ route('reservations') }}" class="text-decoration-none"> <button type="button"
-                            class="btn btn-success btn-lg btn-block mb-4 font-size-15 shadow">{{ __('Make Reservation') }}</button></a>
-                    <button type="button" class="btn btn-info btn-lg btn-block mb-4 font-size-15 shadow" data-toggle="modal"
-                        data-target="#checkId">Search booking#
+                            class="btn btn-primary btn-lg btn-block mb-4 font-size-15 shadow d-flex justify-content-between align-items-center">{{ __('Make Reservation') }}
+                            <i class="fa fa-arrow-right" aria-hidden="true"></i></button></a>
+                    <button type="button"
+                        class="btn btn-primary btn-lg btn-block mb-4 font-size-15 shadow d-flex justify-content-between align-items-center"
+                        data-toggle="modal" data-target="#checkId">Search booking# <i class="fa fa-arrow-right"
+                            aria-hidden="true"></i>
                     </button>
-                    <button type="button" class="btn btn-danger btn-lg btn-block mb-4 font-size-15 shadow"
+                    <button type="button"
+                        class="btn btn-primary btn-lg btn-block mb-4 font-size-15 shadow d-flex justify-content-between align-items-center"
                         data-toggle="modal" data-target="#namesearch"> Name/Email search
-                    </button>
+                        <i class="fa fa-arrow-right" aria-hidden="true"></i> </button>
                     <a href="{{ route('transactions') }}" class="text-decoration-none"> <button type="button"
-                            class="btn btn-warning btn-lg btn-block font-size-15 shadow">View
-                            Transactions</button></a>
+                            class="btn btn-primary btn-lg btn-block font-size-15 shadow d-flex justify-content-between align-items-center">View
+                            Transactions <i class="fa fa-arrow-right" aria-hidden="true"></i></button></a>
                 </div>
             </div>
         </div>

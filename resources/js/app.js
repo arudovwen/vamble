@@ -73,3 +73,5 @@ Vue.filter("currencyFormat", function(numb) {
 const app = new Vue({
     el: "#app"
 });
+
+require("./script");

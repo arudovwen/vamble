@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm navbar-light bg-white py-sm-3">
+<nav class="navbar navbar-expand-sm navbar-light bg-white py-sm-1">
     <a class="navbar-brand d-sm-none" href="{{ url('/') }}">
         <img src="/logo.png" class="logo" alt="vamble logo">
     </a>
@@ -116,7 +116,7 @@
 
                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false" v-pre>
-                    {{ Auth::user()->name }}
+                    Hi {{ Auth::user()->name }}
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

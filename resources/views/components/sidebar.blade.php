@@ -1,7 +1,7 @@
 <div class="sidebar d-none d-sm-block">
     <div class="logocontainer mb-0 mb-sm-4">
         <a class="" href=" {{ url('/') }}">
-            <img src="/logo.png" class="logo" alt="vamble logo">
+            <img src="/logo.png" class="adminlogo" alt="vamble logo">
         </a>
 
         <button class="navbar-toggler" type="button" aria-controls="navbarTogglerDemo01" aria-expanded="false"

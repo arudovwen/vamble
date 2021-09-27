@@ -21473,6 +21473,10 @@ i.red {
   color: rgba(0, 0, 0, 0.64);
 }
 
+.vhd__datepicker__wrapper {
+  background: #fff url(/images/cally.png) no-repeat 1em/1em !important;
+}
+
 .sidebar {
   height: 100vh;
   padding: 24px 0;
@@ -21539,4 +21543,8 @@ i.red {
   position: absolute;
   top: -7px;
   right: -10px;
+}
+
+.adminlogo {
+  height: 60px;
 }

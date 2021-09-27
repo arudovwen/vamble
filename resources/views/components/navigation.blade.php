@@ -3,9 +3,13 @@
           <a class="navbar-brand pt-sm-0" href="{{ url('/') }}">
               <img src="/logo.png" class="logo" alt="vamble logo">
           </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-              <span class="navbar-toggler-icon"></span>
+
+          <button class="navbar-toggler border-0 hamburger hamburger--spin" id="hamburger" type="button"
+              data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+              aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+              <span class="hamburger-box">
+                  <span class="hamburger-inner"></span>
+              </span>
           </button>
 
           <div class="nav-content">
@@ -67,7 +71,7 @@
                                   </a>
                                   <a class="dropdown-item" href="{{ route('logout') }}"
                                       onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                                                     document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                                                                                     document.getElementById('logout-form').submit();">
                                       {{ __('Logout') }}
                                   </a>
 
@@ -147,7 +151,7 @@
                                   </a>
                                   <a class="dropdown-item" href="{{ route('logout') }}"
                                       onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                                                     document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                                                                                     document.getElementById('logout-form').submit();">
                                       {{ __('Logout') }}
                                   </a>
 

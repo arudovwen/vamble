@@ -93,3 +93,10 @@ if (window.location.pathname == "/") {
         window.scrollTo(0, currentHeight * 0.7);
     });
 }
+
+$("#navbarSupportedContent").on("show.bs.collapse", function(e) {
+    $("#hamburger").addClass("is-active");
+});
+$("#navbarSupportedContent").on("hide.bs.collapse", function(e) {
+    $("#hamburger").removeClass("is-active");
+});

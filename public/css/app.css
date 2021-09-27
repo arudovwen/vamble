@@ -20579,11 +20579,11 @@ ol {
   border-bottom: 1px solid #ccc;
   position: absolute;
   bottom: 50%;
-  right: 25%;
+  right: 20%;
 }
 @media only screen and (max-width: 768px) {
   .secondContent .content h2::after {
-    right: 14%;
+    right: 10%;
     width: 80px;
   }
 }
@@ -20594,11 +20594,11 @@ ol {
   border-bottom: 1px solid #ccc;
   position: absolute;
   bottom: 50%;
-  left: 25%;
+  left: 20%;
 }
 @media only screen and (max-width: 768px) {
   .secondContent .content h2::before {
-    left: 14%;
+    left: 10%;
     width: 80px;
   }
 }
@@ -20700,11 +20700,11 @@ ol {
   border-bottom: 1px solid #ccc;
   position: absolute;
   bottom: 50%;
-  right: 25%;
+  right: 20%;
 }
 @media only screen and (max-width: 768px) {
   .thirdContent .content h2::after {
-    right: 14%;
+    right: 10%;
     width: 80px;
   }
 }
@@ -20715,11 +20715,11 @@ ol {
   border-bottom: 1px solid #ccc;
   position: absolute;
   bottom: 50%;
-  left: 25%;
+  left: 20%;
 }
 @media only screen and (max-width: 768px) {
   .thirdContent .content h2::before {
-    left: 14%;
+    left: 10%;
     width: 80px;
   }
 }
@@ -20812,11 +20812,11 @@ ol {
   border-bottom: 1px solid #ccc;
   position: absolute;
   bottom: 50%;
-  right: 25%;
+  right: 20%;
 }
 @media only screen and (max-width: 768px) {
   .fifthContent .content h2::after {
-    right: 14%;
+    right: 10%;
     width: 80px;
   }
 }
@@ -20827,11 +20827,11 @@ ol {
   border-bottom: 1px solid #ccc;
   position: absolute;
   bottom: 50%;
-  left: 25%;
+  left: 20%;
 }
 @media only screen and (max-width: 768px) {
   .fifthContent .content h2::before {
-    left: 14%;
+    left: 10%;
     width: 80px;
   }
 }
@@ -20918,7 +20918,7 @@ ol {
 .quote {
   color: rgba(116, 84, 18, 0.15);
   position: absolute;
-  left: 25%;
+  left: 20%;
   top: 10%;
 }
 
@@ -20967,11 +20967,11 @@ footer .content {
   border-bottom: 1px solid #ccc;
   position: absolute;
   bottom: 50%;
-  right: 25%;
+  right: 20%;
 }
 @media only screen and (max-width: 768px) {
   .contact .content h2::after {
-    right: 14%;
+    right: 10%;
     width: 80px;
   }
 }
@@ -20982,11 +20982,11 @@ footer .content {
   border-bottom: 1px solid #ccc;
   position: absolute;
   bottom: 50%;
-  left: 25%;
+  left: 20%;
 }
 @media only screen and (max-width: 768px) {
   .contact .content h2::before {
-    left: 14%;
+    left: 10%;
     width: 80px;
   }
 }
@@ -21027,11 +21027,11 @@ footer .content {
   border-bottom: 1px solid #ccc;
   position: absolute;
   bottom: 50%;
-  right: 25%;
+  right: 20%;
 }
 @media only screen and (max-width: 768px) {
   .about .content h2::after {
-    right: 14%;
+    right: 10%;
     width: 80px;
   }
 }
@@ -21042,11 +21042,11 @@ footer .content {
   border-bottom: 1px solid #ccc;
   position: absolute;
   bottom: 50%;
-  left: 25%;
+  left: 20%;
 }
 @media only screen and (max-width: 768px) {
   .about .content h2::before {
-    left: 14%;
+    left: 10%;
     width: 80px;
   }
 }
@@ -21073,11 +21073,11 @@ footer .content {
   border-bottom: 1px solid #ccc;
   position: absolute;
   bottom: 50%;
-  right: 25%;
+  right: 20%;
 }
 @media only screen and (max-width: 768px) {
   .services .content h2::after {
-    right: 14%;
+    right: 10%;
     width: 80px;
   }
 }
@@ -21088,11 +21088,11 @@ footer .content {
   border-bottom: 1px solid #ccc;
   position: absolute;
   bottom: 50%;
-  left: 25%;
+  left: 20%;
 }
 @media only screen and (max-width: 768px) {
   .services .content h2::before {
-    left: 14%;
+    left: 10%;
     width: 80px;
   }
 }
@@ -21119,11 +21119,11 @@ footer .content {
   border-bottom: 1px solid #ccc;
   position: absolute;
   bottom: 50%;
-  right: 25%;
+  right: 20%;
 }
 @media only screen and (max-width: 768px) {
   .apartments .content h2::after {
-    right: 14%;
+    right: 10%;
     width: 80px;
   }
 }
@@ -21134,11 +21134,11 @@ footer .content {
   border-bottom: 1px solid #ccc;
   position: absolute;
   bottom: 50%;
-  left: 25%;
+  left: 20%;
 }
 @media only screen and (max-width: 768px) {
   .apartments .content h2::before {
-    left: 14%;
+    left: 10%;
     width: 80px;
   }
 }

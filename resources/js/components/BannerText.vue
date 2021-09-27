@@ -35,14 +35,12 @@ export default {
 
 <style>
 #banner {
-  font-family: "Playfair Display", serif;
+  font-family: "Nunito", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
 }
-h1 {
-  font-family: "Playfair Display", serif;
-}
+
 span {
   display: inline-block;
 }

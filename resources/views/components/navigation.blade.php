@@ -1,4 +1,4 @@
-  <nav class="navbar navbar-expand-md navbar-light  navigation initial_navigation py-sm-0" id="nav">
+  <nav class="navbar navbar-expand-md navbar-light  navigation default_navigation py-sm-0" id="nav">
       <div class="container align-items-sm-end px-sm-0">
           <a class="navbar-brand pt-sm-0" href="{{ url('/') }}">
               <img src="/logo.png" class="logo" alt="vamble logo">
@@ -71,7 +71,7 @@
                                   </a>
                                   <a class="dropdown-item" href="{{ route('logout') }}"
                                       onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                                                                                     document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                                                                                         document.getElementById('logout-form').submit();">
                                       {{ __('Logout') }}
                                   </a>
 
@@ -151,7 +151,7 @@
                                   </a>
                                   <a class="dropdown-item" href="{{ route('logout') }}"
                                       onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                                                                                     document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                                                                                         document.getElementById('logout-form').submit();">
                                       {{ __('Logout') }}
                                   </a>
 

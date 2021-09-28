@@ -36,3 +36,10 @@
         </div>
     </div>
 @endsection
+
+@section('javascript')
+    <script>
+        console.log('working now')
+    </script>
+
+@endsection

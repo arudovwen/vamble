@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-sm navbar-light bg-white py-sm-1">
-    <a class="navbar-brand d-sm-none" href="{{ url('/') }}">
-        <img src="/logo.png" class="logo" alt="vamble logo">
+    <a class="navbar-brand " href="{{ url('/') }}">
+        <img src="/logo.png" class="adminlogo" alt="vamble logo">
     </a>
     <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
         aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">

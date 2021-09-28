@@ -37,7 +37,7 @@
 
         <x-footer></x-footer>
     </div>
-
+    @yield('javascript')
 </body>
 
 </html>

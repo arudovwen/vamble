@@ -1,5 +1,5 @@
 <div class="sidebar d-none d-sm-block">
-    <div class="logocontainer mb-0 mb-sm-4">
+    {{-- <div class="logocontainer mb-0 mb-sm-4">
         <a class="" href=" {{ url('/') }}">
             <img src="/logo.png" class="adminlogo" alt="vamble logo">
         </a>
@@ -8,7 +8,7 @@
             aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-    </div>
+    </div> --}}
     <nav>
 
         <ul class="d-none d-sm-block">

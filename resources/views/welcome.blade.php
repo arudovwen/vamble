@@ -325,3 +325,17 @@
 
 
 @endsection
+@section('javascript')
+    <script>
+        var navigation = document.getElementById("nav");
+        navigation.classList.remove("default_navigation");
+        navigation.classList.add("initial_navigation");
+        //Know more scroll
+        var knowmore = document.querySelector(".know_more");
+        knowmore.addEventListener("click", () => {
+            var currentHeight = window.innerHeight;
+            window.scrollTo(0, currentHeight * 0.7);
+        });
+    </script>
+
+@endsection

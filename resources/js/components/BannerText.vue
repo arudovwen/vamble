@@ -28,7 +28,7 @@ export default {
   mounted() {
     setTimeout(() => {
       this.showText = true;
-    }, 1500);
+    }, 1200);
   },
 };
 </script>

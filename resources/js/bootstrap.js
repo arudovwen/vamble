@@ -11,7 +11,6 @@ try {
     window.$ = window.jQuery = require("jquery");
     window.bootstrap = require("bootstrap");
     window.animate = require("animate.css");
-    window.VueTextTransition = require("vue-text-transition");
 } catch (e) {}
 
 /**

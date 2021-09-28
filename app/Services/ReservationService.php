@@ -6,8 +6,11 @@ use Carbon\Carbon;
 use App\Models\Room;
 use App\Models\User;
 use App\Models\Reservation;
+use App\Mail\BookingSuccess;
+use App\Mail\NewReservation;
 use App\Models\RoomCalendar;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class ReservationService
 {
@@ -18,52 +21,102 @@ class ReservationService
 
 
     return DB::transaction(function () use ($request) {
-      $room = Room::find($request->room_id);
-      $duration = Carbon::parse($request->checkIn)->diffInDays(Carbon::parse($request->checkOut));
-      $booking_no = rand(10000000, 99999999);
-      $checkNo = Reservation::where('booking_no', $booking_no)->first();
-      while ($checkNo) {
+
+      try {
+        $duration = Carbon::parse($request->checkIn)->diffInDays(Carbon::parse($request->checkOut));
         $booking_no = rand(10000000, 99999999);
         $checkNo = Reservation::where('booking_no', $booking_no)->first();
+        $roomdetail = Room::find($request->room_id);
+        while ($checkNo) {
+          $booking_no = rand(10000000, 99999999);
+          $checkNo = Reservation::where('booking_no', $booking_no)->first();
+        }
+
+
+        $availablerooms = $this->getfreeroom($request);
+        if (count($availablerooms) < $request->rooms) {
+          return response()->json('not enough');
+        }
+        $neededrooms = array_slice($availablerooms, 0, $request->rooms);
+
+        $user = User::firstOrCreate(
+          ['email' => strtolower($request->email)],
+          [
+            'name' => strtolower($request->name),
+            'email' => strtolower($request->email),
+            'phone' => $request->phone,
+            'address' => strtolower($request->address),
+            'gender' => strtolower($request->gender),
+            'nationality' => strtolower($request->nationality),
+            'role_id' => 3
+          ]
+        );
+
+        $reservation =  Reservation::create([
+          'booking_no' => $booking_no,
+          'no_of_guests' => $request->guests,
+          'no_of_rooms'  => $request->rooms,
+          'check_in'  => $request->checkIn,
+          'check_out'  => $request->checkOut,
+          'duration'  => $duration,
+          'price_per_night'  => $roomdetail->price,
+          'total_price'  => intval($duration) * intval($roomdetail->price) *  intval($request->rooms),
+          'payment_status'  => $request->payment_status,
+          'payment_type' => $request->payment_type,
+          'room_id'  => $roomdetail->id,
+          'user_id'  => $user->id,
+          'status' => $request->status
+
+        ]);
+        foreach ($neededrooms as $singleroom) {
+
+          $calendar =  RoomCalendar::create(['room_id' => $singleroom->id]);
+          $calendar->user_id = $user->id;
+          $calendar->reservation_id = $reservation->id;
+          $calendar->check_in = $request->checkIn;
+          $calendar->check_out = $request->checkOut;
+          $calendar->save();
+        }
+
+        $detail = [
+          'name' => $user->name,
+          'booking_no' => $booking_no,
+          'no_of_guests' => $request->guests,
+          'no_of_rooms'  => $request->rooms,
+          'check_in'  => $request->checkIn,
+          'check_out'  => $request->checkOut,
+          'nights'  => $duration,
+          'price_per_night'  => $roomdetail->price,
+          'total_price'  => $request->total_price,
+          'payment_status'  => $request->payment_status,
+          'payment_type' => $request->payment_type,
+          'room'  => $roomdetail->name,
+          'status' => $request->status
+        ];
+        $admindetail = [
+          'name' => $user->name,
+          'email' => $user->email,
+          'booking_no' => $booking_no,
+          'no_of_guests' => $request->guests,
+          'no_of_rooms'  => $request->rooms,
+          'check_in'  => $request->checkIn,
+          'check_out'  => $request->checkOut,
+          'nights'  => $duration,
+          'price_per_night'  => $roomdetail->price,
+          'total_price'  => $request->total_price,
+          'payment_status'  => $request->payment_status,
+          'payment_type' => $request->payment_type,
+          'room'  => $roomdetail->name,
+          'roomshortname'  => $roomdetail->short_name,
+          'status' => $request->status
+        ];
+        Mail::to($user->email)->send(new BookingSuccess($detail));
+        Mail::to('succy2010@gmail.com')->send(new NewReservation($admindetail));
+
+        return response($reservation, 201);
+      } catch (\Throwable $th) {
+        throw $th;
       }
-
-      $user = User::firstOrCreate(
-        ['email' => strtolower($request->email)],
-        [
-          'name' => strtolower($request->name),
-          'email' => strtolower($request->email),
-          'phone' => $request->phone,
-          'address' => strtolower($request->address),
-          'gender' => strtolower($request->gender),
-          'nationality' => strtolower($request->nationality),
-          'role_id' => 3
-        ]
-      );
-
-
-      $reservation =  Reservation::create([
-        'booking_no' => $booking_no,
-        'no_of_guests' => $request->guests,
-        'no_of_rooms'  => $request->rooms,
-        'check_in'  => $request->checkIn,
-        'check_out'  => $request->checkOut,
-        'duration'  => $duration,
-        'price_per_night'  => $room->price,
-        'total_price'  => intval($duration) * intval($room->price) *  intval($request->rooms),
-        'payment_status'  => $request->payment_status,
-        'payment_type' => $request->payment_type,
-        'room_id'  => $request->room_id,
-        'user_id'  => $user->id,
-        'status' => $request->status
-
-      ]);
-
-      $calendar =  RoomCalendar::where('room_id', $request->room_id)->first();
-      $calendar->user_id = $user->id;
-      $calendar->reservation_id = $reservation->id;
-      $calendar->save();
-
-      return response($calendar->load('room', 'user', 'reservation'), 201);
     });
   }
 
@@ -125,14 +178,26 @@ class ReservationService
     $time_from = Carbon::parse($request->input('checkin'));
     $time_to = Carbon::parse($request->input('checkout'));
     $room_id = $request->room_id;
+    $roomtype = Room::find($room_id)->name;
     $roomsneeded = $request->rooms;
 
 
 
-    return $rooms = Reservation::where('room_id', $room_id)->where(function ($q2) use ($time_from, $time_to) {
-      $q2->where('check_in', '>=', $time_to)
-        ->orWhere('check_out', '<=', $time_from);
-    })->get();
+    $rooms = RoomCalendar::with('reservation', 'room')->whereHas('reservation', function ($q) use ($time_from, $time_to) {
+      $q->where(function ($q2) use ($time_from, $time_to) {
+        $q2->where('check_in', '>=', $time_to)
+          ->orWhere('check_out', '<=', $time_from);
+      });
+    })->orWhereDoesntHave('reservation')->get();
+
+    $roomtype = RoomCalendar::with('reservation', 'room')->whereHas('reservation', function ($q) use ($time_from, $time_to) {
+      $q->where(function ($q2) use ($time_from, $time_to) {
+        $q2->where('check_in', '>=', $time_to)
+          ->orWhere('check_out', '<=', $time_from);
+      });
+    })->orWhereDoesntHave('reservation')->get()->filter(function ($a) use ($roomtype) {
+      return $a->room->name == $roomtype;
+    });
 
     if (count($rooms) >= $roomsneeded) {
       $message = " Room is available, you can proceed to book the room";
@@ -141,7 +206,8 @@ class ReservationService
         [
           'status' => 'available',
           'message' => $message,
-          'rooms' => $rooms
+          'rooms' => $rooms,
+          'roomtype' => $roomtype
         ]
       );
     };
@@ -173,21 +239,22 @@ class ReservationService
     //   return abort(401);
     // }
 
+
     $time_from = Carbon::parse($request->input('checkIn'));
     $time_to = Carbon::parse($request->input('checkOut'));
     $room_id = $request->room_id;
+    $roomtype = Room::find($room_id)->name;
     $roomsneeded = $request->rooms;
 
-
     if ($request->isMethod('POST')) {
-      $rooms = RoomCalendar::with('reservation')->whereHas('reservation', function ($q) use ($time_from, $time_to) {
+      $rooms = Room::with('roomcalendar')->whereHas('roomcalendar', function ($q) use ($time_from, $time_to) {
         $q->where(function ($q2) use ($time_from, $time_to) {
           $q2->where('check_in', '>=', $time_to)
             ->orWhere('check_out', '<=', $time_from);
         });
-      })->orWhereDoesntHave('reservation')->get()->filter(function ($a) use ($room_id) {
-        return $a->room_id == $room_id;
-      });
+      })->orWhereDoesntHave('roomcalendar')->get()->filter(function ($a) use ($roomtype) {
+        return $a->name == $roomtype;
+      })->values()->all();
     } else {
       $rooms = null;
     }
@@ -204,7 +271,7 @@ class ReservationService
       );
     };
     if (count($rooms) && count($rooms) < $roomsneeded) {
-      $message = "Only " . count($rooms) . " available";
+      $message = "Only " . count($rooms) . (count($rooms) > 1 ? ' rooms' : ' room') . " available";
 
       return response()->json(
         [
@@ -224,13 +291,40 @@ class ReservationService
     );
   }
 
+  public function getfreeroom($request)
+  {
+
+
+
+    $time_from = Carbon::parse($request->input('checkIn'));
+    $time_to = Carbon::parse($request->input('checkOut'));
+    $room_id = $request->room_id;
+    $roomtype = Room::find($room_id)->name;
+    $roomsneeded = $request->rooms;
+
+
+
+    $rooms = Room::with('roomcalendar')->whereHas('roomcalendar', function ($q) use ($time_from, $time_to) {
+      $q->where(function ($q2) use ($time_from, $time_to) {
+        $q2->where('check_in', '>=', $time_to)
+          ->orWhere('check_out', '<=', $time_from);
+      });
+    })->orWhereDoesntHave('roomcalendar')->get()->filter(function ($a) use ($roomtype) {
+      return $a->name == $roomtype;
+    })->values()->all();
+
+    return $rooms;
+  }
+
+
   public function removereservation($reservation)
   {
-    $calendar =  RoomCalendar::where('room_id', $reservation->room_id)->first();
-    $calendar->user_id = null;
-    $calendar->reservation_id = null;
-    $calendar->save();
+    $calendar =  RoomCalendar::where('reservation_id', $reservation->id)->get();
+
+    foreach ($calendar as $value) {
+      $value->delete();
+    }
     $reservation->delete();
-    return redirect('/reservations')->with('success', 'Data Deleted');
+    return redirect('/reservations')->with('success', 'Reservation cancelled');
   }
 }

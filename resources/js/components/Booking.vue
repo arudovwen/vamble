@@ -156,7 +156,7 @@ export default {
   },
   methods: {
     getRooms() {
-      axios.get("http://localhost:8000/rooms").then((res) => {
+      axios.get("http://localhost:8000/room/types").then((res) => {
         if (res.status == 200) {
           this.allrooms = res.data;
         }

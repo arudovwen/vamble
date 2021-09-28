@@ -70,11 +70,14 @@ export default {
   data() {
     return {
       rooms: [],
+      roomtypes: [],
     };
   },
   created() {
     bus.$on("search-room", (data) => {
-      this.rooms = data;
+      console.log("🚀 ~ file: RoomResult.vue ~ line 78 ~ bus.$on ~ data", data);
+      this.rooms = data.rooms;
+      this.roomtypes = data.roomtypes;
     });
   },
 };

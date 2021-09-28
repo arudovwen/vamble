@@ -153,7 +153,8 @@
                         <span class="badge badge-primary"> Wireless Internet </span>
                     </div>
                     <div class="d-flex justify-content-between align-items-center">
-                        <button type="button" class="btn btn-outline-dark btn-sm"> Book room</button>
+                        <a href="/booking"> <button type="button" class="btn btn-outline-dark btn-sm"> Book
+                                room</button></a>
                         <span> <span class="badge  badge-primary">9.2</span> <span>Superb</span></span>
                     </div>
                 </div>
@@ -184,7 +185,8 @@
                         <span class="badge badge-primary"> Wireless Internet </span>
                     </div>
                     <div class="d-flex justify-content-between align-items-center">
-                        <button type="button" class="btn btn-outline-dark btn-sm"> Book room</button>
+                        <a href="/booking"> <button type="button" class="btn btn-outline-dark btn-sm"> Book
+                                room</button></a>
                         <span> <span class="badge  badge-primary">9.2</span> <span>Superb</span></span>
                     </div>
                 </div>
@@ -258,7 +260,8 @@
                         <span class="badge badge-primary"> Wireless Internet </span>
                     </div>
                     <div class="d-flex justify-content-between align-items-center">
-                        <button type="button" class="btn btn-outline-dark btn-sm"> Book room</button>
+                        <a href="/booking"> <button type="button" class="btn btn-outline-dark btn-sm"> Book
+                                room</button></a>
                         <span> <span class="badge  badge-primary">9.2</span> <span>Superb</span></span>
                     </div>
                 </div>

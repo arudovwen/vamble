@@ -47,8 +47,8 @@
               v-model="detail.room_id"
             >
               <option :value="null" disabled>Apartment type</option>
-              <option :value="0">Any</option>
-              <option :value="room.id" v-for="room in allrooms" :key="room.id">
+
+              <option :value="room.id" v-for="room in roomtypes" :key="room.id">
                 <div class="d-flex justify-content-between align-items-center">
                   <span
                     ><span>{{ room.name }}</span> apartment</span
@@ -70,6 +70,38 @@
         </button>
       </div>
     </form>
+    <div
+      class="alert alert-success alert-dismissible fade show"
+      role="alert"
+      v-if="status == 'available'"
+    >
+      <button
+        type="button"
+        class="close"
+        data-dismiss="alert"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+        <span class="sr-only">Close</span>
+      </button>
+      <strong>{{ message }}</strong>
+    </div>
+    <div
+      class="alert alert-info alert-dismissible fade show"
+      role="alert"
+      v-if="status == 'unavailable'"
+    >
+      <button
+        type="button"
+        class="close"
+        data-dismiss="alert"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+        <span class="sr-only">Close</span>
+      </button>
+      <strong>{{ message }}</strong>
+    </div>
   </div>
 </template>
 <script>
@@ -77,6 +109,10 @@ import { bus } from "../../app";
 export default {
   data() {
     return {
+      type: "all",
+      message: "",
+      status: null,
+      roomtypes: [],
       allrooms: [],
       detail: {
         checkIn: "",
@@ -96,7 +132,14 @@ export default {
   },
   methods: {
     getRooms() {
-      axios.get("http://localhost:8000/rooms").then((res) => {
+      axios.get("http://localhost:8000/room/types").then((res) => {
+        if (res.status == 200) {
+          this.roomtypes = res.data;
+        }
+      });
+    },
+    getallavailble() {
+      axios.get("http://localhost:8000/available/rooms").then((res) => {
         if (res.status == 200) {
           this.allrooms = res.data;
         }
@@ -123,10 +166,24 @@ export default {
       axios
         .post("http://localhost:8000/search/room", this.detail)
         .then((res) => {
+          console.log(
+            "🚀 ~ file: SearchRoom.vue ~ line 169 ~ .then ~ res",
+            res
+          );
           if (res.data.message == "available") {
             this.isChecking = false;
             this.rooms = res.data.rooms;
-            bus.$emit("search-room", this.rooms);
+            this.message = res.data.message;
+            this.status = res.data.status;
+            var data = {
+              rooms: res.data.rooms,
+              roomtypes: res.data.roomtype,
+            };
+            bus.$emit("search-room", this.rooms, res.data.roomtype);
+            setTimeout(() => {
+              this.message = "";
+              this.status = null;
+            }, 2500);
             return;
           }
 

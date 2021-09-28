@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Room extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'total', 'price', 'available', 'occupied', 'short_name', 'max_occupancy'];
+    protected $fillable = ['name', 'total', 'price', 'available', 'occupied', 'short_name', 'max_occupancy', 'description', 'floor', ''];
 
     public function reservations()
     {
@@ -16,6 +16,6 @@ class Room extends Model
     }
     public function roomcalendar()
     {
-        return $this->hasMany(RoomCalendar::class);
+        return $this->hasMany(RoomCalendar::class)->with('reservation');
     }
 }

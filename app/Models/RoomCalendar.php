@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class RoomCalendar extends Model
 {
     use HasFactory;
-    protected $fillable = ['room_id', 'reservation_id', 'user_id'];
+    protected $fillable = ['room_id', 'reservation_id', 'user_id', 'check_in', 'check_out'];
 
     public function reservation()
     {

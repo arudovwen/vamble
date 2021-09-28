@@ -29,8 +29,9 @@ class AdminController extends Controller
         $end  = Carbon::now()->endOfWeek();
 
         $data  = Reservation::where([['created_at', '>=', $start], ['created_at', '<=', $end]])->get();
+        $customers = User::where('role_id', 3)->get();
 
-        return view('admin.dashboard', compact('data'));
+        return view('admin.dashboard', compact('data', 'customers'));
     }
     public function users()
     {

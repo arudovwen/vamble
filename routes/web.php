@@ -23,16 +23,20 @@ Auth::routes();
 
 
 Route::get('/about', [App\Http\Controllers\AboutController::class, 'index'])->name('about');
-Route::get('/contact', [App\Http\Controllers\ContactController::class, 'index'])->name('contact');
-Route::get('/gallery', [App\Http\Controllers\GalleryController::class, 'index'])->name('gallery');
 
+Route::get('/contact', [App\Http\Controllers\ContactController::class, 'index'])->name('contact');
+Route::post('/enquire', [App\Http\Controllers\ContactController::class, 'sendmessage'])->name('sendmessage');
+
+
+Route::get('/gallery', [App\Http\Controllers\GalleryController::class, 'index'])->name('gallery');
 Route::get('/booking', [App\Http\Controllers\BookingController::class, 'index'])->name('booking');
 Route::post('/check/booking', [App\Http\Controllers\BookingController::class, 'checkbooking'])->name('checkbooking');
 Route::get('/find/booking/{booking}', [App\Http\Controllers\ReservationController::class, 'findbooking'])->name('findbooking');
-
 Route::post('/find/bookings', [App\Http\Controllers\ReservationController::class, 'findbookings'])->name('findbookings');
 Route::post('/post/bookings', [App\Http\Controllers\ReservationController::class, 'postbookings'])->name('postbookings');
 
+
+// Reservations
 Route::post('/check/availability', [App\Http\Controllers\ReservationController::class, 'checkavailability'])->name('checkavailability');
 Route::post('/reserve', [App\Http\Controllers\ReservationController::class, 'store'])->name('makereservation');
 Route::put('/reservations/{reservation}', [App\Http\Controllers\ReservationController::class, 'update'])->name('updatereservation');
@@ -41,12 +45,18 @@ Route::delete('/reserve/{reservation}', [App\Http\Controllers\ReservationControl
 Route::put('/reservations/update/{reservation}', [App\Http\Controllers\ReservationController::class, 'update'])->name('updatereservation');
 Route::get('/bookings', [App\Http\Controllers\BookingController::class, 'getbookings'])->name('getbookings');
 
-Route::post('/search/room', [App\Http\Controllers\RoomController::class, 'searchroom'])->name('searchroom');
+
 
 Route::get('/accomodations', [App\Http\Controllers\AccomodationController::class, 'index'])->name('accomodations');
 Route::get('/services', [App\Http\Controllers\ServiceController::class, 'index'])->name('services');
 
+
+Route::post('/search/room', [App\Http\Controllers\RoomController::class, 'searchroom'])->name('searchroom');
+Route::delete('/room/{room}', [App\Http\Controllers\RoomController::class, 'destroy'])->name('droproom');
+Route::get('/room/types', [App\Http\Controllers\RoomController::class, 'roomtypes'])->name('roomtypes');
 Route::resource('rooms', RoomController::class);
+
+
 
 // Admin routes
 Route::get('/dashboard', [App\Http\Controllers\AdminController::class, 'dashboard'])->name('dashboard');

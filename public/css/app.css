@@ -20338,6 +20338,10 @@ ol {
   list-style: none;
 }
 
+th {
+  font-size: 0.75rem;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }

@@ -18,11 +18,6 @@ Breadcrumbs::for('welcome', function (BreadcrumbTrail $trail) {
   $trail->push('Home', route('home'));
 });
 
-// Home > bookings
-Breadcrumbs::for('bookings', function (BreadcrumbTrail $trail) {
-  $trail->push('Home', route('home'));
-  $trail->push('Bookings', route('getbookings'));
-});
 // Home >
 Breadcrumbs::for('about', function (BreadcrumbTrail $trail) {
   $trail->push('Home', route('home'));
@@ -49,6 +44,17 @@ Breadcrumbs::for('services', function (BreadcrumbTrail $trail) {
 Breadcrumbs::for('accomodations', function (BreadcrumbTrail $trail) {
   $trail->push('Home', route('home'));
   $trail->push('Apartments & Suites', route('accomodations'));
+});
+
+Breadcrumbs::for('booking', function (BreadcrumbTrail $trail) {
+  $trail->push('Home', route('home'));
+  $trail->push('Booking', route('booking'));
+});
+
+Breadcrumbs::for('bookings', function (BreadcrumbTrail $trail) {
+  $trail->push('Home', route('home'));
+  $trail->push('Booking', route('booking'));
+  $trail->push('Your Bookings', route('getbookings'));
 });
 
 

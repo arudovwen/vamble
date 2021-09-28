@@ -71,7 +71,7 @@
                                             {{ date('j \\ F Y', strtotime($reservation->check_out)) }}
                                         </td>
                                         <td class="text-capitalize">
-                                            ₦{{ number_format($reservation->total_price, 2) }}
+                                            ₦{{ number_format($reservation->total_price) }}
                                         </td>
                                         <td class="d-flex ">
                                             <button type="button" class="btn btn-primary btn-sm mr-2" data-toggle="modal"

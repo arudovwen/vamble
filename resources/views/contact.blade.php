@@ -36,8 +36,26 @@
                 </div>
 
                 <div class="col-md-6 px-4 text-left d-flex align-items-center">
-
-                    <form action="" method="post" class="w-100">
+                    @if (Session::get('success'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                <span class="sr-only">Close</span>
+                            </button>
+                            <strong> {{ Session::get('success') }}</strong>
+                        </div>
+                    @endif
+                    @if (Session::get('error'))
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                <span class="sr-only">Close</span>
+                            </button>
+                            <strong> {{ Session::get('error') }}</strong>
+                        </div>
+                    @endif
+                    <form action="{{ route('sendmessage') }}" method="post" class="w-100">
+                        @csrf
                         <legend>Feel free to write to us</legend>
 
                         <div class="form-group">
@@ -54,11 +72,11 @@
                         </div>
                         <div class="form-group">
                             <label for="">Message</label>
-                            <textarea class="form-control" name="message" id="message" aria-describedby="helpId"
+                            <textarea class="form-control" name="body" id="body" aria-describedby="helpId"
                                 placeholder="Write your message here">
-                          </textarea>
+                                              </textarea>
                         </div>
-                        <button type="button" class="btn btn-primary ">Send message</button>
+                        <button type="submit" class="btn btn-primary ">Send message</button>
                     </form>
 
                 </div>

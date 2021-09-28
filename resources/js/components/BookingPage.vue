@@ -642,6 +642,7 @@
 import HotelDatePicker from "vue-hotel-datepicker";
 import "vue-hotel-datepicker/dist/vueHotelDatepicker.css";
 import UpdateBook from "./UpdateBooking.vue";
+
 export default {
   components: {
     HotelDatePicker,
@@ -666,11 +667,11 @@ export default {
         gender: "",
         phone: "",
         guests: 1,
-        room_id: 1,
+        room_id: null,
         checkIn: "",
         checkOut: "",
         nights: null,
-        rooms: 1,
+        rooms: null,
         payment_type: null,
         total_price: 0,
         payment_status: "",
@@ -690,6 +691,12 @@ export default {
     this.getRooms();
   },
   mounted() {
+    $("#modelId").on("hidden.bs.modal", function (e) {
+      if (this.isFinalizing) {
+        window.location.href = "/booking";
+      }
+    });
+
     var query = new URLSearchParams(window.location.search);
     if (
       query.has("room") &&
@@ -733,7 +740,7 @@ export default {
       modalId.show();
     },
     getRooms() {
-      axios.get("http://localhost:8000/rooms").then((res) => {
+      axios.get("http://localhost:8000/room/types").then((res) => {
         if (res.status == 200) {
           this.rooms = res.data;
         }
@@ -757,8 +764,8 @@ export default {
         .post("http://localhost:8000/reserve", this.detail)
         .then((res) => {
           if (res.status == 201) {
-            this.bookingNumb = res.data.reservation.booking_no;
-            this.finalize = true;
+            this.bookingNumb = res.data.booking_no;
+            this.finalize = false;
             this.isFinalizing = true;
             this.detail = {
               name: "",
@@ -767,11 +774,11 @@ export default {
               gender: "",
               phone: "",
               guests: 1,
-              room_id: 1,
+              room_id: null,
               checkIn: "",
               checkOut: "",
               nights: null,
-              rooms: 1,
+              rooms: null,
               payment_type: null,
               total_price: 0,
               payment_status: "",

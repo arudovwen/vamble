@@ -20,9 +20,14 @@ class RoomController extends Controller
 
         return $this->roomService->getrooms();
     }
+    public function roomtypes()
+    {
+
+        return $this->roomService->getroomtypes();
+    }
     public function store(Request $request)
     {
-        dd($request->all());
+
         return $this->roomService->addroom($request);
     }
     public function show(Room $room)

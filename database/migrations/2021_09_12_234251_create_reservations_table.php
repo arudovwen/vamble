@@ -23,8 +23,8 @@ class CreateReservationsTable extends Migration
             $table->integer('price_per_night');
             $table->integer('total_price');
             $table->string('payment_status');
-            $table->foreignId('room_id')->constrained()->onDeleteCascade()->onUpdateCascade();
-            $table->foreignId('user_id')->constrained()->onDeleteCascade()->onUpdateCascade();
+            $table->foreignId('room_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->string('check_in_time')->nullable();
             $table->string('check_out_time')->nullable();
             $table->timestamps();

@@ -66,3 +66,7 @@ Route::get('/search', [App\Http\Controllers\AdminController::class, 'roomsearch'
 Route::get('/reservations', [App\Http\Controllers\AdminController::class, 'reservations'])->name('reservations');
 Route::get('/transactions', [App\Http\Controllers\AdminController::class, 'transactions'])->name('transactions');
 Route::get('/calendar', [App\Http\Controllers\AdminController::class, 'calendar'])->name('calendar');
+
+
+Route::get('/customer/checkin/{reservation}', [App\Http\Controllers\ReservationController::class, 'customercheckin'])->name('customercheckin');
+Route::get('/customer/checkout/{reservation}', [App\Http\Controllers\ReservationController::class, 'customercheckout'])->name('customercheckout');

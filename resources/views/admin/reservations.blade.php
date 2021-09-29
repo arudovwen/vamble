@@ -41,11 +41,13 @@
 
                             </div>
                         </div>
-                        <table class="table table-bordered bg-white mb-0">
+                        <table class="table table-bordered table-striped bg-white mb-0">
                             <thead>
                                 <tr>
                                     <th>Name</th>
+                                    <th>Booking no</th>
                                     <th>Room</th>
+
                                     <th> Guests</th>
                                     <th> Rooms</th>
                                     <th> Nights</th>
@@ -53,7 +55,7 @@
                                     <th>Check Out</th>
                                     <th>Amount Paid</th>
 
-
+                                    <th>Activity</th>
                                     <th>Actions</th>
 
                                 </tr>
@@ -62,6 +64,8 @@
                                 @foreach ($reservations as $reservation)
                                     <tr>
                                         <td scope="row" class="text-capitalize">{{ $reservation->user->name }}</td>
+
+                                        <td class="text-capitalize">{{ $reservation->booking_no }}</td>
                                         <td class="text-capitalize">{{ $reservation->room->name }}</td>
                                         <td>{{ $reservation->no_of_guests }}</td>
                                         <td>{{ $reservation->no_of_rooms }}</td>
@@ -73,12 +77,33 @@
                                         <td class="text-capitalize">
                                             ₦{{ number_format($reservation->total_price) }}
                                         </td>
+                                        <td>
+                                            <div class="d-flex justify-content-between">
+                                                @if ($reservation->status == 'reserved')
+                                                    <form action="/customer/checkin/{{ $reservation->id }}" method="GET">
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-sm btn-primary">Check
+                                                            in</button>
+                                                    </form>
+                                                @endif
+                                                @if ($reservation->status == 'checked in')
+                                                    <form action="/customer/checkout/{{ $reservation->id }}"
+                                                        method="GET">
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-sm btn-primary">Check
+                                                            out</button>
+                                                    </form>
+                                                @endif
+                                            </div>
+                                        </td>
                                         <td class="d-flex ">
-                                            <button type="button" class="btn btn-primary btn-sm mr-2" data-toggle="modal"
+                                            <button type="button" class="btn btn-success btn-sm mr-2" data-toggle="modal"
                                                 data-username="{{ $reservation->user->name }}"
                                                 data-email="{{ $reservation->user->email }}"
                                                 data-checkin="{{ $reservation->check_in }}"
                                                 data-checkout="{{ $reservation->check_out }}"
+                                                data-checkintime="{{ $reservation->check_in_time }}"
+                                                data-checkouttime="{{ $reservation->check_out_time }}"
                                                 data-roomname="{{ $reservation->room->name }}"
                                                 data-pricepernight="{{ $reservation->room->price }}"
                                                 data-guests="{{ $reservation->no_of_guests }}"
@@ -88,6 +113,7 @@
                                                 data-totalprice="{{ $reservation->total_price }}"
                                                 data-payment_status="{{ $reservation->payment_status }}"
                                                 data-amountpaid="{{ $reservation->payment_status }}"
+                                                data-bookedrooms="{{ $reservation->roomcalendar }}"
                                                 data-target="#viewdetail" style="font-size: .65rem">View</button>
                                             <a
                                                 href="{{ route('editreservation', ['reservation' => $reservation->id]) }}">
@@ -150,14 +176,24 @@
                         </tr>
 
                         <tr class="mb-1">
-                            <td class="text-muted">Check-in Date</td>
+                            <td class="text-muted">Check-in </td>
 
                             <td id="checkin"></td>
                         </tr>
                         <tr class="mb-1">
-                            <td class="text-muted">Check-out Date</td>
+                            <td class="text-muted">Check-out </td>
 
                             <td id="checkout"></td>
+                        </tr>
+                        <tr class="mb-1">
+                            <td class="text-muted">Check-in time</td>
+
+                            <td id="checkintime"></td>
+                        </tr>
+                        <tr class="mb-1">
+                            <td class="text-muted">Check-out time</td>
+
+                            <td id="checkouttime"></td>
                         </tr>
 
                         <tr class="pr-3">
@@ -176,6 +212,12 @@
 
                             <td id="rooms"></td>
                         </tr>
+                        <tr class="mb-1">
+                            <td class="text-muted">Booked rooms</td>
+
+                            <td id="bookedrooms"></td>
+                        </tr>
+
 
                         <tr class="mb-1">
                             <td class="text-muted">Price per night</td>
@@ -227,6 +269,8 @@
             var email = info.data("email");
             var checkin = info.data("checkin");
             var checkout = info.data("checkout");
+            var checkintime = info.data("checkintime");
+            var checkouttime = info.data("checkouttime");
             var roomname = info.data("roomname") + " Apartment";
             var rooms = info.data("rooms");
             var pricepernight = info.data("pricepernight");
@@ -236,6 +280,10 @@
             var totalprice = info.data("totalprice");
             var payment_status = info.data("payment_status");
             var amountpaid = info.data("amountpaid");
+            var bookedrooms = info.data("bookedrooms").map(item => {
+                return item.room.short_name
+            }).toString();
+
 
             var modal = $(this);
 
@@ -245,6 +293,13 @@
             modal.find(".modal-body #rooms").text(rooms);
             modal.find(".modal-body #checkin").text(moment(checkin).format("ll"));
             modal.find(".modal-body #checkout").text(moment(checkout).format("ll"));
+            if (checkintime) {
+                modal.find(".modal-body #checkintime").text(moment(checkintime).format("ll , hh:mm A"));
+            }
+            if (checkouttime) {
+                modal.find(".modal-body #checkintime").text(moment(checkouttime).format("ll , hh:mm A"));
+            }
+
             modal.find(".modal-body #roomname").text(roomname);
             modal.find(".modal-body #pricepernight").text(currency(pricepernight));
             modal.find(".modal-body #guests").text(guests);
@@ -253,6 +308,7 @@
             modal.find(".modal-body #totalprice").text(currency(totalprice));
             modal.find(".modal-body #payment_status").text(payment_status);
             modal.find(".modal-body #amountpaid").text(currency(amountpaid));
+            modal.find(".modal-body #bookedrooms").text(bookedrooms);
         });
 
         function currency(numb) {

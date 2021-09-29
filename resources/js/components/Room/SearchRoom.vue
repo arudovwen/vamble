@@ -89,7 +89,7 @@
     <div
       class="alert alert-info alert-dismissible fade show"
       role="alert"
-      v-if="status == 'unavailable'"
+      v-if="status == 'unavailable' || status == 'less-available'"
     >
       <button
         type="button"
@@ -115,12 +115,21 @@ export default {
       roomtypes: [],
       allrooms: [],
       detail: {
-        checkIn: "",
-        checkout: "",
-        nights: "",
+        name: "",
+        email: "",
+        address: "",
+        gender: "",
+        phone: "",
+        guests: 1,
         room_id: null,
+        checkIn: "",
+        checkOut: "",
+        nights: null,
         rooms: null,
-        guests: null,
+        payment_type: null,
+        total_price: 0,
+        payment_status: "",
+        status: "",
       },
       isChecking: false,
       rooms: [],
@@ -166,11 +175,7 @@ export default {
       axios
         .post("http://localhost:8000/search/room", this.detail)
         .then((res) => {
-          console.log(
-            "🚀 ~ file: SearchRoom.vue ~ line 169 ~ .then ~ res",
-            res
-          );
-          if (res.data.message == "available") {
+          if (res.status == 200) {
             this.isChecking = false;
             this.rooms = res.data.rooms;
             this.message = res.data.message;
@@ -178,16 +183,15 @@ export default {
             var data = {
               rooms: res.data.rooms,
               roomtypes: res.data.roomtype,
+              detail: this.detail,
             };
-            bus.$emit("search-room", this.rooms, res.data.roomtype);
+            bus.$emit("search-room", data);
             setTimeout(() => {
               this.message = "";
               this.status = null;
             }, 2500);
             return;
           }
-
-          this.isChecking = false;
         })
         .catch(() => {
           this.isChecking = false;

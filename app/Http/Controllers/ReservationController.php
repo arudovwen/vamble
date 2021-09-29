@@ -66,8 +66,6 @@ class ReservationController extends Controller
         return $this->reservationService->findbookings($request);
     }
     public function postbookings(Request $request)
-
-
     {
         return $this->reservationService->postbookings($request);
     }
@@ -78,11 +76,17 @@ class ReservationController extends Controller
         $reservation = $reservation->load('room', 'user');
         return view('admin.editreservation', compact('reservation', 'rooms'));
     }
+    public function customercheckin(Reservation $reservation)
+    {
+        return $this->reservationService->customercheckin($reservation);
+    }
+    public function customercheckout(Reservation $reservation)
+    {
+        return $this->reservationService->customercheckout($reservation);
+    }
 
     public function destroy(Reservation $reservation)
     {
-
-
         return $this->reservationService->removereservation($reservation);
     }
 }

@@ -765,7 +765,7 @@ export default {
         .then((res) => {
           if (res.status == 201) {
             this.bookingNumb = res.data.booking_no;
-            this.finalize = false;
+            this.finalize = true;
             this.isFinalizing = true;
             this.detail = {
               name: "",

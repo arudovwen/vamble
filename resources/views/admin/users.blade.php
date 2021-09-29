@@ -26,7 +26,7 @@
 
                             </div>
                         </div>
-                        <table class="table table-bordered bg-white mb-0">
+                        <table class="table table-bordered table-striped bg-white mb-0">
                             <thead>
                                 <tr>
                                     <th>Name</th>
@@ -45,7 +45,10 @@
                                         <td scope="row" class="text-capitalize">{{ $user->name }}</td>
                                         <td>{{ $user->email }}</td>
                                         <td>{{ $user->phone }}</td>
-                                        <td class="" style=" width: 100px"> <span>{{ $user->address }}</span></td>
+                                        <td class="" style=" width:160px">
+                                            <div style=" width:160px" class="d-block text-truncate">{{ $user->address }}
+                                            </div>
+                                        </td>
                                         <td class="text-capitalize">{{ $user->gender }}</td>
                                         <td class="text-capitalize">{{ $user->nationality ? $user->nationality : '-' }}
                                         </td>

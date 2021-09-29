@@ -41,7 +41,7 @@ class AdminController extends Controller
     public function reservations()
     {
 
-        $reservations = Reservation::with('room', 'user')->paginate(15);
+        $reservations = Reservation::with('room', 'user', 'roomcalendar')->paginate(15);
         return view('admin.reservations', compact('reservations'));
     }
     public function transactions()

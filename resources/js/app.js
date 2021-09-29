@@ -15,6 +15,12 @@ import HotelDatePicker from "vue-hotel-datepicker";
 import "vue-hotel-datepicker/dist/vueHotelDatepicker.css";
 import FullCalendar from "vue-full-calendar";
 Vue.use(FullCalendar);
+
+import Toast from "vue-toastification";
+import "vue-toastification/dist/index.css";
+Vue.use(Toast, {
+    timeout: 2500
+});
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue

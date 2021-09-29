@@ -35,6 +35,7 @@
         "vue-full-calendar": "2.8.1-0",
         "vue-hotel-datepicker": "^4.5.0",
         "vue-moment": "^4.1.0",
-        "vue-text-transition": "^1.0.19"
+        "vue-text-transition": "^1.0.19",
+        "vue-toastification": "^1.7.11"
     }
 }

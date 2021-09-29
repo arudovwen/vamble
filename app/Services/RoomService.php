@@ -32,50 +32,68 @@ class RoomService
   {
 
 
-    $time_from = Carbon::parse($request->input('checkIn'));
-    $time_to = Carbon::parse($request->input('checkOut'));
+    $check_in = Carbon::parse($request->input('checkIn'));
+    $check_out = Carbon::parse($request->input('checkOut'));
     $room_id = $request->room_id;
     $roomtype = Room::find($room_id)->name;
     $roomsneeded = $request->rooms;
 
 
+    // All room type
+    $allfreerooms = [];
+    $allrooms = Room::has('roomcalendar')->with('roomcalendar')->get();
 
-    $rooms = Room::with('roomcalendar')->whereHas('roomcalendar', function ($q) use ($time_from, $time_to) {
-      $q->where(function ($q2) use ($time_from, $time_to) {
-        $q2->where('check_in', '>=', $time_to)
-          ->orWhere('check_out', '<=', $time_from);
+    foreach ($allrooms as $q) {
+      $res = $q->roomcalendar->contains(function ($q2) use ($check_in, $check_out) {
+        return $check_in->between($q2->check_in, $q2->check_out);
       });
-    })->orWhereDoesntHave('roomcalendar')->get()->toArray();
 
-    $roomtype = Room::with('roomcalendar')->whereHas('roomcalendar', function ($q) use ($time_from, $time_to) {
-      $q->where(function ($q2) use ($time_from, $time_to) {
-        $q2->where('check_in', '>=', $time_to)
-          ->orWhere('check_out', '<=', $time_from);
+      if (!$res) {
+        array_push($allfreerooms, $q);
+      }
+    }
+    $allroomswitoutcalendar = Room::whereDoesntHave('roomcalendar')->get();
+    $allmergedrooms = array_merge($allfreerooms, $allroomswitoutcalendar->values()->all());
+
+
+    // Specific type
+    $freerooms = [];
+    $rooms = Room::has('roomcalendar')->with('roomcalendar')->where('name', $roomtype)->get();
+
+    foreach ($rooms as $q) {
+      $res = $q->roomcalendar->contains(function ($q2) use ($check_in, $check_out) {
+        return $check_in->between($q2->check_in, $q2->check_out);
       });
-    })->orWhereDoesntHave('roomcalendar')->get()->filter(function ($a) use ($roomtype) {
-      return $a->name == $roomtype;
-    })->values()->all();
+
+      if (!$res) {
+        array_push($freerooms, $q);
+      }
+    }
+    $roomswitoutcalendar = Room::where('name', $roomtype)->whereDoesntHave('roomcalendar')->get();
+    $mergedrooms = array_merge($freerooms, $roomswitoutcalendar->values()->all());
 
 
-    if (count($rooms) >= $roomsneeded) {
+    if (count($mergedrooms) >= $roomsneeded) {
       $message = " Room is available, you can proceed to book the room";
 
       return response()->json(
         [
           'status' => 'available',
           'message' => $message,
-          'rooms' => $rooms,
-          'roomtype' => $roomtype
+          'rooms' => $allmergedrooms,
+          'roomtype' => $mergedrooms
         ]
       );
     };
-    if (count($rooms) && count($rooms) < $roomsneeded) {
-      $message = "Only " . count($rooms) . " available";
+    if (count($mergedrooms) && count($mergedrooms) < $roomsneeded) {
+      $message = "Only " . count($mergedrooms) . " available";
 
       return response()->json(
         [
           'status' => 'less-available',
           'message' => $message,
+          'rooms' => $allmergedrooms,
+          'roomtype' => $mergedrooms
 
         ]
       );
@@ -84,7 +102,9 @@ class RoomService
     return response()->json(
       [
         'status' => 'unavailable',
-        'message' => $message
+        'message' => $message,
+        'rooms' => $allmergedrooms,
+        'roomtype' => $mergedrooms
 
       ]
     );

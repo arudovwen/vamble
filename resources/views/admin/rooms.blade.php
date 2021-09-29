@@ -47,7 +47,7 @@
 
                             </div>
                         </div>
-                        <table class="table table-bordered bg-white mb-0">
+                        <table class="table table-bordered  table-striped bg-white mb-0">
                             <thead>
                                 <tr>
                                     <th style="width: 110px">Short Name</th>

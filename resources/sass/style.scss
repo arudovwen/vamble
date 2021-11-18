@@ -303,7 +303,7 @@ td {
 }
 .firstContent {
     position: relative;
-    height: 94vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
     margin-top: -105px;
@@ -320,23 +320,39 @@ td {
     .banner-text {
         position: absolute;
         z-index: 9;
-        top: 40%;
+        top: 30%;
         transform: translateY(50%);
 
         h1 {
-            font-size: 3.6rem;
-            font-weight: 800;
+            font-size: 3.2rem;
+            font-weight: 700;
             color: white;
+            letter-spacing: 1rem;
             span {
                 color: white;
             }
         }
+        h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: 1rem;
+            span {
+                color: white;
+            }
+        }
+
         @media only screen and (max-width: 768px) {
-            top: 25%;
+            top: 20%;
             padding: 10px;
             h1 {
                 font-size: 1.7rem;
-                font-weight: 500;
+                font-weight: 800;
+            }
+            h2 {
+                font-size: 1.5rem;
+                font-weight: 800;
+                letter-spacing: 0.2rem;
             }
         }
     }

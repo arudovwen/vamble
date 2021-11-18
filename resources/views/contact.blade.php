@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="about_banner_img d-flex justify-content-center align-items-center">
-        <h1>Contact us today</h1>
+        <h1 class="font-weight-bold">Contact us today</h1>
     </div>
     {{ Breadcrumbs::render('contact') }}
     <div class="contact text-center">
@@ -75,7 +75,7 @@
                                 <label for="">Message</label>
                                 <textarea class="form-control" name="body" id="body" aria-describedby="helpId"
                                     placeholder="Write your message here">
-                                                              </textarea>
+                                                                  </textarea>
                             </div>
                             <button type="submit" class="btn btn-primary ">Send message</button>
                         </form>

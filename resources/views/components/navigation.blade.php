@@ -71,13 +71,14 @@
                           <a class="nav-link" href="{{ route('contact') }}">{{ __('Make Enquiries') }}</a>
                       </li>
                   </ul>
-                  <ul class="navbar-nav ml-auto align-items-center ">
+                  <ul class="navbar-nav ml-auto align-items-center d-none d-md-flex">
                       <li class="nav-item">
-                          <i class="fa fa-instagram" aria-hidden="true"></i>
-                          IN
+                          <i class="fab fa-instagram text-primary mr-3" aria-hidden="true"></i>
+
                       </li>
-                      <li class="nav-item"><i class="fa fa-facebook" aria-hidden="true"></i> FS</li>
-                      <li class="nav-item"> <i class="fa fa-twitter" aria-hidden="true"></i>TW</li>
+                      <li class="nav-item"><i class="fab fa-facebook text-primary mr-3" aria-hidden="true"></i>
+                      </li>
+                      <li class="nav-item"> <i class="fab fa-twitter text-primary" aria-hidden="true"></i></li>
                   </ul>
                   <!-- Right Side Of Navbar -->
                   <ul class="navbar-nav ml-auto align-items-center ">
@@ -110,7 +111,7 @@
                                   </a>
                                   <a class="dropdown-item" href="{{ route('logout') }}"
                                       onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                                                                                                                             document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                 document.getElementById('logout-form').submit();">
                                       {{ __('Logout') }}
                                   </a>
 

@@ -37,45 +37,47 @@
           >
             <HotelDatePicker @period-selected="handleBooking" />
           </div>
-          <div
-            class="
-              bg-white
-              border-right
-              text-center text-dark
-              col-md-2
-              mb-1 mb-md-0
-              d-flex
-              align-items-center
-            "
-          >
-            <select
-              required
-              class="form-control form-control-sm border-0 no-focus"
-              v-model="guests"
+          <div class="d-flex col-md-4 px-0">
+            <div
+              class="
+                w-100
+                bg-white
+                border-right
+                text-center text-dark
+                mb-1 mb-md-0
+                d-flex
+                align-items-center
+              "
             >
-              <option disabled :value="null">No of guests</option>
-              <option :value="n" v-for="n in 50" :key="n">{{ n }}</option>
-            </select>
-          </div>
-          <div
-            class="
-              bg-white
-              border-right
-              text-center text-dark
-              col-md-2
-              mb-1 mb-md-0
-              d-flex
-              align-items-center
-            "
-          >
-            <select
-              required
-              class="form-control form-control-sm border-0 no-focus"
-              v-model="rooms"
+              <select
+                required
+                class="form-control form-control-sm border-0 no-focus"
+                v-model="guests"
+              >
+                <option disabled :value="null">No of guests</option>
+                <option :value="n" v-for="n in 50" :key="n">{{ n }}</option>
+              </select>
+            </div>
+            <div
+              class="
+                w-100
+                bg-white
+                border-right
+                text-center text-dark
+                mb-1 mb-md-0
+                d-flex
+                align-items-center
+              "
             >
-              <option disabled :value="null">No of rooms</option>
-              <option :value="n" v-for="n in 50" :key="n">{{ n }}</option>
-            </select>
+              <select
+                required
+                class="form-control form-control-sm border-0 no-focus"
+                v-model="rooms"
+              >
+                <option disabled :value="null">No of rooms</option>
+                <option :value="n" v-for="n in 50" :key="n">{{ n }}</option>
+              </select>
+            </div>
           </div>
           <div
             class="

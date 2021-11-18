@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="about_banner_img d-flex justify-content-center align-items-center">
-        <h1>Apartments & Suites</h1>
+        <h1 class="font-weight-bold">Apartments & Suites</h1>
     </div>
     {{ Breadcrumbs::render('accomodations') }}
     <div class="apartments">

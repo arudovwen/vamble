@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="about_banner_img d-flex justify-content-center align-items-center">
-        <h1>Our Gallery</h1>
+        <h1 class="font-weight-bold">Our Gallery</h1>
     </div>
     {{ Breadcrumbs::render('gallery') }}
     <div class="services">

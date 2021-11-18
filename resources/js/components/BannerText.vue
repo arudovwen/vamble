@@ -4,9 +4,20 @@
       :show="showText"
       name="test"
       tag="h1"
-      :interval="40"
+      :interval="35"
+      :custom-class="[
+        { selector: ':nth-child(odd)', class: 'test_odd vamble' },
+      ]"
+      >VAMBLE</vue-text-transition
+    >
+    <vue-text-transition
+      :show="showText"
+      name="test"
+      tag="h2"
+      :interval="20"
       :custom-class="[{ selector: ':nth-child(odd)', class: 'test_odd' }]"
-      >Vamble Apartments & Suites</vue-text-transition
+    >
+      Apartments & Suites</vue-text-transition
     >
   </div>
 </template>

@@ -3,7 +3,7 @@
 @section('content')
     <div class="services ">
         <div class="about_banner_img d-flex justify-content-center align-items-center">
-            <h1>Services We Offer</h1>
+            <h1 class="font-weight-bold">Services We Offer</h1>
         </div>
         {{ Breadcrumbs::render('services') }}
         <div class="content pt-0 py-sm-5">

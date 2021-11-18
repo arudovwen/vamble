@@ -108,8 +108,8 @@ class ReservationService
           'room'  => $oneroom['room_name'],
           'status' => $request->status
         ];
-        // Mail::to($user->email)->send(new BookingSuccess($detail));
-        // Mail::to('succy2010@gmail.com')->send(new NewReservation($admindetail));
+        Mail::to($user->email)->send(new BookingSuccess($detail));
+        Mail::to('succy2010@gmail.com')->send(new NewReservation($admindetail));
 
         return response($reservation, 201);
       } catch (\Throwable $th) {

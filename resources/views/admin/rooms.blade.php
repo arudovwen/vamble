@@ -40,12 +40,7 @@
                             <div class=" d-flex align-items-center">
 
                             </div>
-                            <div class="form-group mb-2 ">
 
-                                <input type="seacrh" class="form-control form-control-sm" name="" id=""
-                                    aria-describedby="helpId" placeholder="Search name">
-
-                            </div>
                         </div>
                         <table class="table table-bordered  table-striped bg-white mb-0">
                             <thead>

@@ -48,9 +48,9 @@
                                             id="name" aria-describedby="helpId" placeholder="Search name or booking number">
                                         <span class="input-group-btn ml-3">
                                             <a href="{{ route('reservations') }}">
-                                                <button class="btn btn-danger btn-sm" type="button">
+                                                <button class="btn btn-info btn-sm" type="button">
 
-                                                    <i class="fa fa-recycle" aria-hidden="true"></i>
+                                                    Reset <i class="fa fa-recycle" aria-hidden="true"></i>
 
 
                                                 </button></a>

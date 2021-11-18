@@ -21,9 +21,27 @@
                             </div>
                             <div class="form-group m-0">
 
-                                <input type="seacrh" class="form-control form-control-sm" aria-describedby="helpId"
-                                    placeholder="Search name">
+                                <form action="{{ route('searchreservation') }}" method="POST" role="search">
+                                    {{ csrf_field() }}
+                                    <div class="input-group">
+                                        <span class="input-group-btn ">
+                                            <button class="btn btn-primary btn-sm" type="submit" title="Search projects">
+                                                <span class="fas fa-search"></span>
+                                            </button>
+                                        </span>
+                                        <input type="search" required class="form-control form-control-sm" name="query"
+                                            id="name" aria-describedby="helpId" placeholder="Search name or booking number">
+                                        <span class="input-group-btn ml-3">
+                                            <a href="{{ route('reservations') }}">
+                                                <button class="btn btn-info btn-sm" type="button">
 
+                                                    Reset <i class="fa fa-recycle" aria-hidden="true"></i>
+
+
+                                                </button></a>
+                                        </span>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                         @if (Session::get('success'))

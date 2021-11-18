@@ -19,7 +19,7 @@
                         List
                     </div>
                     <div class="card-body p-0">
-                        <div class="d-flex justify-content-between  align-items-center py-3">
+                        <div class="d-flex justify-content-between  align-items-center p-3">
 
                             <div class=" d-flex align-items-center">
 

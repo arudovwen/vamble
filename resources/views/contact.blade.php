@@ -36,48 +36,50 @@
                 </div>
 
                 <div class="col-md-6 px-4 text-left d-flex align-items-center">
-                    @if (Session::get('success'))
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                                <span class="sr-only">Close</span>
-                            </button>
-                            <strong> {{ Session::get('success') }}</strong>
-                        </div>
-                    @endif
-                    @if (Session::get('error'))
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                                <span class="sr-only">Close</span>
-                            </button>
-                            <strong> {{ Session::get('error') }}</strong>
-                        </div>
-                    @endif
-                    <form action="{{ route('sendmessage') }}" method="post" class="w-100">
-                        @csrf
-                        <legend>Feel free to write to us</legend>
+                    <div class="bg-white w-100 p-3 p-md-5 rounded">
+                        @if (Session::get('success'))
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    <span class="sr-only">Close</span>
+                                </button>
+                                <strong> {{ Session::get('success') }}</strong>
+                            </div>
+                        @endif
+                        @if (Session::get('error'))
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    <span class="sr-only">Close</span>
+                                </button>
+                                <strong> {{ Session::get('error') }}</strong>
+                            </div>
+                        @endif
+                        <form action="{{ route('sendmessage') }}" method="post" class="w-100">
+                            @csrf
+                            <legend>Feel free to write to us</legend>
 
-                        <div class="form-group">
-                            <label for="">Full Name</label>
-                            <input type="text" class="form-control" name="name" id="name" aria-describedby="helpId"
-                                placeholder="Enter your full name">
+                            <div class="form-group">
+                                <label for="">Full Name</label>
+                                <input type="text" class="form-control" name="name" id="name" aria-describedby="helpId"
+                                    placeholder="Enter your full name">
 
-                        </div>
-                        <div class="form-group">
-                            <label for="">Email</label>
-                            <input type="email" class="form-control" name="email" id="email" aria-describedby="helpId"
-                                placeholder="Enter your email address">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Email</label>
+                                <input type="email" class="form-control" name="email" id="email" aria-describedby="helpId"
+                                    placeholder="Enter your email address">
 
-                        </div>
-                        <div class="form-group">
-                            <label for="">Message</label>
-                            <textarea class="form-control" name="body" id="body" aria-describedby="helpId"
-                                placeholder="Write your message here">
-                                              </textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary ">Send message</button>
-                    </form>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Message</label>
+                                <textarea class="form-control" name="body" id="body" aria-describedby="helpId"
+                                    placeholder="Write your message here">
+                                                              </textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary ">Send message</button>
+                        </form>
+                    </div>
 
                 </div>
             </div>

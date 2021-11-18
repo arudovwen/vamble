@@ -55,4 +55,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(RoomCalendar::class);
     }
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
 }

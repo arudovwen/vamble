@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\RoomController;
+use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,21 +28,25 @@ Route::get('/about', [App\Http\Controllers\AboutController::class, 'index'])->na
 Route::get('/contact', [App\Http\Controllers\ContactController::class, 'index'])->name('contact');
 Route::post('/enquire', [App\Http\Controllers\ContactController::class, 'sendmessage'])->name('sendmessage');
 
-
+// Views
 Route::get('/gallery', [App\Http\Controllers\GalleryController::class, 'index'])->name('gallery');
 Route::get('/booking', [App\Http\Controllers\BookingController::class, 'index'])->name('booking');
 Route::post('/check/booking', [App\Http\Controllers\BookingController::class, 'checkbooking'])->name('checkbooking');
 Route::get('/find/booking/{booking}', [App\Http\Controllers\ReservationController::class, 'findbooking'])->name('findbooking');
 Route::post('/find/bookings', [App\Http\Controllers\ReservationController::class, 'findbookings'])->name('findbookings');
 Route::post('/post/bookings', [App\Http\Controllers\ReservationController::class, 'postbookings'])->name('postbookings');
-
+Route::get('/transaction/order/{id}', [App\Http\Controllers\TransactionController::class, 'transaction'])->name('transaction');
 
 // Reservations
 Route::post('/check/availability', [App\Http\Controllers\ReservationController::class, 'checkavailability'])->name('checkavailability');
 Route::post('/reserve', [App\Http\Controllers\ReservationController::class, 'store'])->name('makereservation');
+Route::post('/admin/reserve', [App\Http\Controllers\ReservationController::class, 'storeByAdmin'])->name('adminmakereservation');
+
 Route::put('/reservations/{reservation}', [App\Http\Controllers\ReservationController::class, 'update'])->name('updatereservation');
 Route::get('/reservations/edit/{reservation}', [App\Http\Controllers\ReservationController::class, 'edit'])->name('editreservation');
 Route::delete('/reserve/{reservation}', [App\Http\Controllers\ReservationController::class, 'destroy'])->name('dropreservation');
+Route::delete('admin/reserve/{reservation}', [App\Http\Controllers\ReservationController::class, 'admindestroy'])->name('admindropreservation');
+
 Route::put('/reservations/update/{reservation}', [App\Http\Controllers\ReservationController::class, 'update'])->name('updatereservation');
 Route::get('/bookings', [App\Http\Controllers\BookingController::class, 'getbookings'])->name('getbookings');
 
@@ -67,6 +72,15 @@ Route::get('/reservations', [App\Http\Controllers\AdminController::class, 'reser
 Route::get('/transactions', [App\Http\Controllers\AdminController::class, 'transactions'])->name('transactions');
 Route::get('/calendar', [App\Http\Controllers\AdminController::class, 'calendar'])->name('calendar');
 
+Route::delete('/users/{user}', [App\Http\Controllers\UserController::class, 'destroy'])->name('userdelete');
 
+Route::post('/search/reservation', [App\Http\Controllers\ReservationController::class, 'searchreservation'])->name('searchreservation');
 Route::get('/customer/checkin/{reservation}', [App\Http\Controllers\ReservationController::class, 'customercheckin'])->name('customercheckin');
 Route::get('/customer/checkout/{reservation}', [App\Http\Controllers\ReservationController::class, 'customercheckout'])->name('customercheckout');
+
+
+
+// Payment routes
+Route::post('transaction/initiate', [TransactionController::class, 'makepayment']);
+Route::get('transaction/verify/{reference}', [TransactionController::class, 'verifytransaction']);
+Route::post('transaction/verify', [TransactionController::class, 'transactionevent']);

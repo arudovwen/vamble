@@ -1,233 +1,403 @@
 
 <template>
-  <div class="bookings">
-    <div class="container py-5">
+  <div class="bookings p-3 p-md-0">
+    <div class="container pb-5 pt-md-3">
       <div class="row">
-        <div class="col-sm-8 px-5 py-3 bg-white rounded">
-          <form @submit.prevent="checkAvailability">
-            <h5 class="mb-4">Make reservation</h5>
-            <div class="mb-5">
-              <div class="form-group">
-                <HotelDatePicker
-                  @period-selected="handleBooking"
-                  :bookings="bookings"
-                />
-              </div>
-              <div class="row">
-                <div class="form-group col-sm-3">
-                  <label for="">No of guests</label>
-                  <select class="form-control" required v-model="detail.guests">
-                    <option :value="null" disabled>Select</option>
-                    <option :value="n" v-for="n in 50" :key="n">{{ n }}</option>
-                  </select>
-                </div>
-                <div class="form-group col-sm-3">
-                  <label for="">No of rooms</label>
-                  <select class="form-control" required v-model="detail.rooms">
-                    <option :value="null" disabled>Select</option>
-                    <option :value="n" v-for="n in 50" :key="n">{{ n }}</option>
-                  </select>
-                </div>
-                <div class="form-group col-sm-6">
-                  <label for="">Apartment Type</label>
-                  <select
-                    class="form-control text-capitalize"
-                    required
-                    v-model="detail.room_id"
-                  >
-                    <option :value="null" disabled>Select</option>
-                    <option :value="n.id" v-for="n in rooms" :key="n.id">
-                      <div
-                        class="
-                          d-flex
-                          justify-content-between
-                          align-items-center
-                        "
+        <div class="col-md-8 rounded mb-5">
+          <form-wizard>
+            <tab-content title="Make reservation">
+              <form @submit.prevent="checkAvailability">
+                <div class="mb-5">
+                  <div class="form-group">
+                    <HotelDatePicker
+                      @period-selected="handleBooking"
+                      :bookings="bookings"
+                    />
+                  </div>
+                  <div class="row">
+                    <div class="form-group col-md-3">
+                      <label for="">No of guests</label>
+                      <select
+                        class="form-control"
+                        required
+                        v-model="detail.guests"
                       >
-                        <span
-                          ><span class="text-capitalize">{{ n.name }}</span>
-                          apartment</span
+                        <option :value="null" disabled>Select</option>
+                        <option :value="n" v-for="n in 50" :key="n">
+                          {{ n }}
+                        </option>
+                      </select>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label for="">No of rooms</label>
+                      <select
+                        class="form-control"
+                        required
+                        v-model="detail.rooms"
+                      >
+                        <option :value="null" disabled>Select</option>
+                        <option :value="n" v-for="n in 50" :key="n">
+                          {{ n }}
+                        </option>
+                      </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="">Apartment Type</label>
+                      <select
+                        class="form-control text-capitalize"
+                        required
+                        v-model="detail.flat_type"
+                      >
+                        <option disabled value="">Apartment type</option>
+                        <option
+                          :value="item.value"
+                          v-for="item in roomOption"
+                          :key="item.id"
                         >
-                        -
-                        <span
-                          >{{ n.price | currencyFormat }}
-                          <small>/ night</small></span
+                          <div
+                            class="
+                              d-flex
+                              justify-content-between
+                              align-items-center
+                            "
+                          >
+                            <span
+                              ><span>{{ item.text }}</span> apartment</span
+                            >
+                            -
+                            <span
+                              >{{ item.price | currencyFormat }}
+                              <small>/ night</small></span
+                            >
+                          </div>
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row" v-if="detail.nights">
+                    <div class="form-group col-12">
+                      <div class="d-flex justify-content-between">
+                        <div>
+                          <p
+                            class="mb-1"
+                            v-if="detail.checkIn && detail.checkOut"
+                          >
+                            Check-in : {{ detail.checkIn | moment("ll") }}
+                          </p>
+                          <p class="mb-1">
+                            Check-out : {{ detail.checkOut | moment("ll") }}
+                          </p>
+                        </div>
+                        <div>
+                          <p class="mb-1" v-if="detail.nights">
+                            {{ detail.nights > 1 ? "Nights" : "Night" }} x
+                            {{ detail.nights }}
+                          </p>
+                          <p class="mb-1" v-if="detail.rooms">
+                            {{ detail.rooms > 1 ? "Rooms" : "Room" }} x
+                            {{ detail.rooms }}
+                          </p>
+                        </div>
+                      </div>
+                      <p class="mb-1" v-if="selectedRoom">
+                        Room price :
+                        <span class=""
+                          >{{ selectedRoom.price | currencyFormat }}
+                        </span>
+                      </p>
+                      <p v-if="selectedRoom">
+                        Total stay price :
+                        <strong class=""
+                          >{{
+                            (selectedRoom.price * detail.rooms * detail.nights)
+                              | currencyFormat
+                          }}
+                        </strong>
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="text-right mt-3">
+                    <button
+                      type="submit"
+                      class="btn btn-secondary btn-sm ml-auto"
+                    >
+                      <span
+                        v-show="isChecking"
+                        class="spinner-border spinner-border-sm mr-1"
+                        role="status"
+                        aria-hidden="true"
+                        :disabled="isChecking"
+                      ></span>
+                      {{ isChecking ? "Checking" : "Check" }} Availabilty
+                    </button>
+                  </div>
+                </div>
+                <div>
+                  <div
+                    v-if="isAvailable"
+                    class="alert alert-success alert-dismissible fade show"
+                    role="alert"
+                  >
+                    {{ message }}
+                  </div>
+                  <div
+                    v-if="isAvailable === false"
+                    class="alert alert-danger alert-dismissible fade show"
+                    role="alert"
+                  >
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="alert"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                      <span class="sr-only">Close</span>
+                    </button>
+
+                    {{ message }}
+                  </div>
+                </div>
+              </form>
+            </tab-content>
+            <tab-content title="Guest Details">
+              <form
+                v-if="isAvailable"
+                class="animate__animated animate__fadeIn"
+              >
+                <div class="form-group">
+                  <label for="">Full Name</label>
+                  <input
+                    required
+                    type="text"
+                    class="form-control"
+                    :disabled="!isAvailable"
+                    aria-describedby="helpId"
+                    placeholder=""
+                    v-model="detail.name"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="">Email </label>
+                  <input
+                    required
+                    type="email"
+                    class="form-control"
+                    :disabled="!isAvailable"
+                    aria-describedby="emailHelpId"
+                    placeholder=""
+                    v-model="detail.email"
+                  />
+                </div>
+
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <label for="">Phone</label>
+                    <input
+                      required
+                      type="text"
+                      class="form-control"
+                      :disabled="!isAvailable"
+                      aria-describedby="helpId"
+                      placeholder=""
+                      v-model="detail.phone"
+                    />
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="">Gender</label>
+                    <select
+                      required
+                      class="form-control"
+                      :disabled="!isAvailable"
+                      v-model="detail.gender"
+                    >
+                      <option value="" disabled>Choose gender</option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="">Address</label>
+                  <input
+                    required
+                    type="text"
+                    class="form-control"
+                    :disabled="!isAvailable"
+                    aria-describedby="helpId"
+                    v-model="detail.address"
+                    placeholder=""
+                  />
+                </div>
+              </form>
+
+              <div v-else class="text-center p-4">
+                <div
+                  class="alert alert-info alert-dismissible fade show"
+                  role="alert"
+                >
+                  <strong>No Room Selected</strong> Check Availability or check
+                  back later
+                </div>
+              </div>
+            </tab-content>
+            <tab-content title="Finishing Up">
+              <div class="p-3" v-if="isAvailable">
+                <div class="border-0">
+                  <h5 class="modal-title text-center mb-4" v-if="!finalize">
+                    Finalize Reservation
+                  </h5>
+                  <h5 class="modal-title text-center mb-4" v-if="finalize">
+                    Reservation successful
+                  </h5>
+                </div>
+                <div class="">
+                  <div class="mb-4" v-if="!finalize && detail">
+                    <table class="table table-bordered table-sm">
+                      <tr class="mb-1">
+                        <td class="text-muted">Guest name</td>
+
+                        <td class="text-capitalize">{{ detail.name }}</td>
+                      </tr>
+
+                      <tr class="mb-1">
+                        <td class="text-muted">Guest email</td>
+
+                        <td>{{ detail.email }}</td>
+                      </tr>
+
+                      <tr class="mb-1">
+                        <td class="text-muted">Apartment type</td>
+
+                        <td class="text-capitalize">
+                          {{ selectedRoom ? selectedRoom.text : "-" }} flat
+                        </td>
+                      </tr>
+
+                      <tr class="mb-1">
+                        <td class="text-muted">Check-in date</td>
+
+                        <td>{{ detail.checkIn | moment("ll") }}</td>
+                      </tr>
+                      <tr class="mb-1">
+                        <td class="text-muted">Check-out date</td>
+
+                        <td>{{ detail.checkOut | moment("ll") }}</td>
+                      </tr>
+
+                      <tr class="pr-3">
+                        <td class="text-muted">No of guests</td>
+
+                        <td>{{ detail.guests }}</td>
+                      </tr>
+                      <tr class="mb-1">
+                        <td class="text-muted">No of rooms</td>
+
+                        <td>{{ detail.rooms }}</td>
+                      </tr>
+
+                      <tr class="mb-1">
+                        <td class="text-muted">No of nights</td>
+
+                        <td>{{ detail.nights }}</td>
+                      </tr>
+                      <tr class="mb-1">
+                        <td class="text-muted">Price per night</td>
+
+                        <td>
+                          {{
+                            !selectedRoom
+                              ? "₦0"
+                              : selectedRoom.price | currencyFormat
+                          }}
+                        </td>
+                      </tr>
+                    </table>
+
+                    <div class="mb-1 text-right">
+                      <div>
+                        <span class="text-muted">
+                          Nights x {{ detail.nights }}</span
                         >
                       </div>
-                    </option>
-                  </select>
+
+                      <div
+                        class="
+                          finalize_price
+                          d-flex
+                          justify-content-between
+                          align-items-end
+                        "
+                        v-if="selectedRoom"
+                      >
+                        <small class="text-muted">Total stay price</small>
+                        <span>
+                          {{
+                            (selectedRoom.price * detail.rooms * detail.nights)
+                              | currencyFormat
+                          }}</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="" v-if="!finalize">
+                  <button
+                    type="button"
+                    @click="makePayment"
+                    class="btn btn-secondary"
+                    :disabled="!isFinalizing"
+                  >
+                    Proceed to payment
+                  </button>
+                  <button
+                    type="type"
+                    @click="payAtHotel"
+                    class="btn btn-primary"
+                    :disabled="!isFinalizing"
+                  >
+                    Pay at hotel
+                  </button>
                 </div>
               </div>
-              <div class="row">
-                <div class="form-group col-12" v-show="detail.nights">
-                  <p class="mb-1">
-                    Check-in : {{ detail.checkIn | moment("ll") }}
-                  </p>
-                  <p class="mb-1">
-                    Check-out : {{ detail.checkOut | moment("ll") }}
-                  </p>
-                  <p class="mb-1">
-                    {{ detail.nights > 1 ? "Nights" : "Night" }} x
-                    {{ detail.nights }}
-                  </p>
-                  <p class="mb-1">
-                    {{ detail.rooms > 1 ? "Rooms" : "Room" }} x
-                    {{ detail.rooms }}
-                  </p>
-                  <p class="mb-1" v-if="selectedRoom">
-                    Room price :
-                    <span class=""
-                      >{{ selectedRoom.price | currencyFormat }}
-                    </span>
-                  </p>
-                  <p v-if="selectedRoom">
-                    Total stay price :
-                    <strong class=""
-                      >{{
-                        (selectedRoom.price * detail.rooms * detail.nights)
-                          | currencyFormat
-                      }}
-                    </strong>
-                  </p>
+              <div v-else class="text-center p-4">
+                <div
+                  class="alert alert-info alert-dismissible fade show"
+                  role="alert"
+                >
+                  <strong>No Room Selected</strong> Check Availability or check
+                  back later
                 </div>
               </div>
+              <div v-if="finalize && isAvailable" class="text-center">
+                <i
+                  class="fa fa-check-circle fa-5x text-success"
+                  aria-hidden="true"
+                ></i>
 
-              <div class="text-right mt-3">
-                <button type="submit" class="btn btn-secondary btn-sm ml-auto">
-                  <span
-                    v-show="isChecking"
-                    class="spinner-border spinner-border-sm mr-1"
-                    role="status"
-                    aria-hidden="true"
-                    :disabled="isChecking"
-                  ></span>
-                  {{ isChecking ? "Checking" : "Check" }} Availabilty
-                </button>
-              </div>
-            </div>
-            <div>
-              <div
-                v-if="isAvailable"
-                class="alert alert-success alert-dismissible fade show"
-                role="alert"
-              >
-                <button
-                  type="button"
-                  class="close"
-                  data-dismiss="alert"
-                  aria-label="Close"
+                <p class="my-1">Your reservation was successful</p>
+                <p>Booking Number is #{{ bookingNumb }}</p>
+
+                <small class="text-success"
+                  ><i class="fa fa-info-circle" aria-hidden="true"></i> Check
+                  your mail for your booking details</small
                 >
-                  <span aria-hidden="true">&times;</span>
-                  <span class="sr-only">Close</span>
-                </button>
-
-                {{ message }}
+                <div class="mt-4 text-center">
+                  <button
+                    type="button"
+                    @click="reset"
+                    class="btn btn-primary btn-sm"
+                  >
+                    Reset
+                  </button>
+                </div>
               </div>
-              <div
-                v-if="isAvailable === false"
-                class="alert alert-danger alert-dismissible fade show"
-                role="alert"
-              >
-                <button
-                  type="button"
-                  class="close"
-                  data-dismiss="alert"
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true">&times;</span>
-                  <span class="sr-only">Close</span>
-                </button>
-
-                {{ message }}
-              </div>
-            </div>
-          </form>
-          <hr />
-
-          <form
-            @submit.prevent="makereserve"
-            v-if="isAvailable"
-            class="animate__animated animate__slideInUp"
-          >
-            <h5 class="mb-4">Guest Details</h5>
-            <div class="form-group">
-              <label for="">Full Name</label>
-              <input
-                required
-                type="text"
-                class="form-control"
-                :disabled="!isAvailable"
-                aria-describedby="helpId"
-                placeholder=""
-                v-model="detail.name"
-              />
-            </div>
-
-            <div class="form-group">
-              <label for="">Email </label>
-              <input
-                required
-                type="email"
-                class="form-control"
-                :disabled="!isAvailable"
-                aria-describedby="emailHelpId"
-                placeholder=""
-                v-model="detail.email"
-              />
-            </div>
-
-            <div class="row">
-              <div class="form-group col-sm-6">
-                <label for="">Phone</label>
-                <input
-                  required
-                  type="text"
-                  class="form-control"
-                  :disabled="!isAvailable"
-                  aria-describedby="helpId"
-                  placeholder=""
-                  v-model="detail.phone"
-                />
-              </div>
-              <div class="form-group col-sm-6">
-                <label for="">Gender</label>
-                <select
-                  required
-                  class="form-control"
-                  :disabled="!isAvailable"
-                  v-model="detail.gender"
-                >
-                  <option value="" disabled>Choose gender</option>
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="">Address</label>
-              <input
-                required
-                type="text"
-                class="form-control"
-                :disabled="!isAvailable"
-                aria-describedby="helpId"
-                v-model="detail.address"
-                placeholder=""
-              />
-            </div>
-
-            <div class="text-right mt-3">
-              <button
-                type="submit"
-                class="btn btn-primary mx-auto"
-                :disabled="!isAvailable"
-              >
-                Make reservation
-              </button>
-            </div>
-          </form>
+            </tab-content>
+          </form-wizard>
         </div>
-        <div class="col-sm-4 side_tab">
+        <div class="col-md-4 side_tab px-0 px-md-3">
           <div class="bg-white rounded p-3 w-100">
             <h5
               class="mb-4"
@@ -289,7 +459,7 @@
             <div class="mb-4" v-if="info">
               <h6 class="text-center">Your Reservation details</h6>
               <div>
-                <table class="table table-bordered table-sm">
+                <table class="table table-bordered table-striped table-sm">
                   <tr class="mb-1">
                     <td class="text-muted">ID</td>
 
@@ -316,7 +486,7 @@
                   <tr class="mb-1">
                     <td class="text-muted">Apartment type</td>
 
-                    <td class="text-capitalize">{{ info.room.name }}</td>
+                    <td class="text-capitalize">{{ info.room.flat_type }}</td>
                   </tr>
 
                   <tr class="mb-1">
@@ -350,7 +520,7 @@
                   <tr class="mb-1">
                     <td class="text-muted">Price per night</td>
 
-                    <td>{{ info.room.price | currencyFormat }}</td>
+                    <td>{{ info.price_per_night | currencyFormat }}</td>
                   </tr>
 
                   <tr class="mb-1">
@@ -432,151 +602,6 @@
     <!-- Modal -->
     <div
       class="modal fade"
-      id="modelId"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="modelTitleId"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header border-0">
-            <h5 class="modal-title" v-if="!finalize">Finalize Reservation</h5>
-            <h5 class="modal-title" v-if="finalize">Reservation successful</h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="mb-4" v-if="!finalize && detail">
-              <table class="table table-bordered table-sm">
-                <tr class="mb-1">
-                  <td class="text-muted">Guest name</td>
-
-                  <td class="text-capitalize">{{ detail.name }}</td>
-                </tr>
-
-                <tr class="mb-1">
-                  <td class="text-muted">Guest email</td>
-
-                  <td>{{ detail.email }}</td>
-                </tr>
-
-                <tr class="mb-1">
-                  <td class="text-muted">Apartment type</td>
-
-                  <td class="text-capitalize">
-                    {{ selectedRoom ? selectedRoom.name : "-" }}
-                  </td>
-                </tr>
-
-                <tr class="mb-1">
-                  <td class="text-muted">Check-in date</td>
-
-                  <td>{{ detail.checkIn | moment("ll") }}</td>
-                </tr>
-                <tr class="mb-1">
-                  <td class="text-muted">Check-out date</td>
-
-                  <td>{{ detail.checkOut | moment("ll") }}</td>
-                </tr>
-
-                <tr class="pr-3">
-                  <td class="text-muted">No of guests</td>
-
-                  <td>{{ detail.guests }}</td>
-                </tr>
-                <tr class="mb-1">
-                  <td class="text-muted">No of rooms</td>
-
-                  <td>{{ detail.rooms }}</td>
-                </tr>
-
-                <tr class="mb-1">
-                  <td class="text-muted">No of nights</td>
-
-                  <td>{{ detail.nights }}</td>
-                </tr>
-                <tr class="mb-1">
-                  <td class="text-muted">Price per night</td>
-
-                  <td>
-                    {{
-                      !selectedRoom ? "₦0" : selectedRoom.price | currencyFormat
-                    }}
-                  </td>
-                </tr>
-              </table>
-
-              <div class="mb-1 text-right">
-                <div>
-                  <span class="text-muted"> Nights x {{ detail.nights }}</span>
-                </div>
-
-                <div
-                  class="
-                    finalize_price
-                    d-flex
-                    justify-content-between
-                    align-items-end
-                  "
-                  v-if="selectedRoom"
-                >
-                  <small class="text-muted">Total stay price</small>
-                  <span>
-                    {{
-                      (selectedRoom.price * detail.rooms * detail.nights)
-                        | currencyFormat
-                    }}</span
-                  >
-                </div>
-              </div>
-            </div>
-            <div v-if="finalize" class="text-center">
-              <i
-                class="fa fa-check-circle fa-5x text-success"
-                aria-hidden="true"
-              ></i>
-
-              <p class="my-1">Your reservation was successful</p>
-              <p>Booking Number is #{{ bookingNumb }}</p>
-
-              <small class="text-success"
-                ><i class="fa fa-info-circle" aria-hidden="true"></i> Check your
-                mail for your booking details</small
-              >
-            </div>
-          </div>
-          <div class="modal-footer" v-if="!finalize">
-            <button
-              type="button"
-              @click="makePayment"
-              class="btn btn-secondary"
-              :disabled="!isFinalizing"
-            >
-              Proceed to payment
-            </button>
-            <button
-              type="type"
-              @click="payAtHotel"
-              class="btn btn-primary"
-              :disabled="!isFinalizing"
-            >
-              Pay at hotel
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal -->
-    <div
-      class="modal fade"
       id="deletereservation"
       tabindex="-1"
       role="dialog"
@@ -642,14 +667,18 @@
 import HotelDatePicker from "vue-hotel-datepicker";
 import "vue-hotel-datepicker/dist/vueHotelDatepicker.css";
 import UpdateBook from "./UpdateBooking.vue";
+import { FormWizard, TabContent } from "vue-step-wizard";
 
 export default {
   components: {
     HotelDatePicker,
     UpdateBook,
+    FormWizard,
+    TabContent,
   },
   data() {
     return {
+      val: 2,
       editbook: false,
       finalize: false,
       bookings: [],
@@ -665,19 +694,36 @@ export default {
         email: "",
         address: "",
         gender: "",
+
         phone: "",
-        guests: 1,
+        guests: null,
         room_id: null,
         checkIn: "",
         checkOut: "",
         nights: null,
         rooms: null,
         payment_type: null,
+        flat_type: "",
         total_price: 0,
         payment_status: "",
         status: "",
+        price_per_night: null,
+        flats: [],
       },
-
+      roomOption: [
+        {
+          id: 3,
+          text: "Standard",
+          value: "standard",
+          price: 30000,
+        },
+        {
+          id: 1,
+          text: "Luxury",
+          value: "luxury",
+          price: 110000,
+        },
+      ],
       info: null,
       bookingNumber: "",
       rooms: [],
@@ -687,12 +733,10 @@ export default {
       bookingNumb: null,
     };
   },
-  created() {
-    this.getRooms();
-  },
+  created() {},
   mounted() {
     $("#modelId").on("hidden.bs.modal", function (e) {
-      if (this.isFinalizing) {
+      if (this.finalize) {
         window.location.href = "/booking";
       }
     });
@@ -706,7 +750,7 @@ export default {
       query.has("guests")
     ) {
       this.detail.rooms = query.get("count");
-      this.detail.room_id = Number(query.get("room"));
+      this.detail.flat_type = query.get("room");
       this.detail.guests = query.get("guests");
       this.handleBooking("event", query.get("checkin"), query.get("checkout"));
       this.bookings = [
@@ -726,7 +770,9 @@ export default {
   },
   computed: {
     selectedRoom() {
-      var room = this.rooms.find((item) => item.id == this.detail.room_id);
+      var room = this.roomOption.find(
+        (item) => item.value == this.detail.flat_type
+      );
       return room;
     },
     totalPrice() {
@@ -734,18 +780,15 @@ export default {
     },
   },
   methods: {
-    makereserve() {
-      var modalId = new bootstrap.Modal(document.getElementById("modelId"));
+    reset() {
+      // this.isAvailable = null;
+      // this.isFinalizing = true;
+      // this.bookingNumb = null;
+      // this.finalize = false;
+      // this.selected = 1;
+      window.location.reload();
+    },
 
-      modalId.show();
-    },
-    getRooms() {
-      axios.get("http://localhost:8000/room/types").then((res) => {
-        if (res.status == 200) {
-          this.rooms = res.data;
-        }
-      });
-    },
     handleBooking(event, checkin, checkout) {
       this.detail.checkIn = this.$moment(checkin).format("YYYY-MM-DD");
       this.detail.checkOut = this.$moment(checkout).format("YYYY-MM-DD");
@@ -760,6 +803,8 @@ export default {
       this.detail.payment_type = "pay at hotel";
       this.detail.payment_status = "pending";
       this.detail.status = "reserved";
+      this.detail.price_per_night = this.selectedRoom.price;
+      this.detail.room_id = this.selectedRoom.id;
       axios
         .post("http://localhost:8000/reserve", this.detail)
         .then((res) => {
@@ -773,19 +818,23 @@ export default {
               address: "",
               gender: "",
               phone: "",
-              guests: 1,
+              guests: null,
               room_id: null,
               checkIn: "",
               checkOut: "",
               nights: null,
               rooms: null,
               payment_type: null,
+              flat_type: "",
               total_price: 0,
               payment_status: "",
               status: "",
+              price_per_night: null,
+              flats: [],
             };
             this.bookings = [];
-            this.isAvailable = null;
+
+            window.scrollTo(0, 0);
           }
         })
         .catch(() => {
@@ -830,6 +879,7 @@ export default {
           if (res.data.status == "available") {
             this.isAvailable = true;
             this.isChecking = false;
+            this.detail.flats = res.data.rooms;
             return;
           }
           this.isAvailable = false;
@@ -840,8 +890,48 @@ export default {
         });
     },
     makePayment() {
-      this.isFinalizing = true;
+      this.isFinalizing = false;
       this.detail.total_price = this.totalPrice;
+      this.detail.payment_type = "online payment";
+      this.detail.payment_status = "pending";
+      this.detail.status = "reserved";
+      this.detail.price_per_night = this.selectedRoom.price;
+      this.detail.room_id = this.selectedRoom.id;
+      axios
+        .post("http://localhost:8000/reserve", this.detail)
+        .then((res) => {
+          if (res.status == 201) {
+            this.bookingNumb = res.data.booking_no;
+            this.finalize = true;
+            this.isFinalizing = true;
+            this.detail = {
+              name: "",
+              email: "",
+              address: "",
+              gender: "",
+              phone: "",
+              guests: null,
+              room_id: null,
+              checkIn: "",
+              checkOut: "",
+              nights: null,
+              rooms: null,
+              payment_type: null,
+              flat_type: "",
+              total_price: 0,
+              payment_status: "",
+              status: "",
+              price_per_night: null,
+              flats: [],
+            };
+            this.bookings = [];
+            this.isAvailable = null;
+            window.location.href = `/transaction/order/${res.data.booking_no}`;
+          }
+        })
+        .catch(() => {
+          this.isFinalizing = true;
+        });
     },
     clearInfo() {
       this.info = null;

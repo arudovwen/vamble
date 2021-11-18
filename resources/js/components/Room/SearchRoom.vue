@@ -25,9 +25,40 @@
         </div>
         <div class="col-sm-4">
           <div class="form-group">
+            <select
+              class="form-control text-capitalize"
+              name="room_id"
+              v-model="detail.flat_type"
+              required
+            >
+              <option disabled value="">Apartment type</option>
+              <option value="standard">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span><span>Standard</span> apartment</span>
+                  -
+                  <span
+                    >{{ 30000 | currencyFormat }} <small>/ night</small></span
+                  >
+                </div>
+              </option>
+
+              <option value="luxury">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span><span>Luxury</span> apartment</span>
+                  -
+                  <span
+                    >{{ 110000 | currencyFormat }} <small>/ night</small></span
+                  >
+                </div>
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group">
             <select class="form-control" required v-model="detail.rooms">
               <option :value="null" disabled>No of rooms</option>
-              <option :value="n" v-for="n in 50" :key="n">{{ n }}</option>
+              <option :value="n" v-for="n in 10" :key="n">{{ n }}</option>
             </select>
           </div>
         </div>
@@ -35,37 +66,17 @@
           <div class="form-group">
             <select class="form-control" required v-model="detail.guests">
               <option :value="null" disabled>No of guests</option>
-              <option :value="n" v-for="n in 50" :key="n">{{ n }}</option>
-            </select>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="form-group">
-            <select
-              class="form-control text-capitalize"
-              name="room_id"
-              v-model="detail.room_id"
-            >
-              <option :value="null" disabled>Apartment type</option>
-
-              <option :value="room.id" v-for="room in roomtypes" :key="room.id">
-                <div class="d-flex justify-content-between align-items-center">
-                  <span
-                    ><span>{{ room.name }}</span> apartment</span
-                  >
-                  -
-                  <span
-                    >{{ room.price | currencyFormat }}
-                    <small>/ night</small></span
-                  >
-                </div>
-              </option>
+              <option :value="n" v-for="n in 5" :key="n">{{ n }}</option>
             </select>
           </div>
         </div>
       </div>
       <div class="text-center my-2">
-        <button type="submit" class="btn btn-primary" :disabled="isChecking">
+        <button
+          type="submit"
+          class="btn btn-primary btn-sm"
+          :disabled="isChecking"
+        >
           Search availability
         </button>
       </div>
@@ -120,8 +131,9 @@ export default {
         address: "",
         gender: "",
         phone: "",
-        guests: 1,
+        guests: null,
         room_id: null,
+        flat_type: "",
         checkIn: "",
         checkOut: "",
         nights: null,
@@ -182,7 +194,7 @@ export default {
             this.status = res.data.status;
             var data = {
               rooms: res.data.rooms,
-              roomtypes: res.data.roomtype,
+
               detail: this.detail,
             };
             bus.$emit("search-room", data);

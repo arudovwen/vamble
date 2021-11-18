@@ -31,12 +31,12 @@
                         veritatis ipsam deserunt! Ducimus, quo?</p>
                 </div>
                 <div class="col-sm-6 px-0 service_img">
-                    <img src="{{ asset('/images/v2.jpg') }}" class="w-100 h-100 " alt="vamble building">
+                    <img src="{{ asset('/images/vamb-img/banner.jpg') }}" class="w-100 h-100 " alt="vamble building">
                 </div>
             </div>
             <div class="row m-0 mb-sm-5 flex-column-reverse flex-sm-row">
                 <div class="col-sm-6 px-0 service_img">
-                    <img src="{{ asset('/images/v2.jpg') }}" class="w-100 h-100 " alt="vamble building">
+                    <img src="{{ asset('/images/vamb-img/kitchen.jpg') }}" class="w-100 h-100 " alt="vamble building">
                 </div>
                 <div class="col-sm-6 bg-white py-5 px-3 px-sm-5 text-left">
                     <h3 class="mb-4">Great Kitchen</h3>
@@ -59,7 +59,7 @@
                         veritatis ipsam deserunt! Ducimus, quo?</p>
                 </div>
                 <div class="col-sm-6 px-0 service_img">
-                    <img src="{{ asset('/images/v2.jpg') }}" class="w-100 h-100 " alt="vamble building">
+                    <img src="{{ asset('/images/vamb-img/bedroom.jpg') }}" class="w-100 h-100 " alt="vamble building">
                 </div>
             </div>
 

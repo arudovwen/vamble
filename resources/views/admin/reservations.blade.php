@@ -8,6 +8,7 @@
             <a href="{{ route('roomsearch') }}"> <button type="button" class="btn btn-success btn-sm"> <i
                         class="fa fa-plus" aria-hidden="true"></i> New</button></a>
         </div>
+
         <div class="mb-2">
             <span><span class="text-primary">Active</span> <span class="mx-2">|</span> Previous</span>
         </div>
@@ -35,27 +36,50 @@
 
                             </div>
                             <div class="form-group m-0">
+                                <form action="{{ route('searchreservation') }}" method="POST" role="search">
+                                    {{ csrf_field() }}
+                                    <div class="input-group">
+                                        <span class="input-group-btn ">
+                                            <button class="btn btn-primary btn-sm" type="submit" title="Search projects">
+                                                <span class="fas fa-search"></span>
+                                            </button>
+                                        </span>
+                                        <input type="search" required class="form-control form-control-sm" name="query"
+                                            id="name" aria-describedby="helpId" placeholder="Search name or booking number">
+                                        <span class="input-group-btn ml-3">
+                                            <a href="{{ route('reservations') }}">
+                                                <button class="btn btn-danger btn-sm" type="button">
 
-                                <input type="seacrh" class="form-control form-control-sm" name="" id=""
-                                    aria-describedby="helpId" placeholder="Search name">
+                                                    <i class="fa fa-recycle" aria-hidden="true"></i>
+
+
+                                                </button></a>
+                                        </span>
+                                    </div>
+                                </form>
+
+
 
                             </div>
                         </div>
+
                         <table class="table table-bordered table-striped bg-white mb-0">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Booking no</th>
-                                    <th>Room</th>
+                                    <th>#</th>
+                                    <th>Guest Name</th>
+                                    <th>Flat type</th>
+                                    <th>Flat/Room</th>
 
-                                    <th> Guests</th>
+
                                     <th> Rooms</th>
                                     <th> Nights</th>
-                                    <th>Check In</th>
-                                    <th>Check Out</th>
-                                    <th>Amount Paid</th>
+                                    <th>Amount </th>
+                                    <th> Status</th>
 
-                                    <th>Activity</th>
+                                    <th>Check in/out</th>
+
+
                                     <th>Actions</th>
 
                                 </tr>
@@ -63,40 +87,54 @@
                             <tbody>
                                 @foreach ($reservations as $reservation)
                                     <tr>
-                                        <td scope="row" class="text-capitalize">{{ $reservation->user->name }}</td>
-
                                         <td class="text-capitalize">{{ $reservation->booking_no }}</td>
-                                        <td class="text-capitalize">{{ $reservation->room->name }}</td>
-                                        <td>{{ $reservation->no_of_guests }}</td>
+                                        <td scope="row" class="text-capitalize">{{ $reservation->user->name }}</td>
+                                        <td scope="row" class="text-capitalize">
+                                            {{ $reservation->roomcalendar[0]->room->flat_type }}
+                                        </td>
+
+
+                                        <td class="text-capitalize">
+                                            @foreach ($reservation->roomcalendar as $calendar)
+                                                <span>{{ $calendar->room->flat_name }} -
+                                                    {{ $calendar->room->room_name }}</span>
+                                                @if (!$loop->last)
+                                                    <span>,</span>
+                                                @endif
+                                            @endforeach
+
+                                        </td>
+
                                         <td>{{ $reservation->no_of_rooms }}</td>
                                         <td>{{ $reservation->duration }}</td>
-                                        <td> {{ date('j \\ F Y', strtotime($reservation->check_in)) }}</td>
-                                        <td class="text-capitalize">
-                                            {{ date('j \\ F Y', strtotime($reservation->check_out)) }}
-                                        </td>
                                         <td class="text-capitalize">
                                             ₦{{ number_format($reservation->total_price) }}
                                         </td>
+
+                                        <td class="text-capitalize"> {{ $reservation->payment_status }} </td>
+
+
                                         <td>
-                                            <div class="d-flex justify-content-between">
-                                                @if ($reservation->status == 'reserved')
-                                                    <form action="/customer/checkin/{{ $reservation->id }}" method="GET">
-                                                        @csrf
-                                                        <button type="submit" class="btn btn-sm btn-primary">Check
-                                                            in</button>
-                                                    </form>
-                                                @endif
-                                                @if ($reservation->status == 'checked in')
-                                                    <form action="/customer/checkout/{{ $reservation->id }}"
-                                                        method="GET">
-                                                        @csrf
-                                                        <button type="submit" class="btn btn-sm btn-primary">Check
-                                                            out</button>
-                                                    </form>
-                                                @endif
-                                            </div>
+                                            @if ($reservation->status == 'reserved')
+                                                <form action="/customer/checkin/{{ $reservation->id }}" method="GET">
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-sm btn-primary mr-2"
+                                                        style="font-size: .65rem">Check-in</button>
+                                                </form>
+
+                                            @elseif ($reservation->status == 'checked in')
+                                                <form action="/customer/checkout/{{ $reservation->id }}" method="GET">
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-sm btn-primary mr-2"
+                                                        style="font-size: .65rem">Check-out</button>
+                                                </form>
+                                            @else
+                                                Checked out
+                                            @endif
                                         </td>
-                                        <td class="d-flex ">
+                                        <td class="d-flex justify-content-around ">
+
+
                                             <button type="button" class="btn btn-success btn-sm mr-2" data-toggle="modal"
                                                 data-username="{{ $reservation->user->name }}"
                                                 data-email="{{ $reservation->user->email }}"
@@ -104,28 +142,31 @@
                                                 data-checkout="{{ $reservation->check_out }}"
                                                 data-checkintime="{{ $reservation->check_in_time }}"
                                                 data-checkouttime="{{ $reservation->check_out_time }}"
-                                                data-roomname="{{ $reservation->room->name }}"
-                                                data-pricepernight="{{ $reservation->room->price }}"
+                                                data-roomname="{{ $reservation->roomcalendar }}"
+                                                data-pricepernight="{{ $reservation->price_per_night }}"
                                                 data-guests="{{ $reservation->no_of_guests }}"
                                                 data-nights="{{ $reservation->duration }}"
                                                 data-rooms="{{ $reservation->no_of_rooms }}"
                                                 data-payment_type="{{ $reservation->payment_type }}"
                                                 data-totalprice="{{ $reservation->total_price }}"
                                                 data-payment_status="{{ $reservation->payment_status }}"
-                                                data-amountpaid="{{ $reservation->payment_status }}"
+                                                data-amountpaid="{{ $reservation->total_price }}"
                                                 data-bookedrooms="{{ $reservation->roomcalendar }}"
                                                 data-target="#viewdetail" style="font-size: .65rem">View</button>
-                                            <a
-                                                href="{{ route('editreservation', ['reservation' => $reservation->id]) }}">
-                                                <button type="button" class="btn btn-info btn-sm mr-2"
-                                                    style="font-size: .65rem">Edit</button></a>
-                                            <form method="post" class="delete_form"
-                                                action="{{ route('dropreservation', $reservation->id) }}">
-                                                {{ method_field('DELETE') }}
-                                                {{ csrf_field() }}
-                                                <button type="submit" class="btn btn-danger btn-sm"
-                                                    style="font-size: .65rem">Drop</button>
-                                            </form>
+                                            @if ($reservation->status == 'reserved')
+                                                <a
+                                                    href="{{ route('editreservation', ['reservation' => $reservation->id]) }}">
+                                                    <button type="button" class="btn btn-info btn-sm mr-2"
+                                                        style="font-size: .65rem">Edit</button></a>
+                                                <form method="post" class="delete_form"
+                                                    action="{{ route('admindropreservation', $reservation->id) }}">
+                                                    {{ method_field('DELETE') }}
+                                                    {{ csrf_field() }}
+                                                    <button type="submit" class="btn btn-danger btn-sm"
+                                                        style="font-size: .65rem">Drop</button>
+                                                </form>
+                                            @endif
+
                                         </td>
                                     </tr>
                                 @endforeach
@@ -134,7 +175,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="card-footer text-muted ">
+                    <div class="card-footer  ">
                         {!! $reservations->links() !!}
                     </div>
                 </div>
@@ -158,92 +199,92 @@
                 <div class="modal-body">
                     <table class="table table-bordered table-sm">
                         <tr class="mb-1">
-                            <td class="text-muted">Guest name</td>
+                            <td class="">Guest name</td>
 
                             <td class="text-capitalize" id="username"></td>
                         </tr>
 
                         <tr class="mb-1">
-                            <td class="text-muted">Guest email</td>
+                            <td class="">Guest email</td>
 
                             <td id="email"></td>
                         </tr>
 
                         <tr class="mb-1">
-                            <td class="text-muted">Apartment type</td>
+                            <td class="">Apartment type</td>
 
                             <td class="text-capitalize" id="roomname"></td>
                         </tr>
 
                         <tr class="mb-1">
-                            <td class="text-muted">Check-in </td>
+                            <td class="">Check-in </td>
 
                             <td id="checkin"></td>
                         </tr>
                         <tr class="mb-1">
-                            <td class="text-muted">Check-out </td>
+                            <td class="">Check-out </td>
 
                             <td id="checkout"></td>
                         </tr>
                         <tr class="mb-1">
-                            <td class="text-muted">Check-in time</td>
+                            <td class="">Check-in time</td>
 
-                            <td id="checkintime"></td>
+                            <td id="checkintime">Not available</td>
                         </tr>
                         <tr class="mb-1">
-                            <td class="text-muted">Check-out time</td>
+                            <td class="">Check-out time</td>
 
-                            <td id="checkouttime"></td>
+                            <td id="checkouttime">Not available</td>
                         </tr>
 
                         <tr class="pr-3">
-                            <td class="text-muted">No of guests</td>
+                            <td class="">No of guests</td>
 
                             <td id="guests"></td>
                         </tr>
 
                         <tr class="mb-1">
-                            <td class="text-muted">No of nights</td>
+                            <td class="">No of nights</td>
 
                             <td id="nights"></td>
                         </tr>
                         <tr class="mb-1">
-                            <td class="text-muted">No of rooms</td>
+                            <td class="">No of rooms</td>
 
                             <td id="rooms"></td>
                         </tr>
                         <tr class="mb-1">
-                            <td class="text-muted">Booked rooms</td>
+                            <td class="">Booked rooms</td>
 
-                            <td id="bookedrooms"></td>
+                            <td id="bookedrooms" class="text-capitalize"></td>
                         </tr>
 
 
                         <tr class="mb-1">
-                            <td class="text-muted">Price per night</td>
+                            <td class="">Price per night</td>
 
                             <td id="pricepernight"> </td>
                         </tr>
 
                         <tr class="mb-1">
-                            <td class="text-muted">Total price</td>
+                            <td class="">Total price</td>
 
                             <td id="totalprice"></td>
                         </tr>
 
                         <tr class="mb-1">
-                            <td class="text-muted">Payment type</td>
+                            <td class="">Payment type</td>
 
                             <td class="text-capitalize" id="payment_type"></td>
                         </tr>
 
                         <tr class="mb-1">
-                            <td class="text-muted">Payment status</td>
+                            <td class="">Payment status</td>
 
                             <td class="text-capitalize" id="payment_status"></td>
                         </tr>
                         <tr class="mb-1">
-                            <td class="text-muted">Amount paid</td>
+                            <td class="">Amount paid</td>
 
                             <td id="amountpaid">
 
@@ -271,7 +312,9 @@
             var checkout = info.data("checkout");
             var checkintime = info.data("checkintime");
             var checkouttime = info.data("checkouttime");
-            var roomname = info.data("roomname") + " Apartment";
+            var roomname = info.data("roomname").slice(0, 1).map(item => {
+                return `${item.room.flat_type} apartment`
+            }).toString();
             var rooms = info.data("rooms");
             var pricepernight = info.data("pricepernight");
             var guests = info.data("guests");
@@ -281,7 +324,7 @@
             var payment_status = info.data("payment_status");
             var amountpaid = info.data("amountpaid");
             var bookedrooms = info.data("bookedrooms").map(item => {
-                return item.room.short_name
+                return `${item.room.flat_name} / ${item.room.room_name}`
             }).toString();
 
 
@@ -297,7 +340,7 @@
                 modal.find(".modal-body #checkintime").text(moment(checkintime).format("ll , hh:mm A"));
             }
             if (checkouttime) {
-                modal.find(".modal-body #checkintime").text(moment(checkouttime).format("ll , hh:mm A"));
+                modal.find(".modal-body #checkouttime").text(moment(checkouttime).format("ll , hh:mm A"));
             }
 
             modal.find(".modal-body #roomname").text(roomname);

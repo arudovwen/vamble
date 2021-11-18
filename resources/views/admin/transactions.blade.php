@@ -36,9 +36,7 @@
                                 <tr>
                                     <th>Date</th>
                                     <th>Payment #</th>
-                                    <th>Room</th>
-                                    <th> No of Guests</th>
-                                    <th> No of Rooms</th>
+
                                     <th>Payment type</th>
                                     <th>Amount Paid</th>
                                     <th>Actions</th>
@@ -46,24 +44,24 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($reservations as $reservation)
+                                @foreach ($transactions as $transaction)
                                     <tr>
-                                        <td scope="row" class="text-capitalize">{{ $reservation->user->name }}</td>
-                                        <td class="text-capitalize">{{ $reservation->room->name }}</td>
-                                        <td>{{ $reservation->no_of_guests }}</td>
-                                        <td>{{ $reservation->no_of_rooms }}</td>
-                                        <td>{{ $reservation->check_in }}</td>
-                                        <td class="text-capitalize">{{ $reservation->check_out }}</td>
+                                        <td scope="row" class="text-capitalize">
+
+                                            {{ $transaction->created_at }}</td>
+                                        <td scope="row" class="text-capitalize">{{ $transaction->id }}</td>
+
+
                                         <td class="text-capitalize">
-                                            {{ $reservation->total_price }}
+                                            {{ $transaction->reservation->payment_type }}
+                                        </td>
+                                        <td class="text-capitalize">
+                                            {{ $transaction->reservation->total_price }}
                                         </td>
                                         <td scope="row">
                                             <button type="button" class="btn btn-primary btn-sm mr-2"
                                                 style="font-size: .65rem">View</button>
-                                            <button type="button" class="btn btn-info btn-sm mr-2"
-                                                style="font-size: .65rem">Edit</button>
-                                            <button type="button" class="btn btn-danger btn-sm"
-                                                style="font-size: .65rem">Drop</button>
+
                                         </td>
                                     </tr>
                                 @endforeach
@@ -74,7 +72,7 @@
                     </div>
                     <div class="card-footer text-muted d-flex justify-content-between align-items-center">
                         <div>
-                            Showing 1 to 5 of {{ count($reservations) }} entries
+                            Showing 1 to 5 of {{ count($transactions) }} entries
                         </div>
                         <div>
 

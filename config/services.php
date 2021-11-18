@@ -30,4 +30,9 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'paystack' => [
+        'sk' => env('PAYSTACK_SK', null),
+        'pk' => env('PAYSTACK_PK', null)
+    ]
+
 ];

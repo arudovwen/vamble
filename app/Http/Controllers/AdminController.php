@@ -6,6 +6,7 @@ use App\Http\Resources\CalendarResource;
 use App\Models\Reservation;
 use App\Models\Room;
 use App\Models\RoomCalendar;
+use App\Models\Transaction;
 use App\Models\User;
 use App\Services\RoomService;
 use Carbon\Carbon;
@@ -27,11 +28,17 @@ class AdminController extends Controller
     {
         $start = Carbon::now()->startOfWeek();
         $end  = Carbon::now()->endOfWeek();
+        $today = Carbon::now()->startOfDay();
 
         $data  = Reservation::where([['created_at', '>=', $start], ['created_at', '<=', $end]])->get();
-        $customers = User::where('role_id', 3)->get();
+        $customers = User::where('role_id', 3)->count();
+        $rooms = Room::count();
+        $checkin =  Reservation::where([['created_at', '>=', $today], ['created_at', '<=', $end]])->get()->filter(function ($a) {
+            return $a['check_in_time'];
+        });
 
-        return view('admin.dashboard', compact('data', 'customers'));
+
+        return view('admin.dashboard', compact('data', 'customers', 'rooms', 'checkin'));
     }
     public function users()
     {
@@ -47,8 +54,8 @@ class AdminController extends Controller
     public function transactions()
     {
 
-        $reservations = Reservation::with('room', 'user')->paginate(15);
-        return view('admin.transactions', compact('reservations'));
+        $transactions = Transaction::with('reservation', 'user')->paginate(15);
+        return view('admin.transactions', compact('transactions'));
     }
     public function rooms()
     {

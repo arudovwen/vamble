@@ -20,8 +20,68 @@ body {
 }
 #app {
 }
-.navbar .container-fluid {
-    justify-content: flex-start;
+// .navbar .container-fluid {
+//     justify-content: flex-start;
+// }
+.vue-step-wizard {
+    background-color: #f7f8fc;
+    width: 100% !important;
+    margin: auto;
+    padding: 0 20px !important;
+    @media (max-width: 768px) {
+        padding: 0 !important;
+        .step-item {
+            text-align: center;
+        }
+        .step-link .tabLabel {
+            font-size: 0.7rem !important;
+        }
+        .step-pills .step-item {
+            padding: 0.5rem;
+        }
+        .step-link .tabStatus {
+            width: 1rem;
+            height: 1rem;
+            margin-right: 0.5rem;
+            line-height: 1rem;
+            font-size: 0.6rem;
+        }
+    }
+}
+.step-progress {
+    margin-top: 0 !important;
+    .bar {
+        background-color: var(--vamble);
+    }
+}
+.step-pills,
+.step-body {
+    box-shadow: none !important;
+}
+.step-pills .step-item.active {
+    border: 1px solid var(--vamble);
+}
+.step-button-next {
+    background-color: var(--vamble);
+}
+.step-button-previous {
+    background-color: #333;
+}
+.step-button-submit {
+    display: none;
+}
+.step-button {
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+    position: relative;
+    max-width: 30rem;
+    text-align: center;
+    border-radius: 6px;
+    color: #fff !important;
+    color: rgba(34, 41, 47, var(--text-opacity));
+    padding: 0.5rem 1.25rem;
+    font-size: 0.875rem;
 }
 .nav-content {
     width: 80%;
@@ -146,7 +206,7 @@ td {
     @media (max-width: 768px) {
         background-color: white;
     }
-    .container {
+    .container-fluid {
         a {
             .logo {
                 background: white;
@@ -202,7 +262,7 @@ td {
     background-color: white !important;
     box-shadow: 0.125rem 0.25rem rgb(0 0 0 / 8%) !important;
     color: rgba(0, 0, 0, 0.5);
-    .container {
+    .container-fluid {
         a {
             .logo {
                 transition: 0.6s;
@@ -276,6 +336,7 @@ td {
             padding: 10px;
             h1 {
                 font-size: 1.7rem;
+                font-weight: 500;
             }
         }
     }
@@ -291,6 +352,12 @@ td {
         width: 100%;
         height: 100%;
         z-index: 1;
+    }
+}
+.amenities {
+    font-size: 0.9rem;
+    @media only screen and (max-width: 600px) {
+        font-size: 0.8rem;
     }
 }
 
@@ -344,7 +411,7 @@ td {
             }
         }
         .hotel {
-            height: 500px;
+            height: 400px;
             .hotel-img {
                 width: 100%;
                 position: relative;
@@ -571,7 +638,7 @@ td {
 .testimonials {
     position: relative;
     padding: 75px 20px 70px;
-    background-image: url("../../public/images/v3.jpg");
+    background-image: url("../../public/images/vamb-img/banner3.jpg");
     background-size: cover;
     background-position: center;
 
@@ -597,30 +664,6 @@ td {
             font-style: italic;
             color: white;
             z-index: 1;
-            &::after {
-                content: "";
-                width: 200px;
-                height: 10px;
-                border-bottom: 1px solid #ccc;
-                position: absolute;
-                bottom: 50%;
-                right: 5%;
-                @media only screen and (max-width: 768px) {
-                    width: 80px;
-                }
-            }
-            &::before {
-                content: "";
-                width: 200px;
-                height: 10px;
-                border-bottom: 1px solid #ccc;
-                position: absolute;
-                bottom: 50%;
-                left: 5%;
-                @media only screen and (max-width: 768px) {
-                    width: 80px;
-                }
-            }
         }
     }
 }
@@ -838,7 +881,7 @@ footer {
 .about_banner_img {
     width: 100%;
     height: 250px;
-    background-image: url("/images/v1.jpg");
+    background-image: url("/images/vamb-img/banner.jpg");
     background-size: cover;
     background-position: center;
     position: relative;
@@ -864,7 +907,7 @@ footer {
 .service_banner_img {
     width: 100%;
     height: 300px;
-    background-image: url("/images/v1.jpg");
+    background-image: url("/images/vamb-img/banner.jpg");
     background-size: cover;
     background-position: center;
     position: relative;
@@ -890,7 +933,7 @@ footer {
 .gallery_banner_img {
     width: 100%;
     height: 300px;
-    background-image: url("/images/v1.jpg");
+    background-image: url("/images/vamb-img/banner.jpg");
     background-size: cover;
     background-position: center;
     position: relative;
@@ -916,7 +959,7 @@ footer {
 .apartment_banner_img {
     width: 100%;
     height: 300px;
-    background-image: url("/images/v1.jpg");
+    background-image: url("/images/vamb-img/banner.jpg");
     background-size: cover;
     background-position: center;
     position: relative;
@@ -942,7 +985,7 @@ footer {
 .contact_banner_img {
     width: 100%;
     height: 300px;
-    background-image: url("/images/v1.jpg");
+    background-image: url("/images/vamb-img/banner.jpg");
     background-size: cover;
     background-position: center;
     position: relative;
@@ -1121,9 +1164,9 @@ i.red {
     }
 }
 
-.bookings {
-    min-height: 100vh;
-}
+// .bookings {
+//     min-height: 100vh;
+// }
 .allbookings {
     min-height: 100vh;
 }
@@ -1143,4 +1186,19 @@ i.red {
 
 .vhd__datepicker__wrapper {
     background: #fff url(/images/cally.png) no-repeat 1em/1em !important;
+}
+
+.modal-header,
+.modal-footer {
+    background-color: rgb(255 250 204/0.3);
+}
+
+.transaction {
+    min-height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+label {
+    font-size: 0.8rem;
 }

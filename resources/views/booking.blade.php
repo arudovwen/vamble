@@ -2,5 +2,7 @@
 
 @section('content')
     {{ Breadcrumbs::render('booking') }}
-    <booking-page></booking-page>
+    <div style="min-height: 50vh">
+        <booking-page></booking-page>
+    </div>
 @endsection

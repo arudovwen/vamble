@@ -39,4 +39,9 @@ class Reservation extends Model
     {
         return $this->hasMany(RoomCalendar::class)->with('room');
     }
+
+    public function transaction()
+    {
+        return $this->hasMany(Transaction::class);
+    }
 }

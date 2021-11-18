@@ -40,7 +40,7 @@
                             <div class=" d-flex align-items-center">
 
                             </div>
-                            <div class="form-group m-0 ">
+                            <div class="form-group mb-2 ">
 
                                 <input type="seacrh" class="form-control form-control-sm" name="" id=""
                                     aria-describedby="helpId" placeholder="Search name">
@@ -50,11 +50,12 @@
                         <table class="table table-bordered  table-striped bg-white mb-0">
                             <thead>
                                 <tr>
-                                    <th style="width: 110px">Short Name</th>
-                                    <th style="width: 40px">Name</th>
+                                    <th style="width: 100px">Flat Type</th>
+                                    <th style="width: 100px">Flat Name</th>
+                                    <th style="width: 100px">Room Name</th>
                                     <th>Description</th>
                                     <th style="width: 40px">Floor</th>
-                                    <th style="width: 110px">Max Guests</th>
+                                    <th style="width: 100px">Max Guests</th>
                                     <th style="width: 75px">Price</th>
                                     <th>Action</th>
 
@@ -64,8 +65,9 @@
                             <tbody>
                                 @foreach ($rooms as $room)
                                     <tr>
-                                        <td scope="row" class="text-capitalize">{{ $room->short_name }}</td>
-                                        <td scope="row" class="text-capitalize">{{ $room->name }}</td>
+                                        <td scope="row" class="text-capitalize">{{ $room->flat_type }}</td>
+                                        <td scope="row" class="text-capitalize">{{ $room->flat_name }}</td>
+                                        <td scope="row" class="text-capitalize">{{ $room->room_name }}</td>
                                         <td>{{ $room->description }}</td>
                                         <td>{{ $room->floor }}</td>
                                         <td>{{ $room->max_occupancy }}</td>
@@ -119,55 +121,89 @@
 
 
 
-                                <div class="form-group">
-                                    <label for="">Room type</label>
-                                    <select class="form-control" name="name" id="name">
-                                        <option value="standard">Standard</option>
-                                        <option value="executive">Executive</option>
-                                        <option value="luxury">Luxury</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="short_name">Short Name</label>
-                                    <input type="text" class="form-control" name="short_name" id="short_name"
-                                        aria-describedby="helpId" placeholder="">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="">Flat type</label>
+                                            <select class="form-control" required name="flat_type" id="flat_type">
+                                                <option value="standard">Standard</option>
+                                                <option value="luxury">Luxury</option>
+                                            </select>
+                                        </div>
 
-                                </div>
-                                <div class="form-group">
-                                    <label for="occupancy">Floor</label>
-                                    <select class="form-control" name="floor" id="floor">
-                                        @for ($num = 1; $num < 100; $num++)
-
-                                            <option value={{ $num }}>{{ $num }}</option>
-                                        @endfor
-
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="description">Description</label>
-                                    <textarea class="form-control" name="description" id="description"
-                                        rows="3"></textarea>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="occupancy">Max Occupancy</label>
-                                    <select class="form-control" name="max_occupancy" id="occupancy">
-                                        @for ($num = 1; $num < 100; $num++)
-
-                                            <option value={{ $num }}>{{ $num }}</option>
-                                        @endfor
-
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="price">Room Price</label>
-                                    <div class="input-group ">
-                                        <span class="input-group-text">₦</span>
-                                        <input type="number" name="price" id="price" class="form-control"
-                                            placeholder="Price" aria-label="Price" aria-describedby="price">
                                     </div>
+                                    <div class="col-sm-6">
 
+                                        <div class="form-group">
+                                            <label for="short_name">Flat name</label>
+                                            <input type="text" class="form-control" required name="flat_name"
+                                                id="flat_name" aria-describedby="helpId" placeholder="">
+
+                                        </div>
+                                    </div>
                                 </div>
+
+                                <div class="row">
+
+                                    <div class="col-sm-6">
+
+                                        <div class="form-group">
+                                            <label for="short_name">Room name</label>
+                                            <input type="text" class="form-control" required name="room_name"
+                                                id="room_name" aria-describedby="helpId" placeholder="">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="occupancy">Floor</label>
+                                            <select class="form-control" required name="floor" id="floor">
+                                                @for ($num = 1; $num < 100; $num++)
+
+                                                    <option value={{ $num }}>{{ $num }}</option>
+                                                @endfor
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="occupancy">Max Occupancy</label>
+                                            <select class="form-control" name="max_occupancy" required id="occupancy">
+                                                @for ($num = 1; $num < 100; $num++)
+
+                                                    <option value={{ $num }}>{{ $num }}</option>
+                                                @endfor
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="price">Room Price</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text">₦</span>
+                                                <input type="number" name="price" required id="price" class="form-control"
+                                                    placeholder="Price" aria-label="Price" aria-describedby="price">
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label for="description">Description</label>
+                                            <textarea class="form-control" required name="description" id="description"
+                                                rows="3"></textarea>
+                                        </div>
+
+                                    </div>
+                                </div>
+
 
 
 

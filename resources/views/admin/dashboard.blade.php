@@ -10,7 +10,7 @@
                     <strong>Total Customers</strong> <br>
                     <br>
                     <div class="d-flex justify-content-around align-items-center">
-                        <span class="fa-2x ">8</span>
+                        <span class="fa-2x ">{{ $customers }}</span>
                         <i class="fas fa-users  fa-2x text-success"></i>
                     </div>
 
@@ -21,7 +21,7 @@
                     <strong>Available Rooms</strong> <br>
                     <br>
                     <div class="d-flex justify-content-around align-items-center">
-                        <span class="fa-2x">8</span>
+                        <span class="fa-2x">{{ $rooms }}</span>
                         <i class="fa fa-bed fa-2x  text-info" aria-hidden="true"></i>
                     </div>
                 </div>
@@ -29,9 +29,9 @@
             <div class="col-sm-3  text-center mb-4">
                 <div class="w-100 h-100 py-3 text-center bg-white rounded  shadow-sm border-left border-danger">
                     <strong>Today Reservations</strong>
-                    <br> <br>
+                    <br> <small>This week</small> <br>
                     <div class="d-flex justify-content-around align-items-center">
-                        <span class="fa-2x ">8</span>
+                        <span class="fa-2x ">{{ $data->count() }}</span>
                         <i class="fas fa-calendar-plus fa-2x text-danger" aria-hidden="true"></i>
                     </div>
                 </div>
@@ -39,11 +39,11 @@
             </div>
             <div class="col-sm-3  text-center mb-4">
                 <div class="w-100 h-100 py-3 text-center bg-white rounded shadow-sm border-left border-warning ">
-                    <strong>Today
+                    <strong>Today's
                         Check-In</strong>
                     <br><br>
                     <div class="d-flex justify-content-around align-items-center">
-                        <span class="fa-2x ">8</span>
+                        <span class="fa-2x ">{{ $checkin->count() }}</span>
                         <i class="fas fa-user-check   fa-2x text-warning"></i>
                     </div>
                 </div>

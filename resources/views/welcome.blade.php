@@ -10,13 +10,13 @@
             </ol>
             <div class="carousel-inner" role="listbox">
                 <div class="carousel-item landing-item active ">
-                    <img src="{{ asset('/images/v1.jpg') }}" class="" alt=" First slide">
+                    <img src="{{ asset('/images/vamb-img/banner.jpg') }}" class="" alt=" First slide">
                 </div>
                 <div class="carousel-item  landing-item ">
-                    <img src="{{ asset('/images/v2.jpg') }}" alt="Second slide">
+                    <img src="{{ asset('/images/vamb-img/bedroom1.jpg') }}" alt="Second slide">
                 </div>
                 <div class="carousel-item  landing-item ">
-                    <img src="{{ asset('/images/v3.jpg') }}" alt="Third slide">
+                    <img src="{{ asset('/images/vamb-img/banner3.jpg') }}" alt="Third slide">
 
                 </div>
             </div>
@@ -39,7 +39,7 @@
             <div class="text-center pt-5 text-muted know_more">
 
                 <span class="text-white" data-toggle="tooltip" data-placement="top" title="Scroll down">
-                    <span class="cursor-pointer">KNOW MORE ABOUT US</span> <br>
+                    <span class="cursor-pointer">KNOW MORE </span> <br>
                     <i class="cursor-pointer fa fa-chevron-down animate__animated animate__heartBeat animate__slower animate__infinite	infinite"
                         aria-hidden="true"></i>
 
@@ -58,47 +58,27 @@
 
             <div class="row m-0 hotel d-none d-sm-flex">
                 <div class="col-sm-4 hotel-img p-0">
-                    <img src="{{ asset('/images/v2.jpg') }}" alt="vamble">
+                    <img src="{{ asset('/images/vamb-img/sitting2.jpg') }}" alt="vamble">
                     <div class="hotel_text">
-                        <strong>Hotels</strong> <br>
+                        <strong>World Class Sitting Room</strong> <br>
                         <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, ratione!</span>
                     </div>
                 </div>
                 <div class="col-sm-4 hotel-img p-0">
-                    <img src="{{ asset('/images/v2.jpg') }}" alt="vamble">
+                    <img src="{{ asset('/images/vamb-img/bedroom1.jpg') }}" alt="vamble">
                     <div class="hotel_text">
-                        <strong>Rooms</strong> <br>
+                        <strong>Executice Bedrooms</strong> <br>
                         <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, ratione!</span>
                     </div>
                 </div>
                 <div class="col-sm-4 hotel-img p-0">
-                    <img src="{{ asset('/images/v2.jpg') }}" alt="vamble">
+                    <img src="{{ asset('/images/vamb-img/kitchen1.jpg') }}" alt="vamble">
                     <div class="hotel_text">
-                        <strong>Suites</strong> <br>
+                        <strong>Fully Equipped Kitchen</strong> <br>
                         <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, ratione!</span>
                     </div>
                 </div>
-                <div class="col-sm-4 hotel-img p-0">
-                    <img src="{{ asset('/images/v2.jpg') }}" alt="vamble">
-                    <div class="hotel_text">
-                        <strong>Spa area</strong> <br>
-                        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, ratione!</span>
-                    </div>
-                </div>
-                <div class="col-sm-4 hotel-img p-0">
-                    <img src="{{ asset('/images/v2.jpg') }}" alt="vamble">
-                    <div class="hotel_text">
-                        <strong>Gym</strong> <br>
-                        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, ratione!</span>
-                    </div>
-                </div>
-                <div class="col-sm-4 hotel-img p-0">
-                    <img src="{{ asset('/images/v2.jpg') }}" alt="vamble">
-                    <div class="hotel_text">
-                        <strong>Swimming pool </strong> <br>
-                        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, ratione!</span>
-                    </div>
-                </div>
+
             </div>
         </div>
 
@@ -107,63 +87,11 @@
     <div class="thirdContent">
         <div class="content">
             <h2 class="mb-5">ROOMS</h2>
-            <div class="row mb-5 observer_1 flex-column-reverse flex-sm-row">
-                <div class="col-xs-12 col-sm-6  ">
-                    <div id="roomId" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#roomId" data-slide-to="0" class="active"></li>
-                            <li data-target="#roomId" data-slide-to="1"></li>
-                            <li data-target="#roomId" data-slide-to="2"></li>
-                        </ol>
-                        <div class="carousel-inner" role="listbox">
-                            <div class="carousel-item room-item active bg-light" data-bs-interval="4500">
-                                <img src="{{ asset('/images/v2.jpg') }}" alt="Third slide">
-                            </div>
-                            <div class="carousel-item room-item bg-light" data-bs-interval="3800">
-                                <img src="{{ asset('/images/v1.jpg') }}" alt="Third slide">
-                            </div>
-                            <div class="carousel-item room-item  bg-light" data-bs-interval="4000">
-                                <img src="{{ asset('/images/v4.jpg') }}" alt="Third slide">
-                            </div>
-                        </div>
 
-                    </div>
-                </div>
-                <div
-                    class="col-xs-12 col-sm-6  text-left fade_text animate__animated animate__fadeOut animate__slow  mb-4 mb-sm-0">
-                    <h3 class="line_half">Standard Apartment</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, hic? Commodi, nulla. Hic voluptas
-                        illo quisquam praesentium vero fugit cumque eveniet similique quasi, cupiditate odio distinctio
-                        neque natus fugiat, veniam mollitia recusandae porro. Sequi, quod accusamus numquam hic dicta culpa!
-                    </p>
-
-                    <div class="price mb-2"> &#8358;150,000 <sub>per night</sub></div>
-                    <div class="amenities mb-1"><i class="fa fa-bed" aria-hidden="true"></i> 1 double bed</div>
-                    <div class="amenities mb-1"> <i class="fas fa-wind    "></i> Air conditioning</div>
-                    <div class="amenities "><i class="fas fa-faucet    "></i> Kitchen</div>
-
-                    <div class="mb-4">
-                        <span class="badge badge-primary"> Free toiletries</span>
-                        <span class="badge badge-primary"> Bath or shower </span>
-                        <span class="badge badge-primary"> Desk Seating Area</span>
-                        <span class="badge badge-primary">TV</span>
-
-                        <span class="badge badge-primary"> Refrigerator </span>
-                        <span class="badge badge-primary"> Satellite channels </span>
-                        <span class="badge badge-primary"> Wireless Internet </span>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <a href="/booking"> <button type="button" class="btn btn-outline-dark btn-sm"> Book
-                                room</button></a>
-                        <span> <span class="badge  badge-primary">9.2</span> <span>Superb</span></span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row mb-5 observer_2">
+            <div class="row mb-5 observer_1">
                 <div
                     class="col-xs-12 col-sm-6  text-left fade_text animate__animated animate__fadeOut animate__slow mb-4 mb-sm-0">
-                    <h3 class="line_half">Executive Apartment</h3>
+                    <h3 class="line_half">Standard Apartment</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, hic? Commodi, nulla. Hic voluptas
                         illo quisquam praesentium vero fugit cumque eveniet similique quasi, cupiditate odio distinctio
                         neque natus fugiat, veniam mollitia recusandae porro. Sequi, quod accusamus numquam hic dicta culpa!
@@ -199,13 +127,13 @@
                         </ol>
                         <div class="carousel-inner" role="listbox">
                             <div class="carousel-item room-item active bg-light" data-bs-interval="5000">
-                                <img src="{{ asset('/images/v2.jpg') }}" alt="Third slide">
+                                <img src="{{ asset('/images/vamb-img/bedroom1.jpg') }}" alt="Third slide">
                             </div>
                             <div class="carousel-item room-item bg-light" data-bs-interval="3700">
-                                <img src="{{ asset('/images/v1.jpg') }}" alt="Third slide">
+                                <img src="{{ asset('/images/vamb-img/sitting1.jpg') }}" alt="Third slide">
                             </div>
                             <div class="carousel-item room-item  bg-light" data-bs-interval="4000">
-                                <img src="{{ asset('/images/v4.jpg') }}" alt="Third slide">
+                                <img src="{{ asset('/images/vamb-img/kitchen1.jpg') }}" alt="Third slide">
                             </div>
                         </div>
 
@@ -214,7 +142,7 @@
 
             </div>
 
-            <div class="row mb-5 observer_3  flex-column-reverse flex-sm-row">
+            <div class="row mb-5 observer_2  flex-column-reverse flex-sm-row">
                 <div class="col-xs-12 col-sm-6  ">
                     <div id="roomId2" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
@@ -224,13 +152,13 @@
                         </ol>
                         <div class="carousel-inner" role="listbox">
                             <div class="carousel-item room-item active bg-light" data-bs-interval="4600">
-                                <img src="{{ asset('/images/v2.jpg') }}" alt="Third slide">
+                                <img src="{{ asset('/images/vamb-img/sitting.jpg') }}" alt="Third slide">
                             </div>
                             <div class="carousel-item room-item bg-light" data-bs-interval="3800">
-                                <img src="{{ asset('/images/v1.jpg') }}" alt="Third slide">
+                                <img src="{{ asset('/images/vamb-img/bedroom.jpg') }}" alt="Third slide">
                             </div>
                             <div class="carousel-item room-item  bg-light" data-bs-interval="4000">
-                                <img src="{{ asset('/images/v4.jpg') }}" alt="Third slide">
+                                <img src="{{ asset('/images/vamb-img/kitchen.jpg') }}" alt="Third slide">
                             </div>
                         </div>
 
@@ -270,10 +198,10 @@
     </div>
     <div class="fourthContent">
         <div class="content">
-            <div class="row mb-5 observer_4">
+            <div class="row mb-5 observer_3">
                 <div class="col-xs-12 col-sm-4  text-center">
                     <div class="rounded-circle  about_image">
-                        <img src="{{ asset('/images/v4.jpg') }}" class="w-100 h-100 rounded-circle"
+                        <img src="{{ asset('/images/vamb-img/sitting2.jpg') }}" class="w-100 h-100 rounded-circle"
                             style="object-fit: cover" alt="Third slide">
                     </div>
                 </div>
@@ -297,22 +225,25 @@
             <div>
                 <div class="row mb-5">
                     <div class="col-2   px-0 l_gallery_image">
-                        <img src="{{ asset('/images/v1.jpg') }}" class="w-100 h-100" alt="Third slide">
+                        <img src="{{ asset('/images/vamb-img/kitchen.jpg') }}" class="w-100 h-100" alt="Third slide">
                     </div>
                     <div class="col-2  px-0 l_gallery_image">
-                        <img src="{{ asset('/images/v2.jpg') }}" class="w-100 h-100" alt="Third slide">
+                        <img src="{{ asset('/images/vamb-img/banner1.jpg') }}" class="w-100 h-100" alt="Third slide">
                     </div>
                     <div class="col-2    px-0 l_gallery_image">
-                        <img src="{{ asset('/images/v3.jpg') }}" class="w-100 h-100" alt="Third slide">
+                        <img src="{{ asset('/images/vamb-img/sitting2.jpg') }}" class="w-100 h-100"
+                            alt="Third slide">
                     </div>
                     <div class="col-2   px-0 l_gallery_image">
-                        <img src="{{ asset('/images/v4.jpg') }}" class="w-100 h-100" alt="Third slide">
+                        <img src="{{ asset('/images/vamb-img/sitting3.jpg') }}" class="w-100 h-100"
+                            alt="Third slide">
                     </div>
                     <div class="col-2   px-0 l_gallery_image">
-                        <img src="{{ asset('/images/v5.jpg') }}" class="w-100 h-100" alt="Third slide">
+                        <img src="{{ asset('/images/vamb-img/sitting1.jpg') }}" class="w-100 h-100"
+                            alt="Third slide">
                     </div>
                     <div class="col-2   px-0 l_gallery_image">
-                        <img src="{{ asset('/images/v1.jpg') }}" class="w-100 h-100" alt="Third slide">
+                        <img src="{{ asset('/images/vamb-img/sitting.jpg') }}" class="w-100 h-100" alt="Third slide">
                     </div>
 
                 </div>

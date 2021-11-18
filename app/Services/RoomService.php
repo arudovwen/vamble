@@ -13,17 +13,17 @@ class RoomService
   {
 
     $room =  Room::create([
-      'name' => strtolower($request->name),
+      'flat_name' => strtolower($request->flat_name),
+      'flat_type' => strtolower($request->flat_type),
+      'room_name' => strtolower($request->room_name),
       'price' => $request->price,
-      'total' => 1,
-      'available' => 1,
-      'short_name' => $request->short_name,
+      'status' => false,
       'description' => $request->description,
       'floor' => $request->floor,
       'max_occupancy' => $request->max_occupancy
 
     ]);
-    $roomcalendar = RoomCalendar::create(['room_id' => $room->id]);
+
 
     return redirect()->back()->with('success', 'Added successfully');
   }
@@ -35,45 +35,38 @@ class RoomService
     $check_in = Carbon::parse($request->input('checkIn'));
     $check_out = Carbon::parse($request->input('checkOut'));
     $room_id = $request->room_id;
-    $roomtype = Room::find($room_id)->name;
+    $flat_type = $request->flat_type;
     $roomsneeded = $request->rooms;
 
 
-    // All room type
-    $allfreerooms = [];
-    $allrooms = Room::has('roomcalendar')->with('roomcalendar')->get();
+    // // All room type
+    // $allfreerooms = [];
+    // $allrooms = Room::has('roomcalendar')->where(strtolower('flat_type'), strtolower($request->flat_type))->with('roomcalendar')->get();
 
-    foreach ($allrooms as $q) {
-      $res = $q->roomcalendar->contains(function ($q2) use ($check_in, $check_out) {
-        return $check_in->between($q2->check_in, $q2->check_out);
+    // foreach ($allrooms as $q) {
+    //   $res = $q->roomcalendar->contains(function ($q2) use ($check_in, $check_out) {
+    //     return $check_in->between($q2->check_in, $q2->check_out);
+    //   });
+
+    //   if (!$res) {
+    //     array_push($allfreerooms, $q);
+    //   }
+    // }
+
+
+    // $allroomswitoutcalendar = Room::whereDoesntHave('roomcalendar')->where(strtolower('flat_type'), strtolower($request->flat_type))->get();
+    // $allmergedrooms = array_merge($allfreerooms, $allroomswitoutcalendar->values()->all());
+    //end here
+    $allmergedrooms = Room::with('roomcalendar')->where(strtolower('flat_type'), strtolower($request->flat_type))->whereHas('roomcalendar', function ($q) use ($check_in, $check_out) {
+      $q->where(function ($q2) use ($check_in, $check_out) {
+        $q2->where('check_in', '>=', $check_out)
+          ->orWhere('check_out', '<=', $check_in);
       });
-
-      if (!$res) {
-        array_push($allfreerooms, $q);
-      }
-    }
-    $allroomswitoutcalendar = Room::whereDoesntHave('roomcalendar')->get();
-    $allmergedrooms = array_merge($allfreerooms, $allroomswitoutcalendar->values()->all());
+    })->orWhereDoesntHave('roomcalendar')->where(strtolower('flat_type'), strtolower($request->flat_type))->get();
 
 
-    // Specific type
-    $freerooms = [];
-    $rooms = Room::has('roomcalendar')->with('roomcalendar')->where('name', $roomtype)->get();
 
-    foreach ($rooms as $q) {
-      $res = $q->roomcalendar->contains(function ($q2) use ($check_in, $check_out) {
-        return $check_in->between($q2->check_in, $q2->check_out);
-      });
-
-      if (!$res) {
-        array_push($freerooms, $q);
-      }
-    }
-    $roomswitoutcalendar = Room::where('name', $roomtype)->whereDoesntHave('roomcalendar')->get();
-    $mergedrooms = array_merge($freerooms, $roomswitoutcalendar->values()->all());
-
-
-    if (count($mergedrooms) >= $roomsneeded) {
+    if (count($allmergedrooms) >= $roomsneeded) {
       $message = " Room is available, you can proceed to book the room";
 
       return response()->json(
@@ -81,19 +74,19 @@ class RoomService
           'status' => 'available',
           'message' => $message,
           'rooms' => $allmergedrooms,
-          'roomtype' => $mergedrooms
+
         ]
       );
     };
-    if (count($mergedrooms) && count($mergedrooms) < $roomsneeded) {
-      $message = "Only " . count($mergedrooms) . " available";
+    if (count($allmergedrooms) && count($allmergedrooms) < $roomsneeded) {
+      $message = "Only " . count($allmergedrooms) . " available";
 
       return response()->json(
         [
           'status' => 'less-available',
           'message' => $message,
           'rooms' => $allmergedrooms,
-          'roomtype' => $mergedrooms
+
 
         ]
       );
@@ -104,7 +97,7 @@ class RoomService
         'status' => 'unavailable',
         'message' => $message,
         'rooms' => $allmergedrooms,
-        'roomtype' => $mergedrooms
+
 
       ]
     );

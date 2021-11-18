@@ -90,18 +90,25 @@
             <select
               required
               class="form-control form-control-sm border-0 no-focus"
-              v-model="room_id"
+              v-model="flat_type"
             >
               <option disabled value="">Apartment type</option>
-              <option :value="n.id" v-for="n in allrooms" :key="n.id">
+              <option value="standard">
                 <div class="d-flex justify-content-between align-items-center">
-                  <span
-                    ><span class="text-capitalize">{{ n.name }}</span>
-                    apartment</span
-                  >
+                  <span><span>Standard</span> apartment</span>
                   -
                   <span
-                    >{{ n.price | currencyFormat }} <small>/ night</small></span
+                    >{{ 30000 | currencyFormat }} <small>/ night</small></span
+                  >
+                </div>
+              </option>
+
+              <option value="luxury">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span><span>Luxury</span> apartment</span>
+                  -
+                  <span
+                    >{{ 110000 | currencyFormat }} <small>/ night</small></span
                   >
                 </div>
               </option>
@@ -116,7 +123,7 @@
             aria-hidden="true"
             :disabled="isChecking"
           ></span>
-          {{ isChecking ? "Checking" : "Check" }} Availabilty
+          {{ isChecking ? "Checking" : "Check" }}
         </button>
       </div>
     </form>
@@ -141,6 +148,7 @@ export default {
       showdate: false,
       guests: null,
       rooms: null,
+      flat_type: "",
       room_id: "",
       checkIn: "",
       checkOut: "",
@@ -165,6 +173,7 @@ export default {
     handleBooking(event, checkin, checkout) {
       this.checkIn = checkin;
       this.checkOut = checkout;
+
       this.nights = this.$moment(checkout).diff(this.$moment(checkin), "days");
     },
 
@@ -184,6 +193,7 @@ export default {
         checkIn: this.checkIn,
         checkOut: this.checkOut,
         nights: this.nights,
+        flat_type: this.flat_type,
       };
       axios
         .post("http://localhost:8000/check/availability", data)
@@ -192,7 +202,7 @@ export default {
           if (res.data.status == "available") {
             this.isChecking = false;
             this.isAvailable = true;
-            var routeData = `http://localhost:8000/booking?room=${this.room_id}&count=${this.rooms}&checkin=${this.checkIn}&checkout=${this.checkOut}&guests=${this.guests}`;
+            var routeData = `http://localhost:8000/booking?room=${this.flat_type}&count=${this.rooms}&checkin=${this.checkIn}&checkout=${this.checkOut}&guests=${this.guests}`;
             window.location.href = routeData;
             return;
           }

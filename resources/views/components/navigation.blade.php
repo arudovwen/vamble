@@ -1,5 +1,5 @@
   <nav class="navbar navbar-expand-md navbar-light  navigation default_navigation py-sm-0" id="nav">
-      <div class="container align-items-sm-end px-sm-0">
+      <div class="container-fluid align-items-sm-end px-sm-0">
           <a class="navbar-brand pt-sm-0" href="{{ url('/') }}">
               <img src="/logo.png" class="logo" alt="vamble logo">
           </a>
@@ -43,7 +43,7 @@
 
 
               </div>
-              <hr class="border-primary my-0 ">
+              <hr class="border-primary d-none d-md-block my-0 ">
               <div class="collapse navbar-collapse bottom_nav" id="navbarSupportedContent">
                   <!-- Left Side Of Navbar -->
                   <ul class="navbar-nav ">
@@ -71,12 +71,21 @@
                           <a class="nav-link" href="{{ route('contact') }}">{{ __('Make Enquiries') }}</a>
                       </li>
                   </ul>
+                  <ul class="navbar-nav ml-auto align-items-center ">
+                      <li class="nav-item">
+                          <i class="fa fa-instagram" aria-hidden="true"></i>
+                          IN
+                      </li>
+                      <li class="nav-item"><i class="fa fa-facebook" aria-hidden="true"></i> FS</li>
+                      <li class="nav-item"> <i class="fa fa-twitter" aria-hidden="true"></i>TW</li>
+                  </ul>
                   <!-- Right Side Of Navbar -->
                   <ul class="navbar-nav ml-auto align-items-center ">
+
                       <!-- Authentication Links -->
                       @guest
                           @if (Route::has('login'))
-                              <li class="nav-item">
+                              <li class="nav-item mr-3">
                                   <a class="nav-link " href="{{ route('login') }}">
                                       {{ __('Login') }}
                                   </a>
@@ -101,7 +110,7 @@
                                   </a>
                                   <a class="dropdown-item" href="{{ route('logout') }}"
                                       onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                                                                                                 document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                                                                                                                             document.getElementById('logout-form').submit();">
                                       {{ __('Logout') }}
                                   </a>
 

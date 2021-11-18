@@ -63,23 +63,23 @@ if (location.pathname == "/") {
         });
     });
 
-    var fourthObserver = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            var content = entry.target.querySelector(".fade_text");
-            if (entry.isIntersecting) {
-                content.classList.add("animate__fadeInUp");
-                content.classList.remove("animate__fadeOut");
-                return; // if we added the class, exit the function
-            }
-            // We're not intersecting, so remove the class!
-        });
-    });
+    // var fourthObserver = new IntersectionObserver(entries => {
+    //     entries.forEach(entry => {
+    //         var content = entry.target.querySelector(".fade_text");
+    //         if (entry.isIntersecting) {
+    //             content.classList.add("animate__fadeInUp");
+    //             content.classList.remove("animate__fadeOut");
+    //             return; // if we added the class, exit the function
+    //         }
+    //         // We're not intersecting, so remove the class!
+    //     });
+    // });
 
     contentObserver.observe(document.querySelector(".secondContent"));
     firstObserver.observe(document.querySelector(".observer_1"));
     secondObserver.observe(document.querySelector(".observer_2"));
     thirdObserver.observe(document.querySelector(".observer_3"));
-    fourthObserver.observe(document.querySelector(".observer_4"));
+    //fourthObserver.observe(document.querySelector(".observer_4"));
 
     //Know more scroll
     var knowmore = document.querySelector(".know_more");

@@ -24,6 +24,17 @@ class ReservationController extends Controller
     {
         return $this->reservationService->getReservations();
     }
+
+    public function searchreservation(Request $request)
+    {
+        $query = $request->input('query');
+
+        $reservations = Reservation::with('user')->whereHas('user', function ($a) use ($query) {
+            return $a->where('name', 'LIKE', '%' . $query . '%');
+        })->orWhere('booking_no', 'LIKE', '%' . $query . '%')->paginate(15);
+
+        return view('admin.reservations', compact('reservations'));
+    }
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -34,6 +45,17 @@ class ReservationController extends Controller
             'address' => 'required'
         ]);
         return $this->reservationService->handleReservation($request);
+    }
+    public function storeByAdmin(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required',
+            'gender' => 'required',
+            'phone' => 'required',
+            'address' => 'required'
+        ]);
+        return $this->reservationService->adminHandleReservation($request);
     }
     public function show(Reservation $reservation)
     {
@@ -88,5 +110,9 @@ class ReservationController extends Controller
     public function destroy(Reservation $reservation)
     {
         return $this->reservationService->removereservation($reservation);
+    }
+    public function admindestroy(Reservation $reservation)
+    {
+        return $this->reservationService->adminremovereservation($reservation);
     }
 }

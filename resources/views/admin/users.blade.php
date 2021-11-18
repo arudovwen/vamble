@@ -26,6 +26,24 @@
 
                             </div>
                         </div>
+                        @if (Session::get('success'))
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    <span class="sr-only">Close</span>
+                                </button>
+                                <strong> {{ Session::get('success') }}</strong>
+                            </div>
+                        @endif
+                        @if (Session::get('error'))
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    <span class="sr-only">Close</span>
+                                </button>
+                                <strong> {{ Session::get('error') }}</strong>
+                            </div>
+                        @endif
                         <table class="table table-bordered table-striped bg-white mb-0">
                             <thead>
                                 <tr>
@@ -53,10 +71,13 @@
                                         <td class="text-capitalize">{{ $user->nationality ? $user->nationality : '-' }}
                                         </td>
                                         <td scope="row">
-                                            <button type="button" class="btn btn-info btn-sm mr-2"
-                                                style="font-size: .65rem">Edit</button>
-                                            <button type="button" class="btn btn-danger btn-sm"
-                                                style="font-size: .65rem">Drop</button>
+                                            <form method="post" class="delete_form"
+                                                action="{{ route('userdelete', $user->id) }}">
+                                                {{ method_field('DELETE') }}
+                                                {{ csrf_field() }}
+                                                <button type="submit" class="btn btn-danger btn-sm"
+                                                    style="font-size: .65rem">Drop</button>
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach

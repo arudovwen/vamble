@@ -51,6 +51,6 @@ class UserService
   public function removeuser($user)
   {
     $user->delete();
-    return response()->json('deleted');
+    return redirect()->back()->with('success', 'Removed successfully');
   }
 }

@@ -42,8 +42,8 @@ export default {
     events() {
       return this.$props.calendar.map((item) => {
         var obj = {};
-        obj.title = `${item.room.name} room - reserved for ${
-          item.user ? item.user.name : "Unknown"
+        obj.title = `${item.room.flat_name.toUpperCase()} / ${item.room.room_name.toUpperCase()}  - reserved for ${
+          item.user ? item.user.name.toUpperCase() : "Unknown"
         }`;
         if (item.reservation) {
           obj.start = item.reservation.check_in;

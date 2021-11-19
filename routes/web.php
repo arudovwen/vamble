@@ -66,15 +66,17 @@ Route::resource('rooms', RoomController::class);
 // Admin routes
 Route::get('/dashboard', [App\Http\Controllers\AdminController::class, 'dashboard'])->name('dashboard');
 Route::get('/users', [App\Http\Controllers\AdminController::class, 'users'])->name('users');
+Route::post('/users', [App\Http\Controllers\UserController::class, 'searchusers'])->name('usersearch');
 Route::get('/show-rooms', [App\Http\Controllers\AdminController::class, 'rooms'])->name('rooms');
 Route::get('/search', [App\Http\Controllers\AdminController::class, 'roomsearch'])->name('roomsearch');
 Route::get('/reservations', [App\Http\Controllers\AdminController::class, 'reservations'])->name('reservations');
 Route::get('/transactions', [App\Http\Controllers\AdminController::class, 'transactions'])->name('transactions');
+Route::post('/transactions', [App\Http\Controllers\AdminController::class, 'searchtransactions'])->name('searchtransactions');
 Route::get('/calendar', [App\Http\Controllers\AdminController::class, 'calendar'])->name('calendar');
 
 Route::delete('/users/{user}', [App\Http\Controllers\UserController::class, 'destroy'])->name('userdelete');
 
-Route::post('/search/reservation', [App\Http\Controllers\ReservationController::class, 'searchreservation'])->name('searchreservation');
+Route::post('/reservations', [App\Http\Controllers\ReservationController::class, 'searchreservation'])->name('searchreservation');
 Route::get('/customer/checkin/{reservation}', [App\Http\Controllers\ReservationController::class, 'customercheckin'])->name('customercheckin');
 Route::get('/customer/checkout/{reservation}', [App\Http\Controllers\ReservationController::class, 'customercheckout'])->name('customercheckout');
 

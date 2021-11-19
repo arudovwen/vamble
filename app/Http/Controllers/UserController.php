@@ -20,6 +20,15 @@ class UserController extends Controller
         return $this->userService->getusers();
     }
 
+    public function searchusers(Request $request)
+    {
+        $query = $request->input('query');
+
+        $users = User::where('name', 'LIKE', '%' . $query . '%')->paginate(15);
+
+        return view('admin.users', compact('users'));
+    }
+
     public function store(Request $request)
     {
         return $this->userService->createuser($request);

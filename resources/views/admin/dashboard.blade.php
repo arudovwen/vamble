@@ -62,22 +62,22 @@
 
                 <div>
                     <a href="{{ route('rooms') }}" class="text-decoration-none"> <button type="button"
-                            class="btn btn-primary btn-lg btn-block mb-4 font-size-15 shadow d-flex justify-content-between align-items-center"><span>Add
+                            class="btn btn-dark btn-lg btn-block mb-4 font-size-15 shadow d-flex justify-content-between align-items-center"><span>Add
                                 Room</span> <i class="fa fa-arrow-right" aria-hidden="true"></i></button></a>
                     <a href="{{ route('reservations') }}" class="text-decoration-none"> <button type="button"
-                            class="btn btn-primary btn-lg btn-block mb-4 font-size-15 shadow d-flex justify-content-between align-items-center">{{ __('Make Reservation') }}
+                            class="btn btn-dark btn-lg btn-block mb-4 font-size-15 shadow d-flex justify-content-between align-items-center">{{ __('Make Reservation') }}
                             <i class="fa fa-arrow-right" aria-hidden="true"></i></button></a>
                     <button type="button"
-                        class="btn btn-primary btn-lg btn-block mb-4 font-size-15 shadow d-flex justify-content-between align-items-center"
+                        class="btn btn-dark btn-lg btn-block mb-4 font-size-15 shadow d-flex justify-content-between align-items-center"
                         data-toggle="modal" data-target="#checkId">Search booking# <i class="fa fa-arrow-right"
                             aria-hidden="true"></i>
                     </button>
                     <button type="button"
-                        class="btn btn-primary btn-lg btn-block mb-4 font-size-15 shadow d-flex justify-content-between align-items-center"
+                        class="btn btn-dark btn-lg btn-block mb-4 font-size-15 shadow d-flex justify-content-between align-items-center"
                         data-toggle="modal" data-target="#namesearch"> Name/Email search
                         <i class="fa fa-arrow-right" aria-hidden="true"></i> </button>
                     <a href="{{ route('transactions') }}" class="text-decoration-none"> <button type="button"
-                            class="btn btn-primary btn-lg btn-block font-size-15 shadow d-flex justify-content-between align-items-center">View
+                            class="btn btn-dark btn-lg btn-block font-size-15 shadow d-flex justify-content-between align-items-center">View
                             Transactions <i class="fa fa-arrow-right" aria-hidden="true"></i></button></a>
                 </div>
             </div>

@@ -25,7 +25,7 @@
 
                             </div>
                             <div class="form-group m-0">
-                                <form action="{{ route('searchreservation') }}" method="POST" role="search">
+                                <form action="{{ route('searchtransactions') }}" method="POST" role="search">
                                     {{ csrf_field() }}
                                     <div class="input-group">
                                         <span class="input-group-btn ">
@@ -34,9 +34,9 @@
                                             </button>
                                         </span>
                                         <input type="search" required class="form-control form-control-sm" name="query"
-                                            id="name" aria-describedby="helpId" placeholder="Search name or booking number">
+                                            id="name" aria-describedby="helpId" placeholder="Search transaction">
                                         <span class="input-group-btn ml-3">
-                                            <a href="{{ route('reservations') }}">
+                                            <a href="{{ route('transactions') }}">
                                                 <button class="btn btn-info btn-sm" type="button">
 
                                                     Reset <i class="fa fa-recycle" aria-hidden="true"></i>

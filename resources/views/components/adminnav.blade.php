@@ -109,7 +109,7 @@
 
         <ul class="navbar-nav ml-auto mt-2 mt-lg-0 align-items-center">
             <li class="mr-4 position-relative"><span><i class="fa fa-bullhorn nav-icon" aria-hidden="true"></i></span>
-                <span class="badge badge-danger notification_badge">2</span>
+                <span class="badge badge-danger notification_badge"></span>
             </li>
 
             <li class="nav-item dropdown d-flex align-items-center">

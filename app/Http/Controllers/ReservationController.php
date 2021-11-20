@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Room;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
+use App\Exports\ExportReservation;
 use App\Services\ReservationService;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Validator;
 
 class ReservationController extends Controller
@@ -114,5 +116,10 @@ class ReservationController extends Controller
     public function admindestroy(Reservation $reservation)
     {
         return $this->reservationService->adminremovereservation($reservation);
+    }
+    public function exportReservations(Request $request)
+    {
+
+        return  Excel::download(new ExportReservation, 'reservations.csv');
     }
 }

@@ -1,11 +1,11 @@
 
 <template>
-  <div class="bookings p-3 p-md-0">
+  <div class="bookings px-0 py-3 py-md-3 px-md-3 p-md-0">
     <div class="container pb-5 pt-md-3">
       <div class="row">
         <div class="col-md-8 rounded mb-5">
-          <form-wizard>
-            <tab-content title="Make reservation">
+          <stepper :step="step" @toggleStep="toggleStep">
+            <template #one>
               <form @submit.prevent="checkAvailability">
                 <div class="mb-5">
                   <div class="form-group">
@@ -117,7 +117,7 @@
                     </div>
                   </div>
 
-                  <div class="text-right mt-3">
+                  <div class="text-right mt-1">
                     <button
                       type="submit"
                       class="btn btn-secondary btn-sm ml-auto"
@@ -149,9 +149,18 @@
                     {{ message }}
                   </div>
                 </div>
+                <div class="d-flex justify-content-end mt-3" v-if="isAvailable">
+                  <button
+                    type="button"
+                    @click="step++"
+                    class="btn btn-primary btn-sm px-3"
+                  >
+                    Next
+                  </button>
+                </div>
               </form>
-            </tab-content>
-            <tab-content title="Guest Details">
+            </template>
+            <template #two>
               <form
                 v-if="isAvailable"
                 class="animate__animated animate__fadeIn"
@@ -183,7 +192,7 @@
                 </div>
 
                 <div class="row">
-                  <div class="form-group col-md-6">
+                  <div class="form-group col-md-4">
                     <label for="">Phone</label>
                     <input
                       required
@@ -192,10 +201,12 @@
                       :disabled="!isAvailable"
                       aria-describedby="helpId"
                       placeholder=""
+                      minlength="11"
+                      maxlength="11"
                       v-model="detail.phone"
                     />
                   </div>
-                  <div class="form-group col-md-6">
+                  <div class="form-group col-md-4">
                     <label for="">Gender</label>
                     <select
                       required
@@ -206,6 +217,19 @@
                       <option value="" disabled>Choose gender</option>
                       <option value="male">Male</option>
                       <option value="female">Female</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="">Nationality</label>
+                    <select
+                      required
+                      class="form-control"
+                      :disabled="!isAvailable"
+                      v-model="detail.nationality"
+                    >
+                      <option value="" disabled>Choose nationality</option>
+                      <option value="nigeria">Nigeria</option>
+                      <option value="other">Other</option>
                     </select>
                   </div>
                 </div>
@@ -221,6 +245,23 @@
                     placeholder=""
                   />
                 </div>
+
+                <div class="d-flex justify-content-end mt-4">
+                  <button
+                    type="button"
+                    @click="step--"
+                    class="btn btn-secondary btn-sm mr-3"
+                  >
+                    Previous
+                  </button>
+                  <button
+                    type="button"
+                    @click="step++"
+                    class="btn btn-primary btn-sm"
+                  >
+                    Next
+                  </button>
+                </div>
               </form>
 
               <div v-else class="text-center p-4">
@@ -232,8 +273,8 @@
                   back later
                 </div>
               </div>
-            </tab-content>
-            <tab-content title="Finishing Up">
+            </template>
+            <template #three>
               <div class="p-3" v-if="isAvailable">
                 <div class="border-0">
                   <h5 class="modal-title text-center mb-4" v-if="!finalize">
@@ -340,7 +381,7 @@
                     @paymentsuccessful="paymentsuccessful"
                   />
                   <button
-                    type="type"
+                    type="button"
                     @click="payAtHotel"
                     class="btn btn-dark btn-sm ml-3"
                     :disabled="!isFinalizing"
@@ -381,10 +422,11 @@
                   </button>
                 </div>
               </div>
-            </tab-content>
-          </form-wizard>
+            </template>
+          </stepper>
         </div>
-        <div class="col-md-4 side_tab px-0 px-md-3">
+
+        <div class="col-md-4 side_tab px-md-3">
           <div class="bg-white rounded p-3 w-100">
             <h5
               class="mb-4"
@@ -597,67 +639,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Modal -->
-    <div
-      class="modal fade"
-      id="deletereservation"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="modelTitleId"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-sm" role="document">
-        <div class="modal-content">
-          <div class="modal-body">Are you sure ?</div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >
-              Close
-            </button>
-            <button
-              type="button"
-              @click="dropreservation"
-              class="btn btn-danger"
-            >
-              Yes cancel
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal -->
-    <div
-      class="modal fade"
-      id="editbooking"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="modelTitleId"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header border-0">
-            <h5 class="modal-title">Modify your reservation</h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body border-0">
-            <update-book v-if="editbook" :reservation="info"></update-book>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -668,6 +649,7 @@ import "vue-hotel-datepicker/dist/vueHotelDatepicker.css";
 import UpdateBook from "./UpdateBooking.vue";
 import { FormWizard, TabContent } from "vue-step-wizard";
 import Payment from "./Paystack.vue";
+import Stepper from "./Step.vue";
 
 export default {
   components: {
@@ -676,10 +658,12 @@ export default {
     FormWizard,
     TabContent,
     Payment,
+    Stepper,
   },
   data() {
     return {
       val: 2,
+      step: 1,
       editbook: false,
       finalize: false,
       bookings: [],
@@ -694,8 +678,8 @@ export default {
         name: "",
         email: "",
         address: "",
-        gender: "",
-
+        gender: "male",
+        nationality: "nigeria",
         phone: "",
         guests: null,
         room_id: null,
@@ -734,7 +718,7 @@ export default {
       bookingNumb: null,
     };
   },
-  created() {},
+
   mounted() {
     $("#modelId").on("hidden.bs.modal", function (e) {
       if (this.finalize) {
@@ -781,12 +765,13 @@ export default {
     },
   },
   methods: {
+    toggleStep(val) {
+      if (!this.isAvailable) {
+        return;
+      }
+      this.step = val;
+    },
     reset() {
-      // this.isAvailable = null;
-      // this.isFinalizing = true;
-      // this.bookingNumb = null;
-      // this.finalize = false;
-      // this.selected = 1;
       window.location.reload();
     },
 
@@ -881,6 +866,7 @@ export default {
             this.isAvailable = true;
             this.isChecking = false;
             this.detail.flats = res.data.rooms;
+
             return;
           }
           this.isAvailable = false;
@@ -890,47 +876,31 @@ export default {
           this.isChecking = false;
         });
     },
-    paymentsuccessful() {
-      this.isFinalizing = false;
-      this.detail.total_price = this.totalPrice;
-      this.detail.payment_type = "online payment";
-      this.detail.payment_status = "paid";
-      this.detail.status = "reserved";
-      this.detail.price_per_night = this.selectedRoom.price;
-      this.detail.room_id = this.selectedRoom.id;
-      axios
-        .post("http://localhost:8000/reserve", this.detail)
-        .then((res) => {
-          if (res.status == 201) {
-            this.bookingNumb = res.data.booking_no;
-            this.finalize = true;
-            this.isFinalizing = true;
-            this.detail = {
-              name: "",
-              email: "",
-              address: "",
-              gender: "",
-              phone: "",
-              guests: null,
-              room_id: null,
-              checkIn: "",
-              checkOut: "",
-              nights: null,
-              rooms: null,
-              payment_type: null,
-              flat_type: "",
-              total_price: 0,
-              payment_status: "",
-              status: "",
-              price_per_night: null,
-              flats: [],
-            };
-            this.bookings = [];
-          }
-        })
-        .catch(() => {
-          this.isFinalizing = true;
-        });
+    paymentsuccessful(res) {
+      this.bookingNumb = res.data.booking_no;
+      this.finalize = true;
+      this.isFinalizing = true;
+      this.detail = {
+        name: "",
+        email: "",
+        address: "",
+        gender: "",
+        phone: "",
+        guests: null,
+        room_id: null,
+        checkIn: "",
+        checkOut: "",
+        nights: null,
+        rooms: null,
+        payment_type: null,
+        flat_type: "",
+        total_price: 0,
+        payment_status: "",
+        status: "",
+        price_per_night: null,
+        flats: [],
+      };
+      this.bookings = [];
     },
     clearInfo() {
       this.info = null;

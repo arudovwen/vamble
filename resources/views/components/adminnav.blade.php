@@ -108,8 +108,44 @@
         </ul>
 
         <ul class="navbar-nav ml-auto mt-2 mt-lg-0 align-items-center">
-            <li class="mr-4 position-relative"><span><i class="fa fa-bullhorn nav-icon" aria-hidden="true"></i></span>
-                <span class="badge badge-danger notification_badge"></span>
+            <li class="mr-4 position-relative">
+
+                <a id="notification" class="nav-link " href="#" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false" v-pre>
+                    <div class="position-relative">
+                        <span><i class="fa fa-bullhorn nav-icon" aria-hidden="true"></i></span>
+                        @if ( Auth::user()->unreadnotifications->count() )
+                            <span class="badge badge-danger notification_badge">
+                            {{ Auth::user()->unreadnotifications->count() }}</span>
+                        @endif
+
+                    </div>
+                </a>
+
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="notification">
+                    <div class="note-body px-4 py-3">
+                        <h6 class="mb-2  font-weight-bold text-left"> Notifications</h6>
+                       @if (Auth::user()->unreadnotifications->count())
+                            @foreach (Auth::user()->unreadnotifications as $notification)
+                            <div class="dropdown-item">
+                                @if (!$notification->read_at)
+                                   <a href="{{ route('mark-notification', ['id' => $notification->id])}}" >
+
+                                        <span class="font-weight-bold"> {{ $notification->data['body'] }}</span>
+                                   </a>
+                                @else()
+                                    <span> {{ $notification->data['body'] }}</span>
+                                @endif
+                            </div>
+                        @endforeach
+                        @else
+                        <small class="text-center text-muted">No Unread notification</small>
+                       @endif
+
+
+                    </div>
+
+                </div>
             </li>
 
             <li class="nav-item dropdown d-flex align-items-center">

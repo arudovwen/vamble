@@ -17,8 +17,14 @@
 
             <div class="col-sm-12">
                 <div class="card">
-                    <div class="card-header">
-                        List
+                    <div class="card-header d-flex justify-content-between">
+                        <span>List</span>
+
+
+
+                        <a class="btn btn-success btn-sm" href="{{ route('export-reservations') }}">Export
+                            Reservations</a>
+
                     </div>
                     <div class="card-body ">
                         @if (Session::get('success'))
@@ -63,123 +69,137 @@
                             </div>
                         </div>
 
-                     <div class="table-responsive">
-                            <table class="table table-bordered table-striped bg-white mb-0 ">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Guest Name</th>
-                                    <th>Flat type</th>
-                                    <th>Flat/Room</th>
+                        <div class="table-responsive">
+                            @if ($reservations->count())
+                                <table class="table table-bordered table-striped bg-white mb-0 ">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Guest Name</th>
+                                            <th>Flat type</th>
+                                            <th>Flat/Room</th>
 
 
-                                    <th> Rooms</th>
-                                    <th> Nights</th>
-                                    <th>Amount </th>
-                                    <th> Status</th>
+                                            <th> Rooms</th>
+                                            <th> Nights</th>
+                                            <th>Amount </th>
+                                            <th> Status</th>
 
-                                    <th>Check in/out</th>
-
-
-                                    <th>Actions</th>
-
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($reservations as $reservation)
-                                    <tr>
-                                        <td class="text-capitalize">{{ $reservation->booking_no }}</td>
-                                        <td scope="row" class="text-capitalize">{{ $reservation->user->name }}</td>
-                                        <td scope="row" class="text-capitalize">
-                                            {{ $reservation->roomcalendar[0]->room->flat_type }}
-                                        </td>
+                                            <th>Check in/out</th>
 
 
-                                        <td class="text-capitalize">
-                                            @foreach ($reservation->roomcalendar as $calendar)
-                                                <span>{{ $calendar->room->flat_name }} -
-                                                    {{ $calendar->room->room_name }}</span>
-                                                @if (!$loop->last)
-                                                    <span>,</span>
-                                                @endif
-                                            @endforeach
+                                            <th>Actions</th>
 
-                                        </td>
-
-                                        <td>{{ $reservation->no_of_rooms }}</td>
-                                        <td>{{ $reservation->duration }}</td>
-                                        <td class="text-capitalize">
-                                            ₦{{ number_format($reservation->total_price) }}
-                                        </td>
-
-                                        <td class="text-capitalize"> {{ $reservation->payment_status }} </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($reservations as $reservation)
+                                            <tr>
+                                                <td class="text-capitalize">{{ $reservation->booking_no }}</td>
+                                                <td scope="row" class="text-capitalize">{{ $reservation->user->name }}
+                                                </td>
+                                                <td scope="row" class="text-capitalize">
+                                                    {{ $reservation->roomcalendar[0]->room->flat_type }}
+                                                </td>
 
 
-                                        <td>
-                                            @if ($reservation->status == 'reserved')
-                                                <form action="/customer/checkin/{{ $reservation->id }}" method="GET">
-                                                    @csrf
-                                                    <button type="submit" class="btn btn-sm btn-primary mr-2"
-                                                        style="font-size: .65rem">Check-in</button>
-                                                </form>
+                                                <td class="text-capitalize">
+                                                    @foreach ($reservation->roomcalendar as $calendar)
+                                                        <span>{{ $calendar->room->flat_name }} -
+                                                            {{ $calendar->room->room_name }}</span>
+                                                        @if (!$loop->last)
+                                                            <span>,</span>
+                                                        @endif
+                                                    @endforeach
 
-                                            @elseif ($reservation->status == 'checked in')
-                                                <form action="/customer/checkout/{{ $reservation->id }}" method="GET">
-                                                    @csrf
-                                                    <button type="submit" class="btn btn-sm btn-primary mr-2"
-                                                        style="font-size: .65rem">Check-out</button>
-                                                </form>
-                                            @else
-                                                Checked out
-                                            @endif
-                                        </td>
-                                        <td class="d-flex justify-content-around ">
+                                                </td>
 
+                                                <td>{{ $reservation->no_of_rooms }}</td>
+                                                <td>{{ $reservation->duration }}</td>
+                                                <td class="text-capitalize">
+                                                    ₦{{ number_format($reservation->total_price) }}
+                                                </td>
 
-                                            <button type="button" class="btn btn-success btn-sm mr-2" data-toggle="modal"
-                                                data-username="{{ $reservation->user->name }}"
-                                                data-email="{{ $reservation->user->email }}"
-                                                data-checkin="{{ $reservation->check_in }}"
-                                                data-checkout="{{ $reservation->check_out }}"
-                                                data-checkintime="{{ $reservation->check_in_time }}"
-                                                data-checkouttime="{{ $reservation->check_out_time }}"
-                                                data-roomname="{{ $reservation->roomcalendar }}"
-                                                data-pricepernight="{{ $reservation->price_per_night }}"
-                                                data-guests="{{ $reservation->no_of_guests }}"
-                                                data-nights="{{ $reservation->duration }}"
-                                                data-rooms="{{ $reservation->no_of_rooms }}"
-                                                data-payment_type="{{ $reservation->payment_type }}"
-                                                data-totalprice="{{ $reservation->total_price }}"
-                                                data-payment_status="{{ $reservation->payment_status }}"
-                                                data-amountpaid="{{ $reservation->total_price }}"
-                                                data-bookedrooms="{{ $reservation->roomcalendar }}"
-                                                data-target="#viewdetail" style="font-size: .65rem">View</button>
-                                            @if ($reservation->status == 'reserved')
-                                                <a
-                                                    href="{{ route('editreservation', ['reservation' => $reservation->id]) }}">
-                                                    <button type="button" class="btn btn-info btn-sm mr-2"
-                                                        style="font-size: .65rem">Edit</button></a>
-                                                <form method="post" class="delete_form"
-                                                    action="{{ route('admindropreservation', $reservation->id) }}">
-                                                    {{ method_field('DELETE') }}
-                                                    {{ csrf_field() }}
-                                                    <button type="submit" class="btn btn-danger btn-sm"
-                                                        style="font-size: .65rem">Drop</button>
-                                                </form>
-                                            @endif
-
-                                        </td>
-                                    </tr>
-                                @endforeach
+                                                <td class="text-capitalize"> {{ $reservation->payment_status }} </td>
 
 
-                            </tbody>
-                        </table>
-                     </div>
+                                                <td>
+                                                    @if ($reservation->status == 'reserved')
+                                                        <form action="/customer/checkin/{{ $reservation->id }}"
+                                                            method="GET">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-sm btn-primary mr-2"
+                                                                style="font-size: .65rem">Check-in</button>
+                                                        </form>
+
+                                                    @elseif ($reservation->status == 'checked in')
+                                                        <form action="/customer/checkout/{{ $reservation->id }}"
+                                                            method="GET">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-sm btn-primary mr-2"
+                                                                style="font-size: .65rem">Check-out</button>
+                                                        </form>
+                                                    @else
+                                                        Checked out
+                                                    @endif
+                                                </td>
+                                                <td class="d-flex justify-content-start ">
+
+
+                                                    <button type="button" class="btn btn-success btn-sm mr-2"
+                                                        data-toggle="modal"
+                                                        data-username="{{ $reservation->user->name }}"
+                                                        data-email="{{ $reservation->user->email }}"
+                                                        data-checkin="{{ $reservation->check_in }}"
+                                                        data-checkout="{{ $reservation->check_out }}"
+                                                        data-checkintime="{{ $reservation->check_in_time }}"
+                                                        data-checkouttime="{{ $reservation->check_out_time }}"
+                                                        data-roomname="{{ $reservation->roomcalendar }}"
+                                                        data-pricepernight="{{ $reservation->price_per_night }}"
+                                                        data-guests="{{ $reservation->no_of_guests }}"
+                                                        data-nights="{{ $reservation->duration }}"
+                                                        data-rooms="{{ $reservation->no_of_rooms }}"
+                                                        data-payment_type="{{ $reservation->payment_type }}"
+                                                        data-totalprice="{{ $reservation->total_price }}"
+                                                        data-payment_status="{{ $reservation->payment_status }}"
+                                                        data-amountpaid="{{ $reservation->total_price }}"
+                                                        data-bookedrooms="{{ $reservation->roomcalendar }}"
+                                                        data-target="#viewdetail" style="font-size: .65rem">View</button>
+                                                    @if ($reservation->status == 'reserved')
+                                                        <a
+                                                            href="{{ route('editreservation', ['reservation' => $reservation->id]) }}">
+                                                            <button type="button" class="btn btn-info btn-sm mr-2"
+                                                                style="font-size: .65rem">Edit</button></a>
+                                                        <form method="post" class="delete_form"
+                                                            action="{{ route('admindropreservation', $reservation->id) }}">
+                                                            {{ method_field('DELETE') }}
+                                                            {{ csrf_field() }}
+                                                            <button type="submit" class="btn btn-danger btn-sm"
+                                                                style="font-size: .65rem">Drop</button>
+                                                        </form>
+                                                    @endif
+
+                                                </td>
+                                            </tr>
+                                        @endforeach
+
+
+                                    </tbody>
+                                </table>
+                            @else
+                                <div class="alert alert-info" role="alert">
+                                    <i class="fa fa-info-circle mr-1" aria-hidden="true"></i> <strong>No Transaction
+                                        available</strong>
+                                </div>
+
+                            @endif
+                        </div>
                     </div>
+
                     <div class="card-footer  ">
                         {!! $reservations->links() !!}
                     </div>
+
                 </div>
 
             </div>

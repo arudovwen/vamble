@@ -14,7 +14,8 @@ class AddPaymentTypeAmountToTransactionsTable extends Migration
     public function up()
     {
         Schema::table('transactions', function (Blueprint $table) {
-            //
+            $table->string('payment_type')->nullable();
+            $table->string('amount')->nullable();
         });
     }
 
@@ -26,7 +27,7 @@ class AddPaymentTypeAmountToTransactionsTable extends Migration
     public function down()
     {
         Schema::table('transactions', function (Blueprint $table) {
-            //
+            $table->dropColumn('amount','payment_type');
         });
     }
 }

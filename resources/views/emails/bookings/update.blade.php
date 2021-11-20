@@ -1,7 +1,7 @@
 @component('mail::message')
 # Reservation Update
 
-**Dear {{ $name }}**,
+**Dear {{ $name }}**, <br>
 Your resrvation  has been updated, please find below your updated booking details,
 
 @component('mail::table')

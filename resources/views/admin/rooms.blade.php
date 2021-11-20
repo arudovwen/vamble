@@ -91,6 +91,7 @@
 
                         {!! $rooms->links() !!}
                     </div>
+
                 </div>
 
             </div>

@@ -8,8 +8,13 @@
 
             <div class="col-sm-12">
                 <div class="card">
-                    <div class="card-header">
-                        List
+                    <div class="card-header d-flex justify-content-between">
+                        <span>List</span>
+
+
+
+                            <a class="btn btn-success btn-sm" href="{{ route('export-users') }}">Export Users</a>
+
                     </div>
                     <div class="card-body ">
                         <div class="d-flex justify-content-between  align-items-center pb-2">

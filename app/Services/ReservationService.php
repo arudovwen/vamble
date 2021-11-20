@@ -10,6 +10,7 @@ use App\Mail\BookingSuccess;
 use App\Mail\BookingUpdate;
 use App\Mail\NewReservation;
 use App\Models\RoomCalendar;
+use App\Notifications\NewReservationNotification;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
@@ -109,9 +110,11 @@ class ReservationService
           'room'  => $oneroom['room_name'],
           'status' => ucfirst($request->status)
         ];
-        Mail::to($user->email)->send(new BookingSuccess($detail));
-        Mail::to('succy2010@gmail.com')->send(new NewReservation($admindetail));
+        // Mail::to($user->email)->send(new BookingSuccess($detail));
+        // Mail::to('succy2010@gmail.com')->send(new NewReservation($admindetail));
 
+        $admin = User::find(2);
+        $admin->notify(new NewReservationNotification());
         return response($reservation, 201);
       } catch (\Throwable $th) {
         throw $th;
@@ -292,7 +295,7 @@ class ReservationService
       ];
       Mail::to($user->email)->send(new BookingUpdate($detail));
 
-      $reservations = Reservation::with('room', 'user', 'roomcalendar')->paginate(15);
+      $reservations = Reservation::with('room', 'user', 'roomcalendar')->latest()->paginate(15);
       return  view('admin.reservations', compact('reservations'))->with('success', $data['message']);
     }
     return redirect()->back()->with('error', $data['message']);

@@ -29,7 +29,7 @@ class NewReservation extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['database'];
     }
 
     /**
@@ -53,6 +53,12 @@ class NewReservation extends Notification
     {
         return [
             //
+        ];
+    }
+    public function toDatabase($notifiable)
+    {
+        return [
+            'body'=> 'You have a new reservation request!'
         ];
     }
 }

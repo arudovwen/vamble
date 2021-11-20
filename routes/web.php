@@ -71,7 +71,7 @@ Route::get('/show-rooms', [App\Http\Controllers\AdminController::class, 'rooms']
 Route::get('/search', [App\Http\Controllers\AdminController::class, 'roomsearch'])->name('roomsearch');
 Route::get('/reservations', [App\Http\Controllers\AdminController::class, 'reservations'])->name('reservations');
 Route::get('/transactions', [App\Http\Controllers\AdminController::class, 'transactions'])->name('transactions');
-Route::post('/transactions', [App\Http\Controllers\AdminController::class, 'searchtransactions'])->name('searchtransactions');
+Route::post('/transactions', [App\Http\Controllers\TransactionController::class, 'searchtransactions'])->name('searchtransactions');
 Route::get('/calendar', [App\Http\Controllers\AdminController::class, 'calendar'])->name('calendar');
 
 Route::delete('/users/{user}', [App\Http\Controllers\UserController::class, 'destroy'])->name('userdelete');
@@ -87,3 +87,15 @@ Route::post('transactions/add', [TransactionController::class, 'store']);
 Route::post('transaction/initiate', [TransactionController::class, 'makepayment']);
 Route::get('transaction/verify/{reference}', [TransactionController::class, 'verifytransaction']);
 Route::post('transaction/verify', [TransactionController::class, 'transactionevent']);
+
+
+Route::get('/file-import', [App\Http\Controllers\UserController::class, 'importView'])->name('import-view');
+Route::post('/import', [App\Http\Controllers\UserController::class, 'import'])->name('import');
+Route::get('/export-users', [App\Http\Controllers\UserController::class, 'exportUsers'])->name('export-users');
+Route::get('/export-reservations', [App\Http\Controllers\ReservationController::class, 'exportReservations'])->name('export-reservations');
+
+
+Route::get('/notifications', [App\Http\Controllers\UserController::class, 'getnotification'])->name('get-notification');
+Route::get('/marknotification/{id}', [App\Http\Controllers\UserController::class, 'marknotification'])->name('mark-notification');
+
+

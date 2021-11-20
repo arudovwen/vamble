@@ -1,6 +1,6 @@
 <template>
   <paystack
-    :amount="detail.amount * 100"
+    :amount="amount * 100"
     :email="detail.email"
     :paystackkey="paystackkey"
     :reference="reference"
@@ -22,7 +22,7 @@ export default {
   props: ["detail", "amount"],
   data() {
     return {
-      paystackkey: "pk_test_xxxxxxxxxxxxxxxxxxxxxxx", //paystack public key
+      paystackkey: "pk_test_d41b877edecdbfa1b296661dfe4da9b505ff2895", //paystack public key
     };
   },
   computed: {
@@ -39,13 +39,14 @@ export default {
   },
   methods: {
     callback: function (response) {
-      console.log(response);
+
+      this.$props.detail.response = response;
       axios
         .post("http://localhost:8000/transactions/add", this.$props.detail)
         .then((res) => {
           if (res.status === 200) {
             if (res.data.status === "success") {
-              this.$emit("paymentsuccessful", response);
+              this.$emit("paymentsuccessful", res);
             }
           }
         });

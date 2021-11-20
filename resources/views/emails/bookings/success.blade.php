@@ -1,7 +1,7 @@
 @component('mail::message')
 # Room Reserved
 
-**Dear {{ $name }}**,
+**Dear {{ $name }}**, <br>
 Your room has been reserved, please find below your booking details,
 
 @component('mail::table')

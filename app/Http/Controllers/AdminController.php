@@ -42,19 +42,19 @@ class AdminController extends Controller
     }
     public function users()
     {
-        $users = User::where('role_id', 3)->paginate(15);
+        $users = User::where('role_id', 3)->latest()->paginate(15);
         return view('admin.users',  compact('users'));
     }
     public function reservations()
     {
 
-        $reservations = Reservation::with('room', 'user', 'roomcalendar')->paginate(15);
+        $reservations = Reservation::with('room', 'user', 'roomcalendar')->latest()->paginate(15);
         return view('admin.reservations', compact('reservations'));
     }
     public function transactions()
     {
 
-        $transactions = Transaction::with('reservation', 'user')->paginate(15);
+        $transactions = Transaction::with('reservation', 'user')->latest()->paginate(15);
         return view('admin.transactions', compact('transactions'));
     }
     public function rooms()

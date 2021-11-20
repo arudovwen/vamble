@@ -113,6 +113,7 @@
                         </div>
 
                         <div class="form-group my-4 text-center">
+                            <a href="{{ route('reservations') }}"> <button type="button" class="btn btn-light btn-sm mr-3">Cancel</button></a>
                             <button type="submit" class="btn btn-info btn-sm">Check & update</button>
                         </div>
                     </form>

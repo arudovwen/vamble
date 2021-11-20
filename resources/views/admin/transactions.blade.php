@@ -48,71 +48,72 @@
                                 </form>
                             </div>
                         </div>
-                        <table class="table table-bordered bg-white mb-0">
+                       <div class="table-responsize-md mt-3">
+
+                           @if ($transactions->count())
+                            <table class="table table-bordered bg-white mb-0">
                             <thead>
                                 <tr>
                                     <th>Date</th>
-                                    <th>Payment #</th>
+                                    <th>Transation #</th>
 
-                                    <th>Payment type</th>
+                                    <th> Type</th>
                                     <th>Amount Paid</th>
-                                    <th>Actions</th>
+                                    <th>Booking #</th>
+                                     <th>Customer name</th>
+                                       <th>Customer email</th>
+
 
                                 </tr>
                             </thead>
-                            <tbody>
+                                <tbody>
                                 @foreach ($transactions as $transaction)
                                     <tr>
                                         <td scope="row" class="text-capitalize">
 
                                             {{ $transaction->created_at }}</td>
-                                        <td scope="row" class="text-capitalize">{{ $transaction->id }}</td>
+                                        <td scope="row" class="text-capitalize">{{ $transaction->reference }}</td>
 
 
                                         <td class="text-capitalize">
                                             {{ $transaction->reservation->payment_type }}
                                         </td>
                                         <td class="text-capitalize">
-                                            {{ $transaction->reservation->total_price }}
-                                        </td>
-                                        <td scope="row">
-                                            <button type="button" class="btn btn-primary btn-sm mr-2"
-                                                style="font-size: .65rem">View</button>
+                                             ₦{{ number_format($transaction->reservation->total_price ) }}
 
                                         </td>
+                                        <td class="text-capitalize">
+                                            {{ $transaction->reservation->booking_no }}
+                                        </td>
+                                         <td class="text-capitalize">
+                                            {{ $transaction->user->name }}
+                                        </td>
+                                         <td class="">
+                                            {{ $transaction->user->email }}
+                                        </td>
+
                                     </tr>
                                 @endforeach
 
 
                             </tbody>
-                        </table>
-                    </div>
-                    <div class="card-footer text-muted d-flex justify-content-between align-items-center">
-                        <div>
-                            Showing 1 to 5 of {{ count($transactions) }} entries
-                        </div>
-                        <div>
+                             </table>
+                           @else
+                          <div class="alert alert-info" role="alert">
+                             <i class="fa fa-info-circle mr-1" aria-hidden="true"></i> <strong>No Transaction available</strong>
+                          </div>
 
-                            <nav aria-label="Page navigation">
-                                <ul class="pagination  pagination-sm mb-0">
-                                    <li class="page-item disabled">
-                                        <a class="page-link" href="#" aria-label="Previous">
-                                            <span aria-hidden="true">&laquo;</span>
-                                            <span class="sr-only">Previous</span>
-                                        </a>
-                                    </li>
-                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#" aria-label="Next">
-                                            <span aria-hidden="true">&raquo;</span>
-                                            <span class="sr-only">Next</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
+                           @endif
+
+                       </div>
                     </div>
+
+
+                     <div class="card-footer text-muted ">
+
+                        {!! $transactions->links() !!}
+                    </div>
+
                 </div>
 
             </div>

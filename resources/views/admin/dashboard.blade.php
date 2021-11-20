@@ -6,7 +6,7 @@
         <div class="row mb-5">
 
             <div class="col-sm-3  text-center mb-4">
-                <div class="w-100 h-100 py-3 text-center bg-white rounded  shadow-sm border-left border-success">
+                <div  class="w-100 h-100 py-3 text-center bg-white rounded  shadow-sm border-left border-success">
                     <strong>Total Customers</strong> <br>
                     <br>
                     <div class="d-flex justify-content-around align-items-center">
@@ -56,28 +56,28 @@
 
             </div>
 
-            <div class="col-sm-3 px-sm-4 offset-sm-1">
+            <div class="col-sm-3 p-3 rounded shadow-sm p-sm-4 offset-sm-1 bg-white">
                 <h6 class="font-weight-bold mb-4 d-flex justify-content-between align-items-center"><span>Quick
                         Actions</span> </h6>
 
                 <div>
                     <a href="{{ route('rooms') }}" class="text-decoration-none"> <button type="button"
-                            class="btn btn-dark btn-lg btn-block mb-4 font-size-15 shadow d-flex justify-content-between align-items-center"><span>Add
+                            class="btn btn-dark btn-lg btn-block mb-4 font-size-15  d-flex justify-content-between align-items-center"><span>Add
                                 Room</span> <i class="fa fa-arrow-right" aria-hidden="true"></i></button></a>
                     <a href="{{ route('reservations') }}" class="text-decoration-none"> <button type="button"
-                            class="btn btn-dark btn-lg btn-block mb-4 font-size-15 shadow d-flex justify-content-between align-items-center">{{ __('Make Reservation') }}
+                            class="btn btn-dark btn-lg btn-block mb-4 font-size-15  d-flex justify-content-between align-items-center">{{ __('Make Reservation') }}
                             <i class="fa fa-arrow-right" aria-hidden="true"></i></button></a>
                     <button type="button"
-                        class="btn btn-dark btn-lg btn-block mb-4 font-size-15 shadow d-flex justify-content-between align-items-center"
+                        class="btn btn-dark btn-lg btn-block mb-4 font-size-15  d-flex justify-content-between align-items-center"
                         data-toggle="modal" data-target="#checkId">Search booking# <i class="fa fa-arrow-right"
                             aria-hidden="true"></i>
                     </button>
                     <button type="button"
-                        class="btn btn-dark btn-lg btn-block mb-4 font-size-15 shadow d-flex justify-content-between align-items-center"
+                        class="btn btn-dark btn-lg btn-block mb-4 font-size-15  d-flex justify-content-between align-items-center"
                         data-toggle="modal" data-target="#namesearch"> Name/Email search
                         <i class="fa fa-arrow-right" aria-hidden="true"></i> </button>
                     <a href="{{ route('transactions') }}" class="text-decoration-none"> <button type="button"
-                            class="btn btn-dark btn-lg btn-block font-size-15 shadow d-flex justify-content-between align-items-center">View
+                            class="btn btn-dark btn-lg btn-block font-size-15  d-flex justify-content-between align-items-center">View
                             Transactions <i class="fa fa-arrow-right" aria-hidden="true"></i></button></a>
                 </div>
             </div>

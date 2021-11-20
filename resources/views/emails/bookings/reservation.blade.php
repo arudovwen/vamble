@@ -1,7 +1,7 @@
 @component('mail::message')
 # You have a new reservation order
 
-**Reservation Details**
+**Reservation Details** <br>
 Guest name : {{ ucfirst($name) }} <br>
 Guest email : {{ $email }}
 

@@ -7,6 +7,7 @@ use App\Models\Room;
 use App\Models\User;
 use App\Models\Reservation;
 use App\Mail\BookingSuccess;
+use App\Mail\BookingUpdate;
 use App\Mail\NewReservation;
 use App\Models\RoomCalendar;
 use Illuminate\Support\Facades\DB;
@@ -69,7 +70,7 @@ class ReservationService
           $calendar =  RoomCalendar::create(['room_id' => $room['id']]);
           $calendar->user_id = $user->id;
           $calendar->reservation_id = $reservation->id;
-          $calendar->check_in = $request->checkIn;
+          $calendar->check_in =$request->checkIn;
           $calendar->check_out = $request->checkOut;
           $calendar->save();
           $oneroom = $room;
@@ -80,15 +81,15 @@ class ReservationService
           'booking_no' => $booking_no,
           'no_of_guests' => $request->guests,
           'no_of_rooms'  => $request->rooms,
-          'check_in'  => $request->checkIn,
-          'check_out'  => $request->checkOut,
+          'check_in'  => Carbon::parse($request->checkIn)->toFormattedDateString(),
+          'check_out'  => Carbon::parse($request->checkOut)->toFormattedDateString(),
           'nights'  => $duration,
           'price_per_night'  => $request->price_per_night,
           'total_price'  => $request->total_price,
           'payment_status'  => $request->payment_status,
           'payment_type' => $request->payment_type,
-          'room'  => $request->flat_type,
-          'status' => $request->status
+          'flat_type'  => ucfirst($oneroom['flat_type']),
+          'status' => ucfirst($request->status)
         ];
         $admindetail = [
           'name' => $user->name,
@@ -96,17 +97,17 @@ class ReservationService
           'booking_no' => $booking_no,
           'no_of_guests' => $request->guests,
           'no_of_rooms'  => $request->rooms,
-          'check_in'  => $request->checkIn,
-          'check_out'  => $request->checkOut,
+          'check_in'  => Carbon::parse($request->checkIn)->toFormattedDateString(),
+          'check_out'  => Carbon::parse($request->checkOut)->toFormattedDateString(),
           'nights'  => $duration,
           'price_per_night'  => $request->price_per_night,
           'total_price'  => $request->total_price,
-          'payment_status'  => $request->payment_status,
-          'payment_type' => $request->payment_type,
-          'flat_type'  => $oneroom['flat_type'],
-          'flat_name'  => $oneroom['flat_name'],
+          'payment_status'  => ucfirst($request->payment_status),
+          'payment_type' => ucfirst($request->payment_type),
+          'flat_type'  => ucfirst($oneroom['flat_type']),
+          'flat_name'  => ucfirst($oneroom['flat_name']),
           'room'  => $oneroom['room_name'],
-          'status' => $request->status
+          'status' => ucfirst($request->status)
         ];
         Mail::to($user->email)->send(new BookingSuccess($detail));
         Mail::to('succy2010@gmail.com')->send(new NewReservation($admindetail));
@@ -228,21 +229,73 @@ class ReservationService
 
   public function updatereservation($request, $reservation)
   {
-    $data = $this->admincheckavailability($request);
+    $calendar = collect($reservation->load('roomcalendar'))['roomcalendar'];
+    $ids =  collect($calendar)->map(function ($a) {
+      return $a['id'];
+    });
+    $data = $this->admincheckavailability($request, $ids);
+
+
+
+
     if ($data['status'] === 'available') {
+
+      $slicedroom =  array_slice($data['rooms']->toArray(), 0, $request->rooms);
+      $duration = Carbon::parse($request->checkin)->diffInDays(Carbon::parse($request->checkout));
+
+      if(strtolower($request->flat_type==='standard')){
+         $price_per_night = 30000;
+      }else{
+        $price_per_night = 110000;
+      }
+
       $reservation = Reservation::find($request->id);
+      $reservation->duration = $duration;
+      $reservation->no_of_rooms  = $request->rooms;
+      $reservation->no_of_guests  = $request->guests;
       $reservation->check_in =  $request->input('checkin');
       $reservation->check_out =  $request->input('checkout');
+      $reservation->price_per_night = $price_per_night;
+      $reservation->total_price = intval($duration) * intval($price_per_night) *  intval($request->rooms);
       $reservation->save();
 
-      $calendar = RoomCalendar::where('reservation_id', $request->id)->first();
-      $calendar->check_in =  $request->input('checkin');
-      $calendar->check_out =  $request->input('checkout');
-      $calendar->save();
+      // Delete old room reservation on calendar
+      if(count($ids)){
+        RoomCalendar::destroy($ids);
+      }
+
+      // create new reservation
+      foreach ($slicedroom as $room) {
+      $newcalendar = new RoomCalendar();
+      $newcalendar->room_id = $room['id'];
+      $newcalendar->user_id = $reservation->user_id;
+      $newcalendar->reservation_id = $reservation->id;
+      $newcalendar->check_in =  $request->input('checkin');
+      $newcalendar->check_out =  $request->input('checkout');
+        $newcalendar->save();
+      }
+      $user = User::find($reservation->user_id);
+      $detail = [
+        'name' => $user->name,
+        'booking_no' => $reservation->booking_no,
+        'no_of_guests' => $request->guests,
+        'no_of_rooms'  => $request->rooms,
+        'check_in'  => Carbon::parse($request->checkin)->toFormattedDateString(),
+        'check_out'  => Carbon::parse($request->checkout)->toFormattedDateString(),
+        'nights'  => $duration,
+        'price_per_night'  => $price_per_night,
+        'total_price'  => $reservation->total_price,
+        'payment_status'  => $reservation->payment_status,
+        'payment_type' => $reservation->payment_type,
+        'flat_type'  => ucfirst($request->flat_type),
+        'status' => ucfirst($request->status)
+      ];
+      Mail::to($user->email)->send(new BookingUpdate($detail));
+
       $reservations = Reservation::with('room', 'user', 'roomcalendar')->paginate(15);
-      return  view('admin.reservations', compact('reservations'))->with('success', 'Updated successfully');
+      return  view('admin.reservations', compact('reservations'))->with('success', $data['message']);
     }
-    return redirect()->back()->with('error', 'Unavailable');
+    return redirect()->back()->with('error', $data['message']);
   }
 
   public function getReservation($id)
@@ -257,7 +310,7 @@ class ReservationService
   public function findbooking($booking)
   {
 
-    $booking = Reservation::where('booking_no', strtolower($booking))->with('user', 'room')->first();
+    $booking = Reservation::where('booking_no', strtolower($booking))->with('user', 'roomcalendar')->first();
     if (is_null($booking)) {
       return response()->json([
         'message' => 'not found'
@@ -291,77 +344,75 @@ class ReservationService
     return redirect()->back()->with(['data' => $data]);
   }
 
-  public function admincheckavailability($request)
+  public function admincheckavailability($request, $ids)
   {
-
-
 
     $check_in = Carbon::parse($request->input('checkin'));
     $check_out = Carbon::parse($request->input('checkout'));
-    $room_id = $request->room_id;
     $flat_type = $request->flat_type;
     $roomsneeded = $request->rooms;
 
-    $reservation = Reservation::find($request->id);
-    $previousBooking = RoomCalendar::where('reservation_id', $request->id)->get();
 
-    $allmergedrooms = Room::with('roomcalendar')->where(strtolower('flat_type'), strtolower($request->flat_type))->whereHas('roomcalendar', function ($q) use ($check_in, $check_out) {
-      $q->where(function ($q2) use ($check_in, $check_out) {
-        $q2->where('check_in', '>=', $check_out)
-          ->orWhere('check_out', '<=', $check_in);
-      });
-    })->orWhereDoesntHave('roomcalendar')->where(strtolower('flat_type'), strtolower($request->flat_type))->get();
+    $mergedrooms = $rooms = Room::where(strtolower('flat_type'), strtolower($request->flat_type))->whereNotIn('id', function ($query) use ($check_in, $check_out, $ids) {
+      $query->from('room_calendars')
+        ->select('room_id')
+        ->whereNotIn('id', $ids)
+        ->where('check_in', '<=', $check_out)
+        ->where('check_out', '>=', $check_in);
+    })->get();
 
 
-    if (count($allmergedrooms) >= $roomsneeded) {
+    if (count($mergedrooms) >= $roomsneeded) {
       $message = " Room is available, you can proceed to book the room";
 
-      return  [
-        'status' => 'available',
-        'message' => $message,
-        'rooms' => $allmergedrooms,
+      return
+        [
+          'status' => 'available',
+          'message' => $message,
+          'rooms' => $mergedrooms
+        ];
 
-      ];
     };
-    if (count($allmergedrooms) && count($allmergedrooms) < $roomsneeded) {
-      $message = "Only " . count($allmergedrooms) . " available";
+    if (count($mergedrooms) && count($mergedrooms) < $roomsneeded) {
+      $message = "Only " . count($mergedrooms) . (count($mergedrooms) > 1 ? ' rooms' : ' room') . " available";
 
-      return  [
-        'status' => 'less-available',
-        'message' => $message,
+      return
+        [
+          'status' => 'less-available',
+          'message' => $message,
 
-      ];
+        ];
+
     };
     $message = " Room is unavailable, try to find another room or choose a later date";
-    return [
-      'status' => 'unavailable',
-      'message' => $message
+    return response()->json(
+      [
+        'status' => 'unavailable',
+        'message' => $message
 
-    ];
+      ]
+    );
   }
 
   public function checkavailability($request)
   {
 
-    // if (!Gate::allows('find_room_access')) {
-    //   return abort(401);
-    // }
+
 
     $check_in = Carbon::parse($request->input('checkIn'));
     $check_out = Carbon::parse($request->input('checkOut'));
-    $room_id = $request->room_id;
+
     $flat_type = $request->flat_type;
     $roomsneeded = $request->rooms;
 
     if ($request->isMethod('POST')) {
 
-
-      $mergedrooms = Room::with('roomcalendar')->where(strtolower('flat_type'), strtolower($request->flat_type))->whereHas('roomcalendar', function ($q) use ($check_in, $check_out) {
-        $q->where(function ($q2) use ($check_in, $check_out) {
-          $q2->where('check_in', '>=', $check_out)
-            ->orWhere('check_out', '<=', $check_in);
-        });
-      })->orWhereDoesntHave('roomcalendar')->where(strtolower('flat_type'), strtolower($request->flat_type))->get();
+      $mergedrooms = $rooms = Room::where(strtolower('flat_type'), strtolower($request->flat_type))->whereNotIn('id', function ($query) use ($check_in, $check_out) {
+        $query->from('room_calendars')
+          ->select('room_id')
+          ->where('check_in', '<=', $check_out)
+          ->where('check_out', '>=', $check_in);
+      })->get();
     } else {
       $mergedrooms = null;
     }
@@ -402,7 +453,6 @@ class ReservationService
   {
 
 
-
     $check_in = Carbon::parse($request->input('checkIn'));
     $check_out = Carbon::parse($request->input('checkOut'));
     $room_id = $request->room_id;
@@ -411,19 +461,12 @@ class ReservationService
 
 
     $freerooms = [];
-    $rooms = Room::has('roomcalendar')->with('roomcalendar')->where(strtolower('flat_type'), strtolower($request->flat_type))->get();
-
-    foreach ($rooms as $q) {
-      $res = $q->roomcalendar->contains(function ($q2) use ($check_in, $check_out) {
-        return $check_in->between($q2->check_in, $q2->check_out);
-      });
-
-      if (!$res) {
-        array_push($freerooms, $q);
-      }
-    }
-    $roomswitoutcalendar = Room::where(strtolower('flat_type'), strtolower($request->flat_type))->whereDoesntHave('roomcalendar')->get();
-    $mergedrooms = array_merge($freerooms, $roomswitoutcalendar->values()->all());
+    $mergedrooms = $rooms = Room::where(strtolower('flat_type'), strtolower($request->flat_type))->whereNotIn('id', function ($query) use ($check_in, $check_out) {
+      $query->from('room_calendars')
+        ->select('room_id')
+        ->where('check_in', '<=', $check_out)
+        ->where('check_out', '>=', $check_in);
+    })->get();
     return $mergedrooms;
   }
 

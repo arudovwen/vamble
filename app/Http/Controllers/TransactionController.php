@@ -31,6 +31,27 @@ class TransactionController extends Controller
         return  $bankdata = $response->json()['data'];
     }
 
+    public function store(Request $request)
+    {
+       try {
+        //    access_code	reference	message	status	trxref	redirecturl	reservation_id
+            $user = User::where('email', $request->email)->first();
+            $transaction =  $user->transactions()->create([
+                'reservation_id' => $request->reservation_id
+            ]);
+            $transaction->trxref =  $request->reference;
+            $transaction->reference =  $request->reference;
+            $transaction->message = $request->status;
+            $transaction->status = $request->status;
+            $transaction->amount = $request->amount;
+            $transaction->payment_type = $request->payment_type;
+            $transaction->save();
+            return response(['status' => 'success'], 200);
+       } catch (\Throwable $th) {
+           //throw $th;
+       }
+    }
+
     public function makepayment(Request $request)
     {
 

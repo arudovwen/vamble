@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container-fluid pb-5">
-        {{ Breadcrumbs::render('reservations') }}
+        {{ Breadcrumbs::render('editreservations') }}
 
         <div class="container pb-5">
             <div class="row">
@@ -11,6 +11,7 @@
                 </div>
 
                 <div class="col-sm-9 bg-white rounded p-4">
+
 
                     <form action="{{ route('updatereservation', ['reservation' => $reservation->id]) }}" method="post">
                         {{ method_field('PUT') }}
@@ -46,7 +47,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="">Check Out</label>
+                                    <label for="">Email</label>
                                     <input type="email" readonly class="form-control"
                                         value="{{ $reservation->user->email }}" name="email" id="email"
                                         aria-describedby="helpId" placeholder="">
@@ -57,14 +58,14 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="">Check In</label>
-                                    <input type="date" class="form-control" value="{{ $reservation->check_in }}"
+                                    <input type="date" required class="form-control" value="{{ date('Y-m-d', strtotime($reservation->check_in)) }}"
                                         name="checkin" id="checkin" aria-describedby="helpId" placeholder="">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="">Check Out</label>
-                                    <input type="date" class="form-control" value="{{ $reservation->check_out }}"
+                                    <input type="date" required class="form-control" value="{{ date('Y-m-d', strtotime($reservation->check_out)) }}"
                                         name="checkout" id="checkout" aria-describedby="helpId" placeholder="">
                                 </div>
                             </div>

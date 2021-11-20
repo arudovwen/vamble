@@ -16,7 +16,9 @@ class Transaction extends Model
         'status',
         'trxref',
         'redirecturl',
-        'user_id'
+        'user_id',
+        'payment_type',
+        'amount',
     ];
 
     public function user()

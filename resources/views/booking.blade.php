@@ -5,4 +5,6 @@
     <div style="min-height: 50vh">
         <booking-page></booking-page>
     </div>
+
+
 @endsection

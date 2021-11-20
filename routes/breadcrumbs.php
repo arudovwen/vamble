@@ -67,6 +67,13 @@ Breadcrumbs::for('reservations', function (BreadcrumbTrail $trail) {
   $trail->parent('dashboard');
   $trail->push('Reservations', route('reservations'));
 });
+Breadcrumbs::for('editreservations', function (BreadcrumbTrail $trail) {
+  $trail->parent('dashboard');
+  $trail->push('Reservations', route('reservations'));
+  $trail->push('Edit Reservation', route('reservations'));
+
+
+});
 Breadcrumbs::for('rooms', function (BreadcrumbTrail $trail) {
   $trail->parent('dashboard');
   $trail->push('Rooms', route('rooms'));

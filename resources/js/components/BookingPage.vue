@@ -146,16 +146,6 @@
                     class="alert alert-danger alert-dismissible fade show"
                     role="alert"
                   >
-                    <button
-                      type="button"
-                      class="close"
-                      data-dismiss="alert"
-                      aria-label="Close"
-                    >
-                      <span aria-hidden="true">&times;</span>
-                      <span class="sr-only">Close</span>
-                    </button>
-
                     {{ message }}
                   </div>
                 </div>
@@ -344,18 +334,15 @@
                   </div>
                 </div>
                 <div class="" v-if="!finalize">
-                  <button
-                    type="button"
-                    @click="makePayment"
-                    class="btn btn-secondary"
-                    :disabled="!isFinalizing"
-                  >
-                    Proceed to payment
-                  </button>
+                  <Payment
+                    :detail="detail"
+                    :amount="totalPrice"
+                    @paymentsuccessful="paymentsuccessful"
+                  />
                   <button
                     type="type"
                     @click="payAtHotel"
-                    class="btn btn-primary"
+                    class="btn btn-dark btn-sm ml-3"
                     :disabled="!isFinalizing"
                   >
                     Pay at hotel
@@ -388,7 +375,7 @@
                   <button
                     type="button"
                     @click="reset"
-                    class="btn btn-primary btn-sm"
+                    class="btn btn-secondary btn-sm"
                   >
                     Reset
                   </button>
@@ -483,10 +470,12 @@
                     <td>{{ info.user.email }}</td>
                   </tr>
 
-                  <tr class="mb-1">
+                  <tr class="mb-1" v-if="info.roomcalendar.length">
                     <td class="text-muted">Apartment type</td>
 
-                    <td class="text-capitalize">{{ info.room.flat_type }}</td>
+                    <td class="text-capitalize">
+                      {{ info.roomcalendar[0].room.flat_type }}
+                    </td>
                   </tr>
 
                   <tr class="mb-1">
@@ -577,12 +566,22 @@
                   </div>
                   <div></div>
                   <div>
-                    <button type="button" class="btn btn-primary btn-sm">
-                      <small> Make Payment</small>
-                    </button>
+                    <Payment
+                      :detail="detail"
+                      :amount="totalPrice"
+                      @paymentsuccessful="paymentsuccessful"
+                    />
                   </div>
                 </div>
               </div>
+            </div>
+
+            <div class="alert alert-info" role="alert" v-if="info">
+              <i class="fa fa-info-circle" aria-hidden="true"></i>
+              <small
+                >Contact our customer service for reservation
+                modifications</small
+              >
             </div>
 
             <div class="text-center">
@@ -668,6 +667,7 @@ import HotelDatePicker from "vue-hotel-datepicker";
 import "vue-hotel-datepicker/dist/vueHotelDatepicker.css";
 import UpdateBook from "./UpdateBooking.vue";
 import { FormWizard, TabContent } from "vue-step-wizard";
+import Payment from "./Paystack.vue";
 
 export default {
   components: {
@@ -675,6 +675,7 @@ export default {
     UpdateBook,
     FormWizard,
     TabContent,
+    Payment,
   },
   data() {
     return {
@@ -889,11 +890,11 @@ export default {
           this.isChecking = false;
         });
     },
-    makePayment() {
+    paymentsuccessful() {
       this.isFinalizing = false;
       this.detail.total_price = this.totalPrice;
       this.detail.payment_type = "online payment";
-      this.detail.payment_status = "pending";
+      this.detail.payment_status = "paid";
       this.detail.status = "reserved";
       this.detail.price_per_night = this.selectedRoom.price;
       this.detail.room_id = this.selectedRoom.id;
@@ -925,8 +926,6 @@ export default {
               flats: [],
             };
             this.bookings = [];
-            this.isAvailable = null;
-            window.location.href = `/transaction/order/${res.data.booking_no}`;
           }
         })
         .catch(() => {

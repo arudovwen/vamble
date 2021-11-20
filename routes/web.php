@@ -47,7 +47,7 @@ Route::get('/reservations/edit/{reservation}', [App\Http\Controllers\Reservation
 Route::delete('/reserve/{reservation}', [App\Http\Controllers\ReservationController::class, 'destroy'])->name('dropreservation');
 Route::delete('admin/reserve/{reservation}', [App\Http\Controllers\ReservationController::class, 'admindestroy'])->name('admindropreservation');
 
-Route::put('/reservations/update/{reservation}', [App\Http\Controllers\ReservationController::class, 'update'])->name('updatereservation');
+Route::put('/reservations/{reservation}', [App\Http\Controllers\ReservationController::class, 'update'])->name('updatereservation');
 Route::get('/bookings', [App\Http\Controllers\BookingController::class, 'getbookings'])->name('getbookings');
 
 
@@ -83,6 +83,7 @@ Route::get('/customer/checkout/{reservation}', [App\Http\Controllers\Reservation
 
 
 // Payment routes
+Route::post('transactions/add', [TransactionController::class, 'store']);
 Route::post('transaction/initiate', [TransactionController::class, 'makepayment']);
 Route::get('transaction/verify/{reference}', [TransactionController::class, 'verifytransaction']);
 Route::post('transaction/verify', [TransactionController::class, 'transactionevent']);

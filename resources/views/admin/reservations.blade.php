@@ -63,7 +63,8 @@
                             </div>
                         </div>
 
-                        <table class="table table-bordered table-striped bg-white mb-0">
+                     <div class="table-responsive">
+                            <table class="table table-bordered table-striped bg-white mb-0 ">
                             <thead>
                                 <tr>
                                     <th>#</th>
@@ -174,6 +175,7 @@
 
                             </tbody>
                         </table>
+                     </div>
                     </div>
                     <div class="card-footer  ">
                         {!! $reservations->links() !!}

@@ -9,7 +9,7 @@
 
                     <i class="fa fa-quote-left fa-6x quote" aria-hidden="true"></i>
                     <div>
-                        <img src="" style="height: 60px; width:60px" class="rounded-circle mb-4" alt="">
+                        <img src="/images/vamb-img/kitchen1.jpg" style="height: 80px; width:80px" class="rounded-circle mb-4" alt="">
                     </div>
                     <div>
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci fugiat architecto tenetur
@@ -23,7 +23,7 @@
 
                     <i class="fa fa-quote-left fa-6x quote" aria-hidden="true"></i>
                     <div>
-                        <img src="" style="height: 60px; width:60px" class="rounded-circle mb-4" alt="">
+                        <img src="/images/vamb-img/kitchen1.jpg" style="height: 80px; width:80px" class="rounded-circle mb-4" alt="">
                     </div>
                     <div>
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci fugiat architecto tenetur

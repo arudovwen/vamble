@@ -20322,7 +20322,7 @@ body {
 }
 
 .logo {
-  height: 95px;
+  height: 85px;
   transition: 0.6s;
 }
 
@@ -20598,7 +20598,8 @@ td {
 }
 .secondContent .content h2 {
   position: relative;
-  font-style: italic;
+  font-family: "Times New Roman,Times,serif";
+  font-weight: 600;
 }
 .secondContent .content h2::after {
   content: "";
@@ -20665,6 +20666,7 @@ td {
   bottom: 0;
   padding: 15px;
   text-align: left;
+  font-size: 18px;
 }
 .secondContent .content .hotel .hotel-img::after {
   content: "";
@@ -20719,7 +20721,8 @@ td {
 }
 .thirdContent .content h2 {
   position: relative;
-  font-style: italic;
+  font-family: " Times New Roman,Times,serif";
+  font-weight: 600;
 }
 .thirdContent .content h2::after {
   content: "";
@@ -20831,7 +20834,8 @@ td {
 }
 .fifthContent .content h2 {
   position: relative;
-  font-style: italic;
+  font-family: "Times New Roman,Times,serif";
+  font-weight: 600;
 }
 .fifthContent .content h2::after {
   content: "";
@@ -20910,7 +20914,7 @@ td {
 .testimonials .content h2 {
   position: relative;
   text-align: center;
-  font-style: italic;
+  font-family: "Times New Roman,Times,serif";
   color: white;
   z-index: 1;
 }
@@ -21018,7 +21022,8 @@ footer .content {
 }
 .about .content h2 {
   position: relative;
-  font-style: italic;
+  font-family: "Times New Roman,Times,serif";
+  font-weight: 600;
 }
 .about .content h2::after {
   content: "";
@@ -21064,7 +21069,8 @@ footer .content {
 }
 .services .content h2 {
   position: relative;
-  font-style: italic;
+  font-family: "Times New Roman,Times,serif";
+  font-weight: 600;
 }
 .services .content h2::after {
   content: "";
@@ -21110,7 +21116,8 @@ footer .content {
 }
 .apartments .content h2 {
   position: relative;
-  font-style: italic;
+  font-family: "Times New Roman,Times,serif";
+  font-weight: 600;
 }
 .apartments .content h2::after {
   content: "";

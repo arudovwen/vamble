@@ -51,31 +51,28 @@
     <div class="secondContent">
         <div class="content animate__animated animate__fadeOut animate__slow ">
             <h2 class="mb-3">The Hotel </h2>
-            <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid illum quaerat, quam
-                sapiente fugit expedita
-                maiores sed deserunt dolorem dicta perspiciatis pariatur odio magni et, saepe eius cum amet quis reiciendis
-                ut, officia a! Distinctio molestias nisi repellat necessitatibus libero.</p>
+            <p class="mb-5">Vamble Apartments and Suites Limited is a collection of the finest independent luxury homes in Abuja, Nigeria. Our  luxury suites  are both impressive and flexible. Plush interior design, and so much more. </p>
 
             <div class="row m-0 hotel d-none d-sm-flex">
                 <div class="col-sm-4 hotel-img p-0">
                     <img src="{{ asset('/images/vamb-img/sitting2.jpg') }}" alt="vamble">
                     <div class="hotel_text">
                         <strong>World Class Sitting Room</strong> <br>
-                        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, ratione!</span>
+
                     </div>
                 </div>
                 <div class="col-sm-4 hotel-img p-0">
                     <img src="{{ asset('/images/vamb-img/bedroom1.jpg') }}" alt="vamble">
                     <div class="hotel_text">
                         <strong>Executice Bedrooms</strong> <br>
-                        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, ratione!</span>
+
                     </div>
                 </div>
                 <div class="col-sm-4 hotel-img p-0">
                     <img src="{{ asset('/images/vamb-img/kitchen1.jpg') }}" alt="vamble">
                     <div class="hotel_text">
                         <strong>Fully Equipped Kitchen</strong> <br>
-                        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, ratione!</span>
+
                     </div>
                 </div>
 
@@ -88,16 +85,17 @@
         <div class="content">
             <h2 class="mb-5">ROOMS</h2>
 
-            <div class="row mb-5 observer_1">
+           <div class="observer_1 mb-5 pb-5">
+                <div class="row mb-5  fade_text animate__animated animate__fadeOut animate__slow">
                 <div
-                    class="col-xs-12 col-sm-6  text-left fade_text animate__animated animate__fadeOut animate__slow mb-4 mb-sm-0">
+                    class="col-xs-12 col-sm-6  text-left  mb-4 mb-sm-0">
                     <h3 class="line_half">Standard Apartment</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, hic? Commodi, nulla. Hic voluptas
                         illo quisquam praesentium vero fugit cumque eveniet similique quasi, cupiditate odio distinctio
                         neque natus fugiat, veniam mollitia recusandae porro. Sequi, quod accusamus numquam hic dicta culpa!
                     </p>
 
-                    <div class="price mb-2"> &#8358;150,000 <sub>per night</sub></div>
+                    <div class="price mb-2"> &#8358;30,000 <sub>per night</sub></div>
                     <div class="amenities mb-1"><i class="fa fa-bed" aria-hidden="true"></i> 1 double bed</div>
                     <div class="amenities mb-1"> <i class="fas fa-wind    "></i> Air conditioning</div>
                     <div class="amenities "><i class="fas fa-faucet    "></i> Kitchen</div>
@@ -113,9 +111,9 @@
                         <span class="badge badge-primary"> Wireless Internet </span>
                     </div>
                     <div class="d-flex justify-content-between align-items-center">
-                        <a href="/booking"> <button type="button" class="btn btn-outline-dark btn-sm"> Book
+                        <a href="/booking"> <button type="button" class="btn btn-outline-dark btn-sm"> Reserve
                                 room</button></a>
-                        <span> <span class="badge  badge-primary">9.2</span> <span>Superb</span></span>
+                        <span> <span class="badge  badge-success">9.2</span> <span>Superb</span></span>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-6  ">
@@ -141,8 +139,10 @@
                 </div>
 
             </div>
+           </div>
 
-            <div class="row mb-5 observer_2  flex-column-reverse flex-sm-row">
+          <div class="observer_2">
+                <div class="row mb-5   fade_text animate__animated animate__fadeOut animate__slow  flex-column-reverse flex-sm-row">
                 <div class="col-xs-12 col-sm-6  ">
                     <div id="roomId2" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
@@ -165,14 +165,14 @@
                     </div>
                 </div>
                 <div
-                    class="col-xs-12 col-sm-6  text-left fade_text animate__animated animate__fadeOut animate__slow mb-4 mb-sm-0">
+                    class="col-xs-12 col-sm-6  text-left mb-4 mb-sm-0">
                     <h3 class="line_half">Luxury Apartment</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, hic? Commodi, nulla. Hic voluptas
                         illo quisquam praesentium vero fugit cumque eveniet similique quasi, cupiditate odio distinctio
                         neque natus fugiat, veniam mollitia recusandae porro. Sequi, quod accusamus numquam hic dicta culpa!
                     </p>
 
-                    <div class="price mb-2"> &#8358;150,000 <sub>per night</sub></div>
+                    <div class="price mb-2"> &#8358;110,000 <sub>per night</sub></div>
                     <div class="amenities mb-1"><i class="fa fa-bed" aria-hidden="true"></i> 1 double bed</div>
                     <div class="amenities mb-1"> <i class="fas fa-wind    "></i> Air conditioning</div>
                     <div class="amenities "><i class="fas fa-faucet    "></i> Kitchen</div>
@@ -188,24 +188,25 @@
                         <span class="badge badge-primary"> Wireless Internet </span>
                     </div>
                     <div class="d-flex justify-content-between align-items-center">
-                        <a href="/booking"> <button type="button" class="btn btn-outline-dark btn-sm"> Book
+                        <a href="/booking"> <button type="button" class="btn btn-outline-dark btn-sm"> Reserve
                                 room</button></a>
-                        <span> <span class="badge  badge-primary">9.2</span> <span>Superb</span></span>
+                        <span> <span class="badge  badge-success">9.6</span> <span>Superb</span></span>
                     </div>
                 </div>
             </div>
+          </div>
         </div>
     </div>
     <div class="fourthContent">
-        <div class="content">
-            <div class="row mb-5 observer_3">
+        <div class="content observer_3">
+            <div class="row mb-5 fade_text animate__animated animate__fadeOut animate__slow ">
                 <div class="col-xs-12 col-sm-4  text-center">
                     <div class="rounded-circle  about_image">
                         <img src="{{ asset('/images/vamb-img/sitting2.jpg') }}" class="w-100 h-100 rounded-circle"
                             style="object-fit: cover" alt="Third slide">
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-8  text-center fade_text animate__animated animate__fadeOut animate__slow ">
+                <div class="col-xs-12 col-sm-8  text-center ">
                     <h3 class="line_full">What we are about</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, hic? Commodi, nulla. Hic voluptas
                         illo quisquam praesentium vero fugit cumque eveniet similique quasi, cupiditate odio distinctio
@@ -222,8 +223,8 @@
     <div class="fifthContent">
         <div class="content container-fluid">
             <h2 class="mb-5">GALLERY</h2>
-            <div>
-                <div class="row mb-5">
+            <div class="observer_4">
+                <div class="row mb-5 fade_text animate__animated animate__fadeOut animate__slow ">
                     <div class="col-2   px-0 l_gallery_image">
                         <img src="{{ asset('/images/vamb-img/kitchen.jpg') }}" class="w-100 h-100" alt="Third slide">
                     </div>

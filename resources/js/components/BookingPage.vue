@@ -163,6 +163,7 @@
             <template #two>
               <form
                 v-if="isAvailable"
+                @submit.prevent="step++"
                 class="animate__animated animate__fadeIn"
               >
                 <div class="form-group">
@@ -255,8 +256,8 @@
                     Previous
                   </button>
                   <button
-                    type="button"
-                    @click="step++"
+                    type="submit"
+
                     class="btn btn-primary btn-sm"
                   >
                     Next
@@ -374,8 +375,16 @@
                     </div>
                   </div>
                 </div>
-                <div class="" v-if="!finalize">
-                  <Payment
+                <div class="d-flex justify-content-between" v-if="!finalize">
+                   <button
+                    type="button"
+                    @click="step--"
+                    class="btn btn-secondary btn-sm "
+                  >
+                    Previous
+                  </button>
+                <span>
+                    <Payment
                     :detail="detail"
                     :amount="totalPrice"
                     @paymentsuccessful="paymentsuccessful"
@@ -388,6 +397,7 @@
                   >
                     Pay at hotel
                   </button>
+                </span>
                 </div>
               </div>
               <div v-else class="text-center p-4">

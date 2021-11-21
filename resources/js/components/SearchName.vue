@@ -213,7 +213,7 @@ export default {
         booking: this.bookingNumber,
       };
       axios
-        .post(`http://localhost:8000/find/bookings/`, data)
+        .post(`/find/bookings/`, data)
         .then((res) => {
           this.isCheckingBooking = false;
           if (res.status === 200) {

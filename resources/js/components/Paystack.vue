@@ -42,7 +42,7 @@ export default {
 
       this.$props.detail.response = response;
       axios
-        .post("http://localhost:8000/transactions/add", this.$props.detail)
+        .post("/transactions/add", this.$props.detail)
         .then((res) => {
           if (res.status === 200) {
             if (res.data.status === "success") {

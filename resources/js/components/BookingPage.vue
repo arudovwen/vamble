@@ -792,7 +792,7 @@ export default {
       this.detail.price_per_night = this.selectedRoom.price;
       this.detail.room_id = this.selectedRoom.id;
       axios
-        .post("http://localhost:8000/reserve", this.detail)
+        .post("/reserve", this.detail)
         .then((res) => {
           if (res.status == 201) {
             this.bookingNumb = res.data.booking_no;
@@ -830,7 +830,7 @@ export default {
     findBooking() {
       this.isCheckingBooking = true;
       axios
-        .get(`http://localhost:8000/find/booking/${this.bookingNumber}`)
+        .get(`/find/booking/${this.bookingNumber}`)
         .then((res) => {
           this.isCheckingBooking = false;
           if (res.status === 200) {
@@ -859,7 +859,7 @@ export default {
       }
       this.isChecking = true;
       axios
-        .post("http://localhost:8000/check/availability", this.detail)
+        .post("/check/availability", this.detail)
         .then((res) => {
           this.message = res.data.message;
           if (res.data.status == "available") {
@@ -911,7 +911,7 @@ export default {
     },
     dropreservation() {
       axios
-        .delete(`http://localhost:8000/reserve/${this.info.id}`)
+        .delete(`/reserve/${this.info.id}`)
         .then((res) => {
           if (res.status == 200) {
             this.info = null;

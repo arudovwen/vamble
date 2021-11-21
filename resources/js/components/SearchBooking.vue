@@ -185,7 +185,7 @@ export default {
     findBooking() {
       this.isCheckingBooking = true;
       axios
-        .get(`http://localhost:8000/find/booking/${this.bookingNumber}`)
+        .get(`/find/booking/${this.bookingNumber}`)
         .then((res) => {
           this.isCheckingBooking = false;
           if (res.status === 200) {

@@ -153,14 +153,14 @@ export default {
   },
   methods: {
     getRooms() {
-      axios.get("http://localhost:8000/room/types").then((res) => {
+      axios.get("/room/types").then((res) => {
         if (res.status == 200) {
           this.roomtypes = res.data;
         }
       });
     },
     getallavailble() {
-      axios.get("http://localhost:8000/available/rooms").then((res) => {
+      axios.get("/available/rooms").then((res) => {
         if (res.status == 200) {
           this.allrooms = res.data;
         }
@@ -185,7 +185,7 @@ export default {
       }
       this.isChecking = true;
       axios
-        .post("http://localhost:8000/search/room", this.detail)
+        .post("/search/room", this.detail)
         .then((res) => {
           if (res.status == 200) {
             this.isChecking = false;

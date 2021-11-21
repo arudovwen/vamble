@@ -309,7 +309,7 @@ export default {
       this.detail.payment_status = "pending";
       this.detail.status = "reserved";
       axios
-        .post("http://localhost:8000/admin/reserve", this.detail)
+        .post("/admin/reserve", this.detail)
         .then((res) => {
           if (res.status == 201) {
             this.bookingNumb = res.data.booking_no;

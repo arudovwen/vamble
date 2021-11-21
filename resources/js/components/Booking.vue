@@ -166,7 +166,7 @@ export default {
   },
   methods: {
     getRooms() {
-      axios.get("http://localhost:8000/room/types").then((res) => {
+      axios.get("/room/types").then((res) => {
         if (res.status == 200) {
           this.allrooms = res.data;
         }
@@ -198,13 +198,13 @@ export default {
         flat_type: this.flat_type,
       };
       axios
-        .post("http://localhost:8000/check/availability", data)
+        .post("/check/availability", data)
         .then((res) => {
           this.message = res.data.message;
           if (res.data.status == "available") {
             this.isChecking = false;
             this.isAvailable = true;
-            var routeData = `http://localhost:8000/booking?room=${this.flat_type}&count=${this.rooms}&checkin=${this.checkIn}&checkout=${this.checkOut}&guests=${this.guests}`;
+            var routeData = `/booking?room=${this.flat_type}&count=${this.rooms}&checkin=${this.checkIn}&checkout=${this.checkOut}&guests=${this.guests}`;
             window.location.href = routeData;
             return;
           }

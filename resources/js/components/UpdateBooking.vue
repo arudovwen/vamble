@@ -172,7 +172,7 @@ export default {
   },
   methods: {
     getRooms() {
-      axios.get("http://localhost:8000/rooms").then((res) => {
+      axios.get("/rooms").then((res) => {
         if (res.status == 200) {
           this.rooms = res.data;
         }
@@ -199,7 +199,7 @@ export default {
       this.isChecking = true;
       axios
         .put(
-          `http://localhost:8000/reservations/${this.$props.reservation.id}`,
+          `/reservations/${this.$props.reservation.id}`,
           this.updatedetail
         )
         .then((res) => {

@@ -30,6 +30,9 @@ body {
         width: 100%;
     }
 }
+p{
+    font-size: 16px;
+}
 .nav-text {
     font-size: 0.7rem;
 }
@@ -482,7 +485,7 @@ td {
 }
 .fade_text {
     p {
-        font-size: 0.8rem;
+        font-size: 1rem;
         color: rgba($color: #000000, $alpha: 0.64);
     }
 }

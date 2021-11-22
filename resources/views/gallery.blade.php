@@ -11,10 +11,8 @@
 
 
             <div class="row mx-auto">
-                <div class="col-sm-12 bg-white p-5 ">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio adipisci ea ab excepturi, aspernatur
-                        quo porro error unde. Esse eos beatae quae soluta dolores id nemo aliquam atque rem. Explicabo
-                        quibusdam asperiores at a velit pariatur esse, dolorum iure unde?</p>
+                <div class="col-sm-12 bg-white p-5  ">
+                    <p>Here we showcase some  amazing images of our apartments and suites</p>
 
                 </div>
 

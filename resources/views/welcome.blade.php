@@ -64,7 +64,7 @@
                 <div class="col-sm-4 hotel-img p-0">
                     <img src="{{ asset('/images/vamb-img/bedroom1.jpg') }}" alt="vamble">
                     <div class="hotel_text">
-                        <strong>Executice Bedrooms</strong> <br>
+                        <strong>Executive Bedrooms</strong> <br>
 
                     </div>
                 </div>
@@ -89,10 +89,8 @@
                 <div class="row mb-5  fade_text animate__animated animate__fadeOut animate__slow">
                 <div
                     class="col-xs-12 col-sm-6  text-left  mb-4 mb-sm-0">
-                    <h3 class="line_half">Standard Apartment</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, hic? Commodi, nulla. Hic voluptas
-                        illo quisquam praesentium vero fugit cumque eveniet similique quasi, cupiditate odio distinctio
-                        neque natus fugiat, veniam mollitia recusandae porro. Sequi, quod accusamus numquam hic dicta culpa!
+                    <h3 class="line_half" style="letter-spacing: .4rem">Standard Apartment</h3>
+                    <p>Our Standard Apartments are modern and stylish, equipped with a fully furnished kitchen,air-conditioned rooms , 75inch flat-screen television, a magnificent sitting room and so many other amenities that will make your stay very pleasura...<a class="btn  btn-link px-0 py-0" href="/accomodations" role="button">read more  </a>
                     </p>
 
                     <div class="price mb-2"> &#8358;30,000 <sub>per night</sub></div>
@@ -102,7 +100,7 @@
 
                     <div class="mb-4">
                         <span class="badge badge-primary"> Free toiletries</span>
-                        <span class="badge badge-primary"> Bath or shower </span>
+                        <span class="badge badge-primary"> Bath & shower </span>
                         <span class="badge badge-primary"> Desk Seating Area</span>
                         <span class="badge badge-primary">TV</span>
 
@@ -166,10 +164,9 @@
                 </div>
                 <div
                     class="col-xs-12 col-sm-6  text-left mb-4 mb-sm-0">
-                    <h3 class="line_half">Luxury Apartment</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, hic? Commodi, nulla. Hic voluptas
-                        illo quisquam praesentium vero fugit cumque eveniet similique quasi, cupiditate odio distinctio
-                        neque natus fugiat, veniam mollitia recusandae porro. Sequi, quod accusamus numquam hic dicta culpa!
+                    <h3 class="line_half" style="letter-spacing: .4rem">Luxury Apartment</h3>
+                    <p>
+                       Our Luxury Apartment welcomes you with a gorgeously-appointed classical interior, separate bedroom and living room, extra-spacious bathroom and a balcony overlooking the fancy estate. With a classy debonaire appear... <a class="btn  btn-link px-0 py-0" href="/accomodations" role="button">read more  </a>
                     </p>
 
                     <div class="price mb-2"> &#8358;110,000 <sub>per night</sub></div>
@@ -179,7 +176,7 @@
 
                     <div class="mb-4">
                         <span class="badge badge-primary"> Free toiletries</span>
-                        <span class="badge badge-primary"> Bath or shower </span>
+                        <span class="badge badge-primary"> Bath & shower </span>
                         <span class="badge badge-primary"> Desk Seating Area</span>
                         <span class="badge badge-primary">TV</span>
 
@@ -208,9 +205,7 @@
                 </div>
                 <div class="col-xs-12 col-sm-8  text-center ">
                     <h3 class="line_full">What we are about</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, hic? Commodi, nulla. Hic voluptas
-                        illo quisquam praesentium vero fugit cumque eveniet similique quasi, cupiditate odio distinctio
-                        neque natus fugiat, veniam mollitia recusandae porro. Sequi, quod accusamus numquam hic dicta culpa!
+                    <p>We at Vamble Apartments & Suites are dedicated to making your every stay a wonderful experience. We offer state of the art facilities, world class interiors, comfortable and well furnished rooms.  Our aim is to provide a home away from home, located in serene and secured environment.
                     </p>
                     <a href="/about"> <button type="button" class="btn btn-outline-dark btn-sm"> Know more <i
                                 class="fa fa-arrow-right" aria-hidden="true"></i></button></a>

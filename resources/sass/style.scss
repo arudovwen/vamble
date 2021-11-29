@@ -30,7 +30,7 @@ body {
         width: 100%;
     }
 }
-p{
+p {
     font-size: 16px;
 }
 .nav-text {
@@ -335,7 +335,7 @@ td {
         h2 {
             position: relative;
             font-family: "Times New Roman,Times,serif";
-             font-weight: 600;
+            font-weight: 600;
 
             &::after {
                 content: "";
@@ -450,9 +450,8 @@ td {
         }
         h2 {
             position: relative;
-            font-family:" Times New Roman,Times,serif";
-             font-weight: 600;
-
+            font-family: " Times New Roman,Times,serif";
+            font-weight: 600;
 
             &::after {
                 content: "";
@@ -554,7 +553,7 @@ td {
         h2 {
             position: relative;
             font-family: "Times New Roman,Times,serif";
-             font-weight: 600;
+            font-weight: 600;
 
             &::after {
                 content: "";
@@ -727,7 +726,7 @@ footer {
         h2 {
             position: relative;
             font-family: "Times New Roman,Times,serif";
-             font-weight: 600;
+            font-weight: 600;
 
             &::after {
                 content: "";
@@ -771,7 +770,7 @@ footer {
         h2 {
             position: relative;
             font-family: "Times New Roman,Times,serif";
-             font-weight: 600;
+            font-weight: 600;
 
             &::after {
                 content: "";
@@ -814,7 +813,7 @@ footer {
         h2 {
             position: relative;
             font-family: "Times New Roman,Times,serif";
-             font-weight: 600;
+            font-weight: 600;
 
             &::after {
                 content: "";
@@ -1191,8 +1190,12 @@ label {
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
         border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
-.note-body{
+.note-body {
     min-width: 300px;
     max-height: 400px;
     overflow-y: auto;
+}
+.about-text {
+    letter-spacing: 0.2rem;
+    font-size: 1.1rem;
 }

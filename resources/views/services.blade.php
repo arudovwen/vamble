@@ -11,20 +11,15 @@
 
             <div class="row m-0 mb-sm-5">
                 <div class="col-sm-12 bg-white py-5 px-3 px-sm-5 ">
-                    <p>From our luxury well equipped suites to our well furnished kitchen and safe environment, here is a list of services we offer that will make your stay at Vamble Appartment & Suites a wonderful one.</p>
+                    <p class="about-text">From our luxury well equipped suites to our well furnished kitchen and safe environment, here is a list of services we offer that will make your stay at Vamble Appartment & Suites a wonderful one.</p>
 
 
                 </div>
             </div>
             <div class="row m-0 mb-sm-5">
                 <div class="col-sm-6 bg-white py-5 px-3 px-sm-5 text-left">
-                    <h3 class="mb-4" style="letter-spacing: .4rem">Excellent & Secured Environment</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit molestias laboriosam asperiores qui
-                        animi numquam. Numquam exercitationem vitae maiores perferendis natus dolorem beatae est! Cumque
-                        expedita sint corrupti nihil at obcaecati nulla delectus reprehenderit commodi! Omnis eaque non
-                        culpa voluptatum molestiae enim commodi molestias, quaerat neque nihil voluptate sapiente ipsam,
-                        veniam in ea quasi rem nostrum unde atque voluptates porro? Accusantium quae quis dolorem aperiam
-                        veritatis ipsam deserunt! Ducimus, quo?</p>
+                    <h4 class="mb-4 font-weight-bold" style="letter-spacing: .3rem">Excellent & Secure Environment</h4>
+                    <p class="about-text">Vamble Apartment & Suites Limited is situated at a safe and secure environment. The area is friendly and serene with the appropriate aura that gives you the feel of a safe haven. There are CCTV cameras installed to watch the environment with constant Security to guide and ensure safety. At Vamble Apartment & Suites your safety is priority.</p>
                 </div>
                 <div class="col-sm-6 px-0 service_img">
                     <img src="{{ asset('/images/vamb-img/banner.jpg') }}" class="w-100 h-100 " alt="vamble building">
@@ -37,24 +32,14 @@
                     <img src="{{ asset('/images/vamb-img/banner3.jpg') }}" class="w-100 h-100 " alt="vamble building">
                 </div>
                 <div class="col-sm-6 bg-white py-5 px-3 px-sm-5 text-left">
-                    <h3 class="mb-4" style="letter-spacing: .4rem">Well Furnished Apartments</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit molestias laboriosam asperiores qui
-                        animi numquam. Numquam exercitationem vitae maiores perferendis natus dolorem beatae est! Cumque
-                        expedita sint corrupti nihil at obcaecati nulla delectus reprehenderit commodi! Omnis eaque non
-                        culpa voluptatum molestiae enim commodi molestias, quaerat neque nihil voluptate sapiente ipsam,
-                        veniam in ea quasi rem nostrum unde atque voluptates porro? Accusantium quae quis dolorem aperiam
-                        veritatis ipsam deserunt! Ducimus, quo?</p>
+                    <h4 class="mb-4 font-weight-bold" style="letter-spacing: .3rem"> Furnished Apartments</h4>
+                    <p class="about-text">Our Luxury and Standard Apartments are thoroughly decorated with top notch furniture needed for day to day living. Every furniture was put in place with your comfort in mind; they are beautiful and of good quality to give you that homely ambience.</p>
                 </div>
             </div>
             <div class="row  m-0 mb-sm-5">
                 <div class="col-sm-6 bg-white py-5 px-3 px-sm-5 text-left">
-                    <h3 class="mb-4" style="letter-spacing: .4rem">Well Furnished Bedrooms</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit molestias laboriosam asperiores qui
-                        animi numquam. Numquam exercitationem vitae maiores perferendis natus dolorem beatae est! Cumque
-                        expedita sint corrupti nihil at obcaecati nulla delectus reprehenderit commodi! Omnis eaque non
-                        culpa voluptatum molestiae enim commodi molestias, quaerat neque nihil voluptate sapiente ipsam,
-                        veniam in ea quasi rem nostrum unde atque voluptates porro? Accusantium quae quis dolorem aperiam
-                        veritatis ipsam deserunt! Ducimus, quo?</p>
+                    <h4 class="mb-4 font-weight-bold" style="letter-spacing: .3rem">Grande Bedrooms</h4>
+                    <p class="about-text">Adorned with standard king sized beds, spacious wardrobes and other bedroom furniture, our decor is built for your comfort. When you need stylish bedrooms, think Vamble Apartments & Suites Limited.</p>
                 </div>
                 <div class="col-sm-6 px-0 service_img">
                     <img src="{{ asset('/images/vamb-img/bedroom.jpg') }}" class="w-100 h-100 " alt="vamble building">
@@ -66,13 +51,8 @@
                     <img src="{{ asset('/images/vamb-img/kitchen.jpg') }}" class="w-100 h-100 " alt="vamble building">
                 </div>
                 <div class="col-sm-6 bg-white py-5 px-3 px-sm-5 text-left">
-                    <h3 class="mb-4" style="letter-spacing: .4rem">Fully Furnished Kitchen</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit molestias laboriosam asperiores qui
-                        animi numquam. Numquam exercitationem vitae maiores perferendis natus dolorem beatae est! Cumque
-                        expedita sint corrupti nihil at obcaecati nulla delectus reprehenderit commodi! Omnis eaque non
-                        culpa voluptatum molestiae enim commodi molestias, quaerat neque nihil voluptate sapiente ipsam,
-                        veniam in ea quasi rem nostrum unde atque voluptates porro? Accusantium quae quis dolorem aperiam
-                        veritatis ipsam deserunt! Ducimus, quo?</p>
+                    <h4 class="mb-4 font-weight-bold" style="letter-spacing: .3rem">Fully Equipped Kitchen</h4>
+                    <p class="about-text">Every utensil needed to prepare a delicious meal is readily available. Fully furnished with cabinets and drawers that contain the necessary kitchen wares; we have put in place a kitchen any woman will adore.</p>
                 </div>
             </div>
 

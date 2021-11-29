@@ -18,7 +18,7 @@
     <div class="step mb-3">
       <div
         :class="step >= 1 ? 'active' : ''"
-        class="d-flex align-items-center justify-content-center"
+        class="d-flex align-items-center justify-content-center stepper-right"
         @click="toggleStep(1)"
       >
         <span class="badge badge-pill badge-light mr-1">1</span>
@@ -26,7 +26,7 @@
       </div>
       <div
         :class="step >= 2 ? 'active' : 'disabled'"
-        class="d-flex align-items-center justify-content-center"
+        class="d-flex align-items-center justify-content-center stepper"
         @click="toggleStep(2)"
       >
         <span class="badge badge-pill badge-light mr-1">2</span>
@@ -34,7 +34,7 @@
       </div>
       <div
         :class="step === 3 ? 'active' : ''"
-        class="d-flex align-items-center justify-content-center"
+        class="d-flex align-items-center justify-content-center stepper-left"
         @click="toggleStep(3)"
       >
         <span class="badge badge-pill badge-light mr-1">3</span>
@@ -95,32 +95,32 @@ export default {
     @media (max-width: 768px) {
       padding: 0.3rem 0.4rem;
     }
-    &.active {
+     &.active {
       background: var(--primary);
       color: #fff;
     }
-    ::after {
+     &.stepper::after, &.stepper-right::after {
       content: "";
-      width: 40px;
-      height: 100%;
+      width: 34px;
+      height: 34px;
       background: #f8fafc;
       position: absolute;
-      right: -28px;
-      top: 0;
+      right: -17px;
+    //  top: 0;
       transform: rotate(45deg);
       @media (max-width: 768px) {
         width: 25px;
         right: -16px;
       }
     }
-    ::before {
+    &.stepper::before, &.stepper-left::after {
       content: "";
-      width: 40px;
-      height: 100%;
+      width: 34px;
+      height: 34px;
       background: #f8fafc;
       position: absolute;
-      left: -28px;
-      top: 0;
+      left: -17px;
+      //top: 0;
       transform: rotate(45deg);
       @media (max-width: 768px) {
         width: 25px;

@@ -21526,6 +21526,11 @@ label {
   overflow-y: auto;
 }
 
+.about-text {
+  letter-spacing: 0.2rem;
+  font-size: 1.1rem;
+}
+
 .sidebar {
   height: 100vh;
   padding: 24px 0;

@@ -15,21 +15,14 @@
                         alt="vamble building">
                 </div>
                 <div class="col-sm-6 bg-white p-5 text-left">
-                    <h3 class=" line_half">About Vamble Apartments & Suites</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit molestias laboriosam asperiores qui
-                        animi numquam. Numquam exercitationem vitae maiores perferendis natus dolorem beatae est! Cumque
-                        expedita sint corrupti nihil at obcaecati nulla delectus reprehenderit commodi! Omnis eaque non
-                        culpa voluptatum molestiae enim commodi molestias, quaerat neque nihil voluptate sapiente ipsam,
-                        veniam in ea quasi rem nostrum unde atque voluptates porro? Accusantium quae quis dolorem aperiam
-                        veritatis ipsam deserunt! Ducimus, quo?</p>
+                    <h3 class=" line_half" style="letter-spacing: .3rem">Our Story</h3>
+                    <p class="about-text">Vamble Apartment & Suites Limited is a renowned lodging facility built just like home to ensure a wonderful and comfortable experience.
+                        The Standard and Luxury Apartments are fully furnished with exquisite sitting room, kitchen and bedroom furniture; to ensure you have every homely feel during your stay.
+
+</p>
                 </div>
                 <div class="col-sm-12 bg-white p-5">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio adipisci ea ab excepturi, aspernatur
-                        quo porro error unde. Esse eos beatae quae soluta dolores id nemo aliquam atque rem. Explicabo
-                        quibusdam asperiores at a velit pariatur esse, dolorum iure unde?</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio adipisci ea ab excepturi, aspernatur
-                        quo porro error unde. Esse eos beatae quae soluta dolores id nemo aliquam atque rem. Explicabo
-                        quibusdam asperiores at a velit pariatur esse, dolorum iure unde?</p>
+                    <p class="about-text">It is situated at …. Abuja and it is easily accessible and available to provide a luxurious and comfortable housing for as long as you please.</p>
 
                 </div>
             </div>

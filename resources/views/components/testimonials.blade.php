@@ -9,28 +9,65 @@
 
                     <i class="fa fa-quote-left fa-6x quote" aria-hidden="true"></i>
                     <div>
-                        <img src="/images/vamb-img/kitchen1.jpg" style="height: 80px; width:80px" class="rounded-circle mb-4" alt="">
+                        <img src="/images/busi.jpg" style="height: 80px; width:80px"
+                            class="rounded-circle mb-4" alt="">
                     </div>
                     <div>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci fugiat architecto tenetur
-                            in quos facere delectus minima itaque ipsum obcaecati!</p>
+                        <p>I finished my business retreat but still extended my stay just to have a whole day to myself.
+                            The environment is worth it!</p>
 
-                        <span><strong>John Doe</strong></span> <br>
-                        <small>Founded & CEO</small>
+                        <span><strong>Chiamaka Onuegbu</strong></span> <br>
+                        <small>Communications Executive</small>
                     </div>
                 </div>
+
+
                 <div class="carousel-item  text-center p-3 p-sm-5 position-relative">
 
                     <i class="fa fa-quote-left fa-6x quote" aria-hidden="true"></i>
                     <div>
-                        <img src="/images/vamb-img/kitchen1.jpg" style="height: 80px; width:80px" class="rounded-circle mb-4" alt="">
+                        <img src="/images/couple.webp" style="height: 80px; width:80px"
+                            class="rounded-circle mb-4" alt="">
                     </div>
                     <div>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci fugiat architecto tenetur
-                            in quos facere delectus minima itaque ipsum obcaecati!</p>
+                        <p>We had the best time of our lives enjoying our honeymoon at the Luxury apartment. It was like
+                            our first home as a couple. The environment is secure and we had every single thing we
+                            needed from the living room to the kitchen.</p>
 
-                        <span><strong>Jane Doe</strong></span> <br>
-                        <small>Founded & CEO</small>
+                        <span><strong>Obinna & Kate Nwachukwu</strong></span> <br>
+
+                    </div>
+                </div>
+
+                <div class="carousel-item  text-center p-3 p-sm-5 position-relative">
+
+                    <i class="fa fa-quote-left fa-6x quote" aria-hidden="true"></i>
+                    <div>
+                        <img src="/images/fran.jpg" style="height: 80px; width:80px"
+                            class="rounded-circle mb-4" alt="">
+                    </div>
+                    <div>
+                        <p>I organized a house party and had my friends come over. It was so spacious and well equipped;
+                            I didn't stress at all.
+                            I look forward to coming back to spend some quality time, just my fiance and I.</p>
+
+                        <span><strong>Francis Ajoke</strong></span> <br>
+
+                    </div>
+                </div>
+                  <div class="carousel-item  text-center p-3 p-sm-5 position-relative">
+
+                    <i class="fa fa-quote-left fa-6x quote" aria-hidden="true"></i>
+                    <div>
+                        <img src="/images/vamb-img/sitting.jpg" style="height: 80px; width:80px"
+                            class="rounded-circle mb-4" alt="">
+                    </div>
+                    <div>
+                        <p>My stay was comfortable throughout the two weeks I spent. I would definitely patronize Vamble
+                            Apartments and Suites the next time I come to Nigeria.</p>
+
+                        <span><strong>Alhaji Sadiq Nuhu</strong></span> <br>
+
                     </div>
                 </div>
 

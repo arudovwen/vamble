@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('title','')
+@section('description', 'Vamble apartments and suites')
+@section('keywords', 'Vamble , Apartments, Hotels, Suites,bookings, online , Abuja')
 @section('content')
     <div class="firstContent">
         <div id="bannerId" class="carousel slide carousel-fade" data-ride="carousel">

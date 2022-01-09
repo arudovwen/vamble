@@ -9,7 +9,7 @@
     </div>
     {{ Breadcrumbs::render('about') }}
     <div class="about">
-        <div class="content py-5">
+        <div class="content py-0 py-md-5">
 
 
             <div class="row">
@@ -27,7 +27,8 @@
                     </p>
                 </div>
                 <div class="col-sm-12 bg-white p-5">
-                    <p class="about-text">It is situated at Plot 790, sector center, Cadastral zone. Jahi. Abuja and it is easily accessible and available to
+                    <p class="about-text">It is situated at <a href="https://goo.gl/maps/AKGfNTN9frUpyWHU8">Plot 790, sector center, Cadastral zone. Jahi. Abuja</a>
+                         and it is easily accessible and available to
                         provide a luxurious and comfortable housing for as long as you please, Located in a Serene and Hospitable environment, with
 
                 24 hours security system,

@@ -34,7 +34,7 @@
                               <i class="fas fa-map-pin  text-primary" aria-hidden="true"></i>
 
 
-                              <span class="nav-text">Plot 790, sector center, Cadastral zone. Jahi. Abuja</span>
+                              <span class="nav-text"><a href="https://goo.gl/maps/AKGfNTN9frUpyWHU8">Plot 790, sector center, Cadastral zone. Jahi. Abuja</a></span>
                           </a>
                       </li>
 

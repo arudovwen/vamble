@@ -8,16 +8,16 @@
     </div>
     {{ Breadcrumbs::render('accomodations') }}
     <div class="apartments">
-        <div class="content py-5">
+        <div class="container content py-0 py-md-5">
 
 
 
             <div class="row mb-5">
-                <div class="col-sm-6 bg-white p-3 p-md-5 text-left d-flex flex-column justify-content-center r">
+                <div class="col-sm-6 bg-white px-4 p-3 p-md-5 text-left d-flex flex-column justify-content-center">
                     <h3 class="mb-4" style="letter-spacing: .4rem">Standard Apartment</h3>
                     <p>Our Standard Apartments are modern and stylish, equipped with a fully furnished kitchen,air-conditioned rooms , 75inch flat-screen television, a magnificent sitting room and so many other amenities that will make your stay very pleasurable.  Fully equipped with state of the art furnitures, a grand sitting room, cable tv, and free wifi.</p>
                 </div>
-                <div class="col-sm-6 px-0">
+                <div class="col-sm-6 px-3 px-md-0">
                     <div id="appId1" class="carousel slide" data-ride="carousel">
 
                         <div class="carousel-inner" role="listbox">
@@ -46,7 +46,7 @@
 
             <div class="row mb-5">
 
-                <div class="col-sm-6 bg-white p-3 p-md-5 text-left d-flex flex-column justify-content-center">
+                <div class="col-sm-6 bg-white px-4 p-3 p-md-5 text-left d-flex flex-column justify-content-center">
                     <h3 class="mb-4" style="letter-spacing: .4rem">Executive Apartment</h3>
                     <p>Our executive Apartment welcomes you with a gorgeously-appointed classical interior, separate bedroom and living room, extra-spacious bathroom and a balcony overlooking the fancy estate. With a classy debonaire appearance to make your stay memorable. Fully equipped with state of the art furnitures, a grand sitting room, cable tv, and free wifi. Feel at home in this spacious  suite.</p>
                 </div>
@@ -78,9 +78,9 @@
 
              <div class="row mb-5">
 
-                <div class="col-sm-6 bg-white p-3 p-md-5 text-left d-flex flex-column justify-content-center">
+                <div class="col-sm-6 bg-white px-4 p-3 p-md-5 text-left d-flex flex-column justify-content-center">
                     <h3 class="mb-4" style="letter-spacing: .4rem">Platinum Apartment</h3>
-                    <p>Our Platunum Apartment welcomes you with a gorgeously-appointed classical interior, separate bedroom and living room, extra-spacious bathroom and a balcony overlooking the fancy estate. With a classy debonaire appearance to make your stay memorable. Fully equipped with state of the art furnitures, a grand sitting room, cable tv, and free wifi. Feel at home in this spacious  suite.</p>
+                    <p>Our Platinum Apartments will leave you enthralled in its grandeur and luxury. Its interior is classy and fully equipped from the grand sitting room to the magnificent bedrooms and standardized kitchen, accompanied by cable tv and free WiFi. Your stay at Vamble Apartments and Suites is nothing short of royal.</p>
                 </div>
                 <div class="col-sm-6 px-md-0">
                     <div id="appId3" class="carousel slide" data-ride="carousel">

@@ -63,17 +63,31 @@
                                         <td scope="row" class="text-capitalize">{{ $room->flat_type }}</td>
                                         <td scope="row" class="text-capitalize">{{ $room->flat_name }}</td>
                                         <td scope="row" class="text-capitalize">{{ $room->room_name }}</td>
-                                        <td>{{ $room->description }}</td>
+                                        <td>
+
+
+                                            @if (strlen($room->description) > 100)
+                                                {{ substr($room->description, 0, 100) }}
+                                                <span class="read-more-show hide_content">More<i
+                                                        class="fa fa-angle-down"></i></span>
+                                                <span class="read-more-content">
+                                                    {{ substr($room->description, 100, strlen($room->description)) }}
+                                                    <span class="read-more-hide hide_content">Less <i
+                                                            class="fa fa-angle-up"></i></span> </span>
+                                            @else
+                                                {{ $room->description }}
+                                            @endif
+
+                                        </td>
                                         <td>{{ $room->floor }}</td>
                                         <td>{{ $room->max_occupancy }}</td>
                                         <td> ₦{{ number_format($room->price) }}</td>
 
                                         <td scope="row" class="d-flex ">
 
-                                             <a
-                                                            href="{{ route('editroom', ['room' => $room->id]) }}">
-                                                            <button type="button" class="btn btn-info btn-sm mr-2"
-                                                                style="font-size: .65rem">Edit</button></a>
+                                            <a href="{{ route('editroom', ['room' => $room->id]) }}">
+                                                <button type="button" class="btn btn-info btn-sm mr-2"
+                                                    style="font-size: .65rem">Edit</button></a>
 
 
                                             <form method="post" class="delete_form"
@@ -128,7 +142,7 @@
                                             <select class="form-control" required name="flat_type" id="flat_type">
                                                 <option value="standard">Standard</option>
                                                 <option value="executive">Executive</option>
-                                                   <option value="platinum">Platinum</option>
+                                                <option value="platinum">Platinum</option>
                                             </select>
                                         </div>
 
@@ -137,7 +151,7 @@
 
                                         <div class="form-group">
                                             <label for="short_name">Type </label>
-                                               <select class="form-control" required name="flat_name" id="flat_name">
+                                            <select class="form-control" required name="flat_name" id="flat_name">
                                                 <option value="room">Room</option>
                                                 <option value="apartment">Apartment</option>
 

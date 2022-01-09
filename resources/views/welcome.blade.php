@@ -8,11 +8,11 @@
 
         <div class="banner-text text-center">
             <banner-text></banner-text>
-            <div class="mt-4">
-                <button type="button" class="btn  btn-light bg-transparent btn-lg border text-light mr-3" data-toggle="modal"
+            <div class="mt-4 d-none d-md-block">
+                <button type="button" class="btn  btn-light bg-transparent  border text-light mr-3" data-toggle="modal"
                     data-target="#videosId">Watch video</button>
                 <a href="/accomodations"><button type="button"
-                        class="btn btn-light bg-transparent btn-lg border text-light  ">See apartments</button></a>
+                        class="btn btn-light bg-transparent  border text-light  ">See apartments</button></a>
             </div>
         </div>
 
@@ -41,7 +41,7 @@
             <div class="text-center  text-muted know_more">
 
                 <span class="text-white" data-toggle="tooltip" data-placement="top" title="Scroll down">
-                    <span class="cursor-pointer">KNOW MORE </span> <br>
+
                     <i class="cursor-pointer fa fa-chevron-down animate__animated animate__heartBeat animate__slower animate__infinite	infinite"
                         aria-hidden="true"></i>
 
@@ -113,18 +113,20 @@
 
                         <div class="price mb-2"> &#8358;30,000 <sub>per night</sub></div>
                         <div class="flex flex-wrap">
-                            <span class="amenities mb-1 mr-2"><i class="fa fa-bed" aria-hidden="true"></i> 1 double
-                                bed</span>
+                            <span class="amenities mb-1 mr-2"><i class="fa fa-bed" aria-hidden="true"></i> Family size beds</span>
                             <span class="amenities mb-1 mr-2"> <i class="fas fa-wind    "></i> Air conditioning</span>
-                            <span class="amenities "><i class="fas fa-faucet    "></i> Kitchen</span>
+                            <span class="amenities "><i class="fas fa-faucet    "></i> Inbuilt kitchen</span>
+                             <span class="amenities "><i class="fas fa-faucet    "></i> Complementary breakfast</span>
+                            Complementary breakfast.
                         </div>
 
                         <div class="mb-4">
                             <span class="badge badge-dark"> Free toiletries</span>
-                            <span class="badge badge-dark"> Bath & shower </span>
+                            <span class="badge badge-dark">Temperature sensored showers  </span>
                             <span class="badge badge-dark"> Desk Seating Area</span>
-                            <span class="badge badge-dark">TV</span>
-
+                            <span class="badge badge-dark">Smart TV</span>
+                             <span class="badge badge-dark"> 24 hours Laundry service</span>
+                              <span class="badge badge-dark"> 24 hours bar service</span>
                             <span class="badge badge-dark"> Refrigerator </span>
                             <span class="badge badge-dark"> Satellite channels </span>
                             <span class="badge badge-dark"> Wireless Internet </span>
@@ -195,17 +197,20 @@
 
                         <div class="price mb-2"> &#8358;110,000 <sub>per night</sub></div>
                         <div class="flex flex-wrap">
-                            <span class="amenities mb-1 mr-2"><i class="fa fa-bed" aria-hidden="true"></i> 1 double
-                                bed</span>
+                            <span class="amenities mb-1 mr-2"><i class="fa fa-bed" aria-hidden="true"></i> Family size beds</span>
                             <span class="amenities mb-1 mr-2"> <i class="fas fa-wind    "></i> Air conditioning</span>
-                            <span class="amenities "><i class="fas fa-faucet    "></i> Kitchen</span>
+                            <span class="amenities "><i class="fas fa-faucet    "></i> Inbuilt kitchen</span>
+                             <span class="amenities "><i class="fas fa-faucet    "></i> Complementary breakfast</span>
+                            Complementary breakfast.
                         </div>
                         <div class="mb-4">
                             <span class="badge badge-dark"> Free toiletries</span>
-                            <span class="badge badge-dark"> Bath & shower </span>
+                            <span class="badge badge-dark">Temperature sensored showers  </span>
                             <span class="badge badge-dark"> Desk Seating Area</span>
-                            <span class="badge badge-dark">TV</span>
-
+                            <span class="badge badge-dark">Smart TV</span>
+ <span class="badge badge-dark">Smart TV</span>
+                             <span class="badge badge-dark"> 24 hours Laundry service</span>
+                              <span class="badge badge-dark"> 24 hours bar service</span>
                             <span class="badge badge-dark"> Refrigerator </span>
                             <span class="badge badge-dark"> Satellite channels </span>
                             <span class="badge badge-dark"> Wireless Internet </span>
@@ -224,24 +229,27 @@
                 <div class="row mb-5  fade_text animate__animated animate__fadeOut animate__slow">
                     <div class="col-xs-12 col-sm-6  text-left  mb-4 mb-sm-0">
                         <h3 class="line_half" style="letter-spacing: .4rem">Platinum Apartment</h3>
-                        <p>Our Platinum Apartments are modern and stylish, equipped with a fully furnished
-                            kitchen,air-conditioned rooms , 75inch flat-screen television, a magnificent sitting room and so
-                            many other amenities that will make your stay very pleasura...<a class="btn  btn-link px-0 py-0"
+                        <p>Our Platinum Apartments will leave you enthralled in its grandeur and luxury. Its interior is classy and fully equipped from the grand sitting room to the magnificent bedrooms and standardized kitchen, accompanied by cable tv an...<a class="btn  btn-link px-0 py-0"
                                 href="/accomodations" role="button">read more </a>
                         </p>
 
                         <div class="price mb-2"> &#8358;30,000 <sub>per night</sub></div>
                         <div class="flex flex-wrap">
-                            <span class="amenities mb-1 mr-2"><i class="fa fa-bed" aria-hidden="true"></i> 1 double
-                                bed</span>
+                            <span class="amenities mb-1 mr-2"><i class="fa fa-bed" aria-hidden="true"></i> Family size beds</span>
                             <span class="amenities mb-1 mr-2"> <i class="fas fa-wind    "></i> Air conditioning</span>
-                            <span class="amenities "><i class="fas fa-faucet    "></i> Kitchen</span>
+                            <span class="amenities  mb-1 mr-2"><i class="fas fa-faucet    "></i> Inbuilt kitchen</span>
+                             <span class="amenities "><i class="fas fa-fa-knife-kitchen    "></i> Complementary breakfast</span>
+
+
+
                         </div>
                         <div class="mb-4">
                             <span class="badge badge-dark"> Free toiletries</span>
-                            <span class="badge badge-dark"> Bath & shower </span>
+                            <span class="badge badge-dark">Temperature sensored showers  </span>
                             <span class="badge badge-dark"> Desk Seating Area</span>
-                            <span class="badge badge-dark">TV</span>
+                            <span class="badge badge-dark">Smart TV</span>
+                             <span class="badge badge-dark"> 24 hours Laundry service</span>
+                              <span class="badge badge-dark"> 24 hours bar service</span>
 
                             <span class="badge badge-dark"> Refrigerator </span>
                             <span class="badge badge-dark"> Satellite channels </span>

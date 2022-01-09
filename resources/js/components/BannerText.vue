@@ -6,7 +6,7 @@
       tag="h1"
       :interval="35"
       :custom-class="[
-        { selector: ':nth-child(odd)', class: 'test_odd vamble' },
+        { selector: ':nth-child(odd)', class: 'test_odd vamble banner_fancy' },
       ]"
       >VAMBLE</vue-text-transition
     >
@@ -15,11 +15,11 @@
       name="test"
       tag="h2"
       :interval="20"
-      :custom-class="[{ selector: ':nth-child(odd)', class: 'test_odd' }]"
+      :custom-class="[{ selector: ':nth-child(odd)', class: 'test_odd banner_fancy' }]"
     >
       Apartments & Suites</vue-text-transition
     >
-    <small class="text-white" style="z-index: 2"><i>A home away from home</i></small>
+    <p class="text-white banner_fancy" style="z-index: 2">A home away from home</p>
   </div>
 </template>
 
@@ -45,7 +45,9 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+
+
 #banner {
   font-family: "Nunito", sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -61,6 +63,7 @@ span {
 .v--vtt-test_odd {
   will-change: transform, opacity;
   transition: opacity 0.3s ease-in-out, transform 1s ease-in-out;
+
 }
 
 .v--vtt-test_visible,
@@ -77,5 +80,8 @@ span {
 .v--vtt-test_odd_hidden {
   opacity: 0;
   transform: translateY(-20px);
+}
+p{
+  font-family: 'The Nautigal', cursive;
 }
 </style>

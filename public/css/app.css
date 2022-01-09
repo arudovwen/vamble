@@ -20289,6 +20289,11 @@ body {
   font-family: "Nunito", sans-serif;
 }
 
+#app {
+  width: 100vw !important;
+  overflow-x: hidden;
+}
+
 i {
   font-family: "The Nautigal", cursive;
 }
@@ -20354,7 +20359,7 @@ td {
 }
 
 .bg-dark-opacity {
-  background-color: rgba(52, 58, 64, 0.25) !important;
+  background-color: rgba(52, 58, 64, 0.45) !important;
 }
 
 .no-focus.form-control:focus {
@@ -20515,7 +20520,7 @@ td {
   display: flex;
   justify-content: center;
   margin-top: -105px;
-  border-bottom: 8px solid var(--vamble);
+  border-bottom: 4px solid var(--vamble);
 }
 .firstContent video {
   width: 100%;
@@ -20531,7 +20536,7 @@ td {
   bottom: 0;
   right: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.75);
 }
 .firstContent .booking {
   position: absolute;
@@ -20547,7 +20552,7 @@ td {
 .firstContent .banner-text {
   position: absolute;
   z-index: 9;
-  top: 30%;
+  top: 20%;
   transform: translateY(50%);
 }
 .firstContent .banner-text h1 {
@@ -20570,7 +20575,7 @@ td {
 }
 @media only screen and (max-width: 768px) {
   .firstContent .banner-text {
-    top: 20%;
+    top: 23%;
     padding: 10px;
   }
   .firstContent .banner-text h1 {
@@ -20584,7 +20589,7 @@ td {
   }
 }
 .firstContent .know_more {
-  padding-top: 4rem;
+  padding-top: 1rem;
 }
 
 .landing-item {
@@ -20632,7 +20637,7 @@ td {
 }
 .secondContent .content h2::after {
   content: "";
-  width: 200px;
+  width: 100px;
   height: 10px;
   border-bottom: 1px solid #ccc;
   position: absolute;
@@ -20641,13 +20646,13 @@ td {
 }
 @media only screen and (max-width: 768px) {
   .secondContent .content h2::after {
-    right: 10%;
+    right: 0%;
     width: 50px;
   }
 }
 .secondContent .content h2::before {
   content: "";
-  width: 200px;
+  width: 100px;
   height: 10px;
   border-bottom: 1px solid #ccc;
   position: absolute;
@@ -20656,7 +20661,7 @@ td {
 }
 @media only screen and (max-width: 768px) {
   .secondContent .content h2::before {
-    left: 10%;
+    left: 0%;
     width: 50px;
   }
 }
@@ -20755,7 +20760,7 @@ td {
 }
 .thirdContent .content h2::after {
   content: "";
-  width: 200px;
+  width: 100px;
   height: 10px;
   border-bottom: 1px solid #ccc;
   position: absolute;
@@ -20764,13 +20769,13 @@ td {
 }
 @media only screen and (max-width: 768px) {
   .thirdContent .content h2::after {
-    right: 10%;
+    right: 0%;
     width: 50px;
   }
 }
 .thirdContent .content h2::before {
   content: "";
-  width: 200px;
+  width: 100px;
   height: 10px;
   border-bottom: 1px solid #ccc;
   position: absolute;
@@ -20779,7 +20784,7 @@ td {
 }
 @media only screen and (max-width: 768px) {
   .thirdContent .content h2::before {
-    left: 10%;
+    left: 0%;
     width: 50px;
   }
 }
@@ -20787,6 +20792,11 @@ td {
 .fade_text p {
   font-size: 1rem;
   color: rgba(0, 0, 0, 0.64);
+}
+@media only screen and (max-width: 768px) {
+  .fade_text p {
+    font-size: 0.85rem;
+  }
 }
 
 .carousel .carousel-inner .carousel-item.room-item {
@@ -20868,7 +20878,7 @@ td {
 }
 .fifthContent .content h2::after {
   content: "";
-  width: 200px;
+  width: 100px;
   height: 10px;
   border-bottom: 1px solid #ccc;
   position: absolute;
@@ -20877,13 +20887,13 @@ td {
 }
 @media only screen and (max-width: 768px) {
   .fifthContent .content h2::after {
-    right: 10%;
+    right: 0%;
     width: 50px;
   }
 }
 .fifthContent .content h2::before {
   content: "";
-  width: 200px;
+  width: 100px;
   height: 10px;
   border-bottom: 1px solid #ccc;
   position: absolute;
@@ -20892,7 +20902,7 @@ td {
 }
 @media only screen and (max-width: 768px) {
   .fifthContent .content h2::before {
-    left: 10%;
+    left: 0%;
     width: 50px;
   }
 }
@@ -20996,7 +21006,7 @@ footer .content {
 }
 .contact .content h2::after {
   content: "";
-  width: 200px;
+  width: 100px;
   height: 10px;
   border-bottom: 1px solid #ccc;
   position: absolute;
@@ -21005,13 +21015,13 @@ footer .content {
 }
 @media only screen and (max-width: 768px) {
   .contact .content h2::after {
-    right: 10%;
+    right: 0%;
     width: 50px;
   }
 }
 .contact .content h2::before {
   content: "";
-  width: 200px;
+  width: 100px;
   height: 10px;
   border-bottom: 1px solid #ccc;
   position: absolute;
@@ -21020,7 +21030,7 @@ footer .content {
 }
 @media only screen and (max-width: 768px) {
   .contact .content h2::before {
-    left: 10%;
+    left: 0%;
     width: 50px;
   }
 }
@@ -21057,7 +21067,7 @@ footer .content {
 }
 .about .content h2::after {
   content: "";
-  width: 200px;
+  width: 100px;
   height: 10px;
   border-bottom: 1px solid #ccc;
   position: absolute;
@@ -21066,13 +21076,13 @@ footer .content {
 }
 @media only screen and (max-width: 768px) {
   .about .content h2::after {
-    right: 10%;
+    right: 0%;
     width: 50px;
   }
 }
 .about .content h2::before {
   content: "";
-  width: 200px;
+  width: 100px;
   height: 10px;
   border-bottom: 1px solid #ccc;
   position: absolute;
@@ -21081,7 +21091,7 @@ footer .content {
 }
 @media only screen and (max-width: 768px) {
   .about .content h2::before {
-    left: 10%;
+    left: 0%;
     width: 50px;
   }
 }
@@ -21104,7 +21114,7 @@ footer .content {
 }
 .services .content h2::after {
   content: "";
-  width: 200px;
+  width: 100px;
   height: 10px;
   border-bottom: 1px solid #ccc;
   position: absolute;
@@ -21113,13 +21123,13 @@ footer .content {
 }
 @media only screen and (max-width: 768px) {
   .services .content h2::after {
-    right: 10%;
+    right: 0%;
     width: 50px;
   }
 }
 .services .content h2::before {
   content: "";
-  width: 200px;
+  width: 100px;
   height: 10px;
   border-bottom: 1px solid #ccc;
   position: absolute;
@@ -21128,7 +21138,7 @@ footer .content {
 }
 @media only screen and (max-width: 768px) {
   .services .content h2::before {
-    left: 10%;
+    left: 0%;
     width: 50px;
   }
 }
@@ -21151,7 +21161,7 @@ footer .content {
 }
 .apartments .content h2::after {
   content: "";
-  width: 200px;
+  width: 100px;
   height: 10px;
   border-bottom: 1px solid #ccc;
   position: absolute;
@@ -21160,13 +21170,13 @@ footer .content {
 }
 @media only screen and (max-width: 768px) {
   .apartments .content h2::after {
-    right: 10%;
+    right: 0%;
     width: 50px;
   }
 }
 .apartments .content h2::before {
   content: "";
-  width: 200px;
+  width: 100px;
   height: 10px;
   border-bottom: 1px solid #ccc;
   position: absolute;
@@ -21175,7 +21185,7 @@ footer .content {
 }
 @media only screen and (max-width: 768px) {
   .apartments .content h2::before {
-    left: 10%;
+    left: 0%;
     width: 50px;
   }
 }
@@ -21557,6 +21567,30 @@ label {
 .about-text {
   letter-spacing: 0.2rem;
   font-size: 1.1rem;
+}
+@media (max-width: 768px) {
+  .about-text {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  h3 {
+    font-size: 1.1rem;
+  }
+}
+.read-more-show {
+  cursor: pointer;
+  color: #176cb3;
+}
+
+.read-more-hide {
+  cursor: pointer;
+  color: #176cb3;
+}
+
+.hide_content {
+  display: none;
 }
 
 .sidebar {

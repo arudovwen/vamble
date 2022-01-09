@@ -19,6 +19,7 @@
     >
       Apartments & Suites</vue-text-transition
     >
+    <small class="text-white" style="z-index: 2"><i>A home away from home</i></small>
   </div>
 </template>
 

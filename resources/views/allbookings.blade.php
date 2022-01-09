@@ -55,18 +55,18 @@
                                 <div class="card-header" role="tab" id="section1HeaderId">
                                     <h5 class="mb-0">
                                         <a data-toggle="collapse" data-parent="#accordianId"
-                                            href="#booking{{ $booking->id }}" aria-expanded="true"
+                                            href="#booking{{ $booking['id'] }}" aria-expanded="true"
                                             aria-controls="section1ContentId">
                                             <div class="d-flex justify-content-between">
                                                 <div class="date">
-                                                    {!! date('D, M d Y', strtotime($booking->check_in)) !!}
+                                                    {!! date('D, M d Y', strtotime($booking['check_in'])) !!}
                                                 </div>
-                                                <div class="bookingnumber">#{{ $booking->booking_no }}</div>
+                                                <div class="bookingnumber">#{{ $booking['booking_no'] }}</div>
                                             </div>
                                         </a>
                                     </h5>
                                 </div>
-                                <div id="booking{{ $booking->id }}" class="collapse in" role="tabpanel"
+                                <div id="booking{{ $booking['id'] }}" class="collapse in" role="tabpanel"
                                     aria-labelledby="section1HeaderId">
                                     <div class="card-body">
                                         <div class="mb-4">
@@ -76,78 +76,78 @@
                                                     <tr class="mb-1">
                                                         <td class="text-muted">Guest name</td>
 
-                                                        <td class="text-capitalize">{{ $booking->user->name }}</td>
+                                                        <td class="text-capitalize">{{ $booking['user']->name }}</td>
                                                     </tr>
 
                                                     <tr class="mb-1">
                                                         <td class="text-muted">Guest email</td>
 
-                                                        <td>{{ $booking->user->email }}</td>
+                                                        <td>{{ $booking['user']->email }}</td>
                                                     </tr>
 
                                                     <tr class="mb-1">
-                                                        <td class="text-muted">Apartment type</td>
+                                                        <td class="text-muted"> Home type</td>
 
-                                                        <td class="text-capitalize">{{ $booking->room->name }}</td>
+                                                        <td class="text-capitalize"> {{ $booking['rooms'][0]->room->flat_type }}  {{ $booking['rooms'][0]->room->flat_name }}</td>
                                                     </tr>
 
                                                     <tr class="mb-1">
                                                         <td class="text-muted">Check-in Date</td>
 
-                                                        <td>{{ $booking->check_in }}</td>
+                                                        <td>{{ $booking['check_in'] }}</td>
                                                     </tr>
                                                     <tr class="mb-1">
                                                         <td class="text-muted">Check-out Date</td>
 
-                                                        <td>{{ $booking->check_out }}</td>
+                                                        <td>{{ $booking['check_out'] }}</td>
                                                     </tr>
 
                                                     <tr class="pr-3">
                                                         <td class="text-muted">No of guests</td>
 
-                                                        <td>{{ $booking->no_of_guests }}</td>
+                                                        <td>{{ $booking['no_of_guests'] }}</td>
                                                     </tr>
 
                                                     <tr class="mb-1">
                                                         <td class="text-muted">No of nights</td>
 
-                                                        <td>{{ $booking->duration }}</td>
+                                                        <td>{{ $booking['duration'] }}</td>
                                                     </tr>
                                                     <tr class="mb-1">
                                                         <td class="text-muted">No of rooms</td>
 
-                                                        <td>{{ $booking->no_of_rooms }}</td>
+                                                        <td>{{ $booking['no_of_rooms'] }}</td>
                                                     </tr>
 
                                                     <tr class="mb-1">
                                                         <td class="text-muted">Price per night</td>
 
-                                                        <td>{{ $booking->room->price }} i</td>
+                                                        <td>₦{{ number_format( $booking['rooms'][0]->room->price) }} </td>
                                                     </tr>
 
                                                     <tr class="mb-1">
                                                         <td class="text-muted">Total price</td>
 
-                                                        <td>{{ $booking->total_price }} </td>
+                                                        <td> ₦{{ number_format($booking['total_price']) }} </td>
                                                     </tr>
 
                                                     <tr class="mb-1">
                                                         <td class="text-muted">Payment type</td>
 
-                                                        <td class="text-capitalize">{{ $booking->payment_type }}</td>
+                                                        <td class="text-capitalize">{{ $booking['payment_type'] }}</td>
                                                     </tr>
 
                                                     <tr class="mb-1">
                                                         <td class="text-muted">Payment status</td>
 
-                                                        <td class="text-capitalize">{{ $booking->payment_status }}</td>
+                                                        <td class="text-capitalize">{{ $booking['payment_status'] }}</td>
                                                     </tr>
                                                     <tr class="mb-1">
                                                         <td class="text-muted">Amount paid</td>
 
                                                         <td>
-                                                            NGN
-                                                            {{ $booking->payment_status == 'pending' ? '₦0' : $booking->total_price }}
+                                                            ₦
+                                                            {{ $booking['payment_status'] == 'pending' ? '0' : $booking['total_price'] }}
                                                         </td>
                                                     </tr>
                                                 </table>

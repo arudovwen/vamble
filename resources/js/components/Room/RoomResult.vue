@@ -25,7 +25,7 @@
           <tr>
             <th>Flat type</th>
             <th>Flat name</th>
-            <th>Room name</th>
+            <th>Home No</th>
             <th>Description</th>
             <th>Floor</th>
             <th style="">Max</th>

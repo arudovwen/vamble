@@ -30,6 +30,12 @@ class RoomController extends Controller
 
         return $this->roomService->addroom($request);
     }
+    public function edit(Room $room)
+    {
+
+        return view('admin.editroom', compact('room'));
+    }
+
     public function show(Room $room)
     {
         return $room;
@@ -53,6 +59,8 @@ class RoomController extends Controller
     {
         return $this->roomService->updateroom($request, $room);
     }
+
+
 
     public function destroy(Room $room)
     {

@@ -6,7 +6,7 @@ if (location.pathname == "/") {
         } else {
             navigation.classList.remove("scrolling_navigation");
         }
-        if (window.scrollY > window.innerHeight * 0.09) {
+        if (window.scrollY > window.innerHeight * 0.07) {
             $(".logo").addClass("logoShrink");
         } else {
             $(".logo").removeClass("logoShrink");
@@ -104,3 +104,15 @@ function currency(numb) {
         return "₦ 0.00";
     }
 }
+
+
+$("#videosId").on("hide.bs.modal", function(e) {
+
+   document.getElementById('mainvideo').pause()
+});
+
+$("#videosId").on("show.bs.modal", function(e) {
+
+   document.getElementById('mainvideo').play()
+});
+

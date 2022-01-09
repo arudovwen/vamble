@@ -20275,6 +20275,7 @@ readers do not read off random characters that represent icons */
 
 :root {
   --vamble: #745412;
+  --vamble-light: #d09520;
   --primary: #745412;
   --blue: #745412;
 }
@@ -20286,6 +20287,10 @@ html {
 
 body {
   font-family: "Nunito", sans-serif;
+}
+
+i {
+  font-family: "The Nautigal", cursive;
 }
 
 .nav-content {
@@ -20349,7 +20354,7 @@ td {
 }
 
 .bg-dark-opacity {
-  background-color: rgba(52, 58, 64, 0.45) !important;
+  background-color: rgba(52, 58, 64, 0.25) !important;
 }
 
 .no-focus.form-control:focus {
@@ -20442,10 +20447,10 @@ td {
   background: white;
 }
 .initial_navigation .container-fluid .nav-content .topnav ul .nav-item .nav-link, .initial_navigation .container-sm .nav-content .topnav ul .nav-item .nav-link, .initial_navigation .container-md .nav-content .topnav ul .nav-item .nav-link, .initial_navigation .container-lg .nav-content .topnav ul .nav-item .nav-link, .initial_navigation .container-xl .nav-content .topnav ul .nav-item .nav-link {
-  color: white;
+  color: var(--vamble);
 }
 .initial_navigation .container-fluid .nav-content .topnav ul .nav-item .nav-link .nav-text, .initial_navigation .container-sm .nav-content .topnav ul .nav-item .nav-link .nav-text, .initial_navigation .container-md .nav-content .topnav ul .nav-item .nav-link .nav-text, .initial_navigation .container-lg .nav-content .topnav ul .nav-item .nav-link .nav-text, .initial_navigation .container-xl .nav-content .topnav ul .nav-item .nav-link .nav-text {
-  color: white;
+  color: var(--vamble);
 }
 @media (max-width: 768px) {
   .initial_navigation .container-fluid .nav-content .topnav ul .nav-item .nav-link .nav-text, .initial_navigation .container-sm .nav-content .topnav ul .nav-item .nav-link .nav-text, .initial_navigation .container-md .nav-content .topnav ul .nav-item .nav-link .nav-text, .initial_navigation .container-lg .nav-content .topnav ul .nav-item .nav-link .nav-text, .initial_navigation .container-xl .nav-content .topnav ul .nav-item .nav-link .nav-text {
@@ -20458,7 +20463,7 @@ td {
   }
 }
 .initial_navigation .container-fluid .nav-content .bottom_nav ul .nav-item .nav-link, .initial_navigation .container-sm .nav-content .bottom_nav ul .nav-item .nav-link, .initial_navigation .container-md .nav-content .bottom_nav ul .nav-item .nav-link, .initial_navigation .container-lg .nav-content .bottom_nav ul .nav-item .nav-link, .initial_navigation .container-xl .nav-content .bottom_nav ul .nav-item .nav-link {
-  color: white;
+  color: var(--vamble);
 }
 @media (max-width: 768px) {
   .initial_navigation .container-fluid .nav-content .bottom_nav ul .nav-item .nav-link, .initial_navigation .container-sm .nav-content .bottom_nav ul .nav-item .nav-link, .initial_navigation .container-md .nav-content .bottom_nav ul .nav-item .nav-link, .initial_navigation .container-lg .nav-content .bottom_nav ul .nav-item .nav-link, .initial_navigation .container-xl .nav-content .bottom_nav ul .nav-item .nav-link {
@@ -20512,9 +20517,25 @@ td {
   margin-top: -105px;
   border-bottom: 8px solid var(--vamble);
 }
+.firstContent video {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: relative;
+}
+.firstContent::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
 .firstContent .booking {
   position: absolute;
-  bottom: 5%;
+  bottom: 2%;
   width: 75%;
   z-index: 9;
 }
@@ -20561,6 +20582,9 @@ td {
     font-weight: 800;
     letter-spacing: 0.2rem;
   }
+}
+.firstContent .know_more {
+  padding-top: 4rem;
 }
 
 .landing-item {
@@ -20618,7 +20642,7 @@ td {
 @media only screen and (max-width: 768px) {
   .secondContent .content h2::after {
     right: 10%;
-    width: 80px;
+    width: 50px;
   }
 }
 .secondContent .content h2::before {
@@ -20633,7 +20657,7 @@ td {
 @media only screen and (max-width: 768px) {
   .secondContent .content h2::before {
     left: 10%;
-    width: 80px;
+    width: 50px;
   }
 }
 .secondContent .content p {
@@ -20646,7 +20670,7 @@ td {
   }
 }
 .secondContent .content .hotel {
-  height: 400px;
+  height: 340px;
 }
 .secondContent .content .hotel .hotel-img {
   width: 100%;
@@ -20687,8 +20711,8 @@ td {
   position: absolute;
   top: 20px;
   right: 20px;
-  width: 80px;
-  height: 80px;
+  width: 50px;
+  height: 50px;
   border-radius: 50em;
   border: 2px dashed #ccc;
   color: rgba(0, 0, 0, 0.5);
@@ -20741,7 +20765,7 @@ td {
 @media only screen and (max-width: 768px) {
   .thirdContent .content h2::after {
     right: 10%;
-    width: 80px;
+    width: 50px;
   }
 }
 .thirdContent .content h2::before {
@@ -20756,7 +20780,7 @@ td {
 @media only screen and (max-width: 768px) {
   .thirdContent .content h2::before {
     left: 10%;
-    width: 80px;
+    width: 50px;
   }
 }
 
@@ -20766,7 +20790,7 @@ td {
 }
 
 .carousel .carousel-inner .carousel-item.room-item {
-  height: 400px;
+  height: 340px;
 }
 @media only screen and (max-width: 768px) {
   .carousel .carousel-inner .carousel-item.room-item {
@@ -20831,7 +20855,7 @@ td {
 
 .fifthContent {
   position: relative;
-  padding: 100px 0px 75px;
+  padding: 100px 0px 0;
   text-align: center;
 }
 .fifthContent .content {
@@ -20854,7 +20878,7 @@ td {
 @media only screen and (max-width: 768px) {
   .fifthContent .content h2::after {
     right: 10%;
-    width: 80px;
+    width: 50px;
   }
 }
 .fifthContent .content h2::before {
@@ -20869,7 +20893,7 @@ td {
 @media only screen and (max-width: 768px) {
   .fifthContent .content h2::before {
     left: 10%;
-    width: 80px;
+    width: 50px;
   }
 }
 
@@ -20894,14 +20918,15 @@ td {
 .testimonials {
   position: relative;
   padding: 75px 20px 70px;
-  background-image: url(/images/banner3.jpg?b91cf2d0851b2952cb35501c3c20dced);
+  background-image: url(/images/nigh.jpg?e12465a106f0159410f2140b4fd6ca6a);
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
 }
 .testimonials::after {
   content: "";
   position: absolute;
-  background-color: rgba(116, 84, 18, 0.4);
+  background-color: rgba(0, 0, 0, 0.7);
   top: 0;
   left: 0;
   width: 100%;
@@ -20927,8 +20952,8 @@ td {
 .quote {
   color: rgba(116, 84, 18, 0.15);
   position: absolute;
-  left: 20%;
-  top: 10%;
+  left: 15%;
+  top: 8%;
 }
 
 .nav_slide {
@@ -20981,7 +21006,7 @@ footer .content {
 @media only screen and (max-width: 768px) {
   .contact .content h2::after {
     right: 10%;
-    width: 80px;
+    width: 50px;
   }
 }
 .contact .content h2::before {
@@ -20996,7 +21021,7 @@ footer .content {
 @media only screen and (max-width: 768px) {
   .contact .content h2::before {
     left: 10%;
-    width: 80px;
+    width: 50px;
   }
 }
 
@@ -21042,7 +21067,7 @@ footer .content {
 @media only screen and (max-width: 768px) {
   .about .content h2::after {
     right: 10%;
-    width: 80px;
+    width: 50px;
   }
 }
 .about .content h2::before {
@@ -21057,7 +21082,7 @@ footer .content {
 @media only screen and (max-width: 768px) {
   .about .content h2::before {
     left: 10%;
-    width: 80px;
+    width: 50px;
   }
 }
 
@@ -21089,7 +21114,7 @@ footer .content {
 @media only screen and (max-width: 768px) {
   .services .content h2::after {
     right: 10%;
-    width: 80px;
+    width: 50px;
   }
 }
 .services .content h2::before {
@@ -21104,7 +21129,7 @@ footer .content {
 @media only screen and (max-width: 768px) {
   .services .content h2::before {
     left: 10%;
-    width: 80px;
+    width: 50px;
   }
 }
 
@@ -21136,7 +21161,7 @@ footer .content {
 @media only screen and (max-width: 768px) {
   .apartments .content h2::after {
     right: 10%;
-    width: 80px;
+    width: 50px;
   }
 }
 .apartments .content h2::before {
@@ -21151,16 +21176,18 @@ footer .content {
 @media only screen and (max-width: 768px) {
   .apartments .content h2::before {
     left: 10%;
-    width: 80px;
+    width: 50px;
   }
 }
 
 .about_banner_img {
   width: 100%;
   height: 250px;
-  background-image: url("/images/vamb-img/banner.jpg");
-  background-size: cover;
-  background-position: center;
+  background-image: url("/images/rooms/nigh.jpg");
+  background-size: contain;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   position: relative;
 }
 @media only screen and (max-width: 768px) {
@@ -21218,7 +21245,7 @@ footer .content {
 .gallery_banner_img {
   width: 100%;
   height: 300px;
-  background-image: url("/images/vamb-img/banner.jpg");
+  background-image: url("/images/rooms/nigh.jpg");
   background-size: cover;
   background-position: center;
   position: relative;

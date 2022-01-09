@@ -1,4 +1,4 @@
-  <nav class="navbar navbar-expand-md navbar-light  navigation default_navigation py-sm-0" id="nav">
+  <nav class="navbar navbar-expand-lg navbar-light bg-white navigation default_navigation py-sm-0" id="nav">
       <div class="container-fluid align-items-sm-end px-sm-0">
           <a class="navbar-brand pt-sm-0" href="{{ url('/') }}">
               <img src="/logo.png" class="logo" alt="vamble logo">
@@ -20,13 +20,13 @@
                       <li class="nav-item ">
                           <a class="nav-link " href="#"> <i class="fa fa-phone-square text-primary"
                                   aria-hidden="true"></i>
-                              <span class="nav-text"> +234-903-504-1234</span></a>
+                              <span class="nav-text"> +234-906-464-5461</span></a>
                       </li>
 
                       <li class="nav-item">
                           <a class="nav-link " href="#"> <i class="fa fa-envelope text-primary"
                                   aria-hidden="true"></i> <span class="nav-text">
-                                  info@vamble.com</span></a>
+                                  vambleapartment@gmail.com</span></a>
                       </li>
 
                       <li class="nav-item">
@@ -34,7 +34,7 @@
                               <i class="fas fa-map-pin  text-primary" aria-hidden="true"></i>
 
 
-                              <span class="nav-text">10, abuja road,sdjfffjfjjf</span>
+                              <span class="nav-text">Plot 790, sector center, Cadastral zone. Jahi. Abuja</span>
                           </a>
                       </li>
 
@@ -72,10 +72,10 @@
                       </li>
                   </ul>
                   <ul class="navbar-nav ml-auto align-items-center d-none d-md-flex">
-                      <li class="nav-item">
+                     <a href="http://instagram.com/vambleapartments" target="_blank"> <li class="nav-item">
                           <i class="fab fa-instagram text-primary mr-3" aria-hidden="true"></i>
 
-                      </li>
+                      </li></a>
                       <li class="nav-item"><i class="fab fa-facebook text-primary mr-3" aria-hidden="true"></i>
                       </li>
                       <li class="nav-item"> <i class="fab fa-twitter text-primary" aria-hidden="true"></i></li>

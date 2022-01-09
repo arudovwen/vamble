@@ -32,37 +32,27 @@ class RoomService
   {
 
 
+   
     $check_in = Carbon::parse($request->input('checkIn'));
     $check_out = Carbon::parse($request->input('checkOut'));
     $room_id = $request->room_id;
     $flat_type = $request->flat_type;
+    $flat_name = $request->flat_name;
     $roomsneeded = $request->rooms;
 
 
     // // All room type
-    // $allfreerooms = [];
-    // $allrooms = Room::has('roomcalendar')->where(strtolower('flat_type'), strtolower($request->flat_type))->with('roomcalendar')->get();
 
-    // foreach ($allrooms as $q) {
-    //   $res = $q->roomcalendar->contains(function ($q2) use ($check_in, $check_out) {
-    //     return $check_in->between($q2->check_in, $q2->check_out);
-    //   });
-
-    //   if (!$res) {
-    //     array_push($allfreerooms, $q);
-    //   }
-    // }
-
-
-    // $allroomswitoutcalendar = Room::whereDoesntHave('roomcalendar')->where(strtolower('flat_type'), strtolower($request->flat_type))->get();
-    // $allmergedrooms = array_merge($allfreerooms, $allroomswitoutcalendar->values()->all());
     //end here
-    $allmergedrooms = Room::with('roomcalendar')->where(strtolower('flat_type'), strtolower($request->flat_type))->whereHas('roomcalendar', function ($q) use ($check_in, $check_out) {
-      $q->where(function ($q2) use ($check_in, $check_out) {
-        $q2->where('check_in', '>=', $check_out)
-          ->orWhere('check_out', '<=', $check_in);
-      });
-    })->orWhereDoesntHave('roomcalendar')->where(strtolower('flat_type'), strtolower($request->flat_type))->get();
+    $allmergedrooms = Room::with('roomcalendar')->where(strtolower('flat_type'), strtolower($request->flat_type))
+      ->where(strtolower('flat_name'), strtolower($request->flat_name))
+      ->whereHas('roomcalendar', function ($q) use ($check_in, $check_out) {
+        $q->where(function ($q2) use ($check_in, $check_out) {
+          $q2->where('check_in', '>=', $check_out)
+            ->orWhere('check_out', '<=', $check_in);
+        });
+      })->orWhereDoesntHave('roomcalendar')->where(strtolower('flat_type'), strtolower($request->flat_type))
+      ->where(strtolower('flat_name'), strtolower($request->flat_name))->get();
 
 
 
@@ -133,12 +123,16 @@ class RoomService
 
   public function updateroom($request, $room)
   {
-    $room->name = strtolower($request->name);
+    $room->flat_name = strtolower($request->flat_name);
+    $room->flat_type = strtolower($request->flat_type);
+    $room->room_name = $request->room_name;
     $room->price = $request->price;
-    $room->total = $request->total;
-    $room->available = $request->total;
+    $room->max_occupancy = $request->max_occupancy;
+    $room->description = $request->description;
+    $room->floor = $request->floor;
     $room->save();
-    return $room;
+    $rooms = Room::paginate(15);
+    return  view('admin.rooms', compact('rooms'))->with('success', 'Updated');
   }
 
   public function removeroom($room)

@@ -78,7 +78,7 @@
                                         <div class="d-flex justify-content-between align-items-center">
                                             <span><span>Standard</span> apartment</span>
                                             -
-                                            <span>NGN{{ number_format(30000) }} <small>/ night</small></span>
+                                            <span>₦{{ number_format(30000) }} <small>/ night</small></span>
                                         </div>
                                     </option>
 
@@ -86,7 +86,7 @@
                                         <div class="d-flex justify-content-between align-items-center">
                                             <span><span>Luxury</span> apartment</span>
                                             -
-                                            <span>NGN{{ number_format(110000) }} <small>/ night</small></span>
+                                            <span>₦{{ number_format(110000) }} <small>/ night</small></span>
                                         </div>
                                     </option>
                                 </select>

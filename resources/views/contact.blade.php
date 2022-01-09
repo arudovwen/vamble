@@ -17,10 +17,10 @@
                         <div class="mb-2"> <i class="fa fa-phone-square" aria-hidden="true"></i> Phone :
                             +234-903-504-1234</div>
                         <div class="mb-2"> <i class="fa fa-address-book" aria-hidden="true"></i> Address :
-                            <span>10, abuja road,sdjfffjfjjf</span>
+                            <span>Plot 790, sector center, Cadastral zone. Jahi. Abuja</span>
                         </div>
                         <div class="mb-3"> <i class="fa fa-envelope" aria-hidden="true"></i> Email :
-                            info@vamble.com</div> <br>
+                            vambleapartment@gmail.com</div> <br>
 
                     </div>
                     <div class="d-none d-md-block">
@@ -95,19 +95,19 @@
 
                     <div class=" mr-4">
                         <i class="fab fa-instagram fa-4x" aria-hidden="true"></i> <br>
-                        @vamblelimited
+                        @vambleapartments
                     </div>
                     <div class=" mr-4">
                         <i class="fab fa-facebook-square fa-4x" aria-hidden="true"></i>
                         <br>
-                        @vamblelimited
+                        @vambleapartments
                     </div>
 
 
                     <div>
                         <i class="fab fa-twitter-square fa-4x" aria-hidden="true"></i>
                         <br>
-                        @vamblelimited
+                        @vambleapartments
                     </div>
 
                 </div>

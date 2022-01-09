@@ -24,14 +24,14 @@
                     <p class="about-text">Vamble Apartment & Suites Limited is situated at a safe and secure environment. The area is friendly and serene with the appropriate aura that gives you the feel of a safe haven. There are CCTV cameras installed to watch the environment with constant Security to guide and ensure safety. At Vamble Apartment & Suites your safety is priority.</p>
                 </div>
                 <div class="col-sm-6 px-0 service_img">
-                    <img src="{{ asset('/images/vamb-img/banner.jpg') }}" class="w-100 h-100 " alt="vamble building">
+                    <img src="{{ asset('/images/rooms/building8.jpg') }}" class="w-100 h-100 " alt="vamble building">
                 </div>
             </div>
 
 
             <div class="row m-0 mb-sm-5 flex-column-reverse flex-sm-row">
                 <div class="col-sm-6 px-0 service_img">
-                    <img src="{{ asset('/images/vamb-img/banner3.jpg') }}" class="w-100 h-100 " alt="vamble building">
+                    <img src="{{ asset('/images/rooms/living.jpg') }}" class="w-100 h-100 " alt="vamble building">
                 </div>
                 <div class="col-sm-6 bg-white py-5 px-3 px-sm-5 text-left">
                     <h4 class="mb-4 font-weight-bold" style="letter-spacing: .3rem"> Furnished Apartments</h4>
@@ -44,13 +44,13 @@
                     <p class="about-text">Adorned with standard king sized beds, spacious wardrobes and other bedroom furniture, our decor is built for your comfort. When you need stylish bedrooms, think Vamble Apartments & Suites Limited.</p>
                 </div>
                 <div class="col-sm-6 px-0 service_img">
-                    <img src="{{ asset('/images/vamb-img/bedroom.jpg') }}" class="w-100 h-100 " alt="vamble building">
+                    <img src="{{ asset('/images/rooms/bed5.jpg') }}" class="w-100 h-100 " alt="vamble building">
                 </div>
             </div>
 
             <div class="row m-0 mb-sm-5 flex-column-reverse flex-sm-row">
                 <div class="col-sm-6 px-0 service_img">
-                    <img src="{{ asset('/images/vamb-img/kitchen.jpg') }}" class="w-100 h-100 " alt="vamble building">
+                    <img src="{{ asset('/images/rooms/kitchen.jpg') }}" class="w-100 h-100 " alt="vamble building">
                 </div>
                 <div class="col-sm-6 bg-white py-5 px-3 px-sm-5 text-left">
                     <h4 class="mb-4 font-weight-bold" style="letter-spacing: .3rem">Fully Equipped Kitchen</h4>

@@ -70,8 +70,12 @@
 
                                         <td scope="row" class="d-flex ">
 
-                                            <button type="button" class="btn btn-info btn-sm mr-2"
-                                                style="font-size: .65rem">Edit</button>
+                                             <a
+                                                            href="{{ route('editroom', ['room' => $room->id]) }}">
+                                                            <button type="button" class="btn btn-info btn-sm mr-2"
+                                                                style="font-size: .65rem">Edit</button></a>
+
+
                                             <form method="post" class="delete_form"
                                                 action="{{ route('droproom', $room->id) }}">
                                                 {{ method_field('DELETE') }}
@@ -123,7 +127,8 @@
                                             <label for="">Flat type</label>
                                             <select class="form-control" required name="flat_type" id="flat_type">
                                                 <option value="standard">Standard</option>
-                                                <option value="luxury">Luxury</option>
+                                                <option value="executive">Executive</option>
+                                                   <option value="platinum">Platinum</option>
                                             </select>
                                         </div>
 
@@ -131,9 +136,12 @@
                                     <div class="col-sm-6">
 
                                         <div class="form-group">
-                                            <label for="short_name">Flat name</label>
-                                            <input type="text" class="form-control" required name="flat_name"
-                                                id="flat_name" aria-describedby="helpId" placeholder="">
+                                            <label for="short_name">Type </label>
+                                               <select class="form-control" required name="flat_name" id="flat_name">
+                                                <option value="room">Room</option>
+                                                <option value="apartment">Apartment</option>
+
+                                            </select>
 
                                         </div>
                                     </div>
@@ -144,7 +152,7 @@
                                     <div class="col-sm-6">
 
                                         <div class="form-group">
-                                            <label for="short_name">Room name</label>
+                                            <label for="short_name">Home no</label>
                                             <input type="text" class="form-control" required name="room_name"
                                                 id="room_name" aria-describedby="helpId" placeholder="">
 

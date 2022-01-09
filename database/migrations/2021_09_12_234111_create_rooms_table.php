@@ -21,7 +21,7 @@ class CreateRoomsTable extends Migration
             $table->integer('price');
             $table->integer('status')->default(0);
             $table->integer('max_occupancy')->default(2);
-            $table->string('description');
+            $table->text('description');
             $table->integer('floor');
             $table->timestamps();
         });

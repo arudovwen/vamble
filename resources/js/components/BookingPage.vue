@@ -15,64 +15,65 @@
                     />
                   </div>
                   <div class="row">
-                    <div class="form-group col-md-3">
-                      <label for="">No of guests</label>
-                      <select
-                        class="form-control"
-                        required
-                        v-model="detail.guests"
-                      >
-                        <option :value="null" disabled>Select</option>
-                        <option :value="n" v-for="n in 50" :key="n">
-                          {{ n }}
-                        </option>
-                      </select>
-                    </div>
-                    <div class="form-group col-md-3">
-                      <label for="">No of rooms</label>
-                      <select
-                        class="form-control"
-                        required
-                        v-model="detail.rooms"
-                      >
-                        <option :value="null" disabled>Select</option>
-                        <option :value="n" v-for="n in 50" :key="n">
-                          {{ n }}
-                        </option>
-                      </select>
-                    </div>
-                    <div class="form-group col-md-6">
-                      <label for="">Apartment Type</label>
-                      <select
-                        class="form-control text-capitalize"
-                        required
-                        v-model="detail.flat_type"
-                      >
-                        <option disabled value="">Apartment type</option>
-                        <option
-                          :value="item.value"
-                          v-for="item in roomOption"
-                          :key="item.id"
-                        >
-                          <div
-                            class="
-                              d-flex
-                              justify-content-between
-                              align-items-center
-                            "
-                          >
-                            <span
-                              ><span>{{ item.text }}</span> apartment</span
-                            >
-                            -
-                            <span
-                              >{{ item.price | currencyFormat }}
-                              <small>/ night</small></span
-                            >
-                          </div>
-                        </option>
-                      </select>
-                    </div>
+                    <div class="col-sm-3">
+          <div class="form-group">
+            <select
+              class="form-control"
+              required
+              name="flat_name"
+              v-model="detail.flat_name"
+              id="flat_name"
+            >
+              <option value="" disabled>Choose type</option>
+              <option value="room">Room</option>
+              <option value="apartment">Apartment</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="form-group">
+            <select
+              class="form-control text-capitalize"
+              name="room_id"
+              v-model="detail.flat_type"
+              required
+            >
+              <option disabled value="">Choose option</option>
+              <option
+                :value="item.name"
+                v-for="item in sorteditems"
+                :key="item.id"
+              >
+                <div class="d-flex justify-content-between align-items-center">
+                  <span
+                    ><span>{{ item.name }}</span> {{ item.type }}</span
+                  >
+                  -
+                  <span
+                    >{{ item.price | currencyFormat }}
+                    <small>/ night</small></span
+                  >
+                </div>
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="form-group">
+            <select class="form-control" required v-model="detail.rooms">
+              <option :value="null" disabled>No of rooms</option>
+              <option :value="n" v-for="n in 10" :key="n">{{ n }}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="form-group">
+            <select class="form-control" required v-model="detail.guests">
+              <option :value="null" disabled>No of guests</option>
+              <option :value="n" v-for="n in 5" :key="n">{{ n }}</option>
+            </select>
+          </div>
+        </div>
                   </div>
                   <div class="row" v-if="detail.nights">
                     <div class="form-group col-12">
@@ -301,10 +302,10 @@
                       </tr>
 
                       <tr class="mb-1">
-                        <td class="text-muted">Apartment type</td>
+                        <td class="text-muted">Home type</td>
 
                         <td class="text-capitalize">
-                          {{ selectedRoom ? selectedRoom.text : "-" }} flat
+                          {{ selectedRoom ? selectedRoom.name : "-" }} {{ selectedRoom.type }}
                         </td>
                       </tr>
 
@@ -523,10 +524,10 @@
                   </tr>
 
                   <tr class="mb-1" v-if="info.roomcalendar.length">
-                    <td class="text-muted">Apartment type</td>
+                    <td class="text-muted">Home type</td>
 
                     <td class="text-capitalize">
-                      {{ info.roomcalendar[0].room.flat_type }}
+                      {{ info.roomcalendar[0].room.flat_type }}    {{ info.roomcalendar[0].room.flat_name }}
                     </td>
                   </tr>
 
@@ -585,7 +586,7 @@
                     <td class="text-muted">Amount paid</td>
 
                     <td>
-                      NGN
+                      ₦
                       {{
                         info.payment_status == "pending"
                           ? "₦0"
@@ -617,13 +618,13 @@
                     </button>
                   </div>
                   <div></div>
-                  <div>
+                  <!-- <div>
                     <Payment
                       :detail="detail"
                       :amount="totalPrice"
                       @paymentsuccessful="paymentsuccessful"
                     />
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
@@ -699,26 +700,14 @@ export default {
         rooms: null,
         payment_type: null,
         flat_type: "",
+        flat_name:'',
         total_price: 0,
         payment_status: "",
         status: "",
         price_per_night: null,
         flats: [],
       },
-      roomOption: [
-        {
-          id: 3,
-          text: "Standard",
-          value: "standard",
-          price: 30000,
-        },
-        {
-          id: 1,
-          text: "Luxury",
-          value: "luxury",
-          price: 110000,
-        },
-      ],
+
       info: null,
       bookingNumber: "",
       rooms: [],
@@ -726,6 +715,38 @@ export default {
       notfound: false,
       message: "",
       bookingNumb: null,
+      roomOption: [
+        {
+          id: 1,
+          name: "standard",
+          price: 30000,
+          type: "room",
+        },
+        {
+          id: 2,
+          name: "executive",
+          price: 45000,
+          type: "room",
+        },
+        {
+          id: 3,
+          name: "standard",
+          price: 100000,
+          type: "apartment",
+        },
+        {
+          id: 4,
+          name: "executive",
+          price: 120000,
+          type: "apartment",
+        },
+        {
+          id: 5,
+          name: "platinum",
+          price: 150000,
+          type: "apartment",
+        },
+      ],
     };
   },
 
@@ -764,9 +785,14 @@ export default {
     }
   },
   computed: {
+
+    sorteditems() {
+      return this.roomOption.filter((item) => item.type == this.detail.flat_name);
+    },
+
     selectedRoom() {
       var room = this.roomOption.find(
-        (item) => item.value == this.detail.flat_type
+        (item) => item.name == this.detail.flat_type && item.type == this.detail.flat_name
       );
       return room;
     },

@@ -23,7 +23,23 @@
             <hotel-checker @period-selected="handleBooking"></hotel-checker>
           </div>
         </div>
-        <div class="col-sm-4">
+
+        <div class="col-sm-3">
+          <div class="form-group">
+            <select
+              class="form-control"
+              required
+              name="flat_name"
+              v-model="detail.flat_name"
+              id="flat_name"
+            >
+              <option value="" disabled>Choose home type</option>
+              <option value="room">Room</option>
+              <option value="apartment">Apartment</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-3">
           <div class="form-group">
             <select
               class="form-control text-capitalize"
@@ -31,30 +47,27 @@
               v-model="detail.flat_type"
               required
             >
-              <option disabled value="">Apartment type</option>
-              <option value="standard">
+              <option disabled value="">Choose option</option>
+              <option
+                :value="item.name"
+                v-for="item in sorteditems"
+                :key="item.id"
+              >
                 <div class="d-flex justify-content-between align-items-center">
-                  <span><span>Standard</span> apartment</span>
-                  -
                   <span
-                    >{{ 30000 | currencyFormat }} <small>/ night</small></span
+                    ><span>{{ item.name }}</span> {{ item.type }}</span
                   >
-                </div>
-              </option>
-
-              <option value="luxury">
-                <div class="d-flex justify-content-between align-items-center">
-                  <span><span>Luxury</span> apartment</span>
                   -
                   <span
-                    >{{ 110000 | currencyFormat }} <small>/ night</small></span
+                    >{{ item.price | currencyFormat }}
+                    <small>/ night</small></span
                   >
                 </div>
               </option>
             </select>
           </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-3">
           <div class="form-group">
             <select class="form-control" required v-model="detail.rooms">
               <option :value="null" disabled>No of rooms</option>
@@ -62,7 +75,7 @@
             </select>
           </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-3">
           <div class="form-group">
             <select class="form-control" required v-model="detail.guests">
               <option :value="null" disabled>No of guests</option>
@@ -134,6 +147,7 @@ export default {
         guests: null,
         room_id: null,
         flat_type: "",
+        flat_name: "room",
         checkIn: "",
         checkOut: "",
         nights: null,
@@ -146,10 +160,47 @@ export default {
       isChecking: false,
       rooms: [],
       showAlert: false,
+      items: [
+        {
+          id: 1,
+          name: "standard",
+          price: 30000,
+          type: "room",
+        },
+        {
+          id: 2,
+          name: "executive",
+          price: 45000,
+          type: "room",
+        },
+        {
+          id: 3,
+          name: "standard",
+          price: 100000,
+          type: "apartment",
+        },
+        {
+          id: 4,
+          name: "executive",
+          price: 120000,
+          type: "apartment",
+        },
+        {
+          id: 5,
+          name: "platinum",
+          price: 150000,
+          type: "apartment",
+        },
+      ],
     };
   },
   mounted() {
     this.getRooms();
+  },
+  computed: {
+    sorteditems() {
+      return this.items.filter((item) => item.type == this.detail.flat_name);
+    },
   },
   methods: {
     getRooms() {

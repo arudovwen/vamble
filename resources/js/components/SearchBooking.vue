@@ -126,7 +126,7 @@
             <td class="text-muted">Amount paid</td>
 
             <td>
-              NGN
+              ₦
               {{
                 info.payment_status == "pending"
                   ? "₦0"

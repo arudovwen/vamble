@@ -7,7 +7,7 @@
             <div class="carousel-inner" role="listbox">
                 <div class="carousel-item active text-center p-3 p-sm-5 position-relative">
 
-                    <i class="fa fa-quote-left fa-6x quote" aria-hidden="true"></i>
+                    <i class="fa fa-quote-left fa-3x quote" aria-hidden="true"></i>
                     <div>
                         <img src="/images/busi.jpg" style="height: 80px; width:80px"
                             class="rounded-circle mb-4" alt="">
@@ -24,7 +24,7 @@
 
                 <div class="carousel-item  text-center p-3 p-sm-5 position-relative">
 
-                    <i class="fa fa-quote-left fa-6x quote" aria-hidden="true"></i>
+                    <i class="fa fa-quote-left fa-3x quote" aria-hidden="true"></i>
                     <div>
                         <img src="/images/couple.webp" style="height: 80px; width:80px"
                             class="rounded-circle mb-4" alt="">
@@ -41,7 +41,7 @@
 
                 <div class="carousel-item  text-center p-3 p-sm-5 position-relative">
 
-                    <i class="fa fa-quote-left fa-6x quote" aria-hidden="true"></i>
+                    <i class="fa fa-quote-left fa-3x quote" aria-hidden="true"></i>
                     <div>
                         <img src="/images/fran.jpg" style="height: 80px; width:80px"
                             class="rounded-circle mb-4" alt="">
@@ -57,7 +57,7 @@
                 </div>
                   <div class="carousel-item  text-center p-3 p-sm-5 position-relative">
 
-                    <i class="fa fa-quote-left fa-6x quote" aria-hidden="true"></i>
+                    <i class="fa fa-quote-left fa-3x quote" aria-hidden="true"></i>
                     <div>
                         <img src="/images/vamb-img/sitting.jpg" style="height: 80px; width:80px"
                             class="rounded-circle mb-4" alt="">

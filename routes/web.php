@@ -59,7 +59,10 @@ Route::get('/services', [App\Http\Controllers\ServiceController::class, 'index']
 Route::post('/search/room', [App\Http\Controllers\RoomController::class, 'searchroom'])->name('searchroom');
 Route::delete('/room/{room}', [App\Http\Controllers\RoomController::class, 'destroy'])->name('droproom');
 Route::get('/room/types', [App\Http\Controllers\RoomController::class, 'roomtypes'])->name('roomtypes');
+Route::get('/rooms/edit/{room}', [App\Http\Controllers\RoomController::class, 'edit'])->name('editroom');
+Route::put('/rooms/{room}', [App\Http\Controllers\RoomController::class, 'update'])->name('updateroom');
 Route::resource('rooms', RoomController::class);
+
 
 
 

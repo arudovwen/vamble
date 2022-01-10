@@ -42,6 +42,24 @@
         <x-footer></x-footer>
     </div>
     @yield('javascript')
+     <span class="scrolltop" id="scrolltop">Top</span>
+    <script>
+        document.getElementById('scrolltop').addEventListener('click', () => {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        })
+        window.onscroll = function() {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById('scrolltop').style.display = "block";
+            } else {
+                document.getElementById('scrolltop').style.display = "none";
+            }
+        }
+    </script>
 </body>
 
 </html>

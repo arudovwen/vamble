@@ -1,17 +1,17 @@
 
 <template>
   <div
-    class="container py-3 px-4 rounded bg-dark-opacity text-white text-center w-100"
+    class=" rounded  w-100 booking-container text-center"
   >
 
-    <form @submit.prevent="checkAvailability" class="w-100 ">
+    <form @submit.prevent="checkAvailability" class="w-100 d-flex  flex-column flex-md-row align-items-center justify-content-center">
 
         <div
           class="
            row
             flex-column flex-md-row
             rounded
-            mb-4
+
             banner_booking
             w-100
             mx-auto
@@ -69,7 +69,7 @@
               "
             >
               <select
-                class="form-control form-control-sm border-0 no-focus"
+                class="form-control form-control-sm border-0 no-focus text-capitalize"
                 name="room_id"
                 v-model="flat_type"
                 required
@@ -141,8 +141,9 @@
         </div>
 
 
-      <div class="text-center">
-         <button type="submit" class="btn btn-primary">
+
+       <div class="bg-primary h-100 booking-button">
+           <button type="submit" class="btn btn-primary h-100d d-none d-sm-block">
           <span
             v-show="isChecking"
             class="spinner-border spinner-border-sm mr-1"
@@ -150,9 +151,20 @@
             aria-hidden="true"
             :disabled="isChecking"
           ></span>
-          {{ isChecking ? "Checking availability..." : "Book your stay " }}
+          {{ isChecking ? "" : "Search " }}
         </button>
-      </div>
+         <button type="submit" class="btn btn-primary h-100 btn-block d-sm-none">
+          <span
+            v-show="isChecking"
+            class="spinner-border spinner-border-sm mr-1"
+            role="status"
+            aria-hidden="true"
+            :disabled="isChecking"
+          ></span>
+          {{ isChecking ? "" : "Search " }}
+        </button>
+       </div>
+
     </form>
     <div class="text-danger py-2" v-if="isAvailable === false">
       <i class="fa fa-info-circle" aria-hidden="true"></i> {{ message }}
@@ -220,7 +232,7 @@ export default {
     };
   },
   mounted() {
-    this.getRooms();
+    // this.getRooms();
   },
   computed: {
     sorteditems() {

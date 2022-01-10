@@ -20541,7 +20541,7 @@ td {
 
 .firstContent {
   position: relative;
-  height: 100vh;
+  height: 93vh;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -20589,13 +20589,21 @@ td {
 }
 .firstContent .booking {
   position: absolute;
-  bottom: 2%;
-  width: 75%;
+  bottom: -28px;
+  width: 80%;
   z-index: 9;
+}
+.firstContent .booking .booking-container {
+  border: 4px solid var(--vamble);
+  background: var(--vamble);
 }
 @media only screen and (max-width: 768px) {
   .firstContent .booking {
     width: 90%;
+    bottom: 10%;
+  }
+  .firstContent .booking .booking-button {
+    width: 100%;
   }
 }
 .firstContent .banner-text {
@@ -20667,8 +20675,13 @@ td {
 .secondContent {
   position: relative;
   background-color: #f4f2f3;
-  padding: 75px 20px 100px;
+  padding: 150px 20px 100px;
   text-align: center;
+}
+@media only screen and (max-width: 600px) {
+  .secondContent {
+    padding: 75px 20px 100px;
+  }
 }
 .secondContent .content {
   width: 80%;
@@ -20724,7 +20737,7 @@ td {
   }
 }
 .secondContent .content .hotel {
-  height: 340px;
+  height: 300px;
 }
 .secondContent .content .hotel .hotel-img {
   width: 100%;
@@ -21654,6 +21667,23 @@ label {
   .quick_links {
     font-size: 0.65rem;
   }
+}
+
+.scrolltop {
+  display: none;
+  cursor: pointer;
+  position: fixed;
+  bottom: 5%;
+  right: 15px;
+  background: #000;
+  padding: 10px 8px;
+  opacity: 0.4;
+  color: white;
+  font-size: 0.77rem;
+  border-radius: 5px;
+}
+.scrolltop:hover {
+  opacity: 1;
 }
 
 .sidebar {

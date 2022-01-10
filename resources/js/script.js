@@ -81,12 +81,7 @@ if (location.pathname == "/") {
     thirdObserver.observe(document.querySelector(".observer_3"));
     fourthObserver.observe(document.querySelector(".observer_4"));
 
-    //Know more scroll
-    var knowmore = document.querySelector(".know_more");
-    knowmore.addEventListener("click", () => {
-        var currentHeight = window.innerHeight;
-        window.scrollTo(0, currentHeight * 0.7);
-    });
+ 
 }
 
 $("#navbarSupportedContent").on("show.bs.collapse", function(e) {

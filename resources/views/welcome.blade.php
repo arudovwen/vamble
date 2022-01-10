@@ -38,15 +38,7 @@
         </div>
         <div class="booking">
             <booking-mini></booking-mini>
-            <div class="text-center  text-muted know_more">
 
-                <span class="text-white" data-toggle="tooltip" data-placement="top" title="Scroll down">
-
-                    <i class="cursor-pointer fa fa-chevron-down animate__animated animate__heartBeat animate__slower animate__infinite	infinite"
-                        aria-hidden="true"></i>
-
-                </span>
-            </div>
         </div>
 
         <video autoplay muted id="mybannervidVideo">
@@ -354,12 +346,7 @@
         var navigation = document.getElementById("nav");
         navigation.classList.remove("default_navigation");
         navigation.classList.add("initial_navigation");
-        //Know more scroll
-        var knowmore = document.querySelector(".know_more");
-        knowmore.addEventListener("click", () => {
-            var currentHeight = window.innerHeight;
-            window.scrollTo(0, currentHeight * 0.7);
-        });
+
     </script>
 
 @endsection

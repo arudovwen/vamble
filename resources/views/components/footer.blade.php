@@ -8,11 +8,12 @@
        <h6> Quick links</h6>
         <ul class="pl-4 ml-0 quick_links" style="list-style-type: disc">
 
-          <li>About Us</li>
-            <li>Apartments</li>
-               <li>Make Reservations</li>
-                  <li>Direction</li>
-               <li>Contact us</li>
+         <a href="/about"> <li>About Us</li></a>
+              <a href="/accomodations"> <li>Apartments</li></a>
+                <a href="/booking">  <li>Make Reservations</li></a>
+                 <a href="/services"> <li>Services</li></a>
+                   <a href="/contact">  <li>Direction</li></a>
+
 
         </ul>
       </div>

@@ -767,6 +767,7 @@ export default {
     ) {
       this.detail.rooms = query.get("count");
       this.detail.flat_type = query.get("room");
+      this.detail.flat_name = query.get("flat_name");
       this.detail.guests = query.get("guests");
       this.handleBooking("event", query.get("checkin"), query.get("checkout"));
       this.bookings = [

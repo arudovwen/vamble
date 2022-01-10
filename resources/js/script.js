@@ -1,12 +1,12 @@
 if (location.pathname == "/") {
     var navigation = document.getElementById("nav");
     var updateNavbarColor = () => {
-        if (window.scrollY > window.innerHeight * 0.07) {
+        if (window.scrollY > window.innerHeight * 0.05) {
             navigation.classList.add("scrolling_navigation");
         } else {
             navigation.classList.remove("scrolling_navigation");
         }
-        if (window.scrollY > window.innerHeight * 0.07) {
+        if (window.scrollY > window.innerHeight * 0.05) {
             $(".logo").addClass("logoShrink");
         } else {
             $(".logo").removeClass("logoShrink");

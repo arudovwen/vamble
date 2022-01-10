@@ -1,26 +1,21 @@
 
 <template>
   <div
-    class="container py-3 px-4 rounded bg-dark-opacity text-white text-center"
+    class="container py-3 px-4 rounded bg-dark-opacity text-white text-center w-100"
   >
-    <h5 class="mb-3">Book your stay today</h5>
-    <form @submit.prevent="checkAvailability">
-      <div
-        class="
-          row
-          flex-column flex-md-row
-          justify-content-between
-          align-items-center
-        "
-      >
+
+    <form @submit.prevent="checkAvailability" class="w-100 ">
+
         <div
           class="
-            d-flex
-            flex-column flex-md-row flex-grow-1
-            mr-2
+           row
+            flex-column flex-md-row
             rounded
-            mb-4 mb-md-0
+            mb-4
             banner_booking
+            w-100
+            mx-auto
+
           "
         >
           <div
@@ -28,7 +23,7 @@
               bg-white
               border-right
               text-center text-dark
-              col-md-5
+              col-md-4
               mb-1 mb-md-0
               d-flex
               align-items-center
@@ -36,6 +31,70 @@
             "
           >
             <HotelDatePicker @period-selected="handleBooking" />
+          </div>
+
+          <div class="d-flex col-md-4 px-0">
+            <div
+              class="
+                w-100
+                bg-white
+                border-right
+                text-center text-dark
+                mb-1 mb-md-0
+                d-flex
+                align-items-center
+              "
+            >
+              <select
+                class="form-control form-control-sm border-0 no-focus"
+                required
+                name="flat_name"
+                v-model="flat_name"
+                id="flat_name"
+              >
+                <option value="" disabled>Choose home type</option>
+                <option value="room">Room</option>
+                <option value="apartment">Apartment</option>
+              </select>
+            </div>
+            <div
+              class="
+                w-100
+                bg-white
+                border-right
+                text-center text-dark
+                mb-1 mb-md-0
+                d-flex
+                align-items-center
+              "
+            >
+              <select
+                class="form-control form-control-sm border-0 no-focus"
+                name="room_id"
+                v-model="flat_type"
+                required
+              >
+                <option disabled value="">Choose option</option>
+                <option
+                  :value="item.name"
+                  v-for="item in sorteditems"
+                  :key="item.id"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <span
+                      ><span>{{ item.name }}</span> {{ item.type }}</span
+                    >
+                    -
+                    <span
+                      >{{ item.price | currencyFormat }}
+                      <small>/ night</small></span
+                    >
+                  </div>
+                </option>
+              </select>
+            </div>
           </div>
           <div class="d-flex col-md-4 px-0">
             <div
@@ -79,45 +138,11 @@
               </select>
             </div>
           </div>
-          <div
-            class="
-              bg-white
-              text-center text-dark
-              col-md-3
-              mb-1 mb-md-0
-              d-flex
-              align-items-center
-            "
-          >
-            <select
-              required
-              class="form-control form-control-sm border-0 no-focus"
-              v-model="flat_type"
-            >
-              <option disabled value="">Apartment type</option>
-              <option value="standard">
-                <div class="d-flex justify-content-between align-items-center">
-                  <span><span>Standard</span> apartment</span>
-                  -
-                  <span
-                    >{{ 30000 | currencyFormat }} <small>/ night</small></span
-                  >
-                </div>
-              </option>
-
-              <option value="luxury">
-                <div class="d-flex justify-content-between align-items-center">
-                  <span><span>Luxury</span> apartment</span>
-                  -
-                  <span
-                    >{{ 110000 | currencyFormat }} <small>/ night</small></span
-                  >
-                </div>
-              </option>
-            </select>
-          </div>
         </div>
-        <button type="submit" class="btn btn-primary">
+
+
+      <div class="text-center">
+         <button type="submit" class="btn btn-primary">
           <span
             v-show="isChecking"
             class="spinner-border spinner-border-sm mr-1"
@@ -125,7 +150,7 @@
             aria-hidden="true"
             :disabled="isChecking"
           ></span>
-          {{ isChecking ? "Checking" : "Check" }}
+          {{ isChecking ? "Checking availability..." : "Book your stay " }}
         </button>
       </div>
     </form>
@@ -151,6 +176,7 @@ export default {
       guests: null,
       rooms: null,
       flat_type: "",
+      flat_name: "",
       room_id: "",
       checkIn: "",
       checkOut: "",
@@ -159,10 +185,47 @@ export default {
       allrooms: [],
       isAvailable: null,
       message: "",
+      items: [
+        {
+          id: 1,
+          name: "standard",
+          price: 30000,
+          type: "room",
+        },
+        {
+          id: 2,
+          name: "executive",
+          price: 45000,
+          type: "room",
+        },
+        {
+          id: 3,
+          name: "standard",
+          price: 100000,
+          type: "apartment",
+        },
+        {
+          id: 4,
+          name: "executive",
+          price: 120000,
+          type: "apartment",
+        },
+        {
+          id: 5,
+          name: "platinum",
+          price: 150000,
+          type: "apartment",
+        },
+      ],
     };
   },
   mounted() {
     this.getRooms();
+  },
+  computed: {
+    sorteditems() {
+      return this.items.filter((item) => item.type == this.flat_name);
+    },
   },
   methods: {
     getRooms() {
@@ -196,6 +259,7 @@ export default {
         checkOut: this.checkOut,
         nights: this.nights,
         flat_type: this.flat_type,
+        flat_name: this.flat_name,
       };
       axios
         .post("/check/availability", data)
@@ -204,7 +268,7 @@ export default {
           if (res.data.status == "available") {
             this.isChecking = false;
             this.isAvailable = true;
-            var routeData = `/booking?room=${this.flat_type}&count=${this.rooms}&checkin=${this.checkIn}&checkout=${this.checkOut}&guests=${this.guests}`;
+            var routeData = `/booking?room=${this.flat_type}&flat_name=${this.flat_name}&count=${this.rooms}&checkin=${this.checkIn}&checkout=${this.checkOut}&guests=${this.guests}`;
             window.location.href = routeData;
             return;
           }

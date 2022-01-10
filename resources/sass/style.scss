@@ -59,7 +59,7 @@ p {
 }
 .logo {
     height: 85px;
-    transition: 0.6s;
+    transition: 0.4s;
 }
 .logoShrink {
     height: 60px;
@@ -131,7 +131,7 @@ td {
                 object-fit: cover;
                 &:hover {
                     transform: scale(1.05);
-                    transition: 0.6s;
+                    transition: 0.4s;
                 }
             }
         }
@@ -145,8 +145,8 @@ td {
 .navigation {
     width: 100%;
     z-index: 999;
-    transition: all 0.4s;
-    position: sticky;
+    transition: fade-in-out 0.4s;
+    position: relative;
     top: 0;
 }
 .initial_navigation {
@@ -210,10 +210,12 @@ td {
     background-color: white !important;
     box-shadow: 0.125rem 0.25rem rgb(0 0 0 / 8%) !important;
     color: rgba(0, 0, 0, 0.5);
+     transition: 0.4s;
+   position: fixed;
     .container-fluid {
         a {
             .logo {
-                transition: 0.6s;
+                transition: 0.4s;
                 // height: 60px;
             }
         }
@@ -614,7 +616,7 @@ td {
     overflow: hidden;
     img {
         object-fit: cover;
-        transition: 0.6s;
+        transition: 0.4s;
         &:hover {
             transform: scale(1.03);
         }
@@ -1142,7 +1144,7 @@ i.red {
 .about_img {
     overflow: hidden;
     img {
-        transition: 0.6s;
+        transition: 0.4s;
     }
     img:hover {
         transform: scale(1.02);
@@ -1152,7 +1154,7 @@ i.red {
 .service_img {
     overflow: hidden;
     img {
-        transition: 0.6s;
+        transition: 0.4s;
     }
     img:hover {
         transform: scale(1.02);

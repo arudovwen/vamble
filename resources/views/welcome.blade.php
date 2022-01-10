@@ -10,7 +10,7 @@
             <banner-text></banner-text>
             <div class="mt-4 d-none d-md-block">
                 <button type="button" class="btn  btn-light bg-transparent  border text-light mr-3" data-toggle="modal"
-                    data-target="#videosId">Watch video</button>
+                    data-target="#videosId"><i class="fa fa-play-circle mr-1" aria-hidden="true"></i> Watch video</button>
                 <a href="/accomodations"><button type="button"
                         class="btn btn-light bg-transparent  border text-light  ">See apartments</button></a>
             </div>
@@ -191,7 +191,7 @@
                         <p>
                             Our Executive Apartment welcomes you with a gorgeously-appointed classical interior, separate
                             bedroom and living room, extra-spacious bathroom and a balcony overlooking the fancy estate.
-                            With a classy debonaire appear... <a class="btn  btn-link px-0 py-0" href="/accomodations"
+                            With a classy debonair appear... <a class="btn  btn-link px-0 py-0" href="/accomodations"
                                 role="button">read more </a>
                         </p>
 

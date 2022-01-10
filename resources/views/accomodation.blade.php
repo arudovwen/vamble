@@ -48,7 +48,7 @@
 
                 <div class="col-sm-6 bg-white px-4 p-3 p-md-5 text-left d-flex flex-column justify-content-center">
                     <h3 class="mb-4" style="letter-spacing: .4rem">Executive Apartment</h3>
-                    <p>Our executive Apartment welcomes you with a gorgeously-appointed classical interior, separate bedroom and living room, extra-spacious bathroom and a balcony overlooking the fancy estate. With a classy debonaire appearance to make your stay memorable. Fully equipped with state of the art furnitures, a grand sitting room, cable tv, and free wifi. Feel at home in this spacious  suite.</p>
+                    <p>Our executive Apartment welcomes you with a gorgeously-appointed classical interior, separate bedroom and living room, extra-spacious bathroom and a balcony overlooking the fancy estate. With a classy debonair appearance to make your stay memorable. Fully equipped with state of the art furnitures, a grand sitting room, cable tv, and free wifi. Feel at home in this spacious  suite.</p>
                 </div>
                 <div class="col-sm-6 px-md-0">
                     <div id="appId3" class="carousel slide" data-ride="carousel">

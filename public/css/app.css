@@ -20337,7 +20337,7 @@ p {
 
 .logo {
   height: 85px;
-  transition: 0.6s;
+  transition: 0.4s;
 }
 
 .logoShrink {
@@ -20427,7 +20427,7 @@ td {
 }
 .carousel .carousel-inner .carousel-item img:hover {
   transform: scale(1.05);
-  transition: 0.6s;
+  transition: 0.4s;
 }
 
 #customer-chart,
@@ -20438,8 +20438,8 @@ td {
 .navigation {
   width: 100%;
   z-index: 999;
-  transition: all 0.4s;
-  position: sticky;
+  transition: fade-in-out 0.4s;
+  position: relative;
   top: 0;
 }
 
@@ -20491,9 +20491,11 @@ td {
   background-color: white !important;
   box-shadow: 0.125rem 0.25rem rgba(0, 0, 0, 0.08) !important;
   color: rgba(0, 0, 0, 0.5);
+  transition: 0.4s;
+  position: fixed;
 }
 .scrolling_navigation .container-fluid a .logo, .scrolling_navigation .container-sm a .logo, .scrolling_navigation .container-md a .logo, .scrolling_navigation .container-lg a .logo, .scrolling_navigation .container-xl a .logo {
-  transition: 0.6s;
+  transition: 0.4s;
 }
 .scrolling_navigation .container-fluid .nav-content .topnav, .scrolling_navigation .container-sm .nav-content .topnav, .scrolling_navigation .container-md .nav-content .topnav, .scrolling_navigation .container-lg .nav-content .topnav, .scrolling_navigation .container-xl .nav-content .topnav {
   display: none !important;
@@ -20914,7 +20916,7 @@ td {
 .l_gallery_image img {
   -o-object-fit: cover;
      object-fit: cover;
-  transition: 0.6s;
+  transition: 0.4s;
 }
 .l_gallery_image img:hover {
   transform: scale(1.03);
@@ -21484,7 +21486,7 @@ i.red {
   overflow: hidden;
 }
 .about_img img {
-  transition: 0.6s;
+  transition: 0.4s;
 }
 .about_img img:hover {
   transform: scale(1.02);
@@ -21494,7 +21496,7 @@ i.red {
   overflow: hidden;
 }
 .service_img img {
-  transition: 0.6s;
+  transition: 0.4s;
 }
 .service_img img:hover {
   transform: scale(1.02);

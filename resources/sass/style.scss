@@ -42,12 +42,25 @@ p {
 .nav-btn {
     width: 90px;
 }
+.navbar-nav {
+    .nav-item {
+        &.active{
+            font-weight:bold;
+            color:var(--vamble) !important;
+        }
+      margin-right: 1rem;
+       @media (max-width: 768px) {
+       margin-right:0;
+    }
+    }
+
+}
 .navbar-light .navbar-nav .show > .nav-link,
 .navbar-light .navbar-nav .active > .nav-link,
 .navbar-light .navbar-nav .nav-link.show,
 .navbar-light .navbar-nav .nav-link {
-    border-bottom: 3px solid transparent;
-    font-weight: bold;
+    border-bottom: 2px solid transparent;
+
 }
 
 .navbar-light .navbar-nav .show > .nav-link,
@@ -163,10 +176,12 @@ td {
             .topnav {
                 ul {
                     .nav-item {
+
                         .nav-link {
-                            color: var(--vamble);
+                            color: rgba($color: #000000, $alpha: 0.64);
                             .nav-text {
-                                color: var(--vamble);
+                              color: rgba($color: #000000, $alpha: 0.64);
+                                font-weight:400;
                                 @media (max-width: 768px) {
                                     color: rgba($color: #000000, $alpha: 0.64);
                                 }
@@ -183,7 +198,7 @@ td {
                 ul {
                     .nav-item {
                         .nav-link {
-                              color: var(--vamble);
+                              color: rgba($color: #000000, $alpha: 0.64);
                             @media (max-width: 768px) {
                                 color: rgba($color: #000000, $alpha: 0.64);
                             }
@@ -234,6 +249,7 @@ td {
             .bottom_nav {
                 ul {
                     .nav-item {
+
                         .nav-link {
                             color: rgba(
                                 $color: #000000,
@@ -271,7 +287,7 @@ td {
         bottom:0;
         right:0;
         left:0;
-        background-color:rgb(0 0 0 / 75%);
+        background-color:rgb(0 0 0 / 65%);
     }
     .booking {
         position: absolute;
@@ -294,7 +310,7 @@ td {
             color: white;
             letter-spacing: 1rem;
             span {
-                color: white;
+                color: hsl(9deg 6% 86%);
             }
         }
         h2 {
@@ -303,7 +319,7 @@ td {
             color: white;
             letter-spacing: 1rem;
             span {
-                color: white;
+                color: hsl(9deg 6% 86%);
             }
         }
 

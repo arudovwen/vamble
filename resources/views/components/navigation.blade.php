@@ -30,12 +30,22 @@
                       </li>
 
                       <li class="nav-item">
-                          <a class="nav-link " href="#">
+                          <a class="nav-link " href="https://goo.gl/maps/AKGfNTN9frUpyWHU8">
                               <i class="fas fa-map-pin  text-primary" aria-hidden="true"></i>
 
-
-                              <span class="nav-text"><a href="https://goo.gl/maps/AKGfNTN9frUpyWHU8">Plot 790, sector center, Cadastral zone. Jahi. Abuja</a></span>
+                              <span class="nav-text">Plot 790, sector center, Cadastral zone. Jahi. Abuja</span>
                           </a>
+                      </li>
+                      <li class="nav-item d-flex align-items-center">
+
+                     <a href="http://instagram.com/vambleapartments" target="_blank"> <span class="">
+                          <i class="fab fa-instagram text-dark mr-1" aria-hidden="true"></i>
+
+                      </span></a>
+                      <span ><i class="fab fa-facebook mr-1 text-dark" aria-hidden="true"></i>
+                      </span>
+                      <span > <i class="fab fa-twitter text-dark" aria-hidden="true"></i></span>
+
                       </li>
 
 
@@ -71,15 +81,7 @@
                           <a class="nav-link" href="{{ route('contact') }}">{{ __('Make Enquiries') }}</a>
                       </li>
                   </ul>
-                  <ul class="navbar-nav ml-auto align-items-center d-none d-md-flex">
-                     <a href="http://instagram.com/vambleapartments" target="_blank"> <li class="nav-item">
-                          <i class="fab fa-instagram text-primary mr-3" aria-hidden="true"></i>
 
-                      </li></a>
-                      <li class="nav-item"><i class="fab fa-facebook text-primary mr-3" aria-hidden="true"></i>
-                      </li>
-                      <li class="nav-item"> <i class="fab fa-twitter text-primary" aria-hidden="true"></i></li>
-                  </ul>
                   <!-- Right Side Of Navbar -->
                   <ul class="navbar-nav ml-auto align-items-center ">
 

@@ -6,7 +6,7 @@
     </div>
       <div class="col-sm-2 mb-4 mb-sm-0">
        <h6> Quick links</h6>
-        <ul class="pl-0 ml-0 quick_links">
+        <ul class="pl-4 ml-0 quick_links" style="list-style-type: disc">
 
           <li>About Us</li>
             <li>Apartments</li>

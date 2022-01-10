@@ -38,6 +38,9 @@ i {
 }
 p {
     font-size: 16px;
+    @media (max-width: 768px) {
+       font-size: 14px;
+    }
 }
 .nav-text {
     font-size: 0.7rem;
@@ -274,10 +277,10 @@ td {
     justify-content: center;
     margin-top: -105px;
     border-bottom: 4px solid var(--vamble);
-    @media(max-width:767px){
-            background-image: url('/images/rooms/sitting13.jpg');
-            background-size: cover;
-        }
+    @media (max-width: 767px) {
+        background-image: url("/images/rooms/sitting13.jpg");
+        background-size: cover;
+    }
     #mybannervidVideo {
         width: 100%;
         height: 100%;
@@ -291,9 +294,8 @@ td {
             width: auto;
             height: 100%;
         }
-        @media(max-width:767px){
-            display:none !important;
-
+        @media (max-width: 767px) {
+            display: none !important;
         }
     }
     &::after {
@@ -1283,10 +1285,13 @@ label {
 .hide_content {
     display: none;
 }
-.l_gallery_image{
- border-right:3px solid white;
+.l_gallery_image {
+    border-right: 3px solid white;
 }
-.quick_links{
-    font-size: .8rem;
-    color:rgba($color: #000000, $alpha: 0.64)
+.quick_links {
+    font-size: 0.75rem;
+    color: rgba($color: #000000, $alpha: 0.64);
+    @media (max-width: 768px) {
+        font-size: 0.65rem;
+    }
 }

@@ -20315,6 +20315,11 @@ i {
 p {
   font-size: 16px;
 }
+@media (max-width: 768px) {
+  p {
+    font-size: 14px;
+  }
+}
 
 .nav-text {
   font-size: 0.7rem;
@@ -21642,8 +21647,13 @@ label {
 }
 
 .quick_links {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: rgba(0, 0, 0, 0.64);
+}
+@media (max-width: 768px) {
+  .quick_links {
+    font-size: 0.65rem;
+  }
 }
 
 .sidebar {

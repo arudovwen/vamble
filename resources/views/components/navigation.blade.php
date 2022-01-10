@@ -39,12 +39,12 @@
                       <li class="nav-item d-flex align-items-center">
 
                      <a href="http://instagram.com/vambleapartments" target="_blank"> <span class="">
-                          <i class="fab fa-instagram text-dark mr-1" aria-hidden="true"></i>
+                          <i class="fab fa-instagram text-primary mr-1" aria-hidden="true"></i>
 
                       </span></a>
-                      <span ><i class="fab fa-facebook mr-1 text-dark" aria-hidden="true"></i>
+                      <span ><i class="fab fa-facebook mr-1 text-primary" aria-hidden="true"></i>
                       </span>
-                      <span > <i class="fab fa-twitter text-dark" aria-hidden="true"></i></span>
+                      <span > <i class="fab fa-twitter text-primary" aria-hidden="true"></i></span>
 
                       </li>
 

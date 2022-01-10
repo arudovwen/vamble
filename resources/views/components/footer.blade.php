@@ -5,12 +5,14 @@
       <img src="/logo.png" style="width: 200px" alt="">
     </div>
       <div class="col-sm-2 mb-4 mb-sm-0">
-        <ul>
-          <li>About Us
-            <li>Appartments
-               <li>Make Reservations
-                  <li>Direction
-               <li>Contact us
+       <h6> Quick links</h6>
+        <ul class="pl-0 ml-0 quick_links">
+
+          <li>About Us</li>
+            <li>Apartments</li>
+               <li>Make Reservations</li>
+                  <li>Direction</li>
+               <li>Contact us</li>
 
         </ul>
       </div>

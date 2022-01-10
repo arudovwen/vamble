@@ -21641,6 +21641,11 @@ label {
   border-right: 3px solid white;
 }
 
+.quick_links {
+  font-size: 0.8rem;
+  color: rgba(0, 0, 0, 0.64);
+}
+
 .sidebar {
   height: 100vh;
   padding: 24px 0;

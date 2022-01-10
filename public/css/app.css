@@ -21637,6 +21637,10 @@ label {
   display: none;
 }
 
+.l_gallery_image {
+  border-right: 3px solid white;
+}
+
 .sidebar {
   height: 100vh;
   padding: 24px 0;

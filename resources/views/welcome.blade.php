@@ -310,7 +310,7 @@
     </div>
 
     <x-testimonials></x-testimonials>
-    <div class="fifthContent">
+    <div class="fifthContent d-none d-md-block">
         <div class="content container-fluid">
             <h2 class="mb-5">GALLERY</h2>
             <div class="observer_4">

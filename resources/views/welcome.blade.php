@@ -25,7 +25,7 @@
                 <div class="modal-content">
 
                     <div class="modal-body">
-                        <video controls id="mainvideo">
+                        <video controls id="mainvideo" poster="{{ asset('/images/rooms/sitting13.jpg') }}">
                             <source src="{{ asset('/images/rooms/mainvid.mp4') }}" type="video/mp4">
                         </video>
                     </div>

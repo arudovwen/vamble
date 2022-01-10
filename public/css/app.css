@@ -20294,6 +20294,11 @@ body {
   overflow-x: hidden;
 }
 
+#mainvideo {
+  width: 100%;
+  height: 100%;
+}
+
 i {
   font-family: "The Nautigal", cursive;
 }
@@ -20532,17 +20537,41 @@ td {
 .firstContent {
   position: relative;
   height: 100vh;
+  width: 100%;
   display: flex;
   justify-content: center;
   margin-top: -105px;
   border-bottom: 4px solid var(--vamble);
 }
-.firstContent video {
+@media (max-width: 767px) {
+  .firstContent {
+    background-image: url("/images/rooms/sitting13.jpg");
+    background-size: cover;
+  }
+}
+.firstContent #mybannervidVideo {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   position: relative;
+}
+@media (min-aspect-ratio: 16/9) {
+  .firstContent #mybannervidVideo {
+    width: 100%;
+    height: auto;
+  }
+}
+@media (max-aspect-ratio: 16/9) {
+  .firstContent #mybannervidVideo {
+    width: auto;
+    height: 100%;
+  }
+}
+@media (max-width: 767px) {
+  .firstContent #mybannervidVideo {
+    display: none !important;
+  }
 }
 .firstContent::after {
   content: "";

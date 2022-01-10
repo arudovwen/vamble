@@ -7,7 +7,7 @@ $fa-font-path: "../webfonts";
 
 :root {
     --vamble: #745412;
-     --vamble-light: #d09520;
+    --vamble-light: #d09520;
     --primary: #745412;
     --blue: #745412;
 }
@@ -20,12 +20,15 @@ body {
     font-family: "Nunito", sans-serif;
 }
 #app {
-    width:100vw !important;
+    width: 100vw !important;
     overflow-x: hidden;
 }
-
-i{
-    font-family: 'The Nautigal', cursive;
+#mainvideo {
+    width: 100%;
+    height: 100%;
+}
+i {
+    font-family: "The Nautigal", cursive;
 }
 .nav-content {
     width: 80%;
@@ -44,23 +47,21 @@ p {
 }
 .navbar-nav {
     .nav-item {
-        &.active{
-            font-weight:bold;
-            color:var(--vamble) !important;
+        &.active {
+            font-weight: bold;
+            color: var(--vamble) !important;
         }
-      margin-right: 1rem;
-       @media (max-width: 768px) {
-       margin-right:0;
+        margin-right: 1rem;
+        @media (max-width: 768px) {
+            margin-right: 0;
+        }
     }
-    }
-
 }
 .navbar-light .navbar-nav .show > .nav-link,
 .navbar-light .navbar-nav .active > .nav-link,
 .navbar-light .navbar-nav .nav-link.show,
 .navbar-light .navbar-nav .nav-link {
     border-bottom: 2px solid transparent;
-
 }
 
 .navbar-light .navbar-nav .show > .nav-link,
@@ -176,12 +177,11 @@ td {
             .topnav {
                 ul {
                     .nav-item {
-
                         .nav-link {
                             color: rgba($color: #000000, $alpha: 0.64);
                             .nav-text {
-                              color: rgba($color: #000000, $alpha: 0.64);
-                                font-weight:400;
+                                color: rgba($color: #000000, $alpha: 0.64);
+                                font-weight: 400;
                                 @media (max-width: 768px) {
                                     color: rgba($color: #000000, $alpha: 0.64);
                                 }
@@ -198,7 +198,7 @@ td {
                 ul {
                     .nav-item {
                         .nav-link {
-                              color: rgba($color: #000000, $alpha: 0.64);
+                            color: rgba($color: #000000, $alpha: 0.64);
                             @media (max-width: 768px) {
                                 color: rgba($color: #000000, $alpha: 0.64);
                             }
@@ -225,8 +225,8 @@ td {
     background-color: white !important;
     box-shadow: 0.125rem 0.25rem rgb(0 0 0 / 8%) !important;
     color: rgba(0, 0, 0, 0.5);
-     transition: 0.4s;
-   position: fixed;
+    transition: 0.4s;
+    position: fixed;
     .container-fluid {
         a {
             .logo {
@@ -249,7 +249,6 @@ td {
             .bottom_nav {
                 ul {
                     .nav-item {
-
                         .nav-link {
                             color: rgba(
                                 $color: #000000,
@@ -270,24 +269,41 @@ td {
 .firstContent {
     position: relative;
     height: 100vh;
+    width: 100%;
     display: flex;
     justify-content: center;
     margin-top: -105px;
     border-bottom: 4px solid var(--vamble);
-    video{
-        width:100%;
-        height:100%;
-        object-fit:cover;
-        position:relative;
+    @media(max-width:767px){
+            background-image: url('/images/rooms/sitting13.jpg');
+            background-size: cover;
+        }
+    #mybannervidVideo {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: relative;
+        @media (min-aspect-ratio: 16/9) {
+            width: 100%;
+            height: auto;
+        }
+        @media (max-aspect-ratio: 16/9) {
+            width: auto;
+            height: 100%;
+        }
+        @media(max-width:767px){
+            display:none !important;
+
+        }
     }
-  &::after{
-        content:'';
+    &::after {
+        content: "";
         position: absolute;
-        top:0;
-        bottom:0;
-        right:0;
-        left:0;
-        background-color:rgb(0 0 0 / 65%);
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background-color: rgb(0 0 0 / 65%);
     }
     .booking {
         position: absolute;
@@ -337,7 +353,7 @@ td {
             }
         }
     }
-    .know_more{
+    .know_more {
         padding-top: 1rem;
     }
 }
@@ -526,9 +542,9 @@ td {
     p {
         font-size: 1rem;
         color: rgba($color: #000000, $alpha: 0.64);
-         @media only screen and (max-width: 768px) {
-              font-size: .85rem;
-         }
+        @media only screen and (max-width: 768px) {
+            font-size: 0.85rem;
+        }
     }
 }
 .carousel .carousel-inner .carousel-item.room-item {
@@ -1244,25 +1260,25 @@ label {
 .about-text {
     letter-spacing: 0.2rem;
     font-size: 1.1rem;
-    @media(max-width:768px){
-         font-size: .9rem;
+    @media (max-width: 768px) {
+        font-size: 0.9rem;
     }
 }
 
-@media(max-width:768px){
-    h3{
-     font-size:   1.1rem;
+@media (max-width: 768px) {
+    h3 {
+        font-size: 1.1rem;
     }
 }
-.read-more-show{
-      cursor:pointer;
-      color: #176cb3;
-    }
-    .read-more-hide{
-      cursor:pointer;
-      color: #176cb3;
-    }
+.read-more-show {
+    cursor: pointer;
+    color: #176cb3;
+}
+.read-more-hide {
+    cursor: pointer;
+    color: #176cb3;
+}
 
-    .hide_content{
-      display: none;
-    }
+.hide_content {
+    display: none;
+}

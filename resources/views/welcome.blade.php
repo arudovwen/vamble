@@ -107,8 +107,8 @@
                         <div class="flex flex-wrap">
                             <span class="amenities mb-1 mr-2"><i class="fa fa-bed" aria-hidden="true"></i> Family size beds</span>
                             <span class="amenities mb-1 mr-2"> <i class="fas fa-wind    "></i> Air conditioning</span>
-                            <span class="amenities "><i class="fas fa-faucet"></i> Inbuilt kitchen</span>
-                             <span class="amenities "><i class="fas fa-fa-knife-kitchen "></i> Complementary breakfast</span>
+                            <span class="amenities mb-1 mr-2"><i class="fas fa-faucet"></i> Inbuilt kitchen</span>
+                             <span class="amenities "><i class="fas fa-utensil-spoon    "></i>  Complementary breakfast</span>
 
                         </div>
 
@@ -191,8 +191,8 @@
                         <div class="flex flex-wrap">
                             <span class="amenities mb-1 mr-2"><i class="fa fa-bed" aria-hidden="true"></i> Family size beds</span>
                             <span class="amenities mb-1 mr-2"> <i class="fas fa-wind    "></i> Air conditioning</span>
-                            <span class="amenities "><i class="fas fa-faucet    "></i> Inbuilt kitchen</span>
-                             <span class="amenities "><i class="fas fa-fa-knife-kitchen   "></i> Complementary breakfast</span>
+                            <span class="amenities mb-1 mr-2"><i class="fas fa-faucet    "></i> Inbuilt kitchen</span>
+                             <span class="amenities "><i class="fas fa-utensil-spoon    "></i> Complementary breakfast</span>
 
                         </div>
                         <div class="mb-4">
@@ -230,7 +230,7 @@
                             <span class="amenities mb-1 mr-2"><i class="fa fa-bed" aria-hidden="true"></i> Family size beds</span>
                             <span class="amenities mb-1 mr-2"> <i class="fas fa-wind    "></i> Air conditioning</span>
                             <span class="amenities  mb-1 mr-2"><i class="fas fa-faucet    "></i> Inbuilt kitchen</span>
-                             <span class="amenities "><i class="fas fa-fa-knife-kitchen    "></i> Complementary breakfast</span>
+                             <span class="amenities "><i class="fas fa-utensil-spoon    "></i> Complementary breakfast</span>
 
 
 

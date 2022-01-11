@@ -20552,6 +20552,7 @@ td {
   .firstContent {
     background-image: url("/images/rooms/sitting13.jpg");
     background-size: cover;
+    background-attachment: fixed;
   }
 }
 .firstContent #mybannervidVideo {
@@ -20664,11 +20665,11 @@ td {
 }
 
 .amenities {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 @media only screen and (max-width: 600px) {
   .amenities {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
 }
 

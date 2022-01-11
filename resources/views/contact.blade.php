@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title','Contact us')
-@section('description', 'Vamble apartments and suites')
+@section('description', 'Contact Vamble apartments and suites')
 @section('keywords', 'Vamble , Apartments, Hotels, Suites,bookings, online , Abuja')
 @section('content')
     <div class="about_banner_img d-flex justify-content-center align-items-center">

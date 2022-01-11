@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title', '')
-@section('description', 'Vamble apartments and suites')
+@section('description', 'A home away from home')
 @section('keywords', 'Vamble , Apartments, Hotels, Suites,bookings, online , Abuja')
 @section('content')
     <div class="firstContent">

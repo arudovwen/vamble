@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title','Our Gallery')
-@section('description', 'Vamble apartments and suites')
+@section('description', 'Our Gallery Vamble apartments and suites')
 @section('keywords', 'Vamble , Apartments, Hotels, Suites,bookings, online , Abuja')
 @section('content')
     <div class="about_banner_img d-flex justify-content-center align-items-center">
@@ -329,7 +329,7 @@
                                     <div class="modal-body">
                                         <img src="/images/rooms/broom.jpg">
                                     </div>
-                                  
+
                                 </div>
                             </div>
                         </div>

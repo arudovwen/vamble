@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', '')
+@section('title', 'A home away from home')
 @section('description', 'A home away from home')
 @section('keywords', 'Vamble , Apartments, Hotels, Suites,bookings, online , Abuja')
 @section('content')
@@ -24,7 +24,7 @@
             <div class="modal-dialog  modal-xl" role="document">
                 <div class="modal-content">
 
-                    <div class="modal-body">
+                    <div class="modal-body p-0">
                         <video controls id="mainvideo" poster="{{ asset('/images/rooms/sitting13.jpg') }}">
                             <source src="{{ asset('/images/rooms/mainvid.mp4') }}" type="video/mp4">
                         </video>

@@ -172,7 +172,11 @@
   </div>
 </template>
 
-
+<style scoped>
+td{
+  padding:5px 10px;
+}
+</style>
 <script>
 import HotelDatePicker from "vue-hotel-datepicker";
 import "vue-hotel-datepicker/dist/vueHotelDatepicker.css";

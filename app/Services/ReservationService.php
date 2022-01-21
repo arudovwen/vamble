@@ -111,8 +111,8 @@ class ReservationService
           'room'  => $oneroom['room_name'],
           'status' => ucfirst($request->status)
         ];
-        // Mail::to($user->email)->send(new BookingSuccess($detail));
-        // Mail::to('succy2010@gmail.com')->send(new NewReservation($admindetail));
+        Mail::to($user->email)->send(new BookingSuccess($detail));
+        Mail::to('vambleapartment@gmail.com')->send(new NewReservation($admindetail));
 
         $admin = User::find(2);
         $admin->notify(new NewReservationNotification());
@@ -221,8 +221,8 @@ class ReservationService
           'room'  => $oneroom->room_name,
           'status' => $request->status
         ];
-        // Mail::to($user->email)->send(new BookingSuccess($detail));
-        // Mail::to('succy2010@gmail.com')->send(new NewReservation($admindetail));
+        Mail::to($user->email)->send(new BookingSuccess($detail));
+        Mail::to('vambleapartment@gmail.com')->send(new NewReservation($admindetail));
 
         return response($reservation, 201);
       } catch (\Throwable $th) {

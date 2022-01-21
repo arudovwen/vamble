@@ -809,7 +809,7 @@ export default {
       this.step = val;
     },
     reset() {
-      window.location.reload();
+      window.location.href='/booking';
     },
 
     handleBooking(event, checkin, checkout) {

@@ -102,3 +102,11 @@ Route::get('/notifications', [App\Http\Controllers\UserController::class, 'getno
 Route::get('/marknotification/{id}', [App\Http\Controllers\UserController::class, 'marknotification'])->name('mark-notification');
 
 
+//reviews
+
+Route::resource('reviews', App\Http\Controllers\ReviewController::class);
+
+Route::get('/clear-cache', function () {
+    $exitCode = Artisan::call('cache:clear');
+    // return what you want
+});

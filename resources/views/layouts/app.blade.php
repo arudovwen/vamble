@@ -19,25 +19,29 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"><link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=The+Nautigal&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=The+Nautigal&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/61e71f5fb84f7301d32bb3e9/1fpnd54db';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-<!--End of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {},
+            Tawk_LoadStart = new Date();
+        (function() {
+            var s1 = document.createElement("script"),
+                s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/61e71f5fb84f7301d32bb3e9/1fpnd54db';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
+
 </head>
 
 <body>
@@ -54,8 +58,8 @@ s0.parentNode.insertBefore(s1,s0);
 
         <x-footer></x-footer>
     </div>
-    @yield('javascript')
-     <span class="scrolltop" id="scrolltop">Top</span>
+
+    <span class="scrolltop" id="scrolltop">Top</span>
     <script>
         document.getElementById('scrolltop').addEventListener('click', () => {
             document.body.scrollTop = 0; // For Safari
@@ -73,6 +77,27 @@ s0.parentNode.insertBefore(s1,s0);
             }
         }
     </script>
+    <script src="https://gogetssl-cdn.s3.eu-central-1.amazonaws.com/site-seals/gogetssl-seal.js"></script>
+     @yield('javascript')
+
+    <div class="d-flex">
+
+        <div class="possl mr-3">
+            <script type="text/javascript">
+                //<![CDATA[
+                var tlJsHost = ((window.location.protocol == "https:") ? "https://secure.trust-provider.com/" :
+                    "http://www.trustlogo.com/");
+                document.write(unescape("%3Cscript src='" + tlJsHost +
+                    "trustlogo/javascript/trustlogo.js' type='text/javascript'%3E%3C/script%3E"));
+                //]]>
+            </script>
+            <script language="JavaScript" type="text/javascript">
+                TrustLogo("https://www.positivessl.com/images/seals/positivessl_trust_seal_lg_222x54.png", "POSDV", "none");
+            </script>
+        </div>
+     
+
+    </div>
 </body>
 
 </html>

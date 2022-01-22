@@ -388,6 +388,7 @@
                     <Payment
                     :detail="detail"
                     :amount="totalPrice"
+                    :price_per_night="selectedRoom.price"
                     @paymentsuccessful="paymentsuccessful"
                   />
                   <button

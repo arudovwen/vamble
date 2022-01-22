@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\ContactMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -16,7 +17,7 @@ class ContactController extends Controller
     public function sendmessage(Request $request)
     {
 
-        Mail::to('succy2010@gmail.com')->send(new ContactMail($request->all()));
+        Mail::to('info@vambleapartments.com')->send(new ContactMail($request->all()));
         return redirect()->back()->with('success', 'Mail sent');
     }
 }

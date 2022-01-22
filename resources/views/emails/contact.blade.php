@@ -4,6 +4,6 @@
     {{ $body }}
 
 
-    From name: {{ $name }},
-    From email : <a href="mailto:{{ $email }}"> {{ $email }}</a>
+    Customer name: {{ $name }},
+    Customer email :  {{ $email }}
 @endcomponent

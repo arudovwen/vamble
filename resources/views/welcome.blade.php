@@ -9,10 +9,10 @@
         <div class="banner-text text-center">
             <banner-text></banner-text>
             <div class="mt-4 d-none d-md-block">
-                <button type="button" class="btn  btn-light bg-transparent  border text-light mr-3" data-toggle="modal"
-                    data-target="#videosId"><i class="fa fa-play-circle mr-1" aria-hidden="true"></i> Watch video</button>
+                <button type="button" class="btn  btn-light bg-transparent   text-light mr-3" style="border:2px solid white" data-toggle="modal"
+                    data-target="#videosId"><i class="fa fa-play-circle mr-1" aria-hidden="true"></i> Take a tour</button>
                 <a href="/accomodations"><button type="button"
-                        class="btn btn-light bg-transparent  border text-light  ">See apartments</button></a>
+                        class="btn btn-light bg-transparent   text-light  "  style="border:2px solid white">See apartments</button></a>
             </div>
         </div>
 
@@ -26,7 +26,7 @@
 
                     <div class="modal-body p-0">
                         <video controls id="mainvideo" poster="{{ asset('/images/rooms/sitting13.jpg') }}">
-                            <source src="{{ asset('/images/rooms/mainvid.mp4') }}" type="video/mp4">
+                            <source src="{{ asset('/images/rooms/vamble.m4v') }}" type="video/mp4">
                         </video>
                     </div>
                     <div class="modal-footer">
@@ -41,7 +41,7 @@
 
         </div>
 
-        <video autoplay muted id="mybannervidVideo">
+        <video autoplay muted id="mybannervidVideo" poster="{{ asset('/images/rooms/frontdesk.jpg') }}">
             <source src="{{ asset('/images/rooms/vidtrim.mp4') }}" type="video/mp4">
         </video>
     </div>
@@ -103,7 +103,8 @@
                                 href="/accomodations" role="button">read more </a>
                         </p>
 
-                        <div class="price mb-2"> &#8358;30,000 <sub>per night</sub></div>
+                        <div class="d-flex justify-content-between align-items-center"><div class="price mb-2"> &#8358;100,000 <sub>per night</sub></div>  <div class="price mb-2"> &#8358;30,000 <sub>per room<span class="px-1">/</span>night</sub></div></div>
+
                         <div class="flex flex-wrap">
                             <span class="amenities mb-1 mr-2"><i class="fa fa-bed" aria-hidden="true"></i> Family size beds</span>
                             <span class="amenities mb-1 mr-2"> <i class="fas fa-wind    "></i> Air conditioning</span>
@@ -187,7 +188,8 @@
                                 role="button">read more </a>
                         </p>
 
-                        <div class="price mb-2"> &#8358;110,000 <sub>per night</sub></div>
+                       <div class="d-flex justify-content-between align-items-center"><div class="price mb-2"> &#8358;120,000 <sub>per night</sub></div>  <div class="price mb-2"> &#8358;45,000 <sub>per room<span class="px-1">/</span>night</sub></div></div>
+
                         <div class="flex flex-wrap">
                             <span class="amenities mb-1 mr-2"><i class="fa fa-bed" aria-hidden="true"></i> Family size beds</span>
                             <span class="amenities mb-1 mr-2"> <i class="fas fa-wind    "></i> Air conditioning</span>
@@ -225,7 +227,7 @@
                                 href="/accomodations" role="button">read more </a>
                         </p>
 
-                        <div class="price mb-2"> &#8358;30,000 <sub>per night</sub></div>
+                        <div class="price mb-2"> &#8358;150,000 <sub>per night</sub></div>
                         <div class="flex flex-wrap">
                             <span class="amenities mb-1 mr-2"><i class="fa fa-bed" aria-hidden="true"></i> Family size beds</span>
                             <span class="amenities mb-1 mr-2"> <i class="fas fa-wind    "></i> Air conditioning</span>

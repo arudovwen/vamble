@@ -29,7 +29,7 @@ class NewReservation extends Mailable
     public function build()
     {
         return $this->subject('New Reservation')
-            ->from('succy2010@gmail.com')
+            ->from('info@vambleapartments.com')
             ->markdown('emails.bookings.reservation', $this->detail);
     }
 }

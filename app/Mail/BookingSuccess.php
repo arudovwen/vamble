@@ -30,7 +30,7 @@ class BookingSuccess extends Mailable
     public function build()
     {
         return $this->subject('New Booking')
-            ->from('succy2010@gmail.com')
+            ->from('info@vambleapartments.com')
             ->markdown('emails.bookings.success', $this->detail);
     }
 }

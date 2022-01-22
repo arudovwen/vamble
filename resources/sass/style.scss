@@ -25,7 +25,7 @@ body {
 }
 #mainvideo {
     width: 100%;
-    height: 100%;
+    height: 70vh;
 }
 i {
     font-family: "The Nautigal", cursive;
@@ -273,15 +273,16 @@ td {
 }
 .firstContent {
     position: relative;
-    height: 93vh;
+    height: 90vh;
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-top: -105px;
     border-bottom: 4px solid var(--vamble);
     @media (max-width: 767px) {
-        background-image: url("/images/rooms/sitting13.jpg");
-        background-size: cover;
+        background-image: url("/images/rooms/building6.jpg");
+        background-size: contain;
         background-attachment:fixed;
     }
     #mybannervidVideo {
@@ -289,12 +290,13 @@ td {
         height: 100%;
         object-fit: cover;
         position: relative;
+
         @media (min-aspect-ratio: 16/9) {
             width: 100%;
             height: auto;
         }
         @media (max-aspect-ratio: 16/9) {
-            width: auto;
+            width: 100%;
             height: 100%;
         }
         @media (max-width: 767px) {
@@ -308,7 +310,7 @@ td {
         bottom: 0;
         right: 0;
         left: 0;
-        background-color: rgb(0 0 0 / 65%);
+        background-color: rgb(0 0 0 / 40%);
     }
     .booking {
         position: absolute;
@@ -356,11 +358,11 @@ td {
             top: 23%;
             padding: 10px;
             h1 {
-                font-size: 1.7rem;
+                font-size: 2.2rem;
                 font-weight: 800;
             }
             h2 {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
                 font-weight: 800;
                 letter-spacing: 0.2rem;
             }
@@ -573,6 +575,8 @@ td {
 .line_half {
     position: relative;
     margin-bottom: 40px;
+    color:#745412 ;
+    font-weight:bold;
     &::after {
         content: "";
         width: 50%;
@@ -1323,5 +1327,24 @@ label {
     border-radius: 5px;
     &:hover {
         opacity: 1;
+    }
+}
+.gogossl{
+    position:fixed;
+    left: -5px;
+    bottom: 9%;
+    @media(max-width: 767px){
+        display:none
+    }
+}
+.possl{
+    position:fixed;
+    left: 0;
+    bottom: 15%;
+     @media(max-width: 767px){
+        display:none
+    }
+    a img{
+        width:155px;
     }
 }

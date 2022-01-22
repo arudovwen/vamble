@@ -19,7 +19,7 @@ if (location.pathname == "/") {
         entries.forEach(entry => {
             var content = entry.target.querySelector(".content");
             if (entry.isIntersecting) {
-                content.classList.add("animate__fadeInUp");
+                content.classList.add("animate__zoomIn");
                 content.classList.remove("animate__fadeOut");
                 return; // if we added the class, exit the function
             }
@@ -31,7 +31,7 @@ if (location.pathname == "/") {
         entries.forEach(entry => {
             var content = entry.target.querySelector(".fade_text");
             if (entry.isIntersecting) {
-                content.classList.add("animate__fadeInUp");
+                content.classList.add("animate__zoomIn");
                 content.classList.remove("animate__fadeOut");
                 return; // if we added the class, exit the function
             }
@@ -43,7 +43,7 @@ if (location.pathname == "/") {
         entries.forEach(entry => {
             var content = entry.target.querySelector(".fade_text");
             if (entry.isIntersecting) {
-                content.classList.add("animate__fadeInUp");
+                content.classList.add("animate__zoomIn");
                 content.classList.remove("animate__fadeOut");
                 return; // if we added the class, exit the function
             }

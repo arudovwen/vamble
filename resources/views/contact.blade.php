@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Contact us')
+@section('title', 'Contact us')
 @section('description', 'Contact Vamble apartments and suites')
 @section('keywords', 'Vamble , Apartments, Hotels, Suites,bookings, online , Abuja')
 @section('content')
@@ -17,21 +17,22 @@
                         <div class="mb-2"> <i class="fa fa-phone-square" aria-hidden="true"></i> Phone :
                             +234-903-504-1234</div>
                         <div class="mb-2"> <i class="fa fa-address-book" aria-hidden="true"></i> Address :
-                            <span><a href="https://goo.gl/maps/AKGfNTN9frUpyWHU8">Plot 790, sector center, Cadastral zone. Jahi. Abuja</a></span>
+                            <span><a href="https://goo.gl/maps/AKGfNTN9frUpyWHU8">Plot 790, sector center, Cadastral zone.
+                                    Jahi. Abuja</a></span>
                         </div>
                         <div class="mb-3"> <i class="fa fa-envelope" aria-hidden="true"></i> Email :
-                            vambleapartment@gmail.com</div> <br>
+                            info@vambleapartments.com</div> <br>
 
                     </div>
                     <div class="d-none d-md-block">
                         <div class="mapouter">
-                            <div class="gmap_canvas">
-                                <iframe width="100%" height="400" id="gmap_canvas"
-                                    src="https://maps.google.com/maps?q=gwarimpa&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                                    frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-                                <a href="https://fmovies-online.net"></a><br>
+                            <div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas"
+                                    src="https://maps.google.com/maps?q=Vamble%20Apartments%20Jahi,%20Abuja&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                                    frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a
+                                    href="https://www.embedgooglemap.net/blog/divi-discount-code-elegant-themes-coupon/">divi
+                                    discount</a><br>
+                              <a href="https://www.embedgooglemap.net"></a>
 
-                                <a href="https://www.embedgooglemap.net">embedgooglemap.net</a>
                             </div>
                         </div>
                     </div>
@@ -77,7 +78,7 @@
                                 <label for="">Message</label>
                                 <textarea class="form-control" name="body" id="body" aria-describedby="helpId"
                                     placeholder="Write your message here">
-                                                                  </textarea>
+                                                                      </textarea>
                             </div>
                             <button type="submit" class="btn btn-primary ">Send message</button>
                         </form>
@@ -95,19 +96,19 @@
 
                     <div class=" mr-3">
                         <i class="fab fa-instagram fa-3x" aria-hidden="true"></i> <br>
-                         <small> @vambleapartments</small>
+                        <small> @vambleapartments</small>
                     </div>
                     <div class=" mr-3">
                         <i class="fab fa-facebook-square fa-3x" aria-hidden="true"></i>
                         <br>
-                       <small> @vambleapartments</small>
+                        <small> @vambleapartments</small>
                     </div>
 
 
                     <div>
                         <i class="fab fa-twitter-square fa-3x" aria-hidden="true"></i>
                         <br>
-                         <small> @vambleapartments</small>
+                        <small> @vambleapartments</small>
                     </div>
 
                 </div>

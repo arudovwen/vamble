@@ -4,7 +4,7 @@
       :show="showText"
       name="test"
       tag="h1"
-      :interval="35"
+      :interval="15"
       :custom-class="[
         { selector: ':nth-child(odd)', class: 'test_odd vamble banner_fancy' },
       ]"
@@ -14,7 +14,7 @@
       :show="showText"
       name="test"
       tag="h2"
-      :interval="20"
+      :interval="10"
       :custom-class="[{ selector: ':nth-child(odd)', class: 'test_odd banner_fancy' }]"
     >
       Apartments & Suites</vue-text-transition

@@ -22,7 +22,6 @@ class ReservationService
   {
 
 
-
     return DB::transaction(function () use ($request) {
 
       try {

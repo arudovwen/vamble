@@ -19,7 +19,7 @@ export default {
   components: {
     paystack,
   },
-  props: ["detail", "amount"],
+  props: ["detail", "amount",'price_per_night'],
   data() {
     return {
       paystackkey: "pk_test_d41b877edecdbfa1b296661dfe4da9b505ff2895", //paystack public key
@@ -41,6 +41,8 @@ export default {
     callback: function (response) {
 
       this.$props.detail.response = response;
+      this.$props.detail.total_price = this.$props.amount;
+      this.$props.detail.price_per_night = this.price_per_night;
       axios
         .post("/transactions/add", this.$props.detail)
         .then((res) => {

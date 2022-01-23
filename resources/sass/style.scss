@@ -281,9 +281,11 @@ td {
     margin-top: -105px;
     border-bottom: 4px solid var(--vamble);
     @media (max-width: 767px) {
+         height: 85vh;
         background-image: url("/images/rooms/building6.jpg");
-        background-size: contain;
+        background-size: cover;
         background-attachment:fixed;
+        background-repeat:no-repeat;
     }
     #mybannervidVideo {
         width: 100%;
@@ -882,6 +884,9 @@ footer {
     }
 }
 .apartments {
+     @media only screen and (max-width: 767px) {
+           background-image:white;
+        }
     .content {
         padding-top: 75px;
         padding-bottom: 50px;

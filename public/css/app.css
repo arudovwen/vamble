@@ -20552,9 +20552,11 @@ td {
 }
 @media (max-width: 767px) {
   .firstContent {
+    height: 85vh;
     background-image: url("/images/rooms/building6.jpg");
-    background-size: contain;
+    background-size: cover;
     background-attachment: fixed;
+    background-repeat: no-repeat;
   }
 }
 .firstContent #mybannervidVideo {
@@ -21210,6 +21212,11 @@ footer .content {
   }
 }
 
+@media only screen and (max-width: 767px) {
+  .apartments {
+    background-image: white;
+  }
+}
 .apartments .content {
   padding-top: 75px;
   padding-bottom: 50px;

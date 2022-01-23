@@ -64,7 +64,7 @@
             <span>&copy; Vamble Apartments & Suite ltd {{ now()->year }}</span>
         </div>
     </div>
-   <div class="gogossl">
+   <div class="container  d-none d-md-block">
             <a href="https://www.gogetssl.com" rel="nofollow" title="GoGetSSL Site Seal Logo">
                 <div id="gogetssl-animated-seal" style="width:156px; height:40px;"></div>
             </a>

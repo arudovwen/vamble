@@ -29,8 +29,8 @@ class BookingSuccess extends Mailable
      */
     public function build()
     {
-        return $this->subject('New Booking')
-            ->from('info@vambleapartments.com')
+        return $this->subject('Reservation Created')
+            ->from('info@vambleapartments.com', 'Vamble Team')
             ->markdown('emails.bookings.success', $this->detail);
     }
 }

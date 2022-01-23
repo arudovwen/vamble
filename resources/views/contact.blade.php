@@ -15,7 +15,7 @@
                     <h3 class="mb-4">Our Information</h3>
                     <div class="mb-4">
                         <div class="mb-2"> <i class="fa fa-phone-square" aria-hidden="true"></i> Phone :
-                            +234-903-504-1234</div>
+                            +2349064645461</div>
                         <div class="mb-2"> <i class="fa fa-address-book" aria-hidden="true"></i> Address :
                             <span><a href="https://goo.gl/maps/AKGfNTN9frUpyWHU8">Plot 790, sector center, Cadastral zone.
                                     Jahi. Abuja</a></span>
@@ -88,27 +88,27 @@
             </div>
 
 
-            <h2 class="mb-5">Social Connect</h2>
+            <h2 class="mb-4">Social Connect</h2>
 
             <div class="text-center">
                 <p>Also write us on one of our social handles</p>
-                <div class=" p-3 d-flex justify-content-center mb-4">
+                <div class=" p-3 d-flex justify-content-center ">
 
                     <div class=" mr-3">
                         <i class="fab fa-instagram fa-3x" aria-hidden="true"></i> <br>
-                        <small> @vambleapartments</small>
+                        <small> <a href="http://instagram.com/vambleapartments">@vambleapartments</a></small>
                     </div>
                     <div class=" mr-3">
-                        <i class="fab fa-facebook-square fa-3x" aria-hidden="true"></i>
+                        <i class="fab fa-whatsapp fa-3x" aria-hidden="true"></i>
                         <br>
-                        <small> @vambleapartments</small>
+                        <small><a href="http://wa.me/2349064645461">+2349064645461</a> </small>
                     </div>
 
 
                     <div>
-                        <i class="fab fa-twitter-square fa-3x" aria-hidden="true"></i>
+                        <i class="fab fa-twitter fa-3x" aria-hidden="true"></i>
                         <br>
-                        <small> @vambleapartments</small>
+                        <small> <a href="http://twitter.com/vambleapartments">@vambleapartments</a></small>
                     </div>
 
                 </div>

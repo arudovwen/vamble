@@ -79,7 +79,7 @@
     </script>
     <script src="https://gogetssl-cdn.s3.eu-central-1.amazonaws.com/site-seals/gogetssl-seal.js"></script>
      @yield('javascript')
-
+{{-- 
     <div class="d-flex">
 
         <div class="possl mr-3">
@@ -95,9 +95,9 @@
                 TrustLogo("https://www.positivessl.com/images/seals/positivessl_trust_seal_lg_222x54.png", "POSDV", "none");
             </script>
         </div>
-     
 
-    </div>
+
+    </div> --}}
 </body>
 
 </html>

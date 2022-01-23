@@ -26,6 +26,30 @@ if (location.pathname == "/") {
             // We're not intersecting, so remove the class!
         });
     });
+      var aObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            var content = entry.target.querySelector(".fade_text");
+            if (entry.isIntersecting) {
+                content.classList.add("animate__zoomIn");
+                content.classList.remove("animate__fadeOut");
+                return; // if we added the class, exit the function
+            }
+            // We're not intersecting, so remove the class!
+        });
+    });
+
+      var bObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            var content = entry.target.querySelector(".fade_text");
+            if (entry.isIntersecting) {
+                content.classList.add("animate__zoomIn");
+                content.classList.remove("animate__fadeOut");
+                return; // if we added the class, exit the function
+            }
+            // We're not intersecting, so remove the class!
+        });
+    });
+
 
     var firstObserver = new IntersectionObserver(entries => {
         entries.forEach(entry => {
@@ -80,6 +104,8 @@ if (location.pathname == "/") {
     secondObserver.observe(document.querySelector(".observer_2"));
     thirdObserver.observe(document.querySelector(".observer_3"));
     fourthObserver.observe(document.querySelector(".observer_4"));
+    aObserver.observe(document.querySelector(".observer_a"));
+    bObserver.observe(document.querySelector(".observer_b"));
 
 
 }

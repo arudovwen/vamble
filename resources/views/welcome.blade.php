@@ -9,10 +9,11 @@
         <div class="banner-text text-center">
             <banner-text></banner-text>
             <div class="mt-4 d-none d-md-block">
-                <button type="button" class="btn  btn-light bg-transparent   text-light mr-3" style="border:2px solid white" data-toggle="modal"
-                    data-target="#videosId"><i class="fa fa-play-circle mr-1" aria-hidden="true"></i> Take a tour</button>
-                <a href="/accomodations"><button type="button"
-                        class="btn btn-light bg-transparent   text-light  "  style="border:2px solid white">See apartments</button></a>
+                <button type="button" class="btn  btn-light bg-transparent   text-light mr-3" style="border:2px solid white"
+                    data-toggle="modal" data-target="#videosId"><i class="fa fa-play-circle mr-1" aria-hidden="true"></i>
+                    Take a tour</button>
+                <a href="/accomodations"><button type="button" class="btn btn-light bg-transparent   text-light  "
+                        style="border:2px solid white">See apartments</button></a>
             </div>
         </div>
 
@@ -91,35 +92,36 @@
     </div>
     <div class="thirdContent">
         <div class="content">
-            <h2 class="mb-5">Apartments & Suites</h2>
-
-            <div class="observer_1 mb-5 pb-5">
+            <h2 class="mb-5">Rooms & Apartments</h2>
+            <div class="observer_a mb-5 pb-5">
                 <div class="row mb-5  fade_text animate__animated animate__fadeOut animate__slow">
                     <div class="col-xs-12 col-sm-6  text-left  mb-4 mb-sm-0">
-                        <h3 class="line_half" style="letter-spacing: .4rem">Standard Apartment</h3>
-                        <p>Our Standard Apartments are modern and stylish, equipped with a fully furnished
-                            kitchen,air-conditioned rooms , 75inch flat-screen television, a magnificent sitting room and so
-                            many other amenities that will make your stay very pleasura...<a class="btn  btn-link px-0 py-0"
+                        <h3 class="line_half" style="letter-spacing: .4rem">Standard Room</h3>
+                        <p>Get comfy in our fully air-conditioned rooms,   setup to give you the perfect feel of a standard bedroom. Spacious and cozy with your own TV,free wifi, re..<a class="btn  btn-link px-0 py-0"
                                 href="/accomodations" role="button">read more </a>
                         </p>
 
-                        <div class="d-flex justify-content-between align-items-center"><div class="price mb-2"> &#8358;100,000 <sub>per night</sub></div>  <div class="price mb-2"> &#8358;30,000 <sub>per room<span class="px-1">/</span>night</sub></div></div>
+                        <div class="r">
+                            <div class="price mb-2"> &#8358;30,000 <sub>per night</sub></div>
+                        </div>
 
                         <div class="flex flex-wrap">
-                            <span class="amenities mb-1 mr-2"><i class="fa fa-bed" aria-hidden="true"></i> Family size beds</span>
+                            <span class="amenities mb-1 mr-2"><i class="fa fa-bed" aria-hidden="true"></i> Family size
+                                beds</span>
                             <span class="amenities mb-1 mr-2"> <i class="fas fa-wind    "></i> Air conditioning</span>
-                            <span class="amenities mb-1 mr-2"><i class="fas fa-faucet"></i> Inbuilt kitchen</span>
-                             <span class="amenities "><i class="fas fa-utensil-spoon    "></i>  Complementary breakfast</span>
+
+                            <span class="amenities "><i class="fas fa-utensil-spoon    "></i> Complementary
+                                breakfast</span>
 
                         </div>
 
                         <div class="mb-4">
                             <span class="badge badge-dark"> Free toiletries</span>
-                            <span class="badge badge-dark">Temperature sensored showers  </span>
+                            <span class="badge badge-dark">Temperature sensored showers </span>
                             <span class="badge badge-dark"> Desk Seating Area</span>
                             <span class="badge badge-dark">Smart TV</span>
-                             <span class="badge badge-dark"> 24 hours Laundry service</span>
-                              <span class="badge badge-dark"> 24 hours bar service</span>
+                            <span class="badge badge-dark"> 24 hours Laundry service</span>
+                            <span class="badge badge-dark"> 24 hours bar service</span>
                             <span class="badge badge-dark"> Refrigerator </span>
                             <span class="badge badge-dark"> Satellite channels </span>
                             <span class="badge badge-dark"> Wireless Internet </span>
@@ -132,21 +134,137 @@
                     </div>
                     <div class="col-xs-12 col-sm-6  ">
                         <div id="roomId1" class="carousel slide" data-ride="carousel">
+
+                            <div class="carousel-inner" role="listbox">
+                                <div class="carousel-item room-item active bg-light" data-bs-interval="0">
+                                    <img src="{{ asset('/images/rooms/bed11.jpg') }}" alt="Third slide">
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="observer_b mb-5 pb-5">
+                <div class="row mb-5  fade_text animate__animated animate__fadeOut animate__slow flex-column-reverse flex-sm-row">
+                      <div class="col-xs-12 col-sm-6  ">
+                        <div id="roomId1" class="carousel slide" data-ride="carousel">
+
+                            <div class="carousel-inner" role="listbox">
+                                <div class="carousel-item room-item active bg-light" data-bs-interval="0">
+                                    <img src="{{ asset('/images/rooms/bed5.jpg') }}" alt="Third slide">
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6  text-left  mb-4 mb-sm-0">
+                        <h3 class="line_half" style="letter-spacing: .4rem">Executive Room</h3>
+                        <p>We strive to provide a hospitable surrounding with our executive masters bedroom.
+                        You get free wifi, TV, a refrigerator, massive bedroom space, a share...<a class="btn  btn-link px-0 py-0"
+                                href="/accomodations" role="button">read more </a>
+                        </p>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="price mb-2"> &#8358;45,000<sub>per night</sub></div>
+                        </div>
+
+                        <div class="flex flex-wrap">
+                            <span class="amenities mb-1 mr-2"><i class="fa fa-bed" aria-hidden="true"></i> Family size
+                                beds</span>
+                            <span class="amenities mb-1 mr-2"> <i class="fas fa-wind    "></i> Air conditioning</span>
+
+                            <span class="amenities "><i class="fas fa-utensil-spoon    "></i> Complementary
+                                breakfast</span>
+
+                        </div>
+
+                        <div class="mb-4">
+                            <span class="badge badge-dark"> Free toiletries</span>
+                            <span class="badge badge-dark">Temperature sensored showers </span>
+                            <span class="badge badge-dark"> Desk Seating Area</span>
+                            <span class="badge badge-dark">Smart TV</span>
+                            <span class="badge badge-dark"> 24 hours Laundry service</span>
+                            <span class="badge badge-dark"> 24 hours bar service</span>
+                            <span class="badge badge-dark"> Refrigerator </span>
+                            <span class="badge badge-dark"> Satellite channels </span>
+                            <span class="badge badge-dark"> Wireless Internet </span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="/booking"> <button type="button" class="btn btn-outline-dark btn-sm"> Reserve
+                                    room</button></a>
+                            <span> <span class="badge  badge-success">9.2</span> <span>Superb</span></span>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="observer_1 mb-5 pb-5">
+                <div class="row mb-5  fade_text animate__animated animate__fadeOut animate__slow">
+                    <div class="col-xs-12 col-sm-6  text-left  mb-4 mb-sm-0">
+                        <h3 class="line_half" style="letter-spacing: .4rem">Standard Apartment</h3>
+                        <p>Our Standard Apartments are modern and stylish, equipped with a 75inch flat-screen television, a magnificent sitting room and so
+                            many other amenities that will make your stay very pleasura...<a
+                                class="btn  btn-link px-0 py-0" href="/accomodations" role="button">read more </a>
+                        </p>
+
+                        <div class="">
+                            <div class="price mb-2"> &#8358;100,000 <sub>per night</sub></div>
+
+                        </div>
+
+                        <div class="flex flex-wrap">
+                            <span class="amenities mb-1 mr-2"><i class="fa fa-bed" aria-hidden="true"></i> Family
+                                size beds</span>
+                            <span class="amenities mb-1 mr-2"> <i class="fas fa-wind    "></i> Air conditioning</span>
+                            <span class="amenities mb-1 mr-2"><i class="fas fa-faucet"></i> Inbuilt kitchen</span>
+                            <span class="amenities "><i class="fas fa-utensil-spoon    "></i> Complementary
+                                breakfast</span>
+
+                        </div>
+
+                        <div class="mb-4">
+                            <span class="badge badge-dark"> Free toiletries</span>
+                            <span class="badge badge-dark">Temperature sensored showers </span>
+                            <span class="badge badge-dark"> Desk Seating Area</span>
+                            <span class="badge badge-dark">Smart TV</span>
+                            <span class="badge badge-dark"> 24 hours Laundry service</span>
+                            <span class="badge badge-dark"> 24 hours bar service</span>
+                            <span class="badge badge-dark"> Refrigerator </span>
+                            <span class="badge badge-dark"> Satellite channels </span>
+                            <span class="badge badge-dark"> Wireless Internet </span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="/booking"> <button type="button" class="btn btn-outline-dark btn-sm"> Reserve
+                                    room</button></a>
+                            <span> <span class="badge  badge-success">9.7</span> <span>Superb</span></span>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6  ">
+                        <div id="stand1" class="carousel slide" data-ride="carousel">
                             <ol class="carousel-indicators">
-                                <li data-target="#roomId1" data-slide-to="0" class="active"></li>
-                                <li data-target="#roomId1" data-slide-to="1"></li>
-                                <li data-target="#roomId1" data-slide-to="2"></li>
+                                <li data-target="#stand1" data-slide-to="0" class="active"></li>
+                                <li data-target="#stand1" data-slide-to="1"></li>
+                                  <li data-target="#stand1" data-slide-to="2"></li>
+
                             </ol>
                             <div class="carousel-inner" role="listbox">
                                 <div class="carousel-item room-item active bg-light" data-bs-interval="5000">
-                                    <img src="{{ asset('/images/rooms/sitting1.jpg') }}" alt="Third slide">
+                                    <img src="{{ asset('/images/rooms/sitting16.jpg') }}" alt="Third slide">
                                 </div>
                                 <div class="carousel-item room-item bg-light" data-bs-interval="3700">
-                                    <img src="{{ asset('/images/rooms/bed4.jpg') }}" alt="Third slide">
+                                    <img src="{{ asset('/images/rooms/bed9.jpg') }}" alt="Third slide">
                                 </div>
-                                <div class="carousel-item room-item  bg-light" data-bs-interval="4000">
-                                    <img src="{{ asset('/images/rooms/kitchen2.jpg') }}" alt="Third slide">
+                                 <div class="carousel-item room-item bg-light" data-bs-interval="4700">
+                                    <img src="{{ asset('/images/rooms/broom.jpg') }}" alt="Third slide">
                                 </div>
+
                             </div>
 
                         </div>
@@ -167,7 +285,7 @@
                             </ol>
                             <div class="carousel-inner" role="listbox">
                                 <div class="carousel-item room-item active bg-light" data-bs-interval="4600">
-                                    <img src="{{ asset('/images/rooms/sitting9.jpg') }}" alt="Third slide">
+                                    <img src="{{ asset('/images/rooms/living3.jpg') }}" alt="Third slide">
                                 </div>
                                 <div class="carousel-item room-item bg-light" data-bs-interval="3800">
                                     <img src="{{ asset('/images/rooms/bed2.jpg') }}" alt="Third slide">
@@ -188,23 +306,28 @@
                                 role="button">read more </a>
                         </p>
 
-                       <div class="d-flex justify-content-between align-items-center"><div class="price mb-2"> &#8358;120,000 <sub>per night</sub></div>  <div class="price mb-2"> &#8358;45,000 <sub>per room<span class="px-1">/</span>night</sub></div></div>
+                        <div class="">
+                            <div class="price mb-2"> &#8358;120,000 <sub>per night</sub></div>
+
+                        </div>
 
                         <div class="flex flex-wrap">
-                            <span class="amenities mb-1 mr-2"><i class="fa fa-bed" aria-hidden="true"></i> Family size beds</span>
+                            <span class="amenities mb-1 mr-2"><i class="fa fa-bed" aria-hidden="true"></i> Family
+                                size beds</span>
                             <span class="amenities mb-1 mr-2"> <i class="fas fa-wind    "></i> Air conditioning</span>
                             <span class="amenities mb-1 mr-2"><i class="fas fa-faucet    "></i> Inbuilt kitchen</span>
-                             <span class="amenities "><i class="fas fa-utensil-spoon    "></i> Complementary breakfast</span>
+                            <span class="amenities "><i class="fas fa-utensil-spoon    "></i> Complementary
+                                breakfast</span>
 
                         </div>
                         <div class="mb-4">
                             <span class="badge badge-dark"> Free toiletries</span>
-                            <span class="badge badge-dark">Temperature sensored showers  </span>
+                            <span class="badge badge-dark">Temperature sensored showers </span>
                             <span class="badge badge-dark"> Desk Seating Area</span>
                             <span class="badge badge-dark">Smart TV</span>
- <span class="badge badge-dark">Smart TV</span>
-                             <span class="badge badge-dark"> 24 hours Laundry service</span>
-                              <span class="badge badge-dark"> 24 hours bar service</span>
+                            <span class="badge badge-dark">Smart TV</span>
+                            <span class="badge badge-dark"> 24 hours Laundry service</span>
+                            <span class="badge badge-dark"> 24 hours bar service</span>
                             <span class="badge badge-dark"> Refrigerator </span>
                             <span class="badge badge-dark"> Satellite channels </span>
                             <span class="badge badge-dark"> Wireless Internet </span>
@@ -223,27 +346,31 @@
                 <div class="row mb-5  fade_text animate__animated animate__fadeOut animate__slow">
                     <div class="col-xs-12 col-sm-6  text-left  mb-4 mb-sm-0">
                         <h3 class="line_half" style="letter-spacing: .4rem">Platinum Apartment</h3>
-                        <p>Our Platinum Apartments will leave you enthralled in its grandeur and luxury. Its interior is classy and fully equipped from the grand sitting room to the magnificent bedrooms and standardized kitchen, accompanied by cable tv an...<a class="btn  btn-link px-0 py-0"
+                        <p>Our Platinum Apartments will leave you enthralled in its grandeur and luxury. Its interior is
+                            classy and fully equipped from the grand sitting room to the magnificent bedrooms and
+                            standardized kitchen, accompanied by cable tv an...<a class="btn  btn-link px-0 py-0"
                                 href="/accomodations" role="button">read more </a>
                         </p>
 
                         <div class="price mb-2"> &#8358;150,000 <sub>per night</sub></div>
                         <div class="flex flex-wrap">
-                            <span class="amenities mb-1 mr-2"><i class="fa fa-bed" aria-hidden="true"></i> Family size beds</span>
+                            <span class="amenities mb-1 mr-2"><i class="fa fa-bed" aria-hidden="true"></i> Family
+                                size beds</span>
                             <span class="amenities mb-1 mr-2"> <i class="fas fa-wind    "></i> Air conditioning</span>
                             <span class="amenities  mb-1 mr-2"><i class="fas fa-faucet    "></i> Inbuilt kitchen</span>
-                             <span class="amenities "><i class="fas fa-utensil-spoon    "></i> Complementary breakfast</span>
+                            <span class="amenities "><i class="fas fa-utensil-spoon    "></i> Complementary
+                                breakfast</span>
 
 
 
                         </div>
                         <div class="mb-4">
                             <span class="badge badge-dark"> Free toiletries</span>
-                            <span class="badge badge-dark">Temperature sensored showers  </span>
+                            <span class="badge badge-dark">Temperature sensored showers </span>
                             <span class="badge badge-dark"> Desk Seating Area</span>
                             <span class="badge badge-dark">Smart TV</span>
-                             <span class="badge badge-dark"> 24 hours Laundry service</span>
-                              <span class="badge badge-dark"> 24 hours bar service</span>
+                            <span class="badge badge-dark"> 24 hours Laundry service</span>
+                            <span class="badge badge-dark"> 24 hours bar service</span>
 
                             <span class="badge badge-dark"> Refrigerator </span>
                             <span class="badge badge-dark"> Satellite channels </span>
@@ -252,19 +379,19 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <a href="/booking"> <button type="button" class="btn btn-outline-dark btn-sm"> Reserve
                                     room</button></a>
-                            <span> <span class="badge  badge-success">9.2</span> <span>Superb</span></span>
+                            <span> <span class="badge  badge-success">9.8</span> <span>Superb</span></span>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6  ">
-                        <div id="roomId1" class="carousel slide" data-ride="carousel">
+                        <div id="plat" class="carousel slide" data-ride="carousel">
                             <ol class="carousel-indicators">
-                                <li data-target="#roomId1" data-slide-to="0" class="active"></li>
-                                <li data-target="#roomId1" data-slide-to="1"></li>
-                                <li data-target="#roomId1" data-slide-to="2"></li>
+                                <li data-target="#plat" data-slide-to="0" class="active"></li>
+                                <li data-target="#plat" data-slide-to="1"></li>
+                                <li data-target="#plat" data-slide-to="2"></li>
                             </ol>
                             <div class="carousel-inner" role="listbox">
                                 <div class="carousel-item room-item active bg-light" data-bs-interval="5300">
-                                    <img src="{{ asset('/images/rooms/broom.jpg') }}" alt="Third slide">
+                                    <img src="{{ asset('/images/rooms/sitting11.jpg') }}" alt="Third slide">
                                 </div>
                                 <div class="carousel-item room-item bg-light" data-bs-interval="3700">
                                     <img src="{{ asset('/images/rooms/sitting13.jpg') }}" alt="Third slide">
@@ -348,7 +475,6 @@
         var navigation = document.getElementById("nav");
         navigation.classList.remove("default_navigation");
         navigation.classList.add("initial_navigation");
-
     </script>
 
 @endsection

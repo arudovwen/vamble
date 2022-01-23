@@ -20,7 +20,7 @@
                       <li class="nav-item ">
                           <a class="nav-link " href="#"> <i class="fa fa-phone-square text-primary"
                                   aria-hidden="true"></i>
-                              <span class="nav-text"> +234-906-464-5461</span></a>
+                              <span class="nav-text"> +2349064645461</span></a>
                       </li>
 
                       <li class="nav-item">
@@ -39,11 +39,11 @@
                       <li class="nav-item d-flex align-items-center">
 
                      <a href="http://instagram.com/vambleapartments" target="_blank"> <span class="">
-                          <i class="fab fa-instagram text-primary mr-1" aria-hidden="true"></i>
+                          <i class="fab fa-instagram text-primary mr-2" aria-hidden="true"></i>
 
                       </span></a>
-                      <span ><i class="fab fa-facebook mr-1 text-primary" aria-hidden="true"></i>
-                      </span>
+                     <a href="http://wa.me/2349064645461"> <span ><i class="fab fa-whatsapp mr-2 text-primary" aria-hidden="true"></i>
+                      </span></a>
                       <span > <i class="fab fa-twitter text-primary" aria-hidden="true"></i></span>
 
                       </li>
@@ -74,7 +74,7 @@
                       <li class="nav-item {{ request()->routeIs('accomodations') ? 'active' : '' }}">
 
                           <a class="nav-link"
-                              href="{{ route('accomodations') }}">{{ __('Apartments & Suites') }}</a>
+                              href="{{ route('accomodations') }}">{{ __('Rooms & Apartments ') }}</a>
                       </li>
                       <li class="nav-item {{ request()->routeIs('contact') ? 'active' : '' }}">
 

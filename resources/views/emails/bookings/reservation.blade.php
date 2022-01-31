@@ -3,7 +3,8 @@
 
 **Reservation Details** <br>
 Guest name : {{ ucfirst($name) }} <br>
-Guest email : {{ $email }}
+Guest email : {{ $email }}  <br>
+Guest phone : {{ $phone }}
 
 @component('mail::table')
 |Booking no | {{ $booking_no }} |

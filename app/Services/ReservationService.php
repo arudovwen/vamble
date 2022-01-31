@@ -10,9 +10,12 @@ use App\Models\Reservation;
 use App\Mail\BookingSuccess;
 use App\Mail\NewReservation;
 use App\Models\RoomCalendar;
+use App\Models\GoogleCalendar;
+use Spatie\GoogleCalendar\Event;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Resources\ReservationResource;
+use App\Http\Controllers\CalendarController;
 use App\Notifications\NewReservationNotification;
 
 class ReservationService
@@ -30,6 +33,8 @@ class ReservationService
         $checkNo = Reservation::where('booking_no', $booking_no)->first();
         $oneroom = null;
         $slicedroom =  array_slice($request->flats, 0, $request->rooms);
+        $checkIn = Carbon::parse($request->checkIn)->midDay();
+        $checkOut = Carbon::parse($request->checkOut)->midDay();
 
         while ($checkNo) {
           $booking_no = rand(10000000, 99999999);
@@ -54,8 +59,8 @@ class ReservationService
           'booking_no' => $booking_no,
           'no_of_guests' => $request->guests,
           'no_of_rooms'  => $request->rooms,
-          'check_in'  => $request->checkIn,
-          'check_out'  => $request->checkOut,
+          'check_in'  => $checkIn,
+          'check_out'  => $checkOut,
           'duration'  => $duration,
           'price_per_night'  => $request->price_per_night,
           'total_price'  => intval($duration) * intval($request->price_per_night) *  intval($request->rooms),
@@ -71,8 +76,8 @@ class ReservationService
           $calendar =  RoomCalendar::create(['room_id' => $room['id']]);
           $calendar->user_id = $user->id;
           $calendar->reservation_id = $reservation->id;
-          $calendar->check_in = $request->checkIn;
-          $calendar->check_out = $request->checkOut;
+          $calendar->check_in = $checkIn;
+          $calendar->check_out = $checkOut;
           $calendar->save();
           $oneroom = $room;
         }
@@ -97,6 +102,7 @@ class ReservationService
           'email' => $user->email,
           'booking_no' => $booking_no,
           'no_of_guests' => $request->guests,
+           'phone' => $request->phone,
           'no_of_rooms'  => $request->rooms,
           'check_in'  => Carbon::parse($request->checkIn)->toFormattedDateString(),
           'check_out'  => Carbon::parse($request->checkOut)->toFormattedDateString(),
@@ -110,11 +116,31 @@ class ReservationService
           'room'  => $oneroom['room_name'],
           'status' => ucfirst($request->status)
         ];
-        Mail::to($user->email)->send(new BookingSuccess($detail));
-        Mail::to('vambleapartment@gmail.com')->send(new NewReservation($admindetail));
+        // Mail::to($user->email)->send(new BookingSuccess($detail));
+        // Mail::to('info@vambleapartments.com')->send(new NewReservation($admindetail));
 
-        $admin = User::find(2);
-        $admin->notify(new NewReservationNotification());
+        // $admin = User::where('email', 'admin@vambleapartments.com')->first();
+        // $admin->notify(new NewReservationNotification());
+
+
+        // Add event to google calendar
+        $calendar_id = $oneroom['flat_type'].' '.$oneroom['flat_name'];
+        $calendar = new CalendarController();
+        $calendar->handleCalendar(strtolower($calendar_id));
+        $event = new Event;
+        $event->name = ucfirst($user->name).' Reservation';
+        $event->description = ucfirst($oneroom['flat_type']).' '.ucfirst($oneroom['flat_name']).' reserved';
+        $event->startDateTime = $checkIn;
+        $event->endDateTime = $checkOut;
+       $newEvent = $event->save();
+
+        // Add event id to db
+        $googlecal  = new GoogleCalendar();
+        $googlecal->reservation_id = $reservation->id;
+        $googlecal->google_id = $newEvent->id;
+        $googlecal->save();
+
+
         return response($reservation, 201);
       } catch (\Throwable $th) {
         throw $th;
@@ -157,8 +183,8 @@ class ReservationService
           'booking_no' => $booking_no,
           'no_of_guests' => $request->guests,
           'no_of_rooms'  => $request->rooms,
-          'check_in'  => $request->checkIn,
-          'check_out'  => $request->checkOut,
+          'check_in'  => Carbon::parse($request->checkIn)->midDay(),
+          'check_out'  => Carbon::parse($request->checkOut)->midDay(),
           'duration'  => $duration,
           'price_per_night'  => $request->price,
           'total_price'  => intval($duration) * intval($request->price) *  intval($request->rooms),
@@ -177,8 +203,8 @@ class ReservationService
           $calendar =  RoomCalendar::create(['room_id' => $id]);
           $calendar->user_id = $user->id;
           $calendar->reservation_id = $reservation->id;
-          $calendar->check_in = $request->checkIn;
-          $calendar->check_out = $request->checkOut;
+          $calendar->check_in = Carbon::parse($request->checkIn)->midDay();
+          $calendar->check_out = Carbon::parse($request->checkOut)->midDay();
           $calendar->save();
 
           $room->status = true;
@@ -192,8 +218,8 @@ class ReservationService
           'booking_no' => $booking_no,
           'no_of_guests' => $request->guests,
           'no_of_rooms'  => $request->rooms,
-          'check_in'  => $request->checkIn,
-          'check_out'  => $request->checkOut,
+          'check_in'  => Carbon::parse($request->checkIn)->midDay(),
+          'check_out'  => Carbon::parse($request->checkOut)->midDay(),
           'nights'  => $duration,
           'price_per_night'  => $request->price,
           'total_price'  => $request->total_price,
@@ -205,11 +231,12 @@ class ReservationService
         $admindetail = [
           'name' => $user->name,
           'email' => $user->email,
+          'phone' => $request->phone,
           'booking_no' => $booking_no,
           'no_of_guests' => $request->guests,
           'no_of_rooms'  => $request->rooms,
-          'check_in'  => $request->checkIn,
-          'check_out'  => $request->checkOut,
+          'check_in'  => Carbon::parse($request->checkIn)->midDay(),
+          'check_out'  => Carbon::parse($request->checkOut)->midDay(),
           'nights'  => $duration,
           'price_per_night'  => $request->price,
           'total_price'  => $request->total_price,
@@ -221,7 +248,27 @@ class ReservationService
           'status' => $request->status
         ];
         Mail::to($user->email)->send(new BookingSuccess($detail));
-        Mail::to('vambleapartment@gmail.com')->send(new NewReservation($admindetail));
+        Mail::to('info@vambleapartments.com')->send(new NewReservation($admindetail));
+
+        $calendar_id = $oneroom['flat_type'] . ' ' . $oneroom['flat_name'];
+        $calendar = new CalendarController($calendar_id);
+        $event = new Event;
+        $event->name = strtoupper($user->name) . ' Reservation';
+        $event->description = ucfirst($oneroom['flat_type']) . ' ' . ucfirst($oneroom['flat_name']) . ' reserved';
+        $event->startDateTime = Carbon::parse($request->checkIn)->midDay();
+        $event->endDateTime = Carbon::parse($request->checkOut)->midDay();
+        $newEvent = $event->save();
+
+        // Add event id to db
+        $googlecal  = new GoogleCalendar();
+        $googlecal->reservation_id = $reservation->id;
+        $googlecal->google_id = $newEvent->id;
+        $googlecal->save();
+
+        $admin = User::where('email', 'admin@vambleapartments.com')->first();
+        $admin->notify(new NewReservationNotification());
+
+
 
         return response($reservation, 201);
       } catch (\Throwable $th) {
@@ -479,9 +526,11 @@ class ReservationService
   }
 
 
-  public function removereservation($reservation)
+  public function removereservation( $reservation)
   {
     $calendar =  RoomCalendar::where('reservation_id', $reservation->id)->get();
+    $google = GoogleCalendar::where('reservation_id',$reservation->id)->first();
+    Event::find($google->id)->delete();
 
     foreach ($calendar as $value) {
       $value->delete();
@@ -489,13 +538,16 @@ class ReservationService
     $reservation->delete();
     return response('success');
   }
-  public function adminremovereservation($reservation)
+  public function adminremovereservation( $reservation)
   {
     $calendar =  RoomCalendar::where('reservation_id', $reservation->id)->get();
 
     foreach ($calendar as $value) {
       $value->delete();
     }
+    $google = GoogleCalendar::where('reservation_id', $reservation->id)->first();
+    Event::find($google->id)->delete();
+
     $reservation->delete();
     return redirect('/reservations')->with('success', 'Reservation cancelled');
   }

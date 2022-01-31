@@ -12,6 +12,7 @@
         "consoletvs/charts": "^7.2",
         "diglactic/laravel-breadcrumbs": "^7.0",
         "fruitcake/laravel-cors": "^2.0",
+        "google/apiclient": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.54",
         "laravel/sanctum": "^2.11",
@@ -20,6 +21,7 @@
         "laraveldaily/laravel-charts": "^0.1.25",
         "maatwebsite/excel": "^3.1",
         "silviolleite/laravelpwa": "^2.0",
+        "spatie/laravel-google-calendar": "^3.5",
         "unicodeveloper/laravel-paystack": "^1.0"
     },
     "require-dev": {

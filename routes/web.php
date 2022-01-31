@@ -110,3 +110,5 @@ Route::get('/clear-cache', function () {
     $exitCode = Artisan::call('cache:clear');
     // return what you want
 });
+
+Route::resource('google-calendar', App\Http\Controllers\CalendarController::class);

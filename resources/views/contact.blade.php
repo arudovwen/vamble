@@ -21,7 +21,7 @@
                                     Jahi. Abuja</a></span>
                         </div>
                         <div class="mb-3"> <i class="fa fa-envelope" aria-hidden="true"></i> Email :
-                            info@vambleapartments.com</div> <br>
+                            support@vambleapartments.com</div> <br>
 
                     </div>
                     <div class="d-none d-md-block">

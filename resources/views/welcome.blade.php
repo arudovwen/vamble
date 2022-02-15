@@ -215,7 +215,7 @@
                         </p>
 
                         <div class="">
-                            <div class="price mb-2"> &#8358;100,000 <sub>per night</sub></div>
+                            <div class="price mb-2"> &#8358;110,000 <sub>per night</sub></div>
 
                         </div>
 
@@ -223,7 +223,7 @@
                             <span class="amenities mb-1 mr-2"><i class="fa fa-bed" aria-hidden="true"></i> Family
                                 size beds</span>
                             <span class="amenities mb-1 mr-2"> <i class="fas fa-wind    "></i> Air conditioning</span>
-                            <span class="amenities mb-1 mr-2"><i class="fas fa-faucet"></i> Inbuilt kitchen</span>
+                            <span class="amenities mb-1 mr-2"><i class="fas fa-times text-danger"></i> No kitchen</span>
                             <span class="amenities "><i class="fas fa-utensil-spoon    "></i> Complementary
                                 breakfast</span>
 

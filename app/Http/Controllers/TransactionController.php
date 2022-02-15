@@ -157,7 +157,7 @@ class TransactionController extends Controller
                     'status' => ucfirst($request->status)
                 ];
                 Mail::to($user->email)->send(new BookingSuccess($detail));
-                Mail::to('info@vambleapartments.com')->send(new NewReservation($admindetail));
+                Mail::to('support@vambleapartments.com')->send(new NewReservation($admindetail));
 
 
                 return response(['status' => 'success', 'booking_no'=> $reservation->booking_no], 200);

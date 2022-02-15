@@ -73,6 +73,7 @@
                         air-conditioned rooms , 75inch flat-screen television, a magnificent sitting room and so
                         many other amenities that will make your stay very pleasurable. Fully equipped with state of the art
                         furnitures, a grand sitting room, cable tv, and free wifi.</p>
+                          <span class="amenities mb-1 mr-2"><i class="fas fa-times text-danger"></i> No kitchen available</span>
                 </div>
                 <div class="col-sm-6 px-3 px-md-0">
                     <div id="appId1" class="carousel slide" data-ride="carousel">

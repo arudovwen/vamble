@@ -36,7 +36,15 @@ class CalendarController extends Controller
     Config::set('google-calendar.credentials_json', storage_path('app/google-calendar/oauth-credentials.json'));
     Config::set('google-calendar.token_json', storage_path('app/google-calendar/oauth-token.json'));
     Config::set('google-calendar.calendar_id', $email);
+  }
 
+  public function checkcalendar($id, $checkIn, $checkOut)
+  {
+    $this->handleCalendar($id);
+    $allevents = Event::get()->filter(function ($a) use ($checkIn, $checkOut) {
 
+       return $a->googleEvent->start->dateTime <= $checkOut && $a->googleEvent->end->dateTime >= $checkIn;
+    });
+    return count($allevents);
   }
 }

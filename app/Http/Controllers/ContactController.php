@@ -17,7 +17,7 @@ class ContactController extends Controller
     public function sendmessage(Request $request)
     {
 
-        Mail::to('info@vambleapartments.com')->send(new ContactMail($request->all()));
+        Mail::to('support@vambleapartments.com')->send(new ContactMail($request->all()));
         return redirect()->back()->with('success', 'Mail sent');
     }
 }

@@ -116,11 +116,11 @@ class ReservationService
           'room'  => $oneroom['room_name'],
           'status' => ucfirst($request->status)
         ];
-        // Mail::to($user->email)->send(new BookingSuccess($detail));
-        // Mail::to('info@vambleapartments.com')->send(new NewReservation($admindetail));
+         Mail::to($user->email)->send(new BookingSuccess($detail));
+         Mail::to('support@vambleapartments.com')->send(new NewReservation($admindetail));
 
-        // $admin = User::where('email', 'admin@vambleapartments.com')->first();
-        // $admin->notify(new NewReservationNotification());
+        $admin = User::where('email', 'admin@vambleapartments.com')->first();
+        $admin->notify(new NewReservationNotification());
 
 
         // Add event to google calendar
@@ -248,7 +248,7 @@ class ReservationService
           'status' => $request->status
         ];
         Mail::to($user->email)->send(new BookingSuccess($detail));
-        Mail::to('info@vambleapartments.com')->send(new NewReservation($admindetail));
+        Mail::to('support@vambleapartments.com')->send(new NewReservation($admindetail));
 
         $calendar_id = $oneroom['flat_type'] . ' ' . $oneroom['flat_name'];
         $calendar = new CalendarController($calendar_id);
@@ -457,6 +457,10 @@ class ReservationService
     $flat_type = $request->flat_type;
     $flat_name = $request->flat_name;
     $roomsneeded = $request->rooms;
+
+    // $calendar_id = $request->flat_type . ' ' . $request->flat_name;
+    // $calendar = new CalendarController();
+    // return $calendar->checkcalendar(strtolower($calendar_id),$check_in , $check_out);
 
     if ($request->isMethod('POST')) {
 

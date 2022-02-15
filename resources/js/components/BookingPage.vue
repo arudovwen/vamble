@@ -62,7 +62,7 @@
           <div class="form-group">
             <select class="form-control" required v-model="detail.rooms">
               <option :value="null" disabled>No of rooms</option>
-              <option :value="n" v-for="n in 10" :key="n">{{ n }}</option>
+              <option :value="n" v-for="n in 4" :key="n">{{ n }}</option>
             </select>
           </div>
         </div>
@@ -70,7 +70,7 @@
           <div class="form-group">
             <select class="form-control" required v-model="detail.guests">
               <option :value="null" disabled>No of guests</option>
-              <option :value="n" v-for="n in 5" :key="n">{{ n }}</option>
+              <option :value="n" v-for="n in 6" :key="n">{{ n }}</option>
             </select>
           </div>
         </div>
@@ -708,7 +708,6 @@ export default {
         price_per_night: null,
         flats: [],
       },
-
       info: null,
       bookingNumber: "",
       rooms: [],
@@ -732,7 +731,7 @@ export default {
         {
           id: 3,
           name: "standard",
-          price: 100000,
+          price: 110000,
           type: "apartment",
         },
         {

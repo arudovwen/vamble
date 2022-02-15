@@ -30,7 +30,7 @@ class BookingUpdate extends Mailable
     public function build()
     {
         return $this->subject(' Reservation Update')
-        ->from('info@vambleapartments.com','Vamble Team')
+        ->from('support@vambleapartments.com','Vamble Team')
         ->markdown('emails.bookings.update', $this->detail);
     }
 }

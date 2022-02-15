@@ -217,7 +217,7 @@ export default {
         {
           id: 3,
           name: "standard",
-          price: 100000,
+          price: 110000,
           type: "apartment",
         },
         {

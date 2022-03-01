@@ -1,7 +1,8 @@
 @extends('layouts.app')
 @section('title','Your Booking History')
 @section('description', 'Vamble apartments and suites')
-@section('keywords', 'Vamble , Apartments, Hotels, Suites,bookings, online , Abuja')
+@section('keywords', 'Vamble Apartments,Vamble , Apartments, Hotels, Suites,Bookings, Online
+Apartments, Abuja, Abuja-Hotels,FCT-Hotels, Abuja-Apartments,Abuja-Stay,Home,Places,Jahi, Serviced Apartments Abuja')
 @section('content')
     @php
     $bookings = session()->get('data');

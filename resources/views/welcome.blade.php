@@ -1,7 +1,8 @@
 @extends('layouts.app')
 @section('title', 'A Home Away From Home')
 @section('description', "Vamble Apartments and Suites is a sweet spot to relax and enjoy the splendor and exquisite feeling of a home away from home. It's perculiarity is second to none.")
-@section('keywords', 'Vamble , Apartments, Hotels, Suites,bookings, online , Abuja,stay,home,places,jahi')
+@section('keywords', 'Vamble Apartments,Vamble , Apartments, Hotels, Suites,Bookings, Online
+Apartments, Abuja, Abuja-Hotels,FCT-Hotels, Abuja-Apartments,Abuja-Stay,Home,Places,Jahi, Serviced Apartments Abuja')
 @section('content')
     <div class="firstContent">
 

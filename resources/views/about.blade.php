@@ -1,7 +1,8 @@
 @extends('layouts.app')
 @section('title','All about us')
 @section('description', 'About Vamble apartments and suites')
-@section('keywords', 'Vamble , Apartments, Hotels, Suites,bookings, online , Abuja')
+@section('keywords', 'Vamble Apartments,Vamble , Apartments, Hotels, Suites,Bookings, Online
+Apartments, Abuja, Abuja-Hotels,FCT-Hotels, Abuja-Apartments,Abuja-Stay,Home,Places,Jahi, Serviced Apartments Abuja')
 @section('content')
     <div class="about_banner_img d-flex flex-column align-items-center justify-content-center align-items-center">
         <h1 class="font-weight-bold ">About Vamble Apartments & Suites</h1>

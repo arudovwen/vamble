@@ -59,7 +59,7 @@
 
                     <i class="fa fa-quote-left fa-3x quote" aria-hidden="true"></i>
                     <div>
-                        <img src="/images/vamb-img/sitting11.jpg" style="height: 80px; width:80px"
+                        <img src="/images/rooms/sitting11.jpg" style="height: 80px; width:80px"
                             class="rounded-circle mb-4" alt="">
                     </div>
                     <div>

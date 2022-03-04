@@ -3,7 +3,7 @@
 
 <head>
 
-    <title>Vamble Apartments & Suites - @yield('title')</title>
+    <title> @yield('title')</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="@yield('description')">
@@ -12,7 +12,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="language" content="English">
     <meta name="revisit-after" content="30 days">
-      {!! SEO::generate(true) !!}
+    {!! SEO::generate(true) !!}
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @laravelPWA
@@ -24,15 +24,28 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=The+Nautigal&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-222017734-1">
+    </script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-222017734-1');
+    </script>
+
     <!--Start of Tawk.to Script-->
-    <script type="text/javascript">
+    <script type="text/javascript" defer>
         var Tawk_API = Tawk_API || {},
             Tawk_LoadStart = new Date();
         (function() {
@@ -77,10 +90,10 @@
                 scope: '.'
             }).then(function(registration) {
                 // Registration was successful
-                console.log('Laravel PWA: ServiceWorker registration successful with scope: ', registration.scope);
+               // console.log('Laravel PWA: ServiceWorker registration successful with scope: ', registration.scope);
             }, function(err) {
                 // registration failed :(
-                console.log('Laravel PWA: ServiceWorker registration failed: ', err);
+                // console.log('Laravel PWA: ServiceWorker registration failed: ', err);
             });
         }
     </script>
@@ -120,7 +133,7 @@
             }
         }
     </script>
-    <script src="https://gogetssl-cdn.s3.eu-central-1.amazonaws.com/site-seals/gogetssl-seal.js"></script>
+
     @yield('javascript')
     {{-- <div class="d-flex">
 

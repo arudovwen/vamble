@@ -1,6 +1,7 @@
 @extends('layouts.app')
-@section('title','All about us')
-@section('description', 'About Vamble apartments and suites')
+@section('title','About Vamble Apartments & Suites')
+@section('description', 'Vamble Apartment & Suites Limited is a renowned lodging facility built just
+                        like a home to ensure a wonderful and comfortable experience.')
 @section('keywords', 'Vamble Apartments,Vamble , Apartments, Hotels, Suites,Bookings, Online
 Apartments, Abuja, Abuja-Hotels,FCT-Hotels, Abuja-Apartments,Abuja-Stay,Home,Places,Jahi, Serviced Apartments Abuja')
 @section('content')

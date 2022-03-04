@@ -10,7 +10,7 @@ class AccomodationController extends Controller
     public function index()
     {
 
-        SEOTools::setDescription('Our apartments and suites');
+   
         SEOTools::opengraph()->setUrl('https://vambleapartments.com/accomodations');
         SEOTools::setCanonical('https://vambleapartments.com/accomodations');
         SEOTools::opengraph()->addProperty('type', 'articles');

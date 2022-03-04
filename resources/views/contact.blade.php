@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Contact us')
+@section('title', 'Contact Vamble Apartments')
 @section('description', 'Contact Vamble apartments and suites')
 @section('keywords', 'Vamble Apartments,Vamble , Apartments, Hotels, Suites,Bookings, Online
 Apartments, Abuja, Abuja-Hotels,FCT-Hotels, Abuja-Apartments,Abuja-Stay,Home,Places,Jahi, Serviced Apartments Abuja')

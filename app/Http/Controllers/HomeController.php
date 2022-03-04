@@ -23,8 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        SEOTools::setTitle('A Home Away From Home');
-        SEOTools::setDescription('Vamble Apartments and Suites is a sweet spot to relax and enjoy the splendor and exquisite feeling of a home away from home.');
+        
         SEOTools::opengraph()->setUrl('https://vambleapartments.com');
         SEOTools::setCanonical('https://vambleapartments.com/');
         SEOTools::opengraph()->addProperty('type', 'articles');

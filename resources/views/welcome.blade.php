@@ -1,8 +1,10 @@
 @extends('layouts.app')
-@section('title', 'A Home Away From Home')
-@section('description', "Vamble Apartments and Suites is a sweet spot to relax and enjoy the splendor and exquisite feeling of a home away from home. It's perculiarity is second to none.")
-@section('keywords', 'Vamble Apartments,Vamble , Apartments, Hotels, Suites,Bookings, Online
-Apartments, Abuja, Abuja-Hotels,FCT-Hotels, Abuja-Apartments,Abuja-Stay,Home,Places,Jahi, Serviced Apartments Abuja')
+@section('title', 'Vamble Apartments and Suites')
+@section('description', "Vamble Apartments and Suites is a sweet spot to relax and enjoy the splendor and exquisite
+    feeling of a home away from home. It's perculiarity is second to none.")
+@section('keywords',
+    'Vamble Apartments,Vamble , Apartments, Hotels, Suites,Bookings, Online
+    Apartments, Abuja, Abuja-Hotels,FCT-Hotels, Abuja-Apartments,Abuja-Stay,Home,Places,Jahi, Serviced Apartments Abuja',)
 @section('content')
     <div class="firstContent">
 
@@ -98,7 +100,8 @@ Apartments, Abuja, Abuja-Hotels,FCT-Hotels, Abuja-Apartments,Abuja-Stay,Home,Pla
                 <div class="row mb-5  fade_text animate__animated animate__fadeOut animate__slow">
                     <div class="col-xs-12 col-sm-6  text-left  mb-4 mb-sm-0">
                         <h3 class="line_half" style="letter-spacing: .4rem">Standard Room</h3>
-                        <p>Get comfy in our fully air-conditioned rooms,   setup to give you the perfect feel of a standard bedroom. Spacious and cozy with your own TV,free wifi, re..<a class="btn  btn-link px-0 py-0"
+                        <p>Get comfy in our fully air-conditioned rooms, setup to give you the perfect feel of a standard
+                            bedroom. Spacious and cozy with your own TV,free wifi, re..<a class="btn  btn-link px-0 py-0"
                                 href="/accomodations" role="button">read more </a>
                         </p>
 
@@ -138,7 +141,16 @@ Apartments, Abuja, Abuja-Hotels,FCT-Hotels, Abuja-Apartments,Abuja-Stay,Home,Pla
 
                             <div class="carousel-inner" role="listbox">
                                 <div class="carousel-item room-item active bg-light" data-bs-interval="0">
-                                    <img src="{{ asset('/images/rooms/bed11.jpg') }}" alt="Third slide">
+                                    <img sizes="(max-width: 1400px) 100vw, 1400px" srcset="
+    /images/rooms/bed11_umlnzb_c_scale,w_200.jpg 200w,
+    /images/rooms/bed11_umlnzb_c_scale,w_546.jpg 546w,
+    /images/rooms/bed11_umlnzb_c_scale,w_791.jpg 791w,
+    /images/rooms/bed11_umlnzb_c_scale,w_1014.jpg 1014w,
+    /images/rooms/bed11_umlnzb_c_scale,w_1043.jpg 1043w,
+    /images/rooms/bed11_umlnzb_c_scale,w_1207.jpg 1207w,
+    /images/rooms/bed11_umlnzb_c_scale,w_1322.jpg 1322w,
+    /images/rooms/bed11_umlnzb_c_scale,w_1400.jpg 1400w" src="/images/rooms/bed11_umlnzb_c_scale,w_1400.jpg"
+                                        alt="Third slide">
                                 </div>
 
                             </div>
@@ -150,13 +162,24 @@ Apartments, Abuja, Abuja-Hotels,FCT-Hotels, Abuja-Apartments,Abuja-Stay,Home,Pla
             </div>
 
             <div class="observer_b mb-5 pb-5">
-                <div class="row mb-5  fade_text animate__animated animate__fadeOut animate__slow flex-column-reverse flex-sm-row">
-                      <div class="col-xs-12 col-sm-6  ">
+                <div
+                    class="row mb-5  fade_text animate__animated animate__fadeOut animate__slow flex-column-reverse flex-sm-row">
+                    <div class="col-xs-12 col-sm-6  ">
                         <div id="roomId1" class="carousel slide" data-ride="carousel">
 
                             <div class="carousel-inner" role="listbox">
                                 <div class="carousel-item room-item active bg-light" data-bs-interval="0">
-                                    <img src="{{ asset('/images/rooms/bed5.jpg') }}" alt="Third slide">
+                                    <img sizes="(max-width: 1400px) 100vw, 1400px" srcset="
+    /images/rooms/bed5_q82awp_c_scale,w_200.jpg 200w,
+    /images/rooms/bed5_q82awp_c_scale,w_530.jpg 530w,
+    /images/rooms/bed5_q82awp_c_scale,w_777.jpg 777w,
+    /images/rooms/bed5_q82awp_c_scale,w_959.jpg 959w,
+    /images/rooms/bed5_q82awp_c_scale,w_1078.jpg 1078w,
+    /images/rooms/bed5_q82awp_c_scale,w_1254.jpg 1254w,
+    /images/rooms/bed5_q82awp_c_scale,w_1274.jpg 1274w,
+    /images/rooms/bed5_q82awp_c_scale,w_1386.jpg 1386w,
+    /images/rooms/bed5_q82awp_c_scale,w_1400.jpg 1400w" src="/images/rooms/bed5_q82awp_c_scale,w_1400.jpg"
+                                        alt="Third slide">
                                 </div>
 
                             </div>
@@ -166,8 +189,8 @@ Apartments, Abuja, Abuja-Hotels,FCT-Hotels, Abuja-Apartments,Abuja-Stay,Home,Pla
                     <div class="col-xs-12 col-sm-6  text-left  mb-4 mb-sm-0">
                         <h3 class="line_half" style="letter-spacing: .4rem">Executive Room</h3>
                         <p>We strive to provide a hospitable surrounding with our executive masters bedroom.
-                        You get free wifi, TV, a refrigerator, massive bedroom space, a share...<a class="btn  btn-link px-0 py-0"
-                                href="/accomodations" role="button">read more </a>
+                            You get free wifi, TV, a refrigerator, massive bedroom space, a share...<a
+                                class="btn  btn-link px-0 py-0" href="/accomodations" role="button">read more </a>
                         </p>
 
                         <div class="d-flex justify-content-between align-items-center">
@@ -210,9 +233,10 @@ Apartments, Abuja, Abuja-Hotels,FCT-Hotels, Abuja-Apartments,Abuja-Stay,Home,Pla
                 <div class="row mb-5  fade_text animate__animated animate__fadeOut animate__slow">
                     <div class="col-xs-12 col-sm-6  text-left  mb-4 mb-sm-0">
                         <h3 class="line_half" style="letter-spacing: .4rem">Standard Apartment</h3>
-                        <p>Our Standard Apartments are modern and stylish, equipped with a 75inch flat-screen television, a magnificent sitting room and so
-                            many other amenities that will make your stay very pleasura...<a
-                                class="btn  btn-link px-0 py-0" href="/accomodations" role="button">read more </a>
+                        <p>Our Standard Apartments are modern and stylish, equipped with a 75inch flat-screen television, a
+                            magnificent sitting room and so
+                            many other amenities that will make your stay very pleasura...<a class="btn  btn-link px-0 py-0"
+                                href="/accomodations" role="button">read more </a>
                         </p>
 
                         <div class="">
@@ -252,17 +276,26 @@ Apartments, Abuja, Abuja-Hotels,FCT-Hotels, Abuja-Apartments,Abuja-Stay,Home,Pla
                             <ol class="carousel-indicators">
                                 <li data-target="#stand1" data-slide-to="0" class="active"></li>
                                 <li data-target="#stand1" data-slide-to="1"></li>
-                                  <li data-target="#stand1" data-slide-to="2"></li>
+                                <li data-target="#stand1" data-slide-to="2"></li>
 
                             </ol>
                             <div class="carousel-inner" role="listbox">
                                 <div class="carousel-item room-item active bg-light" data-bs-interval="5000">
-                                    <img src="{{ asset('/images/rooms/sitting16.jpg') }}" alt="Third slide">
+                                    <img sizes="(max-width: 1400px) 100vw, 1400px" srcset="
+    /images/rooms/sitting16_jzdcdo_c_scale,w_200.jpg 200w,
+    /images/rooms//images/rooms/sitting16_jzdcdo_c_scale,w_491.jpg 491w,
+    /images/rooms/sitting16_jzdcdo_c_scale,w_944.jpg 944w,
+    /images/rooms/sitting16_jzdcdo_c_scale,w_980.jpg 980w,
+    /images/rooms/sitting16_jzdcdo_c_scale,w_1272.jpg 1272w,
+    /images/rooms/sitting16_jzdcdo_c_scale,w_1293.jpg 1293w,
+    /images/rooms/sitting16_jzdcdo_c_scale,w_1329.jpg 1329w,
+    /images/rooms/sitting16_jzdcdo_c_scale,w_1400.jpg 1400w" src="/images/rooms/sitting16_jzdcdo_c_scale,w_1400.jpg"
+                                        alt="Third slide">
                                 </div>
                                 <div class="carousel-item room-item bg-light" data-bs-interval="3700">
                                     <img src="{{ asset('/images/rooms/bed9.jpg') }}" alt="Third slide">
                                 </div>
-                                 <div class="carousel-item room-item bg-light" data-bs-interval="4700">
+                                <div class="carousel-item room-item bg-light" data-bs-interval="4700">
                                     <img src="{{ asset('/images/rooms/broom.jpg') }}" alt="Third slide">
                                 </div>
 
@@ -286,7 +319,18 @@ Apartments, Abuja, Abuja-Hotels,FCT-Hotels, Abuja-Apartments,Abuja-Stay,Home,Pla
                             </ol>
                             <div class="carousel-inner" role="listbox">
                                 <div class="carousel-item room-item active bg-light" data-bs-interval="4600">
-                                    <img src="{{ asset('/images/rooms/living3.jpg') }}" alt="Third slide">
+                                    <img
+                                    sizes="(max-width: 1400px) 100vw, 1400px"
+srcset="
+/images/rooms/living3_oqrktt_c_scale,w_200.jpg 200w,
+/images/rooms/living3_oqrktt_c_scale,w_566.jpg 566w,
+/images/rooms/living3_oqrktt_c_scale,w_823.jpg 823w,
+/images/rooms/living3_oqrktt_c_scale,w_1040.jpg 1040w,
+/images/rooms/living3_oqrktt_c_scale,w_1235.jpg 1235w,
+/images/rooms/living3_oqrktt_c_scale,w_1338.jpg 1338w,
+/images/rooms/living3_oqrktt_c_scale,w_1400.jpg 1400w"
+src="/images/rooms/living3_oqrktt_c_scale,w_1400.jpg"
+                                    alt="Third slide">
                                 </div>
                                 <div class="carousel-item room-item bg-light" data-bs-interval="3800">
                                     <img src="{{ asset('/images/rooms/bed2.jpg') }}" alt="Third slide">
@@ -438,24 +482,77 @@ Apartments, Abuja, Abuja-Hotels,FCT-Hotels, Abuja-Apartments,Abuja-Stay,Home,Pla
             <div class="observer_4">
                 <div class="row  fade_text animate__animated animate__fadeOut animate__slow ">
                     <div class="col-2   px-0 l_gallery_image">
-                        <img src="{{ asset('/images/rooms/sitting7.jpg') }}" class="w-100 h-100" alt="Third slide">
+                        <img
+sizes="(max-width: 1400px) 100vw, 1400px"
+srcset="
+/images/rooms/sitting7_qsrvly_c_scale,w_200.jpg 200w,
+/images/rooms/sitting7_qsrvly_c_scale,w_477.jpg 477w,
+/images/rooms/sitting7_qsrvly_c_scale,w_900.jpg 900w,
+/images/rooms/sitting7_qsrvly_c_scale,w_882.jpg 882w,
+/images/rooms/sitting7_qsrvly_c_scale,w_1036.jpg 1036w,
+/images/rooms/sitting7_qsrvly_c_scale,w_1162.jpg 1162w,
+/images/rooms/sitting7_qsrvly_c_scale,w_1302.jpg 1302w,
+/images/rooms/sitting7_qsrvly_c_scale,w_1400.jpg 1400w"
+src="/images/rooms/sitting7_qsrvly_c_scale,w_1400.jpg"
+                        class="w-100 h-100" alt="Third slide">
                     </div>
                     <div class="col-2  px-0 l_gallery_image">
-                        <img src="{{ asset('/images/rooms/sittingceiling.jpg') }}" class="w-100 h-100"
+                        <img 
+                        sizes="(max-width: 1400px) 100vw, 1400px"
+srcset="
+/images/rooms/sittingceiling_zlw1e9_c_scale,w_200.jpg 200w,
+/images/rooms/sittingceiling_zlw1e9_c_scale,w_593.jpg 593w,
+/images/rooms/sittingceiling_zlw1e9_c_scale,w_865.jpg 865w,
+/images/rooms/sittingceiling_zlw1e9_c_scale,w_1084.jpg 1084w,
+/images/rooms/sittingceiling_zlw1e9_c_scale,w_1337.jpg 1337w,
+/images/rooms/sittingceiling_zlw1e9_c_scale,w_1360.jpg 1360w,
+/images/rooms/sittingceiling_zlw1e9_c_scale,w_1400.jpg 1400w"
+src="/images/rooms/sittingceiling_zlw1e9_c_scale,w_1400.jpg"
+                        class="w-100 h-100"
                             alt="Third slide">
                     </div>
                     <div class="col-2    px-0 l_gallery_image">
-                        <img src="{{ asset('/images/rooms/living.jpg') }}" class="w-100 h-100" alt="Third slide">
+                        <img
+sizes="(max-width: 1400px) 100vw, 1400px"
+srcset="
+/images/rooms/living_cjnrze_c_scale,w_200.jpg 200w,
+/images/rooms/living_cjnrze_c_scale,w_606.jpg 606w,
+/images/rooms/living_cjnrze_c_scale,w_844.jpg 844w,
+/images/rooms/living_cjnrze_c_scale,w_1057.jpg 1057w,
+/images/rooms/living_cjnrze_c_scale,w_1282.jpg 1282w,
+/images/rooms/living_cjnrze_c_scale,w_1332.jpg 1332w,
+/images/rooms/living_cjnrze_c_scale,w_1400.jpg 1400w"
+src="/images/rooms/living_cjnrze_c_scale,w_1400.jpg"
+                        class="w-100 h-100" alt="Third slide">
                     </div>
                     <div class="col-2   px-0 l_gallery_image">
-                        <img src="{{ asset('/images/rooms/bed5.jpg') }}" class="w-100 h-100" alt="Third slide">
+                        <img sizes="(max-width: 1400px) 100vw, 1400px" srcset="
+    /images/rooms/bed5_q82awp_c_scale,w_200.jpg 200w,
+    /images/rooms/bed5_q82awp_c_scale,w_530.jpg 530w,
+    /images/rooms/bed5_q82awp_c_scale,w_777.jpg 777w,
+    /images/rooms/bed5_q82awp_c_scale,w_959.jpg 959w,
+    /images/rooms/bed5_q82awp_c_scale,w_1078.jpg 1078w,
+    /images/rooms/bed5_q82awp_c_scale,w_1254.jpg 1254w,
+    /images/rooms/bed5_q82awp_c_scale,w_1274.jpg 1274w,
+    /images/rooms/bed5_q82awp_c_scale,w_1386.jpg 1386w,
+    /images/rooms/bed5_q82awp_c_scale,w_1400.jpg 1400w" src="/images/rooms/bed5_q82awp_c_scale,w_1400.jpg"
+                            class="w-100 h-100" alt="Third slide">
                     </div>
                     <div class="col-2   px-0 l_gallery_image">
                         <img src="{{ asset('/images/rooms/sittingceiling1.jpg') }}" class="w-100 h-100"
                             alt="Third slide">
                     </div>
                     <div class="col-2   px-0 l_gallery_image">
-                        <img src="{{ asset('/images/rooms/sitting.jpg') }}" class="w-100 h-100" alt="Third slide">
+                        <img sizes="(max-width: 1400px) 100vw, 1400px" srcset="
+    /images/rooms/sitting_suyw55_c_scale,w_200.jpg 200w,
+    /images/rooms/sitting_suyw55_c_scale,w_542.jpg 542w,
+    /images/rooms/sitting_suyw55_c_scale,w_906.jpg 906w,
+    /images/rooms/sitting_suyw55_c_scale,w_997.jpg 997w,
+    /images/rooms/sitting_suyw55_c_scale,w_1132.jpg 1132w,
+    /images/rooms/sitting_suyw55_c_scale,w_1211.jpg 1211w,
+    /images/rooms/sitting_suyw55_c_scale,w_1324.jpg 1324w,
+    /images/rooms/sitting_suyw55_c_scale,w_1400.jpg 1400w" src="/images/rooms/sitting_suyw55_c_scale,w_1400.jpg"
+                            class="w-100 h-100" alt="Third slide">
                     </div>
 
                 </div>

@@ -82,6 +82,6 @@ span {
   transform: translateY(-20px);
 }
 p{
-  font-family:  cursive;
+  font-family: 'The Nautigal', cursive;
 }
 </style>

@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=The+Nautigal:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=The+Nautigal:wght@400;700&display=swap");
 $fa-font-path: "../webfonts";
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
 @import "~@fortawesome/fontawesome-free/scss/solid";
@@ -27,8 +27,11 @@ body {
 }
 #mainvideo {
     width: 100%;
+
     height: 70vh;
 }
+
+
 i {
     font-family: "The Nautigal", cursive;
 }
@@ -41,7 +44,7 @@ i {
 p {
     font-size: 16px;
     @media (max-width: 767px) {
-       font-size: 14px;
+        font-size: 14px;
     }
 }
 .nav-text {
@@ -90,7 +93,7 @@ ol {
 th,
 td {
     font-size: 0.75rem;
-    padding:5px 15px;
+    padding: 5px 15px;
 }
 
 .cursor-pointer {
@@ -125,6 +128,24 @@ td {
     h2 {
         font-size: 1.3rem;
     }
+}
+#banner_text {
+    font-family: "Nunito", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    span {
+        display: inline-block;
+    }
+
+    p {
+        font-family: cursive;
+    }
+}
+@media only screen and (max-width: 767px) {
+.sub_banner_text{
+    font-size:.9rem;
+}
 }
 .font-size-15 {
     font-size: 15px;
@@ -283,11 +304,11 @@ td {
     margin-top: -105px;
     border-bottom: 4px solid var(--vamble);
     @media (max-width: 767px) {
-         height: 85vh;
+        height: 85vh;
         background-image: url("/images/rooms/building6.jpg");
         background-size: cover;
-        background-attachment:fixed;
-        background-repeat:no-repeat;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
     }
     #mybannervidVideo {
         width: 100%;
@@ -321,16 +342,16 @@ td {
         bottom: -28px;
         width: 80%;
         z-index: 9;
-        .booking-container{
-            border:4px solid var(--vamble);
+        .booking-container {
+            border: 4px solid var(--vamble);
             background: var(--vamble);
         }
         @media only screen and (max-width: 767px) {
             width: 90%;
-             bottom: 10%;
-             .booking-button{
-                  width: 100%;
-             }
+            bottom: 10%;
+            .booking-button {
+                width: 100%;
+            }
         }
     }
     .banner-text {
@@ -363,11 +384,11 @@ td {
             padding: 10px;
             h1 {
                 font-size: 2.2rem;
-                font-weight: 800;
+                font-weight: 700;
             }
             h2 {
                 font-size: 1.8rem;
-                font-weight: 800;
+                font-weight: 700;
                 letter-spacing: 0.2rem;
             }
         }
@@ -401,9 +422,9 @@ td {
     background-color: #f4f2f3;
     padding: 150px 20px 100px;
     text-align: center;
-     @media only screen and (max-width: 600px) {
-          padding: 75px 20px 100px;
-     }
+    @media only screen and (max-width: 600px) {
+        padding: 75px 20px 100px;
+    }
     .content {
         width: 80%;
         margin: 0 auto;
@@ -579,8 +600,8 @@ td {
 .line_half {
     position: relative;
     margin-bottom: 40px;
-    color:#745412 ;
-    font-weight:bold;
+    color: #745412;
+    font-weight: bold;
     &::after {
         content: "";
         width: 50%;
@@ -886,9 +907,9 @@ footer {
     }
 }
 .apartments {
-     @media only screen and (max-width: 767px) {
-           background-image:white;
-        }
+    @media only screen and (max-width: 767px) {
+        background-image: white;
+    }
     .content {
         padding-top: 75px;
         padding-bottom: 50px;
@@ -1336,22 +1357,22 @@ label {
         opacity: 1;
     }
 }
-.gogossl{
-    position:fixed;
+.gogossl {
+    position: fixed;
     left: -5px;
     bottom: 9%;
-    @media(max-width: 767px){
-        display:none
+    @media (max-width: 767px) {
+        display: none;
     }
 }
-.possl{
-    position:fixed;
+.possl {
+    position: fixed;
     left: 0;
     bottom: 15%;
-     @media(max-width: 767px){
-        display:none
+    @media (max-width: 767px) {
+        display: none;
     }
-    a img{
-        width:155px;
+    a img {
+        width: 155px;
     }
 }

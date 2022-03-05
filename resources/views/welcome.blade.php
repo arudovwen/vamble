@@ -1,16 +1,29 @@
 @extends('layouts.app')
 @section('title', 'Vamble Apartments and Suites')
-@section('description', "Vamble Apartments and Suites is a sweet spot to relax and enjoy the splendor and exquisite
-    feeling of a home away from home. It's perculiarity is second to none.")
+@section('description',
+    "Vamble Apartments and Suites is a sweet spot to relax and enjoy the splendor and exquisite
+    feeling of a home away from home. It's perculiarity is second to none.",)
 @section('keywords',
     'Vamble Apartments,Vamble , Apartments, Hotels, Suites,Bookings, Online
     Apartments, Abuja, Abuja-Hotels,FCT-Hotels, Abuja-Apartments,Abuja-Stay,Home,Places,Jahi, Serviced Apartments Abuja',)
 @section('content')
-    <div class="firstContent">
+    <section class="firstContent">
 
 
         <div class="banner-text text-center">
-            <banner-text></banner-text>
+            <div id="banner_text">
+                <h1 class="vamble banner_fancy">
+                    Vamble
+                </h1>
+                <h2 class="sub_banner_text banner_fancy">
+
+
+                    Apartments & Suites
+                </h2>
+                <p class="text-white banner_fancy" style="z-index: 2">
+                    A home away from home
+                </p>
+            </div>
             <div class="mt-4 d-none d-md-block">
                 <button type="button" class="btn  btn-light bg-transparent   text-light mr-3" style="border:2px solid white"
                     data-toggle="modal" data-target="#videosId"><i class="fa fa-play-circle mr-1" aria-hidden="true"></i>
@@ -30,7 +43,7 @@
 
                     <div class="modal-body p-0">
                         <video controls id="mainvideo" poster="{{ asset('/images/rooms/sitting13.jpg') }}">
-                            <source src="{{ asset('/images/rooms/vamble.m4v') }}" type="video/mp4">
+                            <source src="{{ asset('/images/rooms/vamble.mp4') }}" type="video/mp4">
                         </video>
                     </div>
                     <div class="modal-footer">
@@ -45,12 +58,12 @@
 
         </div>
 
-        <video autoplay muted id="mybannervidVideo" poster="{{ asset('/images/rooms/frontdesk.jpg') }}">
+        <video autoplay muted id="mybannervidVideo" poster="{{ asset('/images/rooms/building2.jpg') }}">
             <source src="{{ asset('/images/rooms/vidtrim.mp4') }}" type="video/mp4">
         </video>
-    </div>
+    </section>
 
-    <div class="secondContent">
+    <section class="secondContent">
         <div class="content animate__animated animate__fadeOut animate__slow ">
             <h2 class="mb-3">What We Are </h2>
             <p class="mb-sm-5">Vamble Apartments and Suites Limited is a collection of the finest independent luxury
@@ -67,21 +80,21 @@
 
             <div class="row m-0 hotel d-none d-sm-flex">
                 <div class="col-sm-4 hotel-img p-0">
-                    <img src="{{ asset('/images/rooms/sitting13.jpg') }}" alt="vamble">
+                    <img loading="lazy" src="{{ asset('/images/rooms/sitting13.jpg') }}" alt="vamble">
                     <div class="hotel_text">
                         <strong>World Class Sitting Room</strong> <br>
 
                     </div>
                 </div>
                 <div class="col-sm-4 hotel-img p-0">
-                    <img src="{{ asset('/images/rooms/bed5.jpg') }}" alt="vamble">
+                    <img loading="lazy" src="{{ asset('/images/rooms/bed5.jpg') }}" alt="vamble">
                     <div class="hotel_text">
                         <strong>Executive Bedrooms</strong> <br>
 
                     </div>
                 </div>
                 <div class="col-sm-4 hotel-img p-0">
-                    <img src="{{ asset('/images/rooms/kitchen.jpg') }}" alt="vamble">
+                    <img loading="lazy" src="{{ asset('/images/rooms/kitchen.jpg') }}" alt="vamble">
                     <div class="hotel_text">
                         <strong>Fully Equipped Kitchen</strong> <br>
 
@@ -92,8 +105,8 @@
         </div>
 
         <x-mini></x-mini>
-    </div>
-    <div class="thirdContent">
+    </section>
+    <section class="thirdContent">
         <div class="content">
             <h2 class="mb-5">Rooms & Apartments</h2>
             <div class="observer_a mb-5 pb-5">
@@ -141,15 +154,15 @@
 
                             <div class="carousel-inner" role="listbox">
                                 <div class="carousel-item room-item active bg-light" data-bs-interval="0">
-                                    <img sizes="(max-width: 1400px) 100vw, 1400px" srcset="
-    /images/rooms/bed11_umlnzb_c_scale,w_200.jpg 200w,
-    /images/rooms/bed11_umlnzb_c_scale,w_546.jpg 546w,
-    /images/rooms/bed11_umlnzb_c_scale,w_791.jpg 791w,
-    /images/rooms/bed11_umlnzb_c_scale,w_1014.jpg 1014w,
-    /images/rooms/bed11_umlnzb_c_scale,w_1043.jpg 1043w,
-    /images/rooms/bed11_umlnzb_c_scale,w_1207.jpg 1207w,
-    /images/rooms/bed11_umlnzb_c_scale,w_1322.jpg 1322w,
-    /images/rooms/bed11_umlnzb_c_scale,w_1400.jpg 1400w" src="/images/rooms/bed11_umlnzb_c_scale,w_1400.jpg"
+                                    <img loading="lazy" sizes="(max-width: 1400px) 100vw, 1400px" srcset="
+            /images/rooms/bed11_umlnzb_c_scale,w_200.jpg 200w,
+            /images/rooms/bed11_umlnzb_c_scale,w_546.jpg 546w,
+            /images/rooms/bed11_umlnzb_c_scale,w_791.jpg 791w,
+            /images/rooms/bed11_umlnzb_c_scale,w_1014.jpg 1014w,
+            /images/rooms/bed11_umlnzb_c_scale,w_1043.jpg 1043w,
+            /images/rooms/bed11_umlnzb_c_scale,w_1207.jpg 1207w,
+            /images/rooms/bed11_umlnzb_c_scale,w_1322.jpg 1322w,
+            /images/rooms/bed11_umlnzb_c_scale,w_1400.jpg 1400w" src="/images/rooms/bed11_umlnzb_c_scale,w_1400.jpg"
                                         alt="Third slide">
                                 </div>
 
@@ -169,16 +182,16 @@
 
                             <div class="carousel-inner" role="listbox">
                                 <div class="carousel-item room-item active bg-light" data-bs-interval="0">
-                                    <img sizes="(max-width: 1400px) 100vw, 1400px" srcset="
-    /images/rooms/bed5_q82awp_c_scale,w_200.jpg 200w,
-    /images/rooms/bed5_q82awp_c_scale,w_530.jpg 530w,
-    /images/rooms/bed5_q82awp_c_scale,w_777.jpg 777w,
-    /images/rooms/bed5_q82awp_c_scale,w_959.jpg 959w,
-    /images/rooms/bed5_q82awp_c_scale,w_1078.jpg 1078w,
-    /images/rooms/bed5_q82awp_c_scale,w_1254.jpg 1254w,
-    /images/rooms/bed5_q82awp_c_scale,w_1274.jpg 1274w,
-    /images/rooms/bed5_q82awp_c_scale,w_1386.jpg 1386w,
-    /images/rooms/bed5_q82awp_c_scale,w_1400.jpg 1400w" src="/images/rooms/bed5_q82awp_c_scale,w_1400.jpg"
+                                    <img loading="lazy" sizes="(max-width: 1400px) 100vw, 1400px" srcset="
+            /images/rooms/bed5_q82awp_c_scale,w_200.jpg 200w,
+            /images/rooms/bed5_q82awp_c_scale,w_530.jpg 530w,
+            /images/rooms/bed5_q82awp_c_scale,w_777.jpg 777w,
+            /images/rooms/bed5_q82awp_c_scale,w_959.jpg 959w,
+            /images/rooms/bed5_q82awp_c_scale,w_1078.jpg 1078w,
+            /images/rooms/bed5_q82awp_c_scale,w_1254.jpg 1254w,
+            /images/rooms/bed5_q82awp_c_scale,w_1274.jpg 1274w,
+            /images/rooms/bed5_q82awp_c_scale,w_1386.jpg 1386w,
+            /images/rooms/bed5_q82awp_c_scale,w_1400.jpg 1400w" src="/images/rooms/bed5_q82awp_c_scale,w_1400.jpg"
                                         alt="Third slide">
                                 </div>
 
@@ -281,22 +294,22 @@
                             </ol>
                             <div class="carousel-inner" role="listbox">
                                 <div class="carousel-item room-item active bg-light" data-bs-interval="5000">
-                                    <img sizes="(max-width: 1400px) 100vw, 1400px" srcset="
-    /images/rooms/sitting16_jzdcdo_c_scale,w_200.jpg 200w,
-    /images/rooms//images/rooms/sitting16_jzdcdo_c_scale,w_491.jpg 491w,
-    /images/rooms/sitting16_jzdcdo_c_scale,w_944.jpg 944w,
-    /images/rooms/sitting16_jzdcdo_c_scale,w_980.jpg 980w,
-    /images/rooms/sitting16_jzdcdo_c_scale,w_1272.jpg 1272w,
-    /images/rooms/sitting16_jzdcdo_c_scale,w_1293.jpg 1293w,
-    /images/rooms/sitting16_jzdcdo_c_scale,w_1329.jpg 1329w,
-    /images/rooms/sitting16_jzdcdo_c_scale,w_1400.jpg 1400w" src="/images/rooms/sitting16_jzdcdo_c_scale,w_1400.jpg"
-                                        alt="Third slide">
+                                    <img loading="lazy" sizes="(max-width: 1400px) 100vw, 1400px" srcset="
+                                            /images/rooms/sitting16_jzdcdo_c_scale,w_200.jpg 200w,
+                                            /images/rooms//images/rooms/sitting16_jzdcdo_c_scale,w_491.jpg 491w,
+                                            /images/rooms/sitting16_jzdcdo_c_scale,w_944.jpg 944w,
+                                            /images/rooms/sitting16_jzdcdo_c_scale,w_980.jpg 980w,
+                                            /images/rooms/sitting16_jzdcdo_c_scale,w_1272.jpg 1272w,
+                                            /images/rooms/sitting16_jzdcdo_c_scale,w_1293.jpg 1293w,
+                                            /images/rooms/sitting16_jzdcdo_c_scale,w_1329.jpg 1329w,
+                                            /images/rooms/sitting16_jzdcdo_c_scale,w_1400.jpg 1400w"
+                                        src="/images/rooms/sitting16_jzdcdo_c_scale,w_1400.jpg" alt="Third slide">
                                 </div>
                                 <div class="carousel-item room-item bg-light" data-bs-interval="3700">
-                                    <img src="{{ asset('/images/rooms/bed9.jpg') }}" alt="Third slide">
+                                    <img loading="lazy" src="{{ asset('/images/rooms/bed9.jpg') }}" alt="Third slide">
                                 </div>
                                 <div class="carousel-item room-item bg-light" data-bs-interval="4700">
-                                    <img src="{{ asset('/images/rooms/broom.jpg') }}" alt="Third slide">
+                                    <img loading="lazy" src="{{ asset('/images/rooms/broom.jpg') }}" alt="Third slide">
                                 </div>
 
                             </div>
@@ -319,24 +332,21 @@
                             </ol>
                             <div class="carousel-inner" role="listbox">
                                 <div class="carousel-item room-item active bg-light" data-bs-interval="4600">
-                                    <img
-                                    sizes="(max-width: 1400px) 100vw, 1400px"
-srcset="
-/images/rooms/living3_oqrktt_c_scale,w_200.jpg 200w,
-/images/rooms/living3_oqrktt_c_scale,w_566.jpg 566w,
-/images/rooms/living3_oqrktt_c_scale,w_823.jpg 823w,
-/images/rooms/living3_oqrktt_c_scale,w_1040.jpg 1040w,
-/images/rooms/living3_oqrktt_c_scale,w_1235.jpg 1235w,
-/images/rooms/living3_oqrktt_c_scale,w_1338.jpg 1338w,
-/images/rooms/living3_oqrktt_c_scale,w_1400.jpg 1400w"
-src="/images/rooms/living3_oqrktt_c_scale,w_1400.jpg"
-                                    alt="Third slide">
+                                    <img loading="lazy" sizes="(max-width: 1400px) 100vw, 1400px" srcset="
+                            /images/rooms/living3_oqrktt_c_scale,w_200.jpg 200w,
+                            /images/rooms/living3_oqrktt_c_scale,w_566.jpg 566w,
+                            /images/rooms/living3_oqrktt_c_scale,w_823.jpg 823w,
+                            /images/rooms/living3_oqrktt_c_scale,w_1040.jpg 1040w,
+                            /images/rooms/living3_oqrktt_c_scale,w_1235.jpg 1235w,
+                            /images/rooms/living3_oqrktt_c_scale,w_1338.jpg 1338w,
+                            /images/rooms/living3_oqrktt_c_scale,w_1400.jpg 1400w"
+                                        src="/images/rooms/living3_oqrktt_c_scale,w_1400.jpg" alt="Third slide">
                                 </div>
                                 <div class="carousel-item room-item bg-light" data-bs-interval="3800">
-                                    <img src="{{ asset('/images/rooms/bed2.jpg') }}" alt="Third slide">
+                                    <img loading="lazy" src="{{ asset('/images/rooms/bed2.jpg') }}" alt="Third slide">
                                 </div>
                                 <div class="carousel-item room-item  bg-light" data-bs-interval="4000">
-                                    <img src="{{ asset('/images/rooms/kitchen.jpg') }}" alt="Third slide">
+                                    <img loading="lazy" src="{{ asset('/images/rooms/kitchen.jpg') }}" alt="Third slide">
                                 </div>
                             </div>
 
@@ -436,13 +446,13 @@ src="/images/rooms/living3_oqrktt_c_scale,w_1400.jpg"
                             </ol>
                             <div class="carousel-inner" role="listbox">
                                 <div class="carousel-item room-item active bg-light" data-bs-interval="5300">
-                                    <img src="{{ asset('/images/rooms/sitting11.jpg') }}" alt="Third slide">
+                                    <img loading="lazy" src="{{ asset('/images/rooms/sitting11.jpg') }}" alt="Third slide">
                                 </div>
                                 <div class="carousel-item room-item bg-light" data-bs-interval="3700">
-                                    <img src="{{ asset('/images/rooms/sitting13.jpg') }}" alt="Third slide">
+                                    <img loading="lazy" src="{{ asset('/images/rooms/sitting13.jpg') }}" alt="Third slide">
                                 </div>
                                 <div class="carousel-item room-item  bg-light" data-bs-interval="4000">
-                                    <img src="{{ asset('/images/rooms/kitchen2.jpg') }}" alt="Third slide">
+                                    <img loading="lazy" src="{{ asset('/images/rooms/kitchen2.jpg') }}" alt="Third slide">
                                 </div>
                             </div>
 
@@ -452,13 +462,13 @@ src="/images/rooms/living3_oqrktt_c_scale,w_1400.jpg"
                 </div>
             </div>
         </div>
-    </div>
-    <div class="fourthContent">
+    </section>
+    <section class="fourthContent">
         <div class="content ">
             <div class="row mb-5  ">
                 <div class="col-xs-12 col-sm-4  text-center">
                     <div class="rounded-circle  about_image">
-                        <img src="{{ asset('/images/rooms/building2.jpg') }}" class="w-100 h-100 rounded-circle"
+                        <img loading="lazy" src="{{ asset('/images/rooms/building2.jpg') }}" class="w-100 h-100 rounded-circle"
                             style="object-fit: cover" alt="Third slide">
                     </div>
                 </div>
@@ -473,85 +483,77 @@ src="/images/rooms/living3_oqrktt_c_scale,w_1400.jpg"
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <x-testimonials></x-testimonials>
-    <div class="fifthContent d-none d-md-block">
+    <section class="fifthContent d-none d-md-block">
         <div class="content container-fluid">
             <h2 class="mb-5">GALLERY</h2>
             <div class="observer_4">
                 <div class="row  fade_text animate__animated animate__fadeOut animate__slow ">
                     <div class="col-2   px-0 l_gallery_image">
-                        <img
-sizes="(max-width: 1400px) 100vw, 1400px"
-srcset="
-/images/rooms/sitting7_qsrvly_c_scale,w_200.jpg 200w,
-/images/rooms/sitting7_qsrvly_c_scale,w_477.jpg 477w,
-/images/rooms/sitting7_qsrvly_c_scale,w_900.jpg 900w,
-/images/rooms/sitting7_qsrvly_c_scale,w_882.jpg 882w,
-/images/rooms/sitting7_qsrvly_c_scale,w_1036.jpg 1036w,
-/images/rooms/sitting7_qsrvly_c_scale,w_1162.jpg 1162w,
-/images/rooms/sitting7_qsrvly_c_scale,w_1302.jpg 1302w,
-/images/rooms/sitting7_qsrvly_c_scale,w_1400.jpg 1400w"
-src="/images/rooms/sitting7_qsrvly_c_scale,w_1400.jpg"
-                        class="w-100 h-100" alt="Third slide">
+                        <img loading="lazy" sizes="(max-width: 1400px) 100vw, 1400px" srcset="
+                                /images/rooms/sitting7_qsrvly_c_scale,w_200.jpg 200w,
+                                /images/rooms/sitting7_qsrvly_c_scale,w_477.jpg 477w,
+                                /images/rooms/sitting7_qsrvly_c_scale,w_900.jpg 900w,
+                                /images/rooms/sitting7_qsrvly_c_scale,w_882.jpg 882w,
+                                /images/rooms/sitting7_qsrvly_c_scale,w_1036.jpg 1036w,
+                                /images/rooms/sitting7_qsrvly_c_scale,w_1162.jpg 1162w,
+                                /images/rooms/sitting7_qsrvly_c_scale,w_1302.jpg 1302w,
+                                /images/rooms/sitting7_qsrvly_c_scale,w_1400.jpg 1400w"
+                            src="/images/rooms/sitting7_qsrvly_c_scale,w_1400.jpg" class="w-100 h-100"
+                            alt="Third slide">
                     </div>
                     <div class="col-2  px-0 l_gallery_image">
-                        <img 
-                        sizes="(max-width: 1400px) 100vw, 1400px"
-srcset="
-/images/rooms/sittingceiling_zlw1e9_c_scale,w_200.jpg 200w,
-/images/rooms/sittingceiling_zlw1e9_c_scale,w_593.jpg 593w,
-/images/rooms/sittingceiling_zlw1e9_c_scale,w_865.jpg 865w,
-/images/rooms/sittingceiling_zlw1e9_c_scale,w_1084.jpg 1084w,
-/images/rooms/sittingceiling_zlw1e9_c_scale,w_1337.jpg 1337w,
-/images/rooms/sittingceiling_zlw1e9_c_scale,w_1360.jpg 1360w,
-/images/rooms/sittingceiling_zlw1e9_c_scale,w_1400.jpg 1400w"
-src="/images/rooms/sittingceiling_zlw1e9_c_scale,w_1400.jpg"
-                        class="w-100 h-100"
+                        <img loading="lazy" sizes="(max-width: 1400px) 100vw, 1400px" srcset="
+                    /images/rooms/sittingceiling_zlw1e9_c_scale,w_200.jpg 200w,
+                    /images/rooms/sittingceiling_zlw1e9_c_scale,w_593.jpg 593w,
+                    /images/rooms/sittingceiling_zlw1e9_c_scale,w_865.jpg 865w,
+                    /images/rooms/sittingceiling_zlw1e9_c_scale,w_1084.jpg 1084w,
+                    /images/rooms/sittingceiling_zlw1e9_c_scale,w_1337.jpg 1337w,
+                    /images/rooms/sittingceiling_zlw1e9_c_scale,w_1360.jpg 1360w,
+                    /images/rooms/sittingceiling_zlw1e9_c_scale,w_1400.jpg 1400w"
+                            src="/images/rooms/sittingceiling_zlw1e9_c_scale,w_1400.jpg" class="w-100 h-100"
                             alt="Third slide">
                     </div>
                     <div class="col-2    px-0 l_gallery_image">
-                        <img
-sizes="(max-width: 1400px) 100vw, 1400px"
-srcset="
-/images/rooms/living_cjnrze_c_scale,w_200.jpg 200w,
-/images/rooms/living_cjnrze_c_scale,w_606.jpg 606w,
-/images/rooms/living_cjnrze_c_scale,w_844.jpg 844w,
-/images/rooms/living_cjnrze_c_scale,w_1057.jpg 1057w,
-/images/rooms/living_cjnrze_c_scale,w_1282.jpg 1282w,
-/images/rooms/living_cjnrze_c_scale,w_1332.jpg 1332w,
-/images/rooms/living_cjnrze_c_scale,w_1400.jpg 1400w"
-src="/images/rooms/living_cjnrze_c_scale,w_1400.jpg"
-                        class="w-100 h-100" alt="Third slide">
+                        <img loading="lazy" sizes="(max-width: 1400px) 100vw, 1400px" srcset="
+                                /images/rooms/living_cjnrze_c_scale,w_200.jpg 200w,
+                                /images/rooms/living_cjnrze_c_scale,w_606.jpg 606w,
+                                /images/rooms/living_cjnrze_c_scale,w_844.jpg 844w,
+                                /images/rooms/living_cjnrze_c_scale,w_1057.jpg 1057w,
+                                /images/rooms/living_cjnrze_c_scale,w_1282.jpg 1282w,
+                                /images/rooms/living_cjnrze_c_scale,w_1332.jpg 1332w,
+                                /images/rooms/living_cjnrze_c_scale,w_1400.jpg 1400w"
+                            src="/images/rooms/living_cjnrze_c_scale,w_1400.jpg" class="w-100 h-100" alt="Third slide">
                     </div>
                     <div class="col-2   px-0 l_gallery_image">
-                        <img sizes="(max-width: 1400px) 100vw, 1400px" srcset="
-    /images/rooms/bed5_q82awp_c_scale,w_200.jpg 200w,
-    /images/rooms/bed5_q82awp_c_scale,w_530.jpg 530w,
-    /images/rooms/bed5_q82awp_c_scale,w_777.jpg 777w,
-    /images/rooms/bed5_q82awp_c_scale,w_959.jpg 959w,
-    /images/rooms/bed5_q82awp_c_scale,w_1078.jpg 1078w,
-    /images/rooms/bed5_q82awp_c_scale,w_1254.jpg 1254w,
-    /images/rooms/bed5_q82awp_c_scale,w_1274.jpg 1274w,
-    /images/rooms/bed5_q82awp_c_scale,w_1386.jpg 1386w,
-    /images/rooms/bed5_q82awp_c_scale,w_1400.jpg 1400w" src="/images/rooms/bed5_q82awp_c_scale,w_1400.jpg"
+                        <img loading="lazy" sizes="(max-width: 1400px) 100vw, 1400px" srcset="
+            /images/rooms/bed5_q82awp_c_scale,w_200.jpg 200w,
+            /images/rooms/bed5_q82awp_c_scale,w_530.jpg 530w,
+            /images/rooms/bed5_q82awp_c_scale,w_777.jpg 777w,
+            /images/rooms/bed5_q82awp_c_scale,w_959.jpg 959w,
+            /images/rooms/bed5_q82awp_c_scale,w_1078.jpg 1078w,
+            /images/rooms/bed5_q82awp_c_scale,w_1254.jpg 1254w,
+            /images/rooms/bed5_q82awp_c_scale,w_1274.jpg 1274w,
+            /images/rooms/bed5_q82awp_c_scale,w_1386.jpg 1386w,
+            /images/rooms/bed5_q82awp_c_scale,w_1400.jpg 1400w" src="/images/rooms/bed5_q82awp_c_scale,w_1400.jpg"
                             class="w-100 h-100" alt="Third slide">
                     </div>
                     <div class="col-2   px-0 l_gallery_image">
-                        <img src="{{ asset('/images/rooms/sittingceiling1.jpg') }}" class="w-100 h-100"
+                        <img loading="lazy" src="{{ asset('/images/rooms/sittingceiling1.jpg') }}" class="w-100 h-100"
                             alt="Third slide">
                     </div>
                     <div class="col-2   px-0 l_gallery_image">
-                        <img sizes="(max-width: 1400px) 100vw, 1400px" srcset="
-    /images/rooms/sitting_suyw55_c_scale,w_200.jpg 200w,
-    /images/rooms/sitting_suyw55_c_scale,w_542.jpg 542w,
-    /images/rooms/sitting_suyw55_c_scale,w_906.jpg 906w,
-    /images/rooms/sitting_suyw55_c_scale,w_997.jpg 997w,
-    /images/rooms/sitting_suyw55_c_scale,w_1132.jpg 1132w,
-    /images/rooms/sitting_suyw55_c_scale,w_1211.jpg 1211w,
-    /images/rooms/sitting_suyw55_c_scale,w_1324.jpg 1324w,
-    /images/rooms/sitting_suyw55_c_scale,w_1400.jpg 1400w" src="/images/rooms/sitting_suyw55_c_scale,w_1400.jpg"
+                        <img loading="lazy" sizes="(max-width: 1400px) 100vw, 1400px" srcset="
+            /images/rooms/sitting_suyw55_c_scale,w_200.jpg 200w,
+            /images/rooms/sitting_suyw55_c_scale,w_542.jpg 542w,
+            /images/rooms/sitting_suyw55_c_scale,w_906.jpg 906w,
+            /images/rooms/sitting_suyw55_c_scale,w_997.jpg 997w,
+            /images/rooms/sitting_suyw55_c_scale,w_1132.jpg 1132w,
+            /images/rooms/sitting_suyw55_c_scale,w_1211.jpg 1211w,
+            /images/rooms/sitting_suyw55_c_scale,w_1324.jpg 1324w,
+            /images/rooms/sitting_suyw55_c_scale,w_1400.jpg 1400w" src="/images/rooms/sitting_suyw55_c_scale,w_1400.jpg"
                             class="w-100 h-100" alt="Third slide">
                     </div>
 
@@ -564,7 +566,7 @@ src="/images/rooms/living_cjnrze_c_scale,w_1400.jpg"
 
 
         </div>
-    </div>
+    </section>
 
 
 @endsection

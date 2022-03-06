@@ -19,7 +19,7 @@
                         <li>Apartments</li>
                     </a>
                     <a href="/booking">
-                        <li>Make Reservations</li>
+                        <li> Reservations</li>
                     </a>
                     <a href="/services">
                         <li>Services</li>
@@ -27,6 +27,7 @@
                     <a href="/contact">
                         <li>Direction</li>
                     </a>
+
 
 
                 </ul>
@@ -60,9 +61,26 @@
                 </div>
             </div>
         </div>
-        <div class="text-center py-4 border-top">
+       <div class="d-flex justify-content-between align-items-center py-4 border-top">
+            <div class="text-center ">
             <span>&copy; Vamble Apartments & Suite ltd {{ now()->year }}</span>
         </div>
+            <div class="text-center">
+            <ul class="d-flex mb-0">
+                 <a href="/faqs">
+                        <li class="mr-2">Faqs</li>
+                    </a>
+
+                       <a href="/privacy">
+                        <li  class="mr-2">Privacy Policy</li>
+                    </a>
+                       <a href="/terms">
+                        <li>Terms and  conditions</li>
+                    </a>
+            </ul>
+        </div>
+
+       </div>
     </div>
 
 

@@ -1,14 +1,13 @@
 @extends('layouts.app')
-@section('title', 'About Vamble Apartments & Suites')
+@section('title', 'Terms and Conditions')
 @section('description',
-    'Vamble Apartment & Suites Limited is a renowned lodging facility built just
-    like a home to ensure a wonderful and comfortable experience.',)
+    'Vamble Apartment & Suites Limited Terms and Conditions',)
 @section('keywords',
     'Vamble Apartments,Vamble , Apartments, Hotels, Suites,Bookings, Online
     Apartments, Abuja, Abuja-Hotels,FCT-Hotels, Abuja-Apartments,Abuja-Stay,Home,Places,Jahi, Serviced Apartments Abuja',)
 @section('content')
     <div class="about_banner_img d-flex flex-column align-items-center justify-content-center align-items-center">
-        <h1 class="font-weight-bold ">Privacy Policy </h1>
+        <h1 class="font-weight-bold ">Terms and Conditions </h1>
         <small class="text-white" style="z-index: 2"><i>A home away from home</i></small>
     </div>
     {{ Breadcrumbs::render('terms') }}

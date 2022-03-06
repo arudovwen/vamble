@@ -45,7 +45,7 @@ Breadcrumbs::for('privacy', function (BreadcrumbTrail $trail) {
 // Privacy >
 Breadcrumbs::for('terms', function (BreadcrumbTrail $trail) {
   $trail->push('Home', route('home'));
-  $trail->push('Terms', route('terms'));
+  $trail->push('Terms and conditions', route('terms'));
 });
 
 // Gallery >

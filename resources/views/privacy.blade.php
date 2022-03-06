@@ -1,8 +1,7 @@
 @extends('layouts.app')
-@section('title','About Vamble Apartments & Suites')
-@section('description', 'Vamble Apartment & Suites Limited is a renowned lodging facility built just
-                        like a home to ensure a wonderful and comfortable experience.')
-@section('keywords', 'Vamble Apartments,Vamble , Apartments, Hotels, Suites,Bookings, Online
+@section('title','Privacy Policy')
+@section('description', 'Vamble Apartment & Suites Limited Privacy Policy.')
+@section('keywords', 'Privacy Policy, Vamble Apartments,Vamble , Apartments, Hotels, Suites,Bookings, Online
 Apartments, Abuja, Abuja-Hotels,FCT-Hotels, Abuja-Apartments,Abuja-Stay,Home,Places,Jahi, Serviced Apartments Abuja')
 @section('content')
     <div class="about_banner_img d-flex flex-column align-items-center justify-content-center align-items-center">

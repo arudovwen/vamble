@@ -35,6 +35,9 @@ Route::post('/enquire', [App\Http\Controllers\ContactController::class, 'sendmes
 
 // Views
 Route::get('/gallery', [App\Http\Controllers\GalleryController::class, 'index'])->name('gallery');
+Route::get('/faqs', [App\Http\Controllers\FaqController::class, 'index'])->name('faqs');
+Route::get('/privacy', [App\Http\Controllers\PrivacyController::class, 'index'])->name('privacy');
+Route::get('/terms', [App\Http\Controllers\PrivacyController::class, 'terms'])->name('terms');
 Route::get('/booking', [App\Http\Controllers\BookingController::class, 'index'])->name('booking');
 Route::post('/check/booking', [App\Http\Controllers\BookingController::class, 'checkbooking'])->name('checkbooking');
 Route::get('/find/booking/{booking}', [App\Http\Controllers\ReservationController::class, 'findbooking'])->name('findbooking');

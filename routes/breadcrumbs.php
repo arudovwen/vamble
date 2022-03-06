@@ -30,7 +30,25 @@ Breadcrumbs::for('contact', function (BreadcrumbTrail $trail) {
   $trail->push('Contact', route('contact'));
 });
 
-// Home >
+// faqs >
+Breadcrumbs::for('faqs', function (BreadcrumbTrail $trail) {
+  $trail->push('Home', route('home'));
+  $trail->push('Faqs', route('faqs'));
+});
+
+// Privacy >
+Breadcrumbs::for('privacy', function (BreadcrumbTrail $trail) {
+  $trail->push('Home', route('home'));
+  $trail->push('Privacy', route('privacy'));
+});
+
+// Privacy >
+Breadcrumbs::for('terms', function (BreadcrumbTrail $trail) {
+  $trail->push('Home', route('home'));
+  $trail->push('Terms', route('terms'));
+});
+
+// Gallery >
 Breadcrumbs::for('gallery', function (BreadcrumbTrail $trail) {
   $trail->push('Home', route('home'));
   $trail->push('Gallery', route('gallery'));

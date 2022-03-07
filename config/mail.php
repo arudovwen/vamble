@@ -92,7 +92,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'support@vambleapartments.com'),
+        'address' => env('MAIL_FROM_ADDRESS', 'contact@vambleapartments.com'),
         'name' => env('MAIL_FROM_NAME', 'Vamble Team'),
     ],
 

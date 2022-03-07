@@ -117,9 +117,7 @@ class ReservationService
           'room'  => $oneroom['room_name'],
           'status' => ucfirst($request->status)
         ];
-        //  Mail::to($user->email)->send(new BookingSuccess($detail));
-        //  Mail::to('contact@vambleapartments.com')->send(new NewReservation($admindetail));
-
+     
          BookingSuccessJob::dispatch($user,$detail,$admindetail);
 
         $admin = User::where('email', 'admin@vambleapartments.com')->first();
@@ -229,7 +227,8 @@ class ReservationService
           'payment_status'  => $request->payment_status,
           'payment_type' => $request->payment_type,
           'room'  => $request->flat_type,
-          'status' => $request->status
+          'status' => $request->status,
+           'phone' => $request->phone,
         ];
         $admindetail = [
           'name' => $user->name,
@@ -248,10 +247,11 @@ class ReservationService
           'flat_type'  => $oneroom->flat_type,
           'flat_name'  => $oneroom->flat_name,
           'room'  => $oneroom->room_name,
-          'status' => $request->status
+          'status' => $request->status,
+          'phone' => $request->phone,
         ];
-        Mail::to($user->email)->send(new BookingSuccess($detail));
-        Mail::to('support@vambleapartments.com')->send(new NewReservation($admindetail));
+
+        BookingSuccessJob::dispatch($user, $detail, $admindetail);
 
         $calendar_id = $oneroom['flat_type'] . ' ' . $oneroom['flat_name'];
         $calendar = new CalendarController($calendar_id);

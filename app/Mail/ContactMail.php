@@ -30,7 +30,7 @@ class ContactMail extends Mailable
     public function build()
     {
         return $this->subject('New Customer Email ')
-            ->from('support@vambleapartments.com', $this->detail['name'])
+            ->from('contact@vambleapartments.com', $this->detail['name'])
             ->markdown('emails.contact', $this->detail);
     }
 }

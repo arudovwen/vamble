@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Reservation;
+use App\Models\Transaction;
 use App\Mail\BookingSuccess;
 use App\Mail\NewReservation;
 use App\Models\RoomCalendar;
-use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use App\Jobs\BookingSuccessJob;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
@@ -136,7 +137,8 @@ class TransactionController extends Controller
                     'payment_status'  => $request->payment_status,
                     'payment_type' => $request->payment_type,
                     'flat_type'  => ucfirst($oneroom['flat_type']),
-                    'status' => ucfirst($request->status)
+                    'status' => ucfirst($request->status),
+                    'phone' => $request->phone,
                 ];
                 $admindetail = [
                     'name' => $user->name,
@@ -154,11 +156,11 @@ class TransactionController extends Controller
                     'flat_type'  => ucfirst($oneroom['flat_type']),
                     'flat_name'  => ucfirst($oneroom['flat_name']),
                     'room'  => $oneroom['room_name'],
-                    'status' => ucfirst($request->status)
+                    'status' => ucfirst($request->status),
+                    'phone' => $request->phone,
                 ];
-                Mail::to($user->email)->send(new BookingSuccess($detail));
-                Mail::to('support@vambleapartments.com')->send(new NewReservation($admindetail));
-
+             
+                dispatch(new \App\Jobs\BookingSuccessJob($user, $detail, $admindetail));
 
                 return response(['status' => 'success', 'booking_no'=> $reservation->booking_no], 200);
            });

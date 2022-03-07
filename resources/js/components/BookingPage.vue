@@ -203,8 +203,8 @@
                       :disabled="!isAvailable"
                       aria-describedby="helpId"
                       placeholder=""
-                      minlength="11"
-                      maxlength="11"
+                      minlength="10"
+
                       v-model="detail.phone"
                     />
                   </div>
@@ -457,7 +457,7 @@
                     class="form-control form-control-sm"
                     aria-describedby="helpId"
                     v-model="bookingNumber"
-                    placeholder="90499472"
+                    placeholder="e.g 90499472"
                     minlength="8"
                     maxlength="8"
                     required

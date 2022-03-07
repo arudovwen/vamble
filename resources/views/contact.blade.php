@@ -22,7 +22,7 @@ Apartments, Abuja, Abuja-Hotels,FCT-Hotels, Abuja-Apartments,Abuja-Stay,Home,Pla
                                     Jahi. Abuja</a></span>
                         </div>
                         <div class="mb-3"> <i class="fa fa-envelope" aria-hidden="true"></i> Email :
-                            support@vambleapartments.com</div> <br>
+                            contact@vambleapartments.com</div> <br>
 
                     </div>
                     <div class="d-none d-md-block">

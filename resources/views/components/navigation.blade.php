@@ -26,7 +26,7 @@
                       <li class="nav-item">
                           <a class="nav-link " href="#"> <i class="fa fa-envelope text-primary"
                                   aria-hidden="true"></i> <span class="nav-text">
-                                  support@vambleapartments.com</span></a>
+                                  contact@vambleapartments.com</span></a>
                       </li>
 
                       <li class="nav-item">

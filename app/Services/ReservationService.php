@@ -11,6 +11,7 @@ use App\Mail\BookingSuccess;
 use App\Mail\NewReservation;
 use App\Models\RoomCalendar;
 use App\Models\GoogleCalendar;
+use App\Jobs\BookingSuccessJob;
 use Spatie\GoogleCalendar\Event;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
@@ -116,8 +117,10 @@ class ReservationService
           'room'  => $oneroom['room_name'],
           'status' => ucfirst($request->status)
         ];
-         Mail::to($user->email)->send(new BookingSuccess($detail));
-         Mail::to('support@vambleapartments.com')->send(new NewReservation($admindetail));
+        //  Mail::to($user->email)->send(new BookingSuccess($detail));
+        //  Mail::to('contact@vambleapartments.com')->send(new NewReservation($admindetail));
+
+         BookingSuccessJob::dispatch($user,$detail,$admindetail);
 
         $admin = User::where('email', 'admin@vambleapartments.com')->first();
         $admin->notify(new NewReservationNotification());

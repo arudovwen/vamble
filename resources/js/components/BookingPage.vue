@@ -3,120 +3,148 @@
   <div class="bookings px-0 py-3 py-md-3 px-md-3 p-md-0">
     <div class="container pb-5 pt-md-3">
       <div class="row">
-        <div class="col-md-8 rounded mb-5">
-          <stepper :step="step" @toggleStep="toggleStep">
+        <div class="col-md-8 rounded-lg mb-5">
+          <stepper :step="step" @toggleStep="toggleStep" class="bg-white shadow-sm rounded">
             <template #one>
               <form @submit.prevent="checkAvailability">
-                <div class="mb-5">
+                <div class="mb-3">
                   <div class="form-group">
-                    <HotelDatePicker
-                      @period-selected="handleBooking"
-                      :bookings="bookings"
-                    />
+                    <HotelDatePicker @period-selected="handleBooking" />
                   </div>
                   <div class="row">
                     <div class="col-sm-3">
-          <div class="form-group">
-            <select
-              class="form-control"
-              required
-              name="flat_name"
-              v-model="detail.flat_name"
-              id="flat_name"
-            >
-              <option value="" disabled>Choose type</option>
-              <option value="room">Room</option>
-              <option value="apartment">Apartment</option>
-            </select>
-          </div>
-        </div>
-        <div class="col-sm-3">
-          <div class="form-group">
-            <select
-              class="form-control text-capitalize"
-              name="room_id"
-              v-model="detail.flat_type"
-              required
-            >
-              <option disabled value="">Choose option</option>
-              <option
-                :value="item.name"
-                v-for="item in sorteditems"
-                :key="item.id"
-              >
-                <div class="d-flex justify-content-between align-items-center">
-                  <span
-                    ><span>{{ item.name }}</span> {{ item.type }}</span
-                  >
-                  -
-                  <span
-                    >{{ item.price | currencyFormat }}
-                    <small>/ night</small></span
-                  >
-                </div>
-              </option>
-            </select>
-          </div>
-        </div>
-        <div class="col-sm-3">
-          <div class="form-group">
-            <select class="form-control" required v-model="detail.rooms">
-              <option :value="null" disabled>No of rooms</option>
-              <option :value="n" v-for="n in 4" :key="n">{{ n }}</option>
-            </select>
-          </div>
-        </div>
-        <div class="col-sm-3">
-          <div class="form-group">
-            <select class="form-control" required v-model="detail.guests">
-              <option :value="null" disabled>No of guests</option>
-              <option :value="n" v-for="n in 6" :key="n">{{ n }}</option>
-            </select>
-          </div>
-        </div>
-                  </div>
-                  <div class="row" v-if="detail.nights">
-                    <div class="form-group col-12">
-                      <div class="d-flex justify-content-between">
-                        <div>
-                          <p
-                            class="mb-1"
-                            v-if="detail.checkIn && detail.checkOut"
-                          >
-                            Check-in : {{ detail.checkIn | moment("ll") }}
-                          </p>
-                          <p class="mb-1">
-                            Check-out : {{ detail.checkOut | moment("ll") }}
-                          </p>
-                        </div>
-                        <div>
-                          <p class="mb-1" v-if="detail.nights">
-                            {{ detail.nights > 1 ? "Nights" : "Night" }} x
-                            {{ detail.nights }}
-                          </p>
-                          <p class="mb-1" v-if="detail.rooms">
-                            {{ detail.rooms > 1 ? "Rooms" : "Room" }} x
-                            {{ detail.rooms }}
-                          </p>
-                        </div>
+                      <div class="form-group">
+                        <select
+                          class="form-control"
+                          required
+                          name="flat_name"
+                          v-model="detail.flat_name"
+                          id="flat_name"
+                        >
+                          <option value="" disabled>Choose type</option>
+                          <option value="room">Room</option>
+                          <option value="apartment">Apartment</option>
+                        </select>
                       </div>
-                      <p class="mb-1" v-if="selectedRoom">
-                        Room price :
-                        <span class=""
-                          >{{ selectedRoom.price | currencyFormat }}
-                        </span>
-                      </p>
-                      <p v-if="selectedRoom">
-                        Total stay price :
-                        <strong class=""
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <select
+                          class="form-control text-capitalize"
+                          name="room_id"
+                          v-model="detail.flat_type"
+                          required
+                        >
+                          <option disabled value="">Choose option</option>
+                          <option
+                            :value="item.name"
+                            v-for="item in sorteditems"
+                            :key="item.id"
+                          >
+                            <div
+                              class="
+                                d-flex
+                                justify-content-between
+                                align-items-center
+                              "
+                            >
+                              <span
+                                ><span>{{ item.name }}</span>
+                                {{ item.type }}</span
+                              >
+                              -
+                              <span
+                                >{{ item.price | currencyFormat }}
+                                <small>/ night</small></span
+                              >
+                            </div>
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <select
+                          class="form-control"
+                          required
+                          v-model="detail.rooms"
+                        >
+                          <option :value="null" disabled>No of rooms</option>
+                          <option :value="n" v-for="n in 4" :key="n">
+                            {{ n }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <select
+                          class="form-control"
+                          required
+                          v-model="detail.guests"
+                        >
+                          <option :value="null" disabled>No of guests</option>
+                          <option :value="n" v-for="n in 6" :key="n">
+                            {{ n }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <table class="table-striped" v-if="detail.nights">
+                    <tbody>
+                      <tr v-if="selectedRoom">
+                        <td class="mb-1">Room price </td>
+                        <td class="">
+                          {{ selectedRoom.price | currencyFormat }}
+                        </td>
+                      </tr>
+
+                      <tr v-if="detail.checkIn && detail.checkOut">
+                        <td>Check-in </td>
+                        <td>
+                          {{ detail.checkIn | moment("ll") }}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="mb-1">Check-out :</td>
+                        <td>
+                          {{ detail.checkOut | moment("ll") }}
+                        </td>
+                      </tr>
+                      <tr v-if="detail.nights">
+                        <td>Nights</td>
+                        <td>
+                          {{ detail.nights > 1 ? "Nights" : "Night" }} x
+                          {{ detail.nights }}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>No of rooms</td>
+
+                        <td v-if="detail.rooms">
+                          {{ detail.rooms > 1 ? "Rooms" : "Room" }} x
+                          {{ detail.rooms }}
+                        </td>
+                      </tr>
+                      <tr v-if="selectedRoom">
+                         <td >
+                        Total stay price
+
+                      </td>
+                      <td>
+                         <strong class=""
                           >{{
                             (selectedRoom.price * detail.rooms * detail.nights)
                               | currencyFormat
                           }}
                         </strong>
-                      </p>
-                    </div>
-                  </div>
+                      </td>
+                      </tr>
+                    </tbody>
+
+
+                  </table>
 
                   <div class="text-right mt-1">
                     <button
@@ -137,17 +165,17 @@
                 <div>
                   <div
                     v-if="isAvailable"
-                    class="alert alert-success alert-dismissible fade show"
+                    class="alert alert-success alert-dismissible fade show text-center"
                     role="alert"
                   >
-                    {{ message }}
+                  <small>  {{ message }}</small>
                   </div>
                   <div
                     v-if="isAvailable === false"
-                    class="alert alert-danger alert-dismissible fade show"
+                    class="alert alert-danger alert-dismissible fade show text-center"
                     role="alert"
                   >
-                    {{ message }}
+                    <small>  {{ message }}</small>
                   </div>
                 </div>
                 <div class="d-flex justify-content-end mt-3" v-if="isAvailable">
@@ -156,7 +184,7 @@
                     @click="step++"
                     class="btn btn-primary btn-sm px-3"
                   >
-                    Next
+                    Proceed
                   </button>
                 </div>
               </form>
@@ -167,7 +195,8 @@
                 @submit.prevent="step++"
                 class="animate__animated animate__fadeIn"
               >
-                <div class="form-group">
+              <div class="row">
+                  <div class="form-group col-md-6">
                   <label for="">Full Name</label>
                   <input
                     required
@@ -180,7 +209,7 @@
                   />
                 </div>
 
-                <div class="form-group">
+                <div class="form-group col-md-6">
                   <label for="">Email </label>
                   <input
                     required
@@ -193,6 +222,7 @@
                   />
                 </div>
 
+              </div>
                 <div class="row">
                   <div class="form-group col-md-4">
                     <label for="">Phone</label>
@@ -204,7 +234,6 @@
                       aria-describedby="helpId"
                       placeholder=""
                       minlength="10"
-
                       v-model="detail.phone"
                     />
                   </div>
@@ -237,15 +266,15 @@
                 </div>
                 <div class="form-group">
                   <label for="">Address</label>
-                  <input
+                  <textarea name="address"
                     required
-                    type="text"
+
                     class="form-control"
                     :disabled="!isAvailable"
                     aria-describedby="helpId"
                     v-model="detail.address"
                     placeholder=""
-                  />
+                  ></textarea>
                 </div>
 
                 <div class="d-flex justify-content-end mt-4">
@@ -254,14 +283,10 @@
                     @click="step--"
                     class="btn btn-secondary btn-sm mr-3"
                   >
-                    Previous
+                    Go back
                   </button>
-                  <button
-                    type="submit"
-
-                    class="btn btn-primary btn-sm"
-                  >
-                    Next
+                  <button type="submit" class="btn btn-primary btn-sm">
+                    Proceed
                   </button>
                 </div>
               </form>
@@ -288,55 +313,56 @@
                 </div>
                 <div class="">
                   <div class="mb-4" v-if="!finalize && detail">
-                    <table class="table table-bordered table-sm">
-                      <tr class="mb-1">
+                    <table class="table table-striped ">
+                      <tr class="">
                         <td class="text-muted">Guest name</td>
 
                         <td class="text-capitalize">{{ detail.name }}</td>
                       </tr>
 
-                      <tr class="mb-1">
+                      <tr class="">
                         <td class="text-muted">Guest email</td>
 
                         <td>{{ detail.email }}</td>
                       </tr>
 
-                      <tr class="mb-1">
+                      <tr class="">
                         <td class="text-muted">Home type</td>
 
                         <td class="text-capitalize">
-                          {{ selectedRoom ? selectedRoom.name : "-" }} {{ selectedRoom.type }}
+                          {{ selectedRoom ? selectedRoom.name : "-" }}
+                          {{ selectedRoom.type }}
                         </td>
                       </tr>
 
-                      <tr class="mb-1">
+                      <tr class="">
                         <td class="text-muted">Check-in date</td>
 
                         <td>{{ detail.checkIn | moment("ll") }}</td>
                       </tr>
-                      <tr class="mb-1">
+                      <tr class="">
                         <td class="text-muted">Check-out date</td>
 
                         <td>{{ detail.checkOut | moment("ll") }}</td>
                       </tr>
 
-                      <tr class="pr-3">
+                      <tr class="">
                         <td class="text-muted">No of guests</td>
 
                         <td>{{ detail.guests }}</td>
                       </tr>
-                      <tr class="mb-1">
+                      <tr class="">
                         <td class="text-muted">No of rooms</td>
 
                         <td>{{ detail.rooms }}</td>
                       </tr>
 
-                      <tr class="mb-1">
+                      <tr class="">
                         <td class="text-muted">No of nights</td>
 
                         <td>{{ detail.nights }}</td>
                       </tr>
-                      <tr class="mb-1">
+                      <tr class="">
                         <td class="text-muted">Price per night</td>
 
                         <td>
@@ -349,7 +375,7 @@
                       </tr>
                     </table>
 
-                    <div class="mb-1 text-right">
+                    <div class=" text-right">
                       <div>
                         <span class="text-muted">
                           Nights x {{ detail.nights }}</span
@@ -377,29 +403,30 @@
                   </div>
                 </div>
                 <div class="d-flex justify-content-between" v-if="!finalize">
-                   <button
-                    type="button"
-                    @click="step--"
-                    class="btn btn-secondary btn-sm "
-                  >
-                    Previous
-                  </button>
-                <span>
-                    <Payment
-                    :detail="detail"
-                    :amount="totalPrice"
-                    :price_per_night="selectedRoom.price"
-                    @paymentsuccessful="paymentsuccessful"
-                  />
                   <button
                     type="button"
-                    @click="payAtHotel"
-                    class="btn btn-dark btn-sm ml-3"
-                    :disabled="!isFinalizing"
+                    @click="step--"
+                    class="btn btn-secondary btn-sm"
                   >
-                    Pay at hotel
+                    Go back
                   </button>
-                </span>
+                  <span>
+                     <button
+                      type="button"
+                      @click="payAtHotel"
+                      class="btn btn-dark btn-sm mr-3"
+                      :disabled="!isFinalizing"
+                    >
+                      Pay at hotel
+                    </button>
+                    <Payment
+                      :detail="detail"
+                      :amount="totalPrice"
+                      :price_per_night="selectedRoom.price"
+                      @paymentsuccessful="paymentsuccessful"
+                    />
+
+                  </span>
                 </div>
               </div>
               <div v-else class="text-center p-4">
@@ -439,7 +466,7 @@
         </div>
 
         <div class="col-md-4 side_tab px-md-3">
-          <div class="bg-white rounded p-3 w-100">
+          <div class="bg-white rounded-lg p-3 w-100 shadow-sm">
             <h5
               class="mb-4"
               data-toggle="modal"
@@ -528,7 +555,8 @@
                     <td class="text-muted">Home type</td>
 
                     <td class="text-capitalize">
-                      {{ info.roomcalendar[0].room.flat_type }}    {{ info.roomcalendar[0].room.flat_name }}
+                      {{ info.roomcalendar[0].room.flat_type }}
+                      {{ info.roomcalendar[0].room.flat_name }}
                     </td>
                   </tr>
 
@@ -701,7 +729,7 @@ export default {
         rooms: null,
         payment_type: null,
         flat_type: "",
-        flat_name:'',
+        flat_name: "",
         total_price: 0,
         payment_status: "",
         status: "",
@@ -770,30 +798,21 @@ export default {
       this.detail.flat_name = query.get("flat_name");
       this.detail.guests = query.get("guests");
       this.handleBooking("event", query.get("checkin"), query.get("checkout"));
-      this.bookings = [
-        {
-          event: true,
-          checkInDate: this.$moment(query.get("checkin")).format("YYYY-MM-DD"),
-          checkOutDate: this.$moment(query.get("checkout")).format(
-            "YYYY-MM-DD"
-          ),
-          style: {
-            backgroundColor: "#399694",
-          },
-        },
-      ];
       this.checkAvailability();
     }
   },
   computed: {
-
     sorteditems() {
-      return this.roomOption.filter((item) => item.type == this.detail.flat_name);
+      return this.roomOption.filter(
+        (item) => item.type == this.detail.flat_name
+      );
     },
 
     selectedRoom() {
       var room = this.roomOption.find(
-        (item) => item.name == this.detail.flat_type && item.type == this.detail.flat_name
+        (item) =>
+          item.name == this.detail.flat_type &&
+          item.type == this.detail.flat_name
       );
       return room;
     },
@@ -809,7 +828,7 @@ export default {
       this.step = val;
     },
     reset() {
-      window.location.href='/booking';
+      window.location.href = "/booking";
     },
 
     handleBooking(event, checkin, checkout) {
@@ -947,17 +966,15 @@ export default {
       $("#editbooking").modal("show");
     },
     dropreservation() {
-      axios
-        .delete(`/reserve/${this.info.id}`)
-        .then((res) => {
-          if (res.status == 200) {
-            this.info = null;
+      axios.delete(`/reserve/${this.info.id}`).then((res) => {
+        if (res.status == 200) {
+          this.info = null;
 
-            $(document).ready(function () {
-              $("#deletereservation").modal("hide");
-            });
-          }
-        });
+          $(document).ready(function () {
+            $("#deletereservation").modal("hide");
+          });
+        }
+      });
     },
   },
 };

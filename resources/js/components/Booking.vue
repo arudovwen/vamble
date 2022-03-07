@@ -114,7 +114,7 @@
                 v-model="guests"
               >
                 <option disabled :value="null">No of guests</option>
-                <option :value="n" v-for="n in 50" :key="n">{{ n }}</option>
+                <option :value="n" v-for="n in 6" :key="n">{{ n }}</option>
               </select>
             </div>
             <div
@@ -134,7 +134,7 @@
                 v-model="rooms"
               >
                 <option disabled :value="null">No of rooms</option>
-                <option :value="n" v-for="n in 50" :key="n">{{ n }}</option>
+                <option :value="n" v-for="n in 6" :key="n">{{ n }}</option>
               </select>
             </div>
           </div>

@@ -22,7 +22,7 @@ export default {
   props: ["detail", "amount",'price_per_night'],
   data() {
     return {
-      paystackkey: "pk_test_d41b877edecdbfa1b296661dfe4da9b505ff2895", //paystack public key
+      paystackkey: "pk_test_a3a660faf85f6507301c6cca1147c89166dde1fa", //paystack public key
     };
   },
   computed: {

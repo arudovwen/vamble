@@ -134,8 +134,8 @@ class TransactionController extends Controller
                     'nights'  => $duration,
                     'price_per_night'  => $request->price_per_night,
                     'total_price'  => $request->total_price,
-                    'payment_status'  => $request->payment_status,
-                    'payment_type' => $request->payment_type,
+                    'payment_status'  => 'Paid',
+                    'payment_type' => 'Paystack online',
                     'flat_type'  => ucfirst($oneroom['flat_type']),
                     'status' => ucfirst($request->status),
                     'phone' => $request->phone,
@@ -151,15 +151,15 @@ class TransactionController extends Controller
                     'nights'  => $duration,
                     'price_per_night'  => $request->price_per_night,
                     'total_price'  => $request->total_price,
-                    'payment_status'  => ucfirst($request->payment_status),
-                    'payment_type' => ucfirst($request->payment_type),
+                    'payment_status'  => 'Paid',
+                    'payment_type' => 'Paystack online',
                     'flat_type'  => ucfirst($oneroom['flat_type']),
                     'flat_name'  => ucfirst($oneroom['flat_name']),
                     'room'  => $oneroom['room_name'],
                     'status' => ucfirst($request->status),
                     'phone' => $request->phone,
                 ];
-             
+
                 dispatch(new \App\Jobs\BookingSuccessJob($user, $detail, $admindetail));
 
                 return response(['status' => 'success', 'booking_no'=> $reservation->booking_no], 200);

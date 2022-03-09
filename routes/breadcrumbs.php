@@ -104,6 +104,11 @@ Breadcrumbs::for('transactions', function (BreadcrumbTrail $trail) {
   $trail->parent('dashboard');
   $trail->push('Transactions', route('transactions'));
 });
+
+Breadcrumbs::for('coupons', function (BreadcrumbTrail $trail) {
+  $trail->parent('dashboard');
+  $trail->push('Coupons', route('coupons'));
+});
 Breadcrumbs::for('customers', function (BreadcrumbTrail $trail) {
   $trail->parent('dashboard');
   $trail->push('Customers', route('users'));

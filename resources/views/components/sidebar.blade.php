@@ -95,6 +95,18 @@
                     </div>
                 </a>
             </li>
+             <li class=" {{ request()->routeIs('coupons') ? 'active' : '' }}">
+                <a href="{{ route('coupons') }}">
+                    <div class="w-100 d-flex justify-content-between align-items-center">
+                        <span><i class="fa fa-tags mr-2" aria-hidden="true"></i> {{ __('Coupons') }}</span>
+                        @if (request()->routeIs('coupons'))
+                            <i class="fa  fa-caret-left  ml-auto" aria-hidden="true"></i>
+
+
+                        @endif
+                    </div>
+                </a>
+            </li>
             <li>
 
                 <a href="{{ route('logout') }}" onclick="event.preventDefault();

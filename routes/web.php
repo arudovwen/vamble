@@ -71,7 +71,7 @@ Route::get('/rooms/edit/{room}', [App\Http\Controllers\RoomController::class, 'e
 Route::put('/rooms/{room}', [App\Http\Controllers\RoomController::class, 'update'])->name('updateroom');
 Route::resource('rooms', RoomController::class);
 
-
+Route::post('/check-coupon', [App\Http\Controllers\CouponController::class,'checkcoupon']);
 
 
 // Admin routes
@@ -84,6 +84,15 @@ Route::get('/reservations', [App\Http\Controllers\AdminController::class, 'reser
 Route::get('/transactions', [App\Http\Controllers\AdminController::class, 'transactions'])->name('transactions');
 Route::post('/transactions', [App\Http\Controllers\TransactionController::class, 'searchtransactions'])->name('searchtransactions');
 Route::get('/calendar', [App\Http\Controllers\AdminController::class, 'calendar'])->name('calendar');
+
+//coupons
+Route::post('/coupons', [App\Http\Controllers\CouponController::class, 'store'])->name('addcoupons');
+Route::get('/coupons', [App\Http\Controllers\CouponController::class, 'coupons'])->name('coupons');
+Route::get('/coupons/edit/{coupon}', [App\Http\Controllers\CouponController::class, 'edit'])->name('editcoupon');
+Route::put('/coupons/{coupon}', [App\Http\Controllers\CouponController::class, 'update'])->name('updatecoupon');
+Route::delete('/coupons/{coupon}', [App\Http\Controllers\CouponController::class, 'destroy'])->name('dropcoupon');
+
+
 
 Route::delete('/users/{user}', [App\Http\Controllers\UserController::class, 'destroy'])->name('userdelete');
 
@@ -114,9 +123,9 @@ Route::get('/marknotification/{id}', [App\Http\Controllers\UserController::class
 
 Route::resource('reviews', App\Http\Controllers\ReviewController::class);
 
-Route::get('/clear-cache', function () {
-    $exitCode = Artisan::call('cache:clear');
-    // return what you want
-});
+
+Route::resource('COUPONS', App\Http\Controllers\CouponController::class);
+
+
 
 Route::resource('google-calendar', App\Http\Controllers\CalendarController::class);

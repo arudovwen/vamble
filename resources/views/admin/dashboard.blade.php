@@ -50,13 +50,14 @@
             </div>
         </div>
         <div class="row mb-5">
-            <div class="col-sm-8 text-center ">
+            <div class="col-sm-9 text-center">
 
-                <customers-chart :customers="{{ $data }}"></customers-chart>
+                <customers-chart :customers="{{ $data }}" class="shadow-sm rounded bg-white"></customers-chart>
 
             </div>
 
-            <div class="col-sm-3 p-3 rounded shadow-sm p-sm-4 offset-sm-1 bg-white">
+           <div  class="col-sm-3 ">
+                <div class=" p-3 rounded shadow-sm p-sm-4  bg-white">
                 <h6 class="font-weight-bold mb-4 d-flex justify-content-between align-items-center"><span>Quick
                         Actions</span> </h6>
 
@@ -81,6 +82,7 @@
                             Transactions <i class="fa fa-arrow-right" aria-hidden="true"></i></button></a>
                 </div>
             </div>
+           </div>
         </div>
 
 

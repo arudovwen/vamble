@@ -32,7 +32,7 @@ class RoomService
   {
 
 
-   
+
     $check_in = Carbon::parse($request->input('checkIn'));
     $check_out = Carbon::parse($request->input('checkOut'));
     $room_id = $request->room_id;
@@ -138,6 +138,6 @@ class RoomService
   public function removeroom($room)
   {
     $room->delete();
-    return redirect()->back()->with('success', 'Added successfully');
+    return redirect()->back()->with('success', 'Remove successfully');
   }
 }

@@ -4,7 +4,11 @@
     <div class="container pb-5 pt-md-3">
       <div class="row">
         <div class="col-md-8 rounded-lg mb-5">
-          <stepper :step="step" @toggleStep="toggleStep" class="bg-white shadow-sm rounded">
+          <stepper
+            :step="step"
+            @toggleStep="toggleStep"
+            class="bg-white shadow-sm rounded"
+          >
             <template #one>
               <form @submit.prevent="checkAvailability">
                 <div class="mb-3">
@@ -94,14 +98,14 @@
                   <table class="table-striped" v-if="detail.nights">
                     <tbody>
                       <tr v-if="selectedRoom">
-                        <td class="mb-1">Room price </td>
+                        <td class="mb-1">Room price</td>
                         <td class="">
                           {{ selectedRoom.price | currencyFormat }}
                         </td>
                       </tr>
 
                       <tr v-if="detail.checkIn && detail.checkOut">
-                        <td>Check-in </td>
+                        <td>Check-in</td>
                         <td>
                           {{ detail.checkIn | moment("ll") }}
                         </td>
@@ -119,31 +123,28 @@
                           {{ detail.nights }}
                         </td>
                       </tr>
-                      <tr>
+                      <tr v-if="detail.rooms">
                         <td>No of rooms</td>
 
-                        <td v-if="detail.rooms">
+                        <td>
                           {{ detail.rooms > 1 ? "Rooms" : "Room" }} x
                           {{ detail.rooms }}
                         </td>
                       </tr>
                       <tr v-if="selectedRoom">
-                         <td >
-                        Total stay price
-
-                      </td>
-                      <td>
-                         <strong class=""
-                          >{{
-                            (selectedRoom.price * detail.rooms * detail.nights)
-                              | currencyFormat
-                          }}
-                        </strong>
-                      </td>
+                        <td>Total stay price</td>
+                        <td>
+                          <strong class=""
+                            >{{
+                              (selectedRoom.price *
+                                detail.rooms *
+                                detail.nights)
+                                | currencyFormat
+                            }}
+                          </strong>
+                        </td>
                       </tr>
                     </tbody>
-
-
                   </table>
 
                   <div class="text-right mt-1">
@@ -165,17 +166,27 @@
                 <div>
                   <div
                     v-if="isAvailable"
-                    class="alert alert-success alert-dismissible fade show text-center"
+                    class="
+                      alert alert-success alert-dismissible
+                      fade
+                      show
+                      text-center
+                    "
                     role="alert"
                   >
-                  <small>  {{ message }}</small>
+                    <small> {{ message }}</small>
                   </div>
                   <div
                     v-if="isAvailable === false"
-                    class="alert alert-danger alert-dismissible fade show text-center"
+                    class="
+                      alert alert-danger alert-dismissible
+                      fade
+                      show
+                      text-center
+                    "
                     role="alert"
                   >
-                    <small>  {{ message }}</small>
+                    <small> {{ message }}</small>
                   </div>
                 </div>
                 <div class="d-flex justify-content-end mt-3" v-if="isAvailable">
@@ -195,34 +206,33 @@
                 @submit.prevent="step++"
                 class="animate__animated animate__fadeIn"
               >
-              <div class="row">
+                <div class="row">
                   <div class="form-group col-md-6">
-                  <label for="">Full Name</label>
-                  <input
-                    required
-                    type="text"
-                    class="form-control"
-                    :disabled="!isAvailable"
-                    aria-describedby="helpId"
-                    placeholder=""
-                    v-model="detail.name"
-                  />
-                </div>
+                    <label for="">Full Name</label>
+                    <input
+                      required
+                      type="text"
+                      class="form-control"
+                      :disabled="!isAvailable"
+                      aria-describedby="helpId"
+                      placeholder=""
+                      v-model="detail.name"
+                    />
+                  </div>
 
-                <div class="form-group col-md-6">
-                  <label for="">Email </label>
-                  <input
-                    required
-                    type="email"
-                    class="form-control"
-                    :disabled="!isAvailable"
-                    aria-describedby="emailHelpId"
-                    placeholder=""
-                    v-model="detail.email"
-                  />
+                  <div class="form-group col-md-6">
+                    <label for="">Email </label>
+                    <input
+                      required
+                      type="email"
+                      class="form-control"
+                      :disabled="!isAvailable"
+                      aria-describedby="emailHelpId"
+                      placeholder=""
+                      v-model="detail.email"
+                    />
+                  </div>
                 </div>
-
-              </div>
                 <div class="row">
                   <div class="form-group col-md-4">
                     <label for="">Phone</label>
@@ -266,9 +276,9 @@
                 </div>
                 <div class="form-group">
                   <label for="">Address</label>
-                  <textarea name="address"
+                  <textarea
+                    name="address"
                     required
-
                     class="form-control"
                     :disabled="!isAvailable"
                     aria-describedby="helpId"
@@ -313,7 +323,7 @@
                 </div>
                 <div class="">
                   <div class="mb-4" v-if="!finalize && detail">
-                    <table class="table table-striped ">
+                    <table class="table table-striped">
                       <tr class="">
                         <td class="text-muted">Guest name</td>
 
@@ -374,8 +384,20 @@
                         </td>
                       </tr>
                     </table>
+                    <div class="my-2">
+                      <input
+                        placeholder="Enter your coupon"
+                        style="width: 200px"
+                        class="form-control form-control-sm ml-auto"
+                        aria-describedby="helpId"
+                        v-model="coupon"
+                        @keyup="handleCoupon"
+                        minlength="6"
+                        maxlength="6"
+                      />
+                    </div>
 
-                    <div class=" text-right">
+                    <div class="text-right">
                       <div>
                         <span class="text-muted">
                           Nights x {{ detail.nights }}</span
@@ -392,12 +414,15 @@
                         v-if="selectedRoom"
                       >
                         <small class="text-muted">Total stay price</small>
-                        <span>
+                       <span class="d-flex align-items-end">
+                          <small class="text-muted mr-1" style="font-size:.7rem" v-if="coupon_value">-{{coupon_value}}%</small>
+                          <span>
                           {{
-                            (selectedRoom.price * detail.rooms * detail.nights)
+                           totalPrice
                               | currencyFormat
                           }}</span
                         >
+                       </span>
                       </div>
                     </div>
                   </div>
@@ -411,7 +436,7 @@
                     Go back
                   </button>
                   <span>
-                     <button
+                    <button
                       type="button"
                       @click="payAtHotel"
                       class="btn btn-dark btn-sm mr-3"
@@ -425,7 +450,6 @@
                       :price_per_night="selectedRoom.price"
                       @paymentsuccessful="paymentsuccessful"
                     />
-
                   </span>
                 </div>
               </div>
@@ -466,7 +490,7 @@
         </div>
 
         <div class="col-md-4 side_tab px-md-3">
-          <div class="bg-white rounded-lg p-3 w-100 shadow-sm">
+          <div class="bg-white rounded-lg p-4 w-100 shadow-sm">
             <h5
               class="mb-4"
               data-toggle="modal"
@@ -477,11 +501,11 @@
 
             <div class="mb-3">
               <form @submit.prevent="findBooking" class="text-center">
-                <div class="form-group">
+                <div class="form-group px-4">
                   <label for="">Provide your booking # </label>
                   <input
                     type="search"
-                    class="form-control form-control-sm"
+                    class="form-control  shadow-sm rounded"
                     aria-describedby="helpId"
                     v-model="bookingNumber"
                     placeholder="e.g 90499472"
@@ -714,6 +738,8 @@ export default {
       isAvailable: null,
       isChecking: false,
       isCheckingBooking: false,
+      coupon: "",
+      coupon_value: 0,
       detail: {
         name: "",
         email: "",
@@ -817,10 +843,31 @@ export default {
       return room;
     },
     totalPrice() {
-      return this.selectedRoom.price * this.detail.rooms * this.detail.nights;
+      let price =
+        this.selectedRoom.price * this.detail.rooms * this.detail.nights;
+      return this.coupon_value ? price - ((this.coupon_value/100)*price) : price;
     },
   },
   methods: {
+    handleCoupon() {
+      if (this.coupon.length === 6) {
+        let data  ={
+          'coupon':this.coupon,
+          'email':this.detail.email
+        }
+        axios.post(`/check-coupon`, data).then((res) => {
+          if (res.status == 200) {
+
+              this.$toast.success("Coupon applied");
+              this.coupon_value = res.data.discount;
+
+          }
+        }).catch(()=>{
+          this.$toast.error("Invalid coupon");
+              this.coupon = "";
+        });
+      }
+    },
     toggleStep(val) {
       if (!this.isAvailable) {
         return;
@@ -847,6 +894,10 @@ export default {
       this.detail.status = "reserved";
       this.detail.price_per_night = this.selectedRoom.price;
       this.detail.room_id = this.selectedRoom.id;
+      if(this.coupon){
+      this.detail.coupon = this.coupon
+      }
+
       axios
         .post("/reserve", this.detail)
         .then((res) => {

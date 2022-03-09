@@ -22,7 +22,7 @@
 
 
 
-                        <a class="btn btn-success btn-sm" href="{{ route('export-reservations') }}">Export
+                        <a class="btn btn-secondary btn-sm" href="{{ route('export-reservations') }}">Export
                             Reservations</a>
 
                     </div>
@@ -143,7 +143,7 @@
                                                         Checked out
                                                     @endif
                                                 </td>
-                                                <td class="d-flex justify-content-start ">
+                                                <td class="d-flex justify-content-between ">
 
 
                                                     <button type="button" class="btn btn-success btn-sm mr-2"
@@ -219,7 +219,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <table class="table table-bordered table-sm">
+                    <table class="table table-bordered table-striped table-sm">
                         <tr class="mb-1">
                             <td class="">Guest name</td>
 
@@ -346,7 +346,7 @@
             var payment_status = info.data("payment_status");
             var amountpaid = info.data("amountpaid");
             var bookedrooms = info.data("bookedrooms").map(item => {
-                return `${item.room.flat_name} / ${item.room.room_name}`
+                return `${item.room.flat_name}  ${item.room.room_name}`
             }).toString();
 
 

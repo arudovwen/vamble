@@ -97,7 +97,7 @@ class ReservationController extends Controller
     public function edit(Reservation $reservation)
     {
         $rooms = Room::all();
-        $reservation = $reservation->load('room', 'user');
+        $reservation = $reservation->load('roomcalendar', 'user');
         return view('admin.editreservation', compact('reservation', 'rooms'));
     }
     public function customercheckin(Reservation $reservation)

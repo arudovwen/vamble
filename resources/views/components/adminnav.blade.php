@@ -123,11 +123,12 @@
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="notification">
-                    <div class="note-body px-4 py-3">
-                        <h6 class="mb-2  font-weight-bold text-left"> Notifications</h6>
+                    <div class="note-body  py-3">
+                        <h6 class="mb-2  font-weight-bold text-left px-2"> Notifications</h6>
+                        <hr>
                        @if (Auth::user()->unreadnotifications->count())
                             @foreach (Auth::user()->unreadnotifications as $notification)
-                            <div class="dropdown-item">
+                            <div class="dropdown-item py-2 border-bottom ">
                                 @if (!$notification->read_at)
                                    <a href="{{ route('mark-notification', ['id' => $notification->id])}}" >
 
@@ -136,6 +137,10 @@
                                 @else()
                                     <span> {{ $notification->data['body'] }}</span>
                                 @endif
+
+                                <div class="text-right px-2 py-1">
+                                   <small> {{ $notification->created_at }}</small>
+                                </div>
                             </div>
                         @endforeach
                         @else

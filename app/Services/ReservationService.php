@@ -117,7 +117,7 @@ class ReservationService
           'room'  => $oneroom['room_name'],
           'status' => ucfirst($request->status)
         ];
-     
+
          BookingSuccessJob::dispatch($user,$detail,$admindetail);
 
         $admin = User::where('email', 'admin@vambleapartments.com')->first();
@@ -401,10 +401,11 @@ class ReservationService
   public function admincheckavailability($request, $ids)
   {
 
+    $roomDetail = explode(' ', $request->flat_type);
     $check_in = Carbon::parse($request->input('checkin'));
     $check_out = Carbon::parse($request->input('checkout'));
-    $flat_type = $request->flat_type;
-    $flat_name = $request->flat_name;
+    $flat_type = $roomDetail[0];
+    $flat_name = $roomDetail[1];
     $roomsneeded = $request->rooms;
 
 
@@ -564,6 +565,7 @@ class ReservationService
   {
 
     $reservation->status = 'checked in';
+    $reservation->payment_status = 'paid';
     $reservation->check_in_time = Carbon::now();
     $reservation->save();
     return redirect()->back()->with('success', 'Customer checked in');

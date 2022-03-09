@@ -20,16 +20,20 @@
                         <input type="text" value="{{ $reservation->id }}" name="id" hidden>
                         <div class="row mb-3">
                             <div class="col-sm-12 mb-1">
-                                <strong><span class="text-muted">Booking # :</span>
+                                <strong><span class="">Booking # :</span>
                                     {{ $reservation->booking_no }}</strong>
                             </div>
 
                             <div class="col-sm-12 ">
-                                <p class="mb-1"><span class="text-muted">Price per night :</span>
+                                <p class="mb-1"><span class="">Price per night :</span>
                                     &#8358;{{ number_format($reservation->price_per_night) }}</p>
                             </div>
                             <div class="col-sm-12 ">
                                 <p class="mb-1">Nights x {{ $reservation->duration }}</p>
+                            </div>
+
+                            <div class="col-sm-12 ">
+                                <p class="mb-1 text-capitalize">Booked room : {{$reservation->roomcalendar[0]->room->flat_type }} {{$reservation->roomcalendar[0]->room->flat_name }}</p>
                             </div>
                             <div class="col-sm-12 mb-1">
                                 <strong><span class="text-muted">Total Price :</span>
@@ -72,21 +76,42 @@
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <select required class="form-control text-capitalize" name="flat_type">
+                                <select required class="form-control text-capitalize" value="{{ $reservation->roomcalendar[0]->room->flat_type }}" name="flat_type">
                                     <option disabled value="">Apartment type</option>
-                                    <option value="standard">
+                                    <option value="standard room">
                                         <div class="d-flex justify-content-between align-items-center">
-                                            <span><span>Standard</span> apartment</span>
+                                            <span><span>Standard</span> room</span>
                                             -
                                             <span>₦{{ number_format(30000) }} <small>/ night</small></span>
                                         </div>
                                     </option>
-
-                                    <option value="luxury">
+                                     <option value="executive room">
                                         <div class="d-flex justify-content-between align-items-center">
-                                            <span><span>Luxury</span> apartment</span>
+                                            <span><span>Executive</span> room</span>
                                             -
-                                            <span>₦{{ number_format(110000) }} <small>/ night</small></span>
+                                            <span>₦{{ number_format(45000) }} <small>/ night</small></span>
+                                        </div>
+                                    </option>
+                                     <option value="standard apartment">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span><span>Standard</span> apartment</span>
+                                            -
+                                            <span>₦{{ number_format(100000) }} <small>/ night</small></span>
+                                        </div>
+                                    </option>
+                                     <option value="executive apartment">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span><span>Executive</span> apartment</span>
+                                            -
+                                            <span>₦{{ number_format(120000) }} <small>/ night</small></span>
+                                        </div>
+                                    </option>
+
+                                    <option value="platinum apartment">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span><span>Platinum</span> apartment</span>
+                                            -
+                                            <span>₦{{ number_format(150000) }} <small>/ night</small></span>
                                         </div>
                                     </option>
                                 </select>
@@ -94,7 +119,7 @@
                             <div class=" col-md-3  d-flex align-items-center">
                                 <select required class="form-control" name="guests">
                                     <option disabled value="">No of guests</option>
-                                    @for ($i = 0; $i < 5; $i++)
+                                    @for ($i = 1; $i <=6; $i++)
                                         <option {{ $reservation->no_of_guests == $i ? 'selected' : '' }}
                                             value="{{ $i }}">{{ $i }}</option>
                                     @endfor
@@ -103,7 +128,7 @@
                             <div class=" col-md-3 ">
                                 <select required class="form-control" name="rooms">
                                     <option disabled value="">No of rooms</option>
-                                    @for ($i = 0; $i < 20; $i++)
+                                    @for ($i = 1; $i <= 6; $i++)
                                         <option {{ $reservation->no_of_rooms == $i ? 'selected' : '' }}
                                             value="{{ $i }}">{{ $i }}</option>
                                     @endfor

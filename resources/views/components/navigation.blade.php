@@ -88,18 +88,10 @@
                       <!-- Authentication Links -->
                       @guest
                           @if (Route::has('login'))
-                              {{-- <li class="nav-item mr-3">
-                                  <a class="nav-link " href="{{ route('login') }}">
-                                      {{ __('Login') }}
-                                  </a>
-                              </li> --}}
+                             
                           @endif
 
-                          {{-- @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif --}}
+
                       @else
                           <li class="nav-item dropdown">
                               <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
@@ -128,7 +120,7 @@
 
                           <a class="" href=" {{ route('booking') }}">
                               <button type="button"
-                                  class="btn btn-primary btn-sm nav-btn">{{ __('Book online') }}</button>
+                                  class="btn btn-primary btn-sm nav-btn">{{ __('Make a reservation') }}</button>
 
                           </a>
                       </li>

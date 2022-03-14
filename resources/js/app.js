@@ -73,7 +73,7 @@ Vue.component(
     () =>
         import(
             /* webpackChunkName:  "customerchart" */ "./components/Charts/CustomersChart.vue"
-        ).default
+        )
 );
 
 Vue.use(require("vue-moment"));

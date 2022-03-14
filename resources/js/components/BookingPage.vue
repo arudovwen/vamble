@@ -419,7 +419,7 @@
                       >
                         <small class="text-muted">Total stay price</small>
                        <span class="d-flex align-items-end">
-                          <small class="text-muted mr-1 text-success " style="font-size:.8rem" v-if="coupon_value"><span class="mr-1">Coupon used</span><span>-{{coupon_value}}% off</span></small>
+                          <small class=" mr-2 text-success " style="font-size:.8rem" v-if="coupon_value"><span class="mr-1">Coupon used</span><span>-{{coupon_value}}% off</span></small>
                           <span>
                           {{
                            totalPrice

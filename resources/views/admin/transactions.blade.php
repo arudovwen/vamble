@@ -99,9 +99,11 @@
                             </tbody>
                              </table>
                            @else
-                          <div class="alert alert-info" role="alert">
+                         <div class="p-2">
+                              <div class="alert alert-info" role="alert">
                              <i class="fa fa-info-circle mr-1" aria-hidden="true"></i> <strong>No Transaction available</strong>
                           </div>
+                         </div>
 
                            @endif
 

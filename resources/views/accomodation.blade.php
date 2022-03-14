@@ -1,8 +1,28 @@
 @extends('layouts.app')
-@section('title', 'Apartments & Suites')
-@section('description', 'Vamble Apartments and suites')
+@section('title', 'Our Apartments and Suites')
+@section('description', 'A look at our rooms, apartments, sitting rooms and so much more, so you will havea clue of what to expect')
 @section('keywords', 'Vamble Apartments,Vamble , Apartments, Hotels, Suites,Bookings, Online
 Apartments, Abuja, Abuja-Hotels,FCT-Hotels, Abuja-Apartments,Abuja-Stay,Home,Places,Jahi, Serviced Apartments Abuja')
+@section('script_head')
+
+     <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://vambleapartments.com"
+            }, {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Rooms and Apartments",
+                "item": "https://vambleapartments.com/accomodations"
+            }]
+        }
+    </script>
+@endsection
 @section('content')
     <div class="about_banner_img d-flex justify-content-center align-items-center">
         <h1 class="font-weight-bold">Rooms & Apartments</h1>

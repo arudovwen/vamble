@@ -13,7 +13,7 @@ $custom-colors: (
 // Merge the maps
 $theme-colors: map-merge($theme-colors, $custom-colors);
 
-@import "vue-step-wizard/dist/vue-step-wizard.css";
+
 @import "style.scss";
 @import "adminStyles.scss";
 @import url("./hamburger.scss");

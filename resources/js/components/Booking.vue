@@ -4,6 +4,7 @@
     class=" rounded  w-100 booking-container text-center"
   >
 
+
     <form @submit.prevent="checkAvailability" class="w-100 d-flex  flex-column flex-md-row align-items-center justify-content-center">
 
         <div

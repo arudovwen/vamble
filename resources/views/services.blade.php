@@ -1,8 +1,61 @@
 @extends('layouts.app')
 @section('title', 'Vamble Apartments Services')
 @section('description', 'Services at Vamble apartments and suites')
-@section('keywords', 'Vamble Apartments,Vamble , Apartments, Hotels, Suites,Bookings, Online
-Apartments, Abuja, Abuja-Hotels,FCT-Hotels, Abuja-Apartments,Abuja-Stay,Home,Places,Jahi, Serviced Apartments Abuja')
+@section('keywords',
+    'Vamble Apartments,Vamble , Apartments, Hotels, Suites,Bookings, Online
+    Apartments, Abuja, Abuja-Hotels,FCT-Hotels, Abuja-Apartments,Abuja-Stay,Home,Places,Jahi, Serviced Apartments Abuja',)
+
+@section('script_java')
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://vambleapartments.com"
+            }, {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Services",
+                "item": "https://vambleapartments.com/services"
+            }]
+        }
+    </script>
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "NewsArticle",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://vambleapartments.com/services"
+            },
+            "headline": "Services Vamble Apartments and Suites",
+            "image": [
+                "https://vambleapartments.com/images/rooms/living2.jpg",
+                "https://vambleapartments.com/images/rooms/bed1.jpg",
+                "https://vambleapartments.com/images/rooms/sitting13.jpg",
+            ],
+            "datePublished": "2022-01-05T08:00:00+08:00",
+            "dateModified": "2022-01-05T09:20:00+08:00",
+            "author": {
+                "@type": "Person",
+                "name": "Success Ahon",
+                "url": "https://arudovwen.me"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "Vamble Apartments and Suites",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://vambleapartments.com/logo.png"
+                }
+            }
+        }
+    </script>
+@endsection
 @section('content')
     <div class="services ">
         <div class="about_banner_img d-flex justify-content-center align-items-center">
@@ -74,10 +127,10 @@ Apartments, Abuja, Abuja-Hotels,FCT-Hotels, Abuja-Apartments,Abuja-Stay,Home,Pla
                 <div class="col-sm-6 bg-white py-5 px-3 px-sm-5 text-left">
                     <ul style="list-style-type: disc">
                         <li>Serene and Hospitable environment
-                       <li> 24 hours security system
-                       <li> 24 hours power supply
-                       <li> Uninterrupted internet connection
-                       <li> 24 hours Laundry service
+                        <li> 24 hours security system
+                        <li> 24 hours power supply
+                        <li> Uninterrupted internet connection
+                        <li> 24 hours Laundry service
 
                         <li>24 hours kitchen and bar services
                     </ul>

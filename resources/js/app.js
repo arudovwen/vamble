@@ -11,11 +11,6 @@ window.Vue = require("vue").default;
 import Vue from "vue";
 export const bus = new Vue();
 
-import HotelDatePicker from "vue-hotel-datepicker";
-import "vue-hotel-datepicker/dist/vueHotelDatepicker.css";
-import FullCalendar from "vue-full-calendar";
-Vue.use(FullCalendar);
-
 import Toast from "vue-toastification";
 import "vue-toastification/dist/index.css";
 Vue.use(Toast, {
@@ -32,32 +27,53 @@ Vue.use(Toast, {
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component("banner-text", require("./components/BannerText.vue").default);
-Vue.component("booking-mini", require("./components/Booking.vue").default);
-Vue.component("booking-page", require("./components/BookingPage.vue").default);
-Vue.component("update-book", require("./components/UpdateBooking.vue").default);
+Vue.component(
+    "booking-mini",
+    () =>
+        import(/* webpackChunkName: "Booking" */ "./components/Booking.vue")
+           
+);
+Vue.component(
+    "booking-page",
+    () => import( /* webpackChunkName: "Bookingpage" */  "./components/BookingPage.vue")
+);
+Vue.component(
+    "update-book",
+    () => import( /* webpackChunkName: "UpdateBooking" */  "./components/UpdateBooking.vue")
+);
 Vue.component(
     "search-booking",
-    require("./components/SearchBooking.vue").default
+    () => import( /* webpackChunkName: "SearchBooking" */  "./components/SearchBooking.vue")
 );
-Vue.component("search-name", require("./components/SearchName.vue").default);
+Vue.component(
+    "search-name",
+    () =>
+        import(
+            /* webpackChunkName: "Searchname" */ "./components/SearchName.vue"
+        )
+);
 Vue.component(
     "event-calendar",
-    require("./components/EventCalendar.vue").default
+    () => import( /* webpackChunkName: "eventcalendar" */  "./components/EventCalendar.vue")
 );
 Vue.component(
     "search-room",
-    require("./components/Room/SearchRoom.vue").default
+    () => import( /* webpackChunkName: "Boosearchroomking" */  "./components/Room/SearchRoom.vue")
 );
 Vue.component(
     "room-result",
-    require("./components/Room/RoomResult.vue").default
+    () =>
+        import(
+            /* webpackChunkName: "roomresult" */ "./components/Room/RoomResult.vue"
+        ).default
 );
-Vue.component("hotel-checker", HotelDatePicker).default;
 
 Vue.component(
     "customers-chart",
-    require("./components/Charts/CustomersChart.vue").default
+    () =>
+        import(
+            /* webpackChunkName:  "customerchart" */ "./components/Charts/CustomersChart.vue"
+        ).default
 );
 
 Vue.use(require("vue-moment"));

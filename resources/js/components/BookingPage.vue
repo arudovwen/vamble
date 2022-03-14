@@ -2,8 +2,12 @@
 <template>
   <div class="bookings px-0 py-3 py-md-3 px-md-3 p-md-0">
     <div class="container pb-5 pt-md-3">
+        <h1 class="mb-3">Book your stay today</h1>
+<p  class="mb-5">You don't need to be physically present before you book an apartment with us, just use our booking engine to reserve your stay with ease today.</p>
+
       <div class="row">
         <div class="col-md-8 rounded-lg mb-5">
+
           <stepper
             :step="step"
             @toggleStep="toggleStep"
@@ -671,13 +675,7 @@
                     </button>
                   </div>
                   <div></div>
-                  <!-- <div>
-                    <Payment
-                      :detail="detail"
-                      :amount="totalPrice"
-                      @paymentsuccessful="paymentsuccessful"
-                    />
-                  </div> -->
+                 
                 </div>
               </div>
             </div>
@@ -710,17 +708,12 @@
 <script>
 import HotelDatePicker from "vue-hotel-datepicker";
 import "vue-hotel-datepicker/dist/vueHotelDatepicker.css";
-import UpdateBook from "./UpdateBooking.vue";
-import { FormWizard, TabContent } from "vue-step-wizard";
 import Payment from "./Paystack.vue";
 import Stepper from "./Step.vue";
 
 export default {
   components: {
     HotelDatePicker,
-    UpdateBook,
-    FormWizard,
-    TabContent,
     Payment,
     Stepper,
   },

@@ -1,6 +1,15 @@
 {
-    "/js/app.js": "/js/app.js",
-    "/js/manifest.js": "/js/manifest.js",
-    "/css/app.css": "/css/app.css",
-    "/js/vendor.js": "/js/vendor.js"
+    "/js/app.js": "/js/app.js?id=bbb7264daea3dac24532",
+    "/js/manifest.js": "/js/manifest.js?id=4904b64cfd08412e34fc",
+    "/js/Booking.bundle.js": "/js/Booking.bundle.js?id=a264ea3ec20eccc74657",
+    "/js/Bookingpage.bundle.js": "/js/Bookingpage.bundle.js?id=a2afaf5c87ca3b6e69b8",
+    "/js/UpdateBooking.bundle.js": "/js/UpdateBooking.bundle.js?id=d2891ec4381974af4583",
+    "/js/SearchBooking.bundle.js": "/js/SearchBooking.bundle.js?id=5ec35a61667ac5d5f7c4",
+    "/js/Searchname.bundle.js": "/js/Searchname.bundle.js?id=667573f9dd70d31f628c",
+    "/js/eventcalendar.bundle.js": "/js/eventcalendar.bundle.js?id=8e7a36e35f3064c92743",
+    "/js/Boosearchroomking.bundle.js": "/js/Boosearchroomking.bundle.js?id=8c044c3b8f31e47e192e",
+    "/js/roomresult.bundle.js": "/js/roomresult.bundle.js?id=148c3bdf5bf5fed12a81",
+    "/js/customerchart.bundle.js": "/js/customerchart.bundle.js?id=5546bc637f088c84baea",
+    "/css/app.css": "/css/app.css?id=7887ae4e2f5b26a54bc6",
+    "/js/vendor.js": "/js/vendor.js?id=bfde4b4aec63df439a58"
 }

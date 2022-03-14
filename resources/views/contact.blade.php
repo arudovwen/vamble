@@ -1,8 +1,28 @@
 @extends('layouts.app')
-@section('title', 'Contact Vamble Apartments')
-@section('description', 'Contact Vamble apartments and suites')
+@section('title', 'Contact Us')
+@section('description', 'Contact us today at Vamble apartments and suites')
 @section('keywords', 'Vamble Apartments,Vamble , Apartments, Hotels, Suites,Bookings, Online
 Apartments, Abuja, Abuja-Hotels,FCT-Hotels, Abuja-Apartments,Abuja-Stay,Home,Places,Jahi, Serviced Apartments Abuja')
+@section('script_head')
+
+     <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://vambleapartments.com"
+            }, {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Contact",
+                "item": "https://vambleapartments.com/contact"
+            }]
+        }
+    </script>
+@endsection
 @section('content')
     <div class="about_banner_img d-flex justify-content-center align-items-center">
         <h1 class="font-weight-bold">Contact us today</h1>

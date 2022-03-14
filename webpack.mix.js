@@ -16,6 +16,13 @@ mix.js("resources/js/app.js", "public/js")
     .sass("resources/sass/app.scss", "public/css")
     .extract(["vue"]);
 
+    mix.webpackConfig({
+        output: {
+            chunkFilename: "js/[name].bundle.js",
+            publicPath: "/"
+        }
+    });
+    
 if (mix.inProduction()) {
     mix.version();
 }

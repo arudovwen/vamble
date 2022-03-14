@@ -1,8 +1,28 @@
 @extends('layouts.app')
 @section('title','Vamble Apartments Gallery')
-@section('description', 'Our Gallery Vamble apartments and suites')
+@section('description', 'Our Gallery at Vamble apartments and suites')
 @section('keywords', 'Vamble Apartments,Vamble , Apartments, Hotels, Suites,Bookings, Online
 Apartments, Abuja, Abuja-Hotels,FCT-Hotels, Abuja-Apartments,Abuja-Stay,Home,Places,Jahi, Serviced Apartments Abuja')
+@section('script_head')
+
+     <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://vambleapartments.com"
+            }, {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Gallery",
+                "item": "https://vambleapartments.com/gallery"
+            }]
+        }
+    </script>
+@endsection
 @section('content')
     <div class="about_banner_img d-flex justify-content-center align-items-center">
         <h1 class="font-weight-bold">Our Gallery</h1>
@@ -15,7 +35,7 @@ Apartments, Abuja, Abuja-Hotels,FCT-Hotels, Abuja-Apartments,Abuja-Stay,Home,Pla
 
             <div class="row mx-auto">
                 <div class="col-sm-12 bg-white p-5  ">
-                    <p >Here we showcase some  amazing images of our apartments and suites</p>
+                    <h2 >Here we showcase some  amazing images of our apartments and suites</h2>
 
                 </div>
 

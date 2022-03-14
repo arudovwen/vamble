@@ -17,21 +17,21 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @if (App::environment('production'))
         @laravelPWA
-   <!--Start of Tawk.to Script-->
-    <script type="text/javascript" defer>
-        var Tawk_API = Tawk_API || {},
-            Tawk_LoadStart = new Date();
-        (function() {
-            var s1 = document.createElement("script"),
-                s0 = document.getElementsByTagName("script")[0];
-            s1.async = true;
-            s1.src = 'https://embed.tawk.to/61e71f5fb84f7301d32bb3e9/1fpnd54db';
-            s1.charset = 'UTF-8';
-            s1.setAttribute('crossorigin', '*');
-            s0.parentNode.insertBefore(s1, s0);
-        })();
-    </script>
-    <!--End of Tawk.to Script-->
+        <!--Start of Tawk.to Script-->
+        <script type="text/javascript" defer>
+            var Tawk_API = Tawk_API || {},
+                Tawk_LoadStart = new Date();
+            (function() {
+                var s1 = document.createElement("script"),
+                    s0 = document.getElementsByTagName("script")[0];
+                s1.async = true;
+                s1.src = 'https://embed.tawk.to/61e71f5fb84f7301d32bb3e9/1fpnd54db';
+                s1.charset = 'UTF-8';
+                s1.setAttribute('crossorigin', '*');
+                s0.parentNode.insertBefore(s1, s0);
+            })();
+        </script>
+        <!--End of Tawk.to Script-->
     @endif
 
 
@@ -85,13 +85,81 @@
                 scope: '.'
             }).then(function(registration) {
                 // Registration was successful
-               // console.log('Laravel PWA: ServiceWorker registration successful with scope: ', registration.scope);
+                // console.log('Laravel PWA: ServiceWorker registration successful with scope: ', registration.scope);
             }, function(err) {
                 // registration failed :(
                 // console.log('Laravel PWA: ServiceWorker registration failed: ', err);
             });
         }
     </script>
+     <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "url": "https://vambleapartments.com",
+      "logo": "https://vambleapartments.com/logo.png"
+    }
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "LodgingBusiness",
+            "image": [
+                "https://vambleapartments.com/images/rooms/living2.jpg",
+                "https://vambleapartments.com/images/rooms/bed1.jpg",
+                "https://vambleapartments.com/images/rooms/sitting13.jpg",
+            ],
+            "name": "Vamble Apartments and Suites",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "plot 790 sector center A cadastral zone Jahi",
+                "addressLocality": "Jahi",
+                "addressRegion": "Abuja",
+                "postalCode": "900108",
+                "addressCountry": "NG"
+            },
+            "review": {
+                "@type": "Review",
+                "reviewRating": {
+                    "@type": "Rating",
+                    "ratingValue": "4",
+                    "bestRating": "5"
+                },
+                "author": {
+                    "@type": "Person",
+                    "name": "Success Ahon"
+                }
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 9.257255745325542,
+                "longitude": 7.461154406512331
+            },
+            "url": "https://vambleapartments.com",
+            "telephone": "+12122459600",
+
+
+            "openingHoursSpecification": [{
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": [
+                        "Monday",
+                        "Tuesday",
+                        "Wednesday",
+                        "Thursday",
+                        "Friday",
+                        "Saturday",
+                        "Sunday"
+                    ],
+                    "opens": "12:00",
+                    "closes": "12:00"
+                },
+
+            ],
+
+            "acceptsReservations": "True"
+        }
+    </script>
+    @yield('script_java')
 
 </head>
 

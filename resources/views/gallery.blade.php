@@ -59,9 +59,7 @@ Apartments, Abuja, Abuja-Hotels,FCT-Hotels, Abuja-Apartments,Abuja-Stay,Home,Pla
                                     <div class="modal-body">
                                         <img src="/images/rooms/living.jpg">
                                     </div>
-                                    <div class="col-md-12 description">
-                                        <h4>This is the first one on my Gallery</h4>
-                                    </div>
+                                  
                                 </div>
                             </div>
                         </div>
@@ -80,9 +78,7 @@ Apartments, Abuja, Abuja-Hotels,FCT-Hotels, Abuja-Apartments,Abuja-Stay,Home,Pla
                                     <div class="modal-body">
                                         <img src="/images/rooms/sitting.jpg">
                                     </div>
-                                    <div class="col-md-12 description">
-                                        <h4>This is the second one on my Gallery</h4>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -101,9 +97,7 @@ Apartments, Abuja, Abuja-Hotels,FCT-Hotels, Abuja-Apartments,Abuja-Stay,Home,Pla
                                     <div class="modal-body">
                                         <img src="/images/rooms/bed2.jpg">
                                     </div>
-                                    <div class="col-md-12 description">
-                                        <h4>This is the third one on my Gallery</h4>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>

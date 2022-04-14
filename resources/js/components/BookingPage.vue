@@ -171,7 +171,7 @@
                   <div
                     v-if="isAvailable"
                     class="
-                      alert alert-success alert-dismissible
+                      alert alert-success 
                       fade
                       show
                       text-center
@@ -431,14 +431,15 @@
                     </div>
                   </div>
                 </div>
-                <div class="d-flex justify-content-between" v-if="!finalize">
-                  <button
-                    type="button"
+                <div class="d-flex justify-content-end justify-content-md-between" v-if="!finalize">
+                  <small
+
                     @click="step--"
-                    class="btn btn-secondary btn-sm"
+                    class="text-sm cursor-pointer d-none d-md-inline"
                   >
+                  <i class="fa fa-arrow-left mr-1" aria-hidden="true"></i>
                     Go back
-                  </button>
+                  </small>
                   <span>
                     <button
                       type="button"
@@ -455,6 +456,16 @@
                       @paymentsuccessful="paymentsuccessful"
                     />
                   </span>
+                </div>
+                <div class="  d-md-none mt-4">
+                   <small
+
+                    @click="step--"
+                    class="text-sm cursor-pointer"
+                  >
+                  <i class="fa fa-arrow-left mr-1" aria-hidden="true"></i>
+                    Go back
+                  </small>
                 </div>
               </div>
               <div v-else class="text-center p-4">
